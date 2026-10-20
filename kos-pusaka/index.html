@@ -1,0 +1,719 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Selepas Kematian: Aliran, Kos & Tempoh | Al-Wasitah</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;1,500&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --gold:#B8952A; --gold-mid:#D4A843; --gold-light:#F5E9C4; --gold-wash:#FBF5E4;
+  --black:#1A1A1A; --black2:#2D2D2D;
+  --paper:#FAF8F3; --line:#E8E4D8; --muted:#6B6660; --ink:#2D2D2D;
+  --wsb-blue:#1A3A8F; --wsb-green:#2E9E4F; --kausar:#F5A800;
+  --no:#8B3A2A; --no-bg:#F5E8E5; --yes-bg:#E6F4EA;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+[hidden]{display:none!important}
+html{scroll-behavior:smooth}
+body{font-family:'DM Sans',sans-serif;background:var(--paper);color:var(--ink);line-height:1.55;font-size:15px}
+.en{display:none}
+body.lang-en .en{display:revert} body.lang-en .bm{display:none}
+.only-b{display:none}
+body.tier-b .only-b{display:revert}
+span.only-b{display:none} body.tier-b span.only-b{display:inline} body.tier-b .only-m{display:none}
+button{font-family:inherit;cursor:pointer}
+:focus-visible{outline:2px solid var(--kausar);outline-offset:2px}
+
+/* Toolbar */
+.bar{position:sticky;top:0;z-index:20;background:var(--black);display:flex;justify-content:space-between;align-items:center;gap:10px;padding:10px 20px;flex-wrap:wrap}
+.bar::after{content:'';position:absolute;left:0;right:0;bottom:-3px;height:3px;background:linear-gradient(90deg,var(--wsb-blue) 0 33%,var(--wsb-green) 33% 66%,var(--kausar) 66%)}
+.seg{display:inline-flex;border:1px solid #444;border-radius:999px;overflow:hidden}
+.seg button{background:none;border:0;color:#bbb;padding:6px 14px;font-size:12.5px;font-weight:600}
+.seg button[aria-pressed="true"]{background:var(--gold);color:var(--black)}
+.print{background:none;border:1px solid var(--gold);color:var(--gold-light);padding:6px 14px;border-radius:999px;font-size:12.5px;font-weight:600}
+
+/* Hero */
+.hero{background:var(--black);color:#fff;padding:64px 24px 56px}
+.wrap{max-width:900px;margin:0 auto}
+.hero h1{font-family:'Playfair Display',serif;font-weight:700;font-size:clamp(34px,6vw,58px);line-height:1.05;letter-spacing:-.5px;max-width:14ch}
+.hero p.lead{color:#cfcac0;font-size:17px;max-width:56ch;margin-top:18px}
+.facts{display:grid;grid-template-columns:repeat(4,1fr);margin-top:40px;border-top:1px solid #3a3a3a}
+.fact{padding:18px 18px 0 0}
+.fact + .fact{padding-left:18px;border-left:1px solid #3a3a3a}
+.fact b{display:block;font-family:'Playfair Display',serif;font-size:30px;color:var(--gold-mid);font-weight:700;line-height:1.1}
+.fact > span{font-size:13px;color:#aaa;margin-top:6px}
+.fact > span.bm{display:block} body.lang-en .fact > span.bm{display:none} body.lang-en .fact > span.en{display:block}
+.fact b span{display:inline;margin:0;color:inherit;font-size:inherit}
+body.lang-en .fact b .bm,body:not(.lang-en) .fact b .en{display:none}
+
+section{padding:56px 24px}
+h2{font-family:'Playfair Display',serif;font-size:clamp(26px,4vw,34px);color:var(--black);line-height:1.15;margin-bottom:8px}
+.sub{color:var(--muted);max-width:62ch;margin-bottom:28px}
+
+/* Timeline (the signature element) */
+.route{display:flex;gap:12px;align-items:center;flex-wrap:wrap;margin-bottom:28px;background:#fff;border:1px solid var(--line);border-radius:10px;padding:12px 14px}
+.route .lbl{font-size:13px;font-weight:600}
+.route .seg{border-color:var(--line)}
+.route .seg button{color:var(--muted)}
+.route small{color:var(--muted);font-size:12.5px}
+
+.tl{position:relative;padding-left:118px}
+.tl::before{content:'';position:absolute;left:92px;top:6px;bottom:6px;width:4px;border-radius:2px;
+  background:linear-gradient(180deg,var(--black) 0%,var(--black2) 45%,var(--gold) 85%,var(--kausar) 100%)}
+.stage{position:relative;margin-bottom:22px}
+.stage::before{content:'';position:absolute;left:-32px;top:20px;width:14px;height:14px;border-radius:50%;background:var(--paper);border:3px solid var(--black)}
+.stage.key::before{border-color:var(--gold);background:var(--gold-light)}
+.stage.end::before{border-color:var(--kausar);background:var(--kausar)}
+.when{position:absolute;left:-118px;top:14px;width:76px;text-align:right;font-weight:700;font-size:13px;color:var(--black);line-height:1.25}
+.when small{display:block;font-weight:500;color:var(--muted);font-size:11.5px}
+.card{background:#fff;border:1px solid var(--line);border-radius:10px;padding:18px 20px}
+.stage.key .card{border-left:4px solid var(--gold)}
+.stage.dead .card{background:var(--black);border-color:var(--black);color:#ddd}
+.stage.dead h3{color:#fff}
+.card h3{font-size:17px;font-weight:700;color:var(--black);margin-bottom:4px}
+.card h3 .k{display:inline-flex;align-items:center;gap:4px;background:var(--black);color:var(--gold-light);font-size:11px;font-weight:700;border-radius:4px;padding:2px 7px;margin-right:6px;vertical-align:2px}
+.card p{font-size:14px;color:inherit}
+.card ul{margin:8px 0 0 18px;font-size:14px}
+.card li{margin:3px 0}
+.meta{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:14px}
+.m{background:var(--paper);border-radius:8px;padding:10px 12px;font-size:13px}
+.stage.dead .m{background:#262626}
+.m b{display:block;font-size:12px;color:var(--gold);margin-bottom:2px}
+.cover{margin-top:12px;display:flex;flex-wrap:wrap;gap:6px}
+.pill{font-size:12px;font-weight:600;border-radius:999px;padding:4px 10px;border:1px solid}
+.pill.y{background:var(--yes-bg);color:#1E6B36;border-color:#BFE3C9}
+.pill.n{background:var(--no-bg);color:var(--no);border-color:#E8C9C2}
+.pill.i{background:var(--gold-wash);color:#7A5A10;border-color:var(--gold-light)}
+.alert{margin-top:12px;font-size:13px;background:var(--gold-wash);border:1px solid var(--gold-light);border-radius:8px;padding:10px 12px}
+.stage.dead .alert{background:rgba(245,233,196,.08);border-color:#4a4330;color:var(--gold-light)}
+.chan{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:12px}
+.ch{border:1px solid var(--line);border-radius:8px;padding:10px;font-size:12.5px}
+.ch b{display:block;font-size:13px;color:var(--black)}
+.ch.on{border:2px solid var(--gold);background:var(--gold-wash)}
+
+/* Estimator */
+.calc{background:var(--black);color:#fff;border-radius:14px;padding:26px;display:grid;grid-template-columns:1fr 1.2fr;gap:28px}
+.calc h2{color:#fff}
+.calc label{display:block;font-size:13px;color:#bbb;margin:16px 0 6px}
+.calc input[type=range]{width:100%;accent-color:var(--gold)}
+.val{font-family:'Playfair Display',serif;font-size:30px;color:var(--gold-mid)}
+.calc .seg{border-color:#555}
+.out{background:#242424;border-radius:10px;padding:18px}
+.row{display:flex;justify-content:space-between;gap:12px;padding:9px 0;border-bottom:1px solid #353535;font-size:14px}
+.row:last-child{border:0}
+.row span:last-child{font-weight:700;text-align:right;max-width:60%}
+.row span:first-child{flex:1}
+.row.big span:last-child{color:var(--gold-mid);font-size:18px}
+.hint{font-size:12.5px;color:#999;margin-top:8px;max-width:44ch}
+.hd{font-size:12px;font-weight:700;color:var(--gold-mid);margin:14px 0 2px}
+.hd:first-of-type{margin-top:0}
+.warn{background:#3a2a22;border:1px solid var(--no);color:#f3d1c8;border-radius:8px;padding:10px 12px;font-size:13px;margin-bottom:10px}
+.calc .seg button{padding:7px 12px}
+.out > .hd{color:#aaa}
+.grp{border-radius:10px;padding:4px 14px 6px;margin-top:14px;border-left:4px solid}
+.grp .hd{margin-top:10px}
+.gno{background:rgba(196,90,70,.10);border-color:#C45A46}
+.gno .hd{color:#E8A598}
+.gno .row span:last-child{color:#F2C2B8}
+.gno .row{border-bottom-color:rgba(196,90,70,.22)}
+.gaw{background:rgba(212,168,67,.10);border-color:var(--gold)}
+.gaw .hd{color:var(--gold-mid)}
+.gaw .row span:last-child{color:var(--gold-light)}
+.gaw .row.big span:last-child{color:var(--gold-mid)}
+.gaw .row{border-bottom-color:rgba(212,168,67,.22)}
+.legend{display:flex;gap:14px;font-size:12px;color:#bbb;margin-top:18px}
+.legend i{display:inline-block;width:10px;height:10px;border-radius:2px;margin-right:6px;vertical-align:-1px}
+.row.stack{flex-direction:column;gap:2px}
+.row.stack span:last-child{text-align:left;white-space:normal;font-weight:600}
+.row.tot{border-top:1px solid;border-bottom:0;margin-top:4px;padding-top:11px;font-weight:700}
+.gno .row.tot{border-top-color:#C45A46}
+.gaw .row.tot{border-top-color:var(--gold)}
+.row.tot span:last-child{font-size:18px}
+.verdict{margin-top:14px;border-radius:10px;padding:12px 14px;font-size:14px;font-weight:600;background:#2a2a2a;border:1px solid #3a3a3a;color:#eee}
+.verdict small{display:block;font-weight:400;color:#aaa;margin-top:4px;font-size:12.5px}
+.note{font-size:12px;color:#999;margin-top:12px}
+
+
+.fact .tag{display:block;font-size:11.5px;font-weight:700;color:#8f8a80;letter-spacing:.2px;margin-bottom:2px}
+.fact b{white-space:nowrap;font-size:clamp(24px,2.6vw,30px)!important}
+.fact em{font-style:normal;color:var(--gold-light);font-weight:600}
+.fact strong{color:#ddd}
+.fact.aw .tag{color:var(--kausar)}
+.fact.aw b{color:var(--kausar)}
+.seq{margin:8px 0 8px 20px;font-size:14px}.seq li{margin:3px 0}
+mark.kw{background:linear-gradient(transparent 55%,rgba(245,168,0,.35) 55%);color:#6B4E00;font-weight:700;padding:0 1px}
+.stage.dead mark.kw,.hero mark.kw,.calc mark.kw{background:none;color:var(--kausar)}
+.alert.appeal{background:#EEF2FA;border-color:#C9D4EE;margin-top:12px}
+.alert.appeal b{color:var(--wsb-blue)}
+@media print{mark.kw{-webkit-print-color-adjust:exact;print-color-adjust:exact}}
+.only-n,span.only-n{display:none}
+body.tier-n .only-n{display:revert} body.tier-n span.only-n{display:inline}
+body.tier-n .only-m,body.tier-n .only-b,body.tier-n .not-n{display:none!important}
+body.tier-b .not-b{display:none!important}
+.stage.diy .card{border-left:4px solid #C45A46}
+.stage.diy::before{border-color:#C45A46;background:#F5E8E5}
+.steps{margin:8px 0 0 20px;font-size:14px}.steps li{margin:4px 0}
+.ic{width:17px;height:17px;stroke:currentColor;fill:none;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round;vertical-align:-3px;margin-right:7px;color:var(--gold)}
+.stage.dead .ic{color:var(--kausar)}
+.stage.diy .ic{color:#C45A46}
+.hd .ic,.v .ic{width:15px;height:15px;margin-right:6px;vertical-align:-2px}
+.gaw .hd .ic{color:var(--gold-mid)} .gno .hd .ic{color:#E8A598}
+.out > .hd .ic{color:#aaa}
+.v .ic{color:var(--no)}
+/* DIY vs plan comparison */
+.cmpwrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
+.cmp{min-width:720px}
+.cmp th:first-child{width:18%}
+.cmp th.aw{background:var(--gold);color:var(--black)}
+.cmp td.aw{background:var(--gold-wash);border-left:2px solid var(--gold);border-right:2px solid var(--gold)}
+.cmp tr:last-child td.aw{border-bottom:2px solid var(--gold)}
+.cmp td:first-child{font-weight:600;color:var(--black)}
+.cmp td{font-size:13.5px}
+.honest{margin-top:14px;font-size:13px;color:var(--muted);max-width:70ch}
+
+/* Coverage table */
+table{width:100%;border-collapse:collapse;background:#fff;border:1px solid var(--line);border-radius:10px;overflow:hidden;font-size:14px}
+th,td{padding:11px 14px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}
+th{background:var(--black);color:var(--gold-light);font-weight:600;font-size:13px}
+td.c{text-align:center;font-weight:700;width:110px}
+.ok{color:var(--wsb-green)} .x{color:var(--no)}
+tr.grp td{background:var(--gold-wash);font-weight:700;color:#7A5A10;font-size:13px}
+
+.void{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.v{border-top:3px solid var(--no);background:#fff;border-radius:0 0 10px 10px;padding:16px;border-left:1px solid var(--line);border-right:1px solid var(--line);border-bottom:1px solid var(--line)}
+.v b{display:block;font-size:15px;color:var(--black);margin-bottom:4px}
+.v p{font-size:13.5px;color:var(--muted)}
+
+.cta{background:var(--black);color:#fff;text-align:center;padding:56px 24px}
+.cta h2{color:#fff}
+.cta p{color:#bbb;max-width:52ch;margin:0 auto 22px}
+.wa{display:inline-block;background:var(--gold);color:var(--black);font-weight:700;text-decoration:none;padding:13px 26px;border-radius:999px}
+.who{margin-top:14px;color:var(--gold-light);font-size:14px}
+footer{padding:22px 24px;font-size:12px;color:var(--muted);max-width:900px;margin:0 auto}
+
+@media (max-width:900px){.facts{grid-template-columns:1fr 1fr}.fact:nth-child(3){border-left:0;padding-left:0}}
+@media (max-width:720px){
+  .facts{grid-template-columns:1fr}.fact+.fact{border-left:0;padding-left:0;border-top:1px solid #3a3a3a}
+  .tl{padding-left:28px}.tl::before{left:6px}.stage::before{left:0;top:-2px;transform:translateX(-27px)}
+  .when{position:static;text-align:left;width:auto;margin-bottom:6px}.when small{display:inline;margin-left:6px}
+  .meta,.chan,.void,.calc{grid-template-columns:1fr}
+  td.c{width:70px}
+}
+@media print{
+  .bar,.print,.route,.calc,.cta a{display:none!important}
+  body{background:#fff} section{padding:24px 0} .stage{break-inside:avoid}
+  .hero,.stage.dead .card,.cta,th{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+.seg5{flex-wrap:wrap}
+.seg5 button{flex:1 1 auto;min-width:0}
+table.cov5{min-width:640px}
+table.cov5 th[colspan]{border-bottom:1px solid rgba(184,149,42,.5)}
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+<g id="i-lock"><rect x="4" y="10" width="16" height="11" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></g>
+<g id="i-heart"><path d="M12 20s-7-4.4-7-9a4 4 0 0 1 7-2.6A4 4 0 0 1 19 11c0 4.6-7 9-7 9z"/></g>
+<g id="i-message"><path d="M20 15a2 2 0 0 1-2 2H8l-4 4V5a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2z"/></g>
+<g id="i-users"><path d="M16 20v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="3"/><path d="M22 20v-2a4 4 0 0 0-3-3.9"/><path d="M16 4.1a4 4 0 0 1 0 5.8"/></g>
+<g id="i-files"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5"/><path d="M9 13h6M9 17h4"/></g>
+<g id="i-bag"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/><path d="M3 12h18"/></g>
+<g id="i-scale"><path d="M12 3v18M6 21h12"/><path d="M3 8h18"/><path d="M6 8 3 15h6zM18 8l-3 7h6z"/></g>
+<g id="i-alert"><path d="M12 3 2 20h20z"/><path d="M12 10v4M12 17h.01"/></g>
+<g id="i-wallet"><rect x="3" y="6" width="18" height="14" rx="2"/><path d="M3 10h18"/><path d="M17 15h.01"/></g>
+<g id="i-shield"><path d="M12 3l7 3v5c0 5-3.2 8.3-7 10-3.8-1.7-7-5-7-10V6z"/></g>
+<g id="i-route"><circle cx="6" cy="6" r="2.5"/><circle cx="18" cy="18" r="2.5"/><path d="M6 8.5v5a4 4 0 0 0 4 4h5.5"/></g>
+</defs></svg>
+<div class="bar">
+  <div class="seg" role="group" aria-label="Bahasa / Language">
+    <button id="bBM" aria-pressed="true" onclick="setLang('bm')">BM</button>
+    <button id="bEN" aria-pressed="false" onclick="setLang('en')">EN</button>
+  </div>
+  <button class="print" onclick="window.print()"><span class="bm">Simpan PDF / Cetak</span><span class="en">Save PDF / Print</span></button>
+</div>
+
+<header class="hero">
+  <div class="wrap">
+    <h1><span class="bm">Selepas kematian, apa berlaku kepada harta?</span><span class="en">After death, what happens to the assets?</span></h1>
+    <p class="lead">
+      <span class="bm">Aliran sebenar yang waris lalui: di mana caj dikenakan, siapa yang bayar, dan berapa lama setiap peringkat mengambil masa.</span>
+      <span class="en">The actual journey heirs go through: where the charges fall, who pays, and how long each stage takes.</span>
+    </p>
+    <div class="facts">
+      <div class="fact"><small class="tag"><span class="bm">Hari 0</span><span class="en">Day 0</span></small><b><span class="bm">Serta-merta</span><span class="en">Instantly</span></b><span class="bm">Harta atas nama si mati <mark class="kw">dibekukan</mark></span><span class="en">Assets in the deceased's name are <mark class="kw">frozen</mark></span></div>
+      <div class="fact"><small class="tag"><span class="bm">Pejabat Pusaka Kecil</span><span class="en">Small Estate Office</span></small><b><span class="bm">6–12 bulan+</span><span class="en">6–12 months+</span></b><span class="bm">Rasmi 4–6 bulan, tetapi <mark class="kw">tunggakan kes</mark> dan tarikh bicara biasanya memanjangkannya.</span><span class="en">Officially 4–6 months, but <mark class="kw">case backlogs</mark> and hearing dates usually stretch it.</span><span class="bm"><em>Caj:</em> bayaran perintah 0.2%–0.3%</span><span class="en"><em>Charge:</em> 0.2%–0.3% order fee</span></div>
+      <div class="fact"><small class="tag"><span class="bm">Mahkamah Tinggi Sivil</span><span class="en">Civil High Court</span></small><b><span class="bm">2–6 bulan</span><span class="en">2–6 months</span></b><span class="bm">Lazimnya lebih cepat kerana <mark class="kw">dipacu peguam</mark>; kes mudah boleh selesai sekitar 2 bulan.</span><span class="en">Usually faster as it's <mark class="kw">lawyer-driven</mark>; simple cases can close in about 2 months.</span><span class="bm"><em>Caj:</em> yuran peguam ~0.5%–2%, <strong>ditambah</strong> komisen pentadbir sehingga 5% jika pentadbir profesional dilantik (s.43(1) Akta Probet & Pentadbiran 1959)</span><span class="en"><em>Charges:</em> legal fees ~0.5%–2%, <strong>plus</strong> up to 5% administrator's commission if a professional administrator is appointed (s.43(1) Probate & Administration Act 1959)</span></div>
+      <div class="fact aw"><small class="tag">Al-Wasitah</small><b>0%</b><span class="bm"><mark class="kw">Tiada komisen</mark> diambil daripada harta pusaka. Kos pengurusan ditanggung sehingga RM8,500 (Intan), RM20,000 (Mutiara, Silver) atau RM60,000 (Berlian, Gold).</span><span class="en"><mark class="kw">No commission</mark> taken from the estate. Admin costs covered up to RM8,500 (Intan), RM20,000 (Mutiara, Silver) or RM60,000 (Berlian, Gold).</span></div>
+    </div>
+  </div>
+</header>
+
+<section>
+  <div class="wrap">
+    <h2><span class="bm">Perjalanan waris, peringkat demi peringkat</span><span class="en">The heirs' journey, stage by stage</span></h2>
+    <p class="sub"><span class="bm">Tempoh ialah anggaran. Ia memanjang jika dokumen tidak lengkap, waris ramai, atau ada pertikaian. <mark class="kw">Kata kunci</mark> diserlahkan untuk rujukan pantas.</span><span class="en">Durations are estimates. They stretch when documents are incomplete, heirs are many, or there is a dispute. <mark class="kw">Key words</mark> are highlighted for quick reference.</span></p>
+
+    <div class="route">
+      <span class="lbl"><span class="bm">Tunjuk laluan:</span><span class="en">Show route:</span></span>
+      <div class="seg" role="group">
+        <button id="tN" aria-pressed="false" onclick="setTier('n')"><span class="bm">Tanpa pelan</span><span class="en">No plan</span></button>
+        <button id="tM" aria-pressed="true" onclick="setTier('m')"><span class="bm">Pusaka Kecil</span><span class="en">Small Estate</span></button>
+        <button id="tB" aria-pressed="false" onclick="setTier('b')"><span class="bm">Mahkamah Tinggi</span><span class="en">High Court</span></button>
+      </div>
+      <small class="only-m"><span class="bm">Intan · Mutiara · Silver · Pejabat Pusaka Kecil</span><span class="en">Intan · Mutiara · Silver · Small Estate Office</span></small>
+      <small class="only-b"><span class="bm">Berlian · Gold · Mahkamah Tinggi Sivil</span><span class="en">Berlian · Gold · Civil High Court</span></small>
+      <small class="only-n"><span class="bm">Tiada wasi dilantik · waris urus sendiri</span><span class="en">No wasi appointed · heirs handle it themselves</span></small>
+    </div>
+
+    <div class="tl">
+
+      <div class="stage dead">
+        <div class="when"><span class="bm">Hari 0</span><span class="en">Day 0</span></div>
+        <div class="card">
+          <h3><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-lock"/></svg><span class="bm">Kematian</span><span class="en">Death</span></h3>
+          <p><span class="bm">Akaun bank, hartanah, kenderaan, saham, dan KWSP/TH tanpa penama <mark class="kw">dibekukan</mark>. Tiada siapa boleh keluarkan, jual atau pindah milik <mark class="kw">sehingga kuasa diperoleh</mark>.</span><span class="en">Bank accounts, property, vehicles, shares, and EPF/TH without a nominee are <mark class="kw">frozen</mark>. No one can withdraw, sell or transfer <mark class="kw">until authority is obtained</mark>.</span></p>
+          <div class="meta">
+            <div class="m"><b><span class="bm">Tindakan</span><span class="en">Action</span></b><span class="bm">Daftar kematian di JPN, dapatkan <mark class="kw">sijil kematian</mark></span><span class="en">Register the death at JPN, get the <mark class="kw">death certificate</mark></span></div>
+            <div class="m"><b><span class="bm">Kos</span><span class="en">Cost</span></b><span class="bm">Minimum</span><span class="en">Minimal</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="stage">
+        <div class="when"><span class="bm">Hari 1–3</span><span class="en">Day 1–3</span></div>
+        <div class="card">
+          <h3><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-heart"/></svg><span class="bm">Pengurusan jenazah</span><span class="en">Funeral</span></h3>
+          <p><span class="bm">Kos pengebumian ialah <mark class="kw">tuntutan pertama</mark> ke atas harta si mati, sebelum hutang dan pembahagian.</span><span class="en">Funeral costs are the <mark class="kw">first claim</mark> on the estate, before debts and distribution.</span></p>
+          <div class="meta">
+            <div class="m"><b><span class="bm">Dibayar oleh</span><span class="en">Paid by</span></b><span class="bm">Harta si mati (sering didahulukan oleh waris)</span><span class="en">The estate (often advanced by heirs)</span></div>
+            <div class="m"><b><span class="bm">Kos</span><span class="en">Cost</span></b><span class="bm">Berbeza mengikut kawasan dan pilihan</span><span class="en">Varies by area and choices</span></div>
+          </div>
+          <div class="cover">
+            <span class="pill y only-m"><span class="bm">Mutiara: khairat kematian RM2,000</span><span class="en">Mutiara: RM2,000 death benefit</span></span>
+            <span class="pill n only-m"><span class="bm">Intan &amp; Silver: tiada khairat dinyatakan</span><span class="en">Intan &amp; Silver: no death benefit stated</span></span>
+            <span class="pill n only-b"><span class="bm">Berlian &amp; Gold: tiada khairat kematian</span><span class="en">Berlian &amp; Gold: no death benefit</span></span>
+            <span class="pill n only-n"><span class="bm">Tiada khairat; waris dahulukan kos</span><span class="en">No death benefit; heirs advance the cost</span></span>
+          </div>
+        </div>
+      </div>
+
+      <div class="stage not-n">
+        <div class="when"><span class="bm">Minggu 1–4</span><span class="en">Week 1–4</span><small><span class="bm">had 18 bulan</span><span class="en">18-month limit</span></small></div>
+        <div class="card">
+          <h3><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-message"/></svg><span class="bm">Maklum Wasiyyah & khutbah pusaka</span><span class="en">Notify Wasiyyah & estate briefing</span></h3>
+          <p><span class="bm">Waris atau wasi memaklumkan kematian. Pegawai datang membacakan <mark class="kw">khutbah pusaka</mark> dan memberi rundingcara: siapa waris, apa harta, apa langkah seterusnya.</span><span class="en">The heirs or wasi report the death. An officer delivers the <mark class="kw">khutbah pusaka</mark> and advises: who the heirs are, what the assets are, what comes next.</span></p>
+          <div class="cover"><span class="pill y"><span class="bm">Ditanggung</span><span class="en">Covered</span></span></div>
+          <div class="alert"><span class="bm">Jika kematian tidak dimaklumkan <mark class="kw">dalam 18 bulan</mark>, manfaat pengurusan pusaka terbatal.</span><span class="en">If the death is not reported <mark class="kw">within 18 months</mark>, the estate administration benefit is void.</span></div>
+        </div>
+      </div>
+
+      <div class="stage diy only-n">
+        <div class="when"><span class="bm">Minggu 1 → ?</span><span class="en">Week 1 → ?</span><small><span class="bm">tiada had masa</span><span class="en">no time limit</span></small></div>
+        <div class="card">
+          <h3><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-users"/></svg><span class="bm">Waris bermesyuarat: siapa jadi pentadbir?</span><span class="en">Heirs meet: who becomes administrator?</span></h3>
+          <p><span class="bm">Tiada wasi dilantik, jadi <mark class="kw">waris perlu sepakat</mark> siapa akan memohon dan mentadbir harta.</span><span class="en">No wasi was appointed, so <mark class="kw">heirs must agree</mark> on who will apply and administer the estate.</span></p>
+          <ol class="steps">
+            <li><span class="bm">Pilih pemohon, lazimnya waris dewasa terdekat seperti balu/duda atau anak</span><span class="en">Choose the applicant, usually the closest adult heir such as the surviving spouse or a child</span></li>
+            <li><span class="bm">Waris lain yang tidak dapat hadir tandatangan <mark class="kw">Surat Akuan Persetujuan</mark> di hadapan Pentadbir Tanah, Majistret, Pesuruhjaya Sumpah atau Notari Awam</span><span class="en">Heirs who can't attend sign a <mark class="kw">consent declaration</mark> before the Land Administrator, a Magistrate, a Commissioner for Oaths or a Notary Public</span></li>
+            <li><span class="bm">Pemohon cari sendiri maklumat proses: kaunter Unit Pembahagian Pusaka daerah atau portal JKPTG</span><span class="en">The applicant works out the process alone: the district estate distribution counter or the JKPTG portal</span></li>
+          </ol>
+          <div class="meta">
+            <div class="m"><b><span class="bm">Jika tidak sepakat</span><span class="en">If heirs disagree</span></b><span class="bm">Pertikaian dibawa ke bicara dan <mark class="kw">diputuskan oleh Pentadbir Tanah</mark>, atau kes berpindah ke Mahkamah Tinggi. Tempoh memanjang</span><span class="en">The dispute goes to the hearing and is <mark class="kw">decided by the Land Administrator</mark>, or the case moves to the High Court. The timeline stretches</span></div>
+            <div class="m"><b><span class="bm">Tanggungjawab pentadbir</span><span class="en">Administrator's duty</span></b><span class="bm">Mentadbir <mark class="kw">untuk semua waris, bukan milik sendiri</mark>. Boleh dipertanggungjawabkan jika salah urus</span><span class="en">Administers <mark class="kw">for all heirs, not as owner</mark>. Can be held liable for mismanagement</span></div>
+          </div>
+          <div class="cover">
+            <span class="pill n"><span class="bm">Tiada khutbah pusaka atau rundingcara</span><span class="en">No estate briefing or consultation</span></span>
+            <span class="pill n"><span class="bm">Masa, cuti & perjalanan ditanggung waris</span><span class="en">Time, leave & travel borne by heirs</span></span>
+          </div>
+          <div class="alert"><span class="bm">Tiada had masa untuk memohon, tetapi <mark class="kw">setiap kelewatan ada harga</mark>: harta beku lebih lama, dan waris yang meninggal dunia sebelum selesai menambah satu lagi lapisan pusaka.</span><span class="en">There is no deadline to apply, but <mark class="kw">every delay has a cost</mark>: assets stay frozen longer, and an heir who dies before it's settled adds another layer of estate.</span></div>
+        </div>
+      </div>
+
+      <div class="stage">
+        <div class="when"><span class="bm">Bulan 1–2</span><span class="en">Month 1–2</span></div>
+        <div class="card">
+          <h3><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-files"/></svg><span class="bm">Kumpul dokumen, senarai harta & hutang</span><span class="en">Gather documents, list assets & debts</span></h3>
+          <ul>
+            <li><span class="bm">Kenal pasti <mark class="kw">semua waris faraid</mark> dan dapatkan salinan IC/sijil lahir/sijil nikah</span><span class="en">Identify <mark class="kw">all faraid heirs</mark> and collect IC, birth and marriage certificates</span></li>
+            <li><span class="bm"><mark class="kw">Carian rasmi</mark> setiap hakmilik di pejabat tanah (RM250 setiap hakmilik)</span><span class="en"><mark class="kw">Official land search</mark> for each title (RM250 per title)</span></li>
+            <li><span class="bm">Senaraikan <mark class="kw">hutang</mark> kepada Allah (zakat, fidyah, haji) dan kepada manusia</span><span class="en">List <mark class="kw">debts</mark> owed to Allah (zakat, fidyah, hajj) and to people</span></li>
+          </ul>
+          <div class="cover">
+            <span class="pill y only-m"><span class="bm">Carian rasmi ditanggung: Intan maks 2, Mutiara &amp; Silver maks 6 hakmilik</span><span class="en">Land searches covered: Intan max 2, Mutiara &amp; Silver max 6 titles</span></span>
+            <span class="pill y only-b"><span class="bm">Carian rasmi ditanggung: Berlian &amp; Gold maks 12 hakmilik</span><span class="en">Land searches covered: Berlian &amp; Gold max 12 titles</span></span>
+            <span class="pill n only-n"><span class="bm">Waris jejak sendiri semua harta & bayar carian</span><span class="en">Heirs trace all assets & pay for searches</span></span>
+            <span class="pill i"><span class="bm">Tempoh bergantung pada kerjasama waris</span><span class="en">Speed depends on heirs' cooperation</span></span>
+          </div>
+        </div>
+      </div>
+
+      <div class="stage key">
+        <div class="when"><span class="only-m"><span class="bm">Bulan 2–12</span><span class="en">Month 2–12</span></span><span class="only-b"><span class="bm">Bulan 2–6</span><span class="en">Month 2–6</span></span><span class="only-n"><span class="bm">Bulan 3–15+</span><span class="en">Month 3–15+</span></span><small><span class="bm">jika dipertikai, boleh bertahun-tahun</span><span class="en">years, if disputed</span></small></div>
+        <div class="card">
+          <h3><span class="k" aria-label="Kunci 1"><svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="7.5" cy="15.5" r="4.5"/><path d="M10.7 12.3 21 2"/><path d="m16 7 3 3"/><path d="m19 4 2 2"/></svg>1</span><span class="bm">Perolehan kuasa</span><span class="en">Obtaining authority</span></h3>
+          <p><span class="bm">Langkah pertama: tentukan <mark class="kw">siapa pemohon</mark>. Jika ada <mark class="kw">Dokumen Pelantikan Wasi</mark>, wasi itu yang memohon; jika tiada, waris perlu <mark class="kw">bermuafakat</mark> melantik pentadbir. Tanpa kuasa ini, <mark class="kw">tiada harta boleh dicairkan</mark>. Saluran ditentukan oleh jenis dan nilai harta:</span><span class="en">First step: decide <mark class="kw">who applies</mark>. With a <mark class="kw">Wasi Appointment document</mark>, the named wasi applies; without one, heirs must <mark class="kw">agree</mark> on an administrator. Without this authority, <mark class="kw">nothing can be released</mark>. The channel depends on asset type and value:</span></p>
+          <div class="chan">
+            <div class="ch"><b>Amanah Raya (ARB)</b><span class="bm">Harta alih sahaja, bawah RM600k. Hasil: PAR / AAR. Sejak pindaan Akta 98 (2024), PPK juga boleh uruskan harta alih sahaja.</span><span class="en">Movable assets only, under RM600k. Output: PAR / AAR. Since the Act 98 amendment (2024), PPK can also handle movable-only estates.</span></div>
+            <div class="ch only-m on"><b>Pejabat Pusaka Kecil</b><span class="bm">Alih & tak alih, sehingga RM5 juta. Borang A melalui MyLAND.</span><span class="en">Movable & immovable, up to RM5M. Borang A via MyLAND.</span></div>
+            <div class="ch only-b"><b>Pejabat Pusaka Kecil</b><span class="bm">Alih & tak alih, sehingga RM5 juta. Borang A melalui MyLAND.</span><span class="en">Movable & immovable, up to RM5M. Borang A via MyLAND.</span></div>
+            <div class="ch only-m"><b>Mahkamah Tinggi Sivil</b><span class="bm">Melalui peguam. Wajib jika ada wasiat sivil atau harta melebihi RM5 juta.</span><span class="en">Through a lawyer. Required for civil wills or estates above RM5M.</span></div>
+            <div class="ch only-n"><b>Pejabat Pusaka Kecil</b><span class="bm">Alih & tak alih, sehingga RM5 juta. Waris isi Borang A sendiri, di daerah tanah terletak atau dalam talian.</span><span class="en">Movable & immovable, up to RM5M. Heirs fill in Borang A themselves, in the district where the land is or online.</span></div>
+            <div class="ch only-n"><b>Mahkamah Tinggi Sivil</b><span class="bm">Waris lantik dan bayar peguam sendiri. Wajib jika harta melebihi RM5 juta.</span><span class="en">Heirs hire and pay their own lawyer. Required for estates above RM5M.</span></div>
+            <div class="ch only-b on"><b>Mahkamah Tinggi Sivil</b><span class="bm">Melalui peguam. Grant of Probate (ada wasi) atau Letter of Administration.</span><span class="en">Through a lawyer. Grant of Probate (with a wasi) or Letter of Administration.</span></div>
+          </div>
+
+          <div class="only-m">
+            <div class="meta">
+              <div class="m"><b><span class="bm">Proses</span><span class="en">Process</span></b><span class="bm">Borang A → notis bicara → bicara kuasa → Surat Kuasa Tadbir / Perintah Pembahagian (lazimnya ~30 hari selepas bicara). <mark class="kw">Semua waris perlu hadir atau beri persetujuan</mark>, dan menunggu tarikh bicara ialah punca utama kelewatan</span><span class="en">Borang A → hearing notice → hearing → Letter of Administration / Distribution Order (usually ~30 days after hearing). <mark class="kw">All heirs must attend or consent</mark>, and waiting for a hearing date is the main cause of delay</span></div>
+              <div class="m"><b><span class="bm">Caj statutori</span><span class="en">Statutory charge</span></b><span class="bm">Bayaran perintah 0.2% (RM50k–2 juta) atau 0.3% (RM2–5 juta) daripada nilai harta</span><span class="en">Order fee 0.2% (RM50k–2M) or 0.3% (RM2–5M) of estate value</span></div>
+            </div>
+            
+            <div class="cover">
+
+              <span class="pill y"><span class="bm">Pemfailan Borang A</span><span class="en">Borang A filing</span></span>
+              <span class="pill y"><span class="bm">Perbatuan</span><span class="en">Mileage</span></span>
+              <span class="pill y"><span class="bm">Bicara kuasa</span><span class="en">Hearing</span></span>
+              <span class="pill y"><span class="bm">Surat Kuasa Tadbir / Perintah</span><span class="en">Letter of Admin / Order</span></span>
+              <span class="pill n"><span class="bm">Bayaran perintah 0.2% / 0.3%</span><span class="en">0.2% / 0.3% order fee</span></span>
+              <span class="pill n"><span class="bm">Sijil faraid (jika perlu)</span><span class="en">Faraid certificate (if needed)</span></span>
+            </div>
+          </div>
+
+          <div class="only-n">
+            <div class="meta">
+              <div class="m"><b><span class="bm">Proses (PPK)</span><span class="en">Process (PPK)</span></b><span class="bm">Borang A ditandatangani di hadapan Pesuruhjaya Sumpah/Majistret, bersama bukti kematian, IC semua waris, salinan hakmilik/carian rasmi dan penyata harta → notis bicara → bicara → perintah. <mark class="kw">Semua waris perlu hadir atau beri persetujuan</mark></span><span class="en">Borang A signed before a Commissioner for Oaths/Magistrate, with proof of death, all heirs' ICs, title copies/official searches and asset statements → hearing notice → hearing → order. <mark class="kw">All heirs must attend or consent</mark></span></div>
+              <div class="m"><b><span class="bm">Kos ditanggung waris</span><span class="en">Costs borne by heirs</span></b><span class="bm">Bayaran perintah 0.2%/0.3%, carian rasmi setiap hakmilik, akuan bersumpah, perjalanan. Jika upah pihak ketiga: caj perkhidmatan (PPK RM6,000–RM17,000; Mahkamah Tinggi dari RM32,000 di Wasiyyah) dan <mark class="kw">komisen sehingga 5%</mark> jika pentadbir profesional dilantik di Mahkamah Tinggi</span><span class="en">0.2%/0.3% order fee, official search per title, statutory declarations, travel. If hiring help: service fee (PPK RM6,000–RM17,000; High Court from RM32,000 at Wasiyyah) and <mark class="kw">up to 5% commission</mark> if a professional administrator is appointed at the High Court</span></div>
+            </div>
+            <div class="cover">
+              <span class="pill n"><span class="bm">Semua kos dibayar waris</span><span class="en">All costs paid by heirs</span></span>
+              <span class="pill n"><span class="bm">Risiko borang tidak lengkap / waris tertinggal</span><span class="en">Risk of incomplete forms / missed heirs</span></span>
+              <span class="pill n"><span class="bm">Mahkamah Tinggi: penjamin lazimnya diperlukan</span><span class="en">High Court: sureties usually required</span></span>
+            </div>
+          </div>
+
+          <div class="only-b">
+            <div class="meta">
+              <div class="m"><b><span class="bm">Proses</span><span class="en">Process</span></b><span class="bm">Lantik peguam (waqalah) → afidavit permohonan → Grant of Probate / L.A. → Perintah Pembahagian. Surat Kuasa Mentadbir lazimnya memerlukan <mark class="kw">penjamin</mark>, terutama jika ada waris bawah umur</span><span class="en">Appoint lawyer (waqalah) → application affidavit → Grant of Probate / L.A. → Distribution Order. Letters of Administration usually need <mark class="kw">sureties</mark>, especially with minor heirs</span></div>
+              <div class="m"><b><span class="bm">Kos jika urus sendiri</span><span class="en">Cost if done separately</span></b><span class="bm">Kos guaman ikut peguam. Harga Wasiyyah bagi pusaka besar bawah RM5 juta: RM32,000 (RM16,000 setiap perintah)</span><span class="en">Legal fees vary by firm. Wasiyyah's large-estate price under RM5M: RM32,000 (RM16,000 per order)</span></div>
+            </div>
+            <div class="cover">
+              <span class="pill y"><span class="bm">Peguam (waqalah)</span><span class="en">Lawyer (waqalah)</span></span>
+              <span class="pill y"><span class="bm">Afidavit & bicara, aset alih dan tak alih</span><span class="en">Affidavit & hearing, movable and immovable</span></span>
+              <span class="pill y"><span class="bm">Grant of Probate / L.A.</span><span class="en">Grant of Probate / L.A.</span></span>
+              <span class="pill y"><span class="bm">Perintah Pembahagian</span><span class="en">Distribution Order</span></span>
+              <span class="pill n"><span class="bm">Sijil faraid (jika perlu)</span><span class="en">Faraid certificate (if needed)</span></span>
+            </div>
+          </div>
+
+          <div class="alert appeal not-b" style="margin-top:12px"><b><span class="bm">Kenapa perintah tidak keluar pada hari bicara?</span><span class="en">Why isn't the order issued on the hearing day?</span></b><br>
+            <span class="bm">Ada <mark class="kw">tempoh rayuan 14 hari</mark>. Mana-mana waris atau pihak berkepentingan yang <mark class="kw">tidak berpuas hati</mark> boleh merayu ke Mahkamah Tinggi melalui Pentadbir Tanah (s.29 Akta 98). Jika tiada rayuan, perintah dikeluarkan, lazimnya dalam 30 hari selepas bicara. Keputusan Mahkamah Tinggi adalah <mark class="kw">muktamad</mark>. Jika ada pertikaian, di sinilah kes berpindah ke Mahkamah Tinggi dan tempoh memanjang.</span>
+            <span class="en">There is a <mark class="kw">14-day appeal window</mark>. Any heir or interested party who is <mark class="kw">dissatisfied</mark> can appeal to the High Court through the Land Administrator (s.29 Act 98). If no one appeals, the order is issued, usually within 30 days of the hearing. The High Court's decision is <mark class="kw">final</mark>. If there is a dispute, this is where the case moves to the High Court and the timeline stretches.</span></div>
+
+          <div class="alert"><span class="bm">Sijil faraid dari Mahkamah Tinggi Syariah, jika diarahkan, bermula sekitar RM6,000 dan <mark class="kw">tidak ditanggung</mark>. Pusaka kecil memerlukan persetujuan semua waris; <mark class="kw">satu waris yang enggan</mark> boleh menangguhkan bicara. Pentadbiran pusaka orang Islam berjalan di saluran sivil; <mark class="kw">Mahkamah Syariah</mark> hanya terlibat bagi isu hukum seperti sijil faraid, pengesahan hibah atau wasiat, dan tuntutan harta sepencarian yang dipertikai.</span><span class="en">A faraid certificate from the Syariah High Court, if required, starts around RM6,000 and is <mark class="kw">not covered</mark>. Small-estate hearings need all heirs to agree; <mark class="kw">one objecting heir</mark> can stall the hearing. Muslim estates are administered through civil channels; the <mark class="kw">Syariah Court</mark> only steps in on questions of hukum such as faraid certificates, validating hibah or wasiat, and disputed jointly acquired property claims.</span></div>
+        </div>
+      </div>
+
+      <div class="stage key">
+        <div class="when"><span class="bm">Selepas perintah</span><span class="en">After the order</span><small><span class="bm">1–3 bulan</span><span class="en">1–3 months</span></small></div>
+        <div class="card">
+          <h3><span class="k" aria-label="Kunci 2"><svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="7.5" cy="15.5" r="4.5"/><path d="M10.7 12.3 21 2"/><path d="m16 7 3 3"/><path d="m19 4 2 2"/></svg>2</span><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-bag"/></svg><span class="bm">Pentadbiran</span><span class="en">Administration</span></h3>
+          <p><span class="bm">Wasi atau pentadbir menggunakan surat kuasa untuk:</span><span class="en">The wasi or administrator uses the letter of authority to:</span></p>
+          <ul>
+            <li><span class="bm">Semak <mark class="kw">sekatan harta</mark>: tanah rizab Melayu, tanah adat, FELDA, pajakan</span><span class="en">Check <mark class="kw">asset restrictions</mark>: Malay reserve land, customary land, FELDA, leases</span></li>
+            <li><span class="bm">Berurusan dengan badan berkaitan untuk <mark class="kw">mencairkan harta</mark>: bank, KWSP, Tabung Haji, ASNB, koperasi, pejabat tanah, JPJ</span><span class="en">Deal with the relevant bodies to <mark class="kw">release assets</mark>: banks, EPF, Tabung Haji, ASNB, cooperatives, land office, JPJ</span></li>
+            <li><span class="bm"><mark class="kw">Lunaskan hutang</mark> sebelum apa-apa dibahagikan</span><span class="en"><mark class="kw">Settle debts</mark> before anything is distributed</span></li>
+          </ul>
+          <div class="meta">
+            <div class="m"><b><span class="bm">Urutan</span><span class="en">Order</span></b><span class="bm">Asingkan harta sepencarian & hibah (<mark class="kw">bukan harta pusaka</mark>) → kos jenazah → hutang (Allah & manusia) → wasiat ⅓ → faraid</span><span class="en">Separate jointly acquired property & hibah (<mark class="kw">not part of the estate</mark>) → funeral → debts (to Allah & people) → ⅓ bequest → faraid</span></div>
+            <div class="m"><b><span class="bm">Di luar pusaka</span><span class="en">Outside the estate</span></b><span class="bm">Hibah yang sempurna dan takaful dengan penerima hibah. Penama KWSP/TH bagi Muslim bertindak sebagai <mark class="kw">wasi, bukan pemilik</mark></span><span class="en">Completed hibah and takaful with a named hibah recipient. For Muslims, EPF/TH nominees act as <mark class="kw">wasi, not owners</mark></span></div>
+          </div>
+          <div class="cover">
+            <span class="pill n"><span class="bm">Cukai & liabiliti tertunggak si mati</span><span class="en">Deceased's outstanding taxes & liabilities</span></span>
+            <span class="pill n only-n"><span class="bm">Waris-pentadbir urus sendiri dengan setiap institusi</span><span class="en">Heir-administrator deals with each institution alone</span></span>
+            <span class="pill n not-n"><span class="bm">Tunggakan langganan Al-Wasitah (<mark class="kw">jadi liabiliti harta</mark>)</span><span class="en">Al-Wasitah subscription arrears (<mark class="kw">become an estate liability</mark>)</span></span>
+          </div>
+        </div>
+      </div>
+
+      <div class="stage key end">
+        <div class="when"><span class="bm">Penutup</span><span class="en">Closing</span><small><span class="bm">anggaran</span><span class="en">estimate</span></small></div>
+        <div class="card">
+          <h3><span class="k" aria-label="Kunci 3"><svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="7.5" cy="15.5" r="4.5"/><path d="M10.7 12.3 21 2"/><path d="m16 7 3 3"/><path d="m19 4 2 2"/></svg>3</span><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-scale"/></svg><span class="bm">Pembahagian & pindah milik</span><span class="en">Distribution & transfer</span></h3>
+          <p><span class="bm">Pelaksanaan <mark class="kw">mengikut urutan</mark>:</span><span class="en">Carried out <mark class="kw">in order</mark>:</span></p>
+          <ol class="seq">
+            <li><span class="bm">Harta sepencarian, jika didokumen atau dipersetujui</span><span class="en">Jointly acquired property (harta sepencarian), if documented or agreed</span></li>
+            <li><span class="bm">Hibah bersyarat dilaksanakan</span><span class="en">Conditional hibah executed</span></li>
+            <li><span class="bm">Wasiat, tidak melebihi ⅓ kepada bukan waris. Wasiat kepada waris ikut enakmen negeri: <mark class="kw">Selangor dan Pahang tidak membenarkannya</mark></span><span class="en">Bequest, up to ⅓ to non-heirs. Bequests to heirs depend on state law: <mark class="kw">Selangor and Pahang do not allow them</mark></span></li>
+            <li><span class="bm">Baki ditentukan mengikut <mark class="kw">faraid</mark></span><span class="en">The balance is determined by <mark class="kw">faraid</mark></span></li>
+            <li><span class="bm">Kemudian waris boleh <mark class="kw">bermuafakat (takharuj)</mark> untuk susun semula bahagian</span><span class="en">Heirs may then <mark class="kw">agree (takharuj)</mark> to rearrange shares</span></li>
+          </ol>
+          <p><span class="bm">Bahagian waris bawah umur dipegang oleh <mark class="kw">pemegang amanah</mark> (waris dewasa atau Amanah Raya) sehingga mereka dewasa. Perintah perlu <mark class="kw">didaftarkan di pejabat tanah</mark> sebelum nama waris naik di geran.</span><span class="en">Minor heirs' shares are held by a <mark class="kw">trustee</mark> (an adult heir or Amanah Raya) until they come of age. The order must be <mark class="kw">registered at the land office</mark> before heirs' names appear on the title.</span></p>
+          <div class="meta">
+            <div class="m"><b><span class="bm">Pendaftaran perintah</span><span class="en">Order registration</span></b><span class="bm">Caj pejabat tanah: lebih kurang RM0–RM100 setiap hakmilik (ikut negeri) + cukai tanah tahun semasa. Waris boleh <mark class="kw">daftar sendiri</mark>, atau guna perkhidmatan Wasiyyah RM500 setiap hakmilik</span><span class="en">Land office fee: roughly RM0–RM100 per title (varies by state) + current year's land tax. Heirs can <mark class="kw">register it themselves</mark>, or use Wasiyyah's service at RM500 per title</span></div>
+            <div class="m"><b><span class="bm">Jika perlu ulang bicara</span><span class="en">If a re-hearing is needed</span></b><span class="bm">Borang P / pindaan perintah: RM6,500 setiap pindaan</span><span class="en">Borang P / order amendment: RM6,500 per amendment</span></div>
+          </div>
+          <div class="cover">
+            <span class="pill n"><span class="bm">Daftar perintah di pejabat tanah</span><span class="en">Registering the order at the land office</span></span>
+            <span class="pill n"><span class="bm">Ulang bicara (Borang P)</span><span class="en">Re-hearing (Borang P)</span></span>
+          </div>
+          <div class="alert"><span class="bm">Jumlah perjalanan bagi kes lancar: <span class="only-m">anggaran 8–15 bulan melalui PPK</span><span class="only-b">anggaran 3–9 bulan melalui Mahkamah Tinggi</span><span class="only-n">anggaran 8–15 bulan melalui PPK, selalunya lebih lama kerana masa untuk sepakat dan mengumpul dokumen</span>. Tanpa dokumen dan wasi yang jelas, kes boleh berlarutan bertahun-tahun, dan waris yang meninggal di tengah jalan <mark class="kw">menambah satu lagi lapisan pusaka</mark>.</span><span class="en">Whole journey for a smooth case: <span class="only-m">roughly 8–15 months via PPK</span><span class="only-b">roughly 3–9 months via the High Court</span><span class="only-n">roughly 8–15 months via PPK, often longer given the time to agree and gather documents</span>. Without clear documents and a named wasi, cases drag on for years, and an heir who dies midway <mark class="kw">adds another layer of estate</mark>.</span></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:0">
+  <div class="wrap">
+    <h2><span class="bm">Urus sendiri atau dengan Al-Wasitah?</span><span class="en">Do it yourself, or with Al-Wasitah?</span></h2>
+    <p class="sub"><span class="bm">Laluan undang-undang sama. Yang berbeza ialah siapa memikul kerja, bila kos dibayar, dan berapa banyak ruang untuk kesilapan.</span><span class="en">The legal route is the same. What differs is who carries the work, when the cost is paid, and how much room there is for mistakes.</span></p>
+    <div class="cmpwrap">
+    <table class="cmp">
+      <thead><tr><th></th><th><span class="bm">Urus sendiri</span><span class="en">Do it yourself</span></th><th><span class="bm">Lantik pihak ketiga selepas kematian</span><span class="en">Hire help after death</span></th><th class="aw">Al-Wasitah</th></tr></thead>
+      <tbody>
+<tr><td><span class="bm">Siapa uruskan</span><span class="en">Who does the work</span></td><td><span class="bm">Waris sendiri: cari borang, kumpul dokumen, beratur, hadir bicara</span><span class="en">Heirs themselves: find forms, gather documents, queue, attend hearings</span></td><td><span class="bm">Peguam atau perunding yang waris cari selepas kematian</span><span class="en">A lawyer or agent the heirs look for after the death</span></td><td class="aw"><span class="bm">Pegawai Wasiyyah, dari khutbah pusaka hingga perintah dikeluarkan</span><span class="en">A Wasiyyah officer, from the khutbah pusaka until the order is issued</span></td></tr>
+<tr><td><span class="bm">Wasi & dokumen</span><span class="en">Wasi & documents</span></td><td><span class="bm">Selalunya tiada. Waris perlu bermuafakat dahulu untuk lantik pemohon</span><span class="en">Usually none. Heirs must first agree on who applies</span></td><td><span class="bm">Sama, tiada persediaan semasa hidup</span><span class="en">Same, nothing prepared during life</span></td><td class="aw"><span class="bm">Dokumen Pelantikan Wasi & Wasiat ⅓ sudah siap dan disimpan</span><span class="en">Wasi Appointment & ⅓ Bequest documents already prepared and stored</span></td></tr>
+<tr><td><span class="bm">Kos & bila dibayar</span><span class="en">Cost & when paid</span></td><td><span class="bm">Caj statutori, perjalanan, cuti kerja. Dibayar tunai oleh waris <mark class="kw">ketika harta masih beku</mark></span><span class="en">Statutory charges, travel, time off work. Paid in cash by heirs <mark class="kw">while assets are still frozen</mark></span></td><td><span class="bm">Khidmat pusaka Wasiyyah tanpa pelan: PPK RM6,000–RM17,000, Mahkamah Tinggi dari RM32,000. Belum termasuk caj statutori</span><span class="en">Wasiyyah estate service without a plan: PPK RM6,000–RM17,000, High Court from RM32,000. Excludes statutory charges</span></td><td class="aw"><span class="bm">Dibayar oleh pemilik semasa hidup, RM30–RM195 sebulan. Kos pengurusan ditanggung sehingga RM8,500 / RM20,000 / RM60,000 ikut pelan</span><span class="en">Paid by the owner during life, RM30–RM195 a month. Admin costs covered up to RM8,500 / RM20,000 / RM60,000 by plan</span></td></tr>
+<tr><td><span class="bm">Risiko kesilapan</span><span class="en">Risk of errors</span></td><td><span class="bm">Tinggi. Borang tidak lengkap atau waris tertinggal membawa kepada penangguhan atau ulang bicara</span><span class="en">High. Incomplete forms or a missed heir lead to postponement or a re-hearing</span></td><td><span class="bm">Lebih rendah. Ulang bicara dicaj RM3,000–RM5,000</span><span class="en">Lower. Re-hearings charged at RM3,000–RM5,000</span></td><td class="aw"><span class="bm">Rendah, dikendali pegawai berpengalaman. Ulang bicara (Borang P) masih tidak ditanggung</span><span class="en">Low, handled by experienced officers. Re-hearing (Borang P) is still not covered</span></td></tr>
+<tr><td><span class="bm">Tempoh</span><span class="en">Time</span></td><td><span class="bm">Paling berisiko panjang. Ramai waris lambat bermula kerana tidak tahu langkah pertama</span><span class="en">Most likely to drag. Many heirs start late because they don't know the first step</span></td><td><span class="bm">Bergantung bila waris mula mencari bantuan</span><span class="en">Depends on when heirs start looking for help</span></td><td class="aw"><span class="bm">Bermula sebaik dimaklumkan. Tarikh bicara masih ikut giliran pejabat atau mahkamah</span><span class="en">Starts as soon as reported. Hearing dates still follow the office or court queue</span></td></tr>
+<tr><td><span class="bm">Beban waris</span><span class="en">Burden on heirs</span></td><td><span class="bm">Tinggi, ketika sedang berduka</span><span class="en">High, while grieving</span></td><td><span class="bm">Sederhana. Masih perlu cari, banding dan bayar</span><span class="en">Moderate. Still need to search, compare and pay</span></td><td class="aw"><span class="bm">Rendah. Satu panggilan kepada Wasiyyah</span><span class="en">Low. One call to Wasiyyah</span></td></tr>
+      </tbody>
+    </table>
+    </div>
+    <p class="honest"><span class="bm">Al-Wasitah <mark class="kw">tidak memintas giliran bicara</mark>. Masa dijimatkan pada peringkat sebelum pemfailan dan dengan mengelakkan kesilapan yang memaksa ulang bicara.</span><span class="en">Al-Wasitah <mark class="kw">doesn't jump the hearing queue</mark>. Time is saved before filing and by avoiding mistakes that force a re-hearing.</span></p>
+  </div>
+</section>
+
+<section style="padding-top:0">
+  <div class="wrap">
+    <div class="calc">
+      <div>
+        <h2><span class="bm">Tanpa pelan vs dengan pelan</span><span class="en">No plan vs with a plan</span></h2>
+        <p style="color:#bbb;font-size:14px"><span class="bm">Pilih pakej dan nilai harta untuk melihat laluan, tempoh dan siapa menanggung kos.</span><span class="en">Choose a plan and estate value to see the route, time and who bears the cost.</span></p>
+        <label><span class="bm">Pakej</span><span class="en">Plan</span></label>
+        <div class="seg seg5" role="group">
+          <button id="cI" aria-pressed="false" onclick="setPlan('i')">Intan</button>
+          <button id="cM" aria-pressed="true" onclick="setPlan('m')">Mutiara</button>
+          <button id="cS" aria-pressed="false" onclick="setPlan('s')">Silver</button>
+          <button id="cB" aria-pressed="false" onclick="setPlan('b')">Berlian</button>
+          <button id="cG" aria-pressed="false" onclick="setPlan('g')">Gold</button>
+        </div>
+        <p class="hint"><span class="bm">Intan, Mutiara &amp; Berlian untuk umur 18–60. Silver &amp; Gold (Khairat Pusaka Warga Emas) untuk umur 61 ke atas. Intan, Mutiara &amp; Silver melalui Pejabat Pusaka Kecil; Berlian &amp; Gold melalui Mahkamah Tinggi Sivil.</span><span class="en">Intan, Mutiara &amp; Berlian are for ages 18–60. Silver &amp; Gold (Khairat Pusaka Warga Emas) are for 61 and above. Intan, Mutiara &amp; Silver go through the Small Estate Office; Berlian &amp; Gold through the Civil High Court.</span></p>
+        <label for="v"><span class="bm">Nilai harta hari ini</span><span class="en">Estate value today</span></label>
+        <div class="val" id="vOut">RM1,000,000</div>
+        <input type="range" id="v" min="100000" max="10000000" step="50000" value="1000000" oninput="calc()">
+        <label for="y"><span class="bm">Tahun melanggan sebelum kematian</span><span class="en">Years subscribed before death</span></label>
+        <div class="val" id="yOut">5</div>
+        <input type="range" id="y" min="1" max="15" step="1" value="5" oninput="calc()">
+        <label for="g"><span class="bm">Kenaikan nilai harta setahun</span><span class="en">Annual asset growth</span></label>
+        <div class="val" id="gOut">3%</div>
+        <input type="range" id="g" min="0" max="8" step="0.5" value="3" oninput="calc()">
+        <p class="hint"><span class="bm">Tanpa pelan, caj dikira atas nilai harta semasa kematian. Dengan Al-Wasitah, yuran dan had tanggungan kekal seperti hari ini.</span><span class="en">Without a plan, fees are based on asset value at death. With Al-Wasitah, the fee and coverage limit stay as they are today.</span></p>
+        <div class="legend"><span><i style="background:#C45A46"></i><span class="bm">Tanpa pelan</span><span class="en">No plan</span></span><span><i style="background:#B8952A"></i>Al-Wasitah</span></div>
+      </div>
+      <div class="out" aria-live="polite">
+        <div class="warn" id="oWarn" hidden></div>
+        <div class="hd"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-route"/></svg><span class="bm">Laluan · sama dalam kedua-dua keadaan</span><span class="en">Route · same either way</span></div>
+        <div class="row"><span><span class="bm">Anggaran nilai harta semasa kematian</span><span class="en">Estimated estate value at death</span></span><span id="oVd"></span></div>
+        <div class="row"><span><span class="bm">Saluran</span><span class="en">Channel</span></span><span id="oCh"></span></div>
+        <div class="row"><span><span class="bm">Umur layak · tempoh menunggu</span><span class="en">Eligible age · waiting period</span></span><span id="oAge"></span></div>
+        <div class="row"><span><span class="bm">Anggaran tempoh dapat kuasa</span><span class="en">Estimated time to get authority</span></span><span id="oTime"></span></div>
+        <div class="row"><span><span class="bm">Caj statutori (tidak ditanggung pelan)</span><span class="en">Statutory charge (not covered by plan)</span></span><span id="oFee"></span></div>
+        <div class="row"><span><span class="bm">Kos lain jika berkaitan</span><span class="en">Other costs if applicable</span></span><span id="oLeft"></span></div>
+        <div class="grp gno">
+        <div class="hd"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-wallet"/></svg><span class="bm">Tanpa pelan · lantik Wasiyyah selepas kematian</span><span class="en">No plan · hire Wasiyyah after death</span></div>
+        <div class="row"><span><span class="bm">Caj perkhidmatan termasuk SST 8%, dibayar waris ketika harta beku</span><span class="en">Service fee incl. 8% SST, paid by heirs while assets are frozen</span></span><span id="oNo"></span></div>
+        <div class="row"><span><span class="bm">Komisen pentadbir profesional, had 5% (s.43)</span><span class="en">Professional administrator commission, 5% cap (s.43)</span></span><span id="oCap"></span></div>
+        </div>
+        <div class="grp gaw">
+        <div class="hd"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-shield"/></svg><span class="bm">Dengan pelan · dibayar pemilik semasa hidup</span><span class="en">With a plan · paid by the owner during life</span></div>
+        <div class="row"><span><span class="bm">Had tanggungan kos pengurusan</span><span class="en">Admin cost coverage limit</span></span><span id="oLim"></span></div>
+        <div class="row"><span><span class="bm">Langganan dibayar setakat itu (termasuk SST 8%)</span><span class="en">Subscription paid so far (incl. 8% SST)</span></span><span id="oSub"></span></div>
+        <div class="row" id="rOver" hidden><span><span class="bm">Tambah baki melebihi had (dibayar waris)</span><span class="en">Plus balance above limit (paid by heirs)</span></span><span id="oOver"></span></div>
+        <div class="row"><span><span class="bm">Tolak nilai termasuk</span><span class="en">Less included value</span></span><span id="oInc"></span></div>
+        <div class="row big"><span><span class="bm">Kos bersih</span><span class="en">Net cost</span></span><span id="oNet"></span></div>
+        <div class="row"><span><span class="bm">Titik pulang modal</span><span class="en">Break-even point</span></span><span id="oBE"></span></div>
+        </div>
+        <div class="verdict" id="oVerdict"></div>
+        <p class="note"><span class="bm">Caj tanpa pelan ialah harga Wasiyyah bagi pusaka luar (1–3 lapisan kematian), belum termasuk caj statutori. Semua yuran dan caj dalam kalkulator ini termasuk SST 8%; caj statutori (bayaran perintah PPK) tidak dikenakan SST. Komisen 5% di bawah s.43(1) hanya untuk laluan Mahkamah Tinggi, atas budi bicara mahkamah; ia had, bukan kadar tetap. Nilai termasuk: Dokumen Pelantikan Wasi &amp; Wasiat ⅓ (RM400 + RM400 mengikut senarai harga) dan, bagi Mutiara, khairat RM2,000. Bagi Intan, dokumen ini disediakan secara DIY, jadi tidak dikira sebagai nilai termasuk. Kematian dalam tempoh menunggu (6 bulan Al-Wasitah, 9 bulan Khairat Pusaka Warga Emas) tidak dilindungi kecuali kemalangan. Tempoh ialah anggaran bagi kes tanpa pertikaian. Caj tanpa pelan dikira pada senarai harga 28 September 2026; senarai harga juga naik dari semasa ke semasa (pusaka besar RM27,000 pada 2021, RM32,000 pada 2025).</span><span class="en">The no-plan figure is Wasiyyah's price for non-subscriber estates (1–3 layers of death), excluding statutory charges. All fees and charges in this calculator include 8% SST; statutory charges (the PPK order fee) carry no SST. The 5% commission under s.43(1) applies only to the High Court route, at the court's discretion; it is a cap, not a fixed rate. Included value: Wasi Appointment &amp; ⅓ Bequest documents (RM400 + RM400 per the price list) and, for Mutiara, a RM2,000 death benefit. For Intan these documents are DIY, so they are not counted as included value. Death within the waiting period (6 months for Al-Wasitah, 9 months for Khairat Pusaka Warga Emas) is not covered unless accidental. Durations are estimates for uncontested cases. No-plan fees use the 28 September 2026 price list; prices also rise over time (large estates RM27,000 in 2021, RM32,000 in 2025).</span></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:0">
+  <div class="wrap">
+    <h2><span class="bm">Apa yang ditanggung, apa yang tidak</span><span class="en">What's covered, what isn't</span></h2>
+    <p class="sub"><span class="bm">Tertakluk kepada had tanggungan. Jika kos sebenar melebihi had, waris menanggung bakinya.</span><span class="en">Subject to the coverage limit. If actual costs exceed it, heirs pay the balance.</span></p>
+    <div class="cmpwrap">
+    <table class="cov5">
+      <thead><tr><th rowspan="2"><span class="bm">Perkara</span><span class="en">Item</span></th><th colspan="3" style="text-align:center"><span class="bm">Pejabat Pusaka Kecil</span><span class="en">Small Estate Office</span></th><th colspan="2" style="text-align:center"><span class="bm">Mahkamah Tinggi Sivil</span><span class="en">Civil High Court</span></th></tr>
+      <tr><th style="text-align:center">Intan</th><th style="text-align:center">Mutiara</th><th style="text-align:center">Silver</th><th style="text-align:center">Berlian</th><th style="text-align:center">Gold</th></tr></thead>
+      <tbody>
+        <tr class="grp"><td colspan="6"><span class="bm">Profil pakej</span><span class="en">Plan profile</span></td></tr>
+        <tr><td><span class="bm">Yuran bulanan (belum SST 8%)</span><span class="en">Monthly fee (excl. 8% SST)</span></td><td class="c">RM30</td><td class="c">RM65</td><td class="c">RM85</td><td class="c">RM175</td><td class="c">RM195</td></tr>
+        <tr><td><span class="bm">Umur layak</span><span class="en">Eligible age</span></td><td class="c">18–60</td><td class="c">18–60</td><td class="c"><span class="bm">61 ke atas</span><span class="en">61+</span></td><td class="c">18–60</td><td class="c"><span class="bm">61 ke atas</span><span class="en">61+</span></td></tr>
+        <tr><td><span class="bm">Nilai harta</span><span class="en">Estate value</span></td><td class="c"><span class="bm">&lt; RM2 juta</span><span class="en">&lt; RM2M</span></td><td class="c"><span class="bm">&lt; RM5 juta</span><span class="en">&lt; RM5M</span></td><td class="c"><span class="bm">&lt; RM5 juta</span><span class="en">&lt; RM5M</span></td><td class="c"><span class="bm">&lt; RM10 juta</span><span class="en">&lt; RM10M</span></td><td class="c"><span class="bm">&lt; RM10 juta</span><span class="en">&lt; RM10M</span></td></tr>
+        <tr><td><span class="bm">Had tanggungan</span><span class="en">Coverage limit</span></td><td class="c">RM8,500</td><td class="c">RM20,000</td><td class="c">RM20,000</td><td class="c">RM60,000</td><td class="c">RM60,000</td></tr>
+        <tr><td><span class="bm">Tabarru' (dalam yuran)</span><span class="en">Tabarru' (within fee)</span></td><td class="c">RM10</td><td class="c">RM15</td><td class="c">RM35</td><td class="c">RM30</td><td class="c">RM70</td></tr>
+        <tr><td><span class="bm">Tempoh menunggu</span><span class="en">Waiting period</span></td><td class="c"><span class="bm">6 bulan</span><span class="en">6 months</span></td><td class="c"><span class="bm">6 bulan</span><span class="en">6 months</span></td><td class="c"><span class="bm">9 bulan</span><span class="en">9 months</span></td><td class="c"><span class="bm">6 bulan</span><span class="en">6 months</span></td><td class="c"><span class="bm">9 bulan</span><span class="en">9 months</span></td></tr>
+        <tr><td><span class="bm">Khairat kematian</span><span class="en">Death benefit</span></td><td class="c">–</td><td class="c">RM2,000</td><td class="c">–</td><td class="c x">✗</td><td class="c">–</td></tr>
+        <tr class="grp"><td colspan="6"><span class="bm">Semasa hidup</span><span class="en">During lifetime</span></td></tr>
+        <tr><td><span class="bm">Dokumen Pelantikan Wasi &amp; Wasiat ⅓</span><span class="en">Wasi Appointment &amp; ⅓ Bequest documents</span></td><td class="c">DIY</td><td class="c ok">✓</td><td class="c ok">✓</td><td class="c ok">✓</td><td class="c ok">✓</td></tr>
+        <tr><td><span class="bm">Perubahan Dokumen Pelantikan Wasi</span><span class="en">Amending the Wasi Appointment</span></td><td class="c">RM200</td><td class="c ok">✓</td><td class="c ok">✓</td><td class="c ok">✓</td><td class="c ok">✓</td></tr>
+        <tr><td><span class="bm">Kad legasi digital</span><span class="en">Digital legacy card</span></td><td class="c ok">✓</td><td class="c">–</td><td class="c ok">✓</td><td class="c">–</td><td class="c ok">✓</td></tr>
+        <tr class="grp"><td colspan="6"><span class="bm">Selepas kematian</span><span class="en">After death</span></td></tr>
+        <tr><td><span class="bm">Khutbah pusaka</span><span class="en">Estate briefing</span></td><td class="c"><span class="bm">Dalam talian</span><span class="en">Online</span></td><td class="c ok">✓</td><td class="c"><span class="bm">Dalam talian / fizikal</span><span class="en">Online / in person</span></td><td class="c ok">✓</td><td class="c"><span class="bm">Dalam talian / fizikal</span><span class="en">Online / in person</span></td></tr>
+        <tr><td><span class="bm">Carian rasmi hartanah (maks hakmilik)</span><span class="en">Official land searches (max titles)</span></td><td class="c">2</td><td class="c">6</td><td class="c">6</td><td class="c">12</td><td class="c">12</td></tr>
+        <tr><td><span class="bm">Pemfailan Borang A, perbatuan &amp; bicara kuasa</span><span class="en">Borang A filing, mileage &amp; hearing</span></td><td class="c ok">✓</td><td class="c ok">✓</td><td class="c ok">✓</td><td class="c">–</td><td class="c">–</td></tr>
+        <tr><td><span class="bm">Peguam (waqalah), afidavit &amp; Grant of Probate / L.A.</span><span class="en">Lawyer (waqalah), affidavits &amp; Grant of Probate / L.A.</span></td><td class="c">–</td><td class="c">–</td><td class="c">–</td><td class="c ok">✓</td><td class="c ok">✓</td></tr>
+        <tr><td><span class="bm">Surat Kuasa Tadbir / Perintah Pembahagian</span><span class="en">Letter of Administration / Distribution Order</span></td><td class="c ok">✓</td><td class="c ok">✓</td><td class="c ok">✓</td><td class="c ok">✓</td><td class="c ok">✓</td></tr>
+        <tr><td><span class="bm">Bayaran perintah PPK 0.2% / 0.3%</span><span class="en">PPK order fee 0.2% / 0.3%</span></td><td class="c x">✗</td><td class="c x">✗</td><td class="c x">✗</td><td class="c">–</td><td class="c">–</td></tr>
+        <tr><td><span class="bm">Sijil faraid (jika perlu)</span><span class="en">Faraid certificate (if needed)</span></td><td class="c x">✗</td><td class="c x">✗</td><td class="c x">✗</td><td class="c x">✗</td><td class="c x">✗</td></tr>
+        <tr><td><span class="bm">Daftar perintah di pejabat tanah</span><span class="en">Registering the order at the land office</span></td><td class="c x">✗</td><td class="c x">✗</td><td class="c x">✗</td><td class="c x">✗</td><td class="c x">✗</td></tr>
+        <tr><td><span class="bm">Cukai &amp; liabiliti tertunggak, ulang bicara (Borang P)</span><span class="en">Outstanding taxes &amp; liabilities, re-hearing (Borang P)</span></td><td class="c x">✗</td><td class="c x">✗</td><td class="c x">✗</td><td class="c x">✗</td><td class="c x">✗</td></tr>
+      </tbody>
+    </table>
+    </div>
+    <p class="sub" style="margin-top:10px"><span class="bm">✓ ditanggung · ✗ tidak ditanggung · – tidak berkenaan atau tidak dinyatakan dalam bahan produk WSB. Sahkan butiran bertanda – dengan perunding sebelum membuat keputusan.</span><span class="en">✓ covered · ✗ not covered · – not applicable or not stated in WSB's product material. Confirm items marked – with your advisor before deciding.</span></p>
+  </div>
+</section>
+
+<section style="padding-top:0">
+  <div class="wrap">
+    <h2><span class="bm">Tiga perkara yang membatalkan manfaat</span><span class="en">Three things that void the benefit</span></h2>
+    <p class="sub"><span class="bm">Pastikan waris dan wasi tahu perkara ini sejak awal. Tempoh menunggu ialah 6 bulan bagi Al-Wasitah dan 9 bulan bagi Khairat Pusaka Warga Emas, kecuali kematian akibat kemalangan.</span><span class="en">Make sure heirs and the wasi know this early. The waiting period is 6 months for Al-Wasitah and 9 months for Khairat Pusaka Warga Emas, except for accidental death.</span></p>
+    <div class="void">
+      <div class="v"><b><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-alert"/></svg><span class="bm">6 bulan tidak bayar</span><span class="en">6 months unpaid</span></b><p><span class="bm">Enam bulan berturut-turut tanpa bayaran, langganan terbatal.</span><span class="en">Six consecutive months without payment cancels the subscription.</span></p></div>
+      <div class="v"><b><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-alert"/></svg><span class="bm">Lewat maklum 18 bulan</span><span class="en">Reported after 18 months</span></b><p><span class="bm">Kematian tidak dimaklumkan dalam 18 bulan selepas berlaku.</span><span class="en">The death is not reported within 18 months.</span></p></div>
+      <div class="v"><b><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-alert"/></svg><span class="bm">Waris urus sendiri</span><span class="en">Heirs go it alone</span></b><p><span class="bm">Waris melantik peguam sendiri atau menguruskan pusaka sendiri.</span><span class="en">Heirs appoint their own lawyer or handle the estate themselves.</span></p></div>
+    </div>
+  </div>
+</section>
+
+<section class="cta">
+  <div class="wrap">
+    <h2><span class="bm">Mudahkan perjalanan waris anda</span><span class="en">Make the road easier for your heirs</span></h2>
+    <p><span class="bm">Harta yang dirancang tidak membebankan keluarga. Mari semak saluran dan pakej yang sesuai untuk harta anda.</span><span class="en">A planned estate doesn't burden the family. Let's check the right channel and plan for your assets.</span></p>
+    <a class="wa" id="waLink" href="https://wa.me/60173335664" target="_blank" rel="noopener"><span class="bm">WhatsApp Shakina</span><span class="en">WhatsApp Shakina</span></a>
+    <div class="who">Shakina K. · 017-333 5664</div>
+  </div>
+</section>
+
+<footer>
+  <span class="bm">Untuk tujuan pendidikan. Tempoh ialah anggaran dan berbeza mengikut pejabat, kelengkapan dokumen dan persetujuan waris. Caj berdasarkan senarai harga Wasiyyah (28 Sep 2026, tidak termasuk SST 8%) dan tertakluk kepada terma & syarat Al-Wasitah semasa.</span>
+  <span class="en">For educational purposes. Durations are estimates and vary by office, document completeness and heirs' consent. Charges are based on Wasiyyah's price list (28 Sep 2026, excluding 8% SST) and subject to current Al-Wasitah terms & conditions.</span>
+</footer>
+
+<script>
+/* Plans per WSB Senarai Harga 28 Sep 2026. Fees exclude SST; SST is applied in calc(). */
+const PLANS={
+  i:{n:'Al-Wasitah Intan',  mts:false,max:2e6, mth:30, lim:8500, docs:0,   kh:0,    wait:6,old:false},
+  m:{n:'Al-Wasitah Mutiara',mts:false,max:5e6, mth:65, lim:20000,docs:800, kh:2000, wait:6,old:false},
+  s:{n:'Khairat Pusaka Warga Emas Silver',mts:false,max:5e6,mth:85,lim:20000,docs:800,kh:0,wait:9,old:true},
+  b:{n:'Al-Wasitah Berlian',mts:true, max:1e7, mth:175,lim:60000,docs:800, kh:0,    wait:6,old:false},
+  g:{n:'Khairat Pusaka Warga Emas Gold',mts:true,max:1e7,mth:195,lim:60000,docs:800,kh:0,wait:9,old:true}
+};
+const UP={i:'m',m:'b',s:'g'};
+const SST=0.08;
+let lang='bm', plan='m';
+const fmt=n=>'RM'+Math.round(n).toLocaleString('en-MY');
+const $=id=>document.getElementById(id);
+function press(on,off){$(on).setAttribute('aria-pressed','true');$(off).setAttribute('aria-pressed','false');}
+function pressPlans(){['i','m','s','b','g'].forEach(k=>$('c'+k.toUpperCase()).setAttribute('aria-pressed',String(k===plan)));}
+function setLang(l){lang=l;document.body.classList.toggle('lang-en',l==='en');document.documentElement.lang=l==='en'?'en':'ms';l==='en'?press('bEN','bBM'):press('bBM','bEN');calc();}
+function showTier(t){
+  document.body.classList.toggle('tier-b',t==='b');
+  document.body.classList.toggle('tier-n',t==='n');
+  ['tN','tM','tB'].forEach(id=>$(id).setAttribute('aria-pressed',String(id==='t'+t.toUpperCase())));
+}
+function setTier(t){
+  showTier(t);
+  if(t==='n') return;
+  if(PLANS[plan].mts!==(t==='b')) plan=(t==='b')?'b':'m';
+  pressPlans(); calc();
+}
+function setPlan(k){plan=k;pressPlans();showTier(PLANS[k].mts?'b':'m');calc();}
+
+/* Wasiyyah price list 28 Sep 2026, s.3.1 (1–3 layers) and s.3.2, excl. SST */
+function svcFee(v,mts){
+  return mts ? (v<5e6?32000:v<1e7?47000:v<1.5e7?62000:v<2e7?77000:107000)
+             : (v<1e6?6000:v<2e6?8000:v<3e6?10000:v<4e6?12500:15000);
+}
+/* s.3.5: 0.2% of whole estate value RM50,001–RM2M, 0.3% RM2M–RM5M; PPK only, no SST */
+function ppkOrderFee(v){return v<=50000?0:v*(v<=2000000?0.002:0.003);}
+
+function calc(){
+  const P=PLANS[plan], v0=+$('v').value, yrs=+$('y').value, g=+$('g').value/100, en=lang==='en', B=P.mts;
+  const T=(bm,e)=>en?e:bm;
+  const v=v0*Math.pow(1+g,yrs);
+  $('vOut').textContent=fmt(v0);
+  $('yOut').textContent=yrs+(en?(yrs>1?' years':' year'):' tahun');
+  $('gOut').textContent=(g*100)+'%';
+  $('oVd').textContent=fmt(v);
+
+  let warn='', ok=true;
+  const cap=fmt(P.max).replace('RM10,000,000',T('RM10 juta','RM10M')).replace('RM5,000,000',T('RM5 juta','RM5M')).replace('RM2,000,000',T('RM2 juta','RM2M'));
+  const up=UP[plan]?PLANS[UP[plan]].n:'';
+  if(v0>=P.max){
+    ok=false;
+    warn=T(P.n+' hanya untuk harta bawah '+cap+'. '+(up?'Pilih '+up+'.':'Sila rujuk perunding.'),
+           P.n+' is only for estates under '+cap+'. '+(up?'Choose '+up+'.':'Please consult an advisor.'));
+  } else if(v>=P.max){
+    warn=T('Nilai harta dijangka melebihi '+cap+' semasa kematian. '+(up?'Pertimbangkan '+up+'.':'Sila rujuk perunding.'),
+           'Estate is projected to exceed '+cap+' at death. '+(up?'Consider '+up+'.':'Please consult an advisor.'));
+  }
+  $('oWarn').hidden=!warn; $('oWarn').textContent=warn;
+
+  $('oAge').textContent=(P.old?T('61 tahun ke atas','61 and above'):'18–60'+T(' tahun',''))+' · '+P.wait+T(' bulan',' months');
+  const svc=svcFee(v,B), svcI=svc*(1+SST);
+  if(B){
+    $('oCh').textContent=T('Mahkamah Tinggi Sivil','Civil High Court');
+    $('oTime').textContent=T('2–6 bulan','2–6 months');
+    $('oFee').textContent=T('Tiada bayaran perintah PPK','No PPK order fee');
+    $('oCap').textContent=T('sehingga ','up to ')+fmt(v*0.05);
+  } else {
+    const f=ppkOrderFee(v);
+    $('oCh').textContent=T('Pejabat Pusaka Kecil','Small Estate Office');
+    $('oTime').textContent=T('6–12 bulan+','6–12 months+');
+    $('oFee').textContent=v>=5e6?T('Melebihi had PPK, perlu Mahkamah Tinggi','Above the PPK limit, High Court needed'):fmt(f)+(v<=50000?'':(v<=2000000?' (0.2%)':' (0.3%)'));
+    $('oCap').textContent=T('Tidak berkenaan','Not applicable');
+  }
+  $('oLeft').textContent=T('Sijil faraid, daftar perintah','Faraid cert, order registration');
+  $('oNo').textContent=fmt(svcI);
+
+  const mthI=P.mth*(1+SST);
+  const inc=P.docs*(1+SST)+P.kh;                 /* documents carry SST; khairat is a cash benefit */
+  const overI=Math.max(svc-P.lim,0)*(1+SST);     /* cost above the coverage limit, paid by heirs */
+  const paid=mthI*12*yrs, net=paid-inc+overI, maxNet=mthI*180-inc+overI;
+  $('rOver').hidden=!(ok&&overI>0); $('oOver').textContent='+ '+fmt(overI);
+  $('oLim').textContent=ok?fmt(P.lim):'–';
+  $('oSub').textContent=ok?fmt(paid)+' (RM'+mthI.toFixed(2)+T(' sebulan',' a month')+')':'–';
+  $('oInc').textContent=!ok?'–':(inc>0?'– '+fmt(inc)+(P.kh?T(' (dokumen + khairat)',' (documents + death benefit)'):T(' (dokumen)',' (documents)')):T('RM0 (dokumen DIY)','RM0 (DIY documents)'));
+  $('oNet').textContent=ok?fmt(Math.max(net,0)):'–';
+  /* year when cumulative subscription equals the no-plan fee */
+  const be=(svcI+inc-overI)/(mthI*12);
+  $('oBE').textContent=!ok?'–':(maxNet<svcI?T('Tiada, maksimum 180 bulan masih lebih rendah','None, 180-month max is still lower'):T('Tahun ke-','Year ')+be.toFixed(1));
+
+  const V=$('oVerdict');
+  if(!ok){V.hidden=true;}
+  else{
+    V.hidden=false;
+    const d=svcI-Math.max(net,0);
+    const extra=B?T(' Belum termasuk risiko komisen sehingga ',' Before the commission risk of up to ')+fmt(v*0.05)+'.':'';
+    if(d>=0) V.innerHTML=T('Pelan ini lebih rendah ','This plan is lower by ')+fmt(d)+T(' jika kematian berlaku pada tahun ke-',' if death occurs in year ')+yrs+'.'+'<small>'+T('Waris juga tidak perlu mencari wang tunai ketika harta dibekukan.','Heirs also don\'t need to find cash while assets are frozen.')+extra+'</small>';
+    else V.innerHTML=T('Dari sudut kos semata-mata, tanpa pelan lebih rendah ','On cost alone, no plan is lower by ')+fmt(-d)+T(' jika kematian berlaku pada tahun ke-',' if death occurs in year ')+yrs+'.'+'<small>'+T('Nilai pelan di sini ialah kepastian: tiada siapa tahu bila ajal tiba, dokumen dan wasi sudah siap, dan kos tidak dibebankan kepada waris ketika harta beku.','The plan\'s value here is certainty: no one knows when death comes, documents and the wasi are in place, and costs don\'t fall on heirs while assets are frozen.')+extra+'</small>';
+  }
+  const msg=en?`Hi Shakina, I'd like to understand ${P.n} for assets of about ${fmt(Math.round(v/100000)*100000)}.`
+              :`Salam Shakina, saya ingin tahu tentang ${P.n} untuk harta sekitar ${fmt(Math.round(v/100000)*100000)}.`;
+  $('waLink').href='https://wa.me/60173335664?text='+encodeURIComponent(msg);
+}
+calc();
+</script>
+<div style="text-align:center;padding:22px 16px 30px;font-family:'DM Sans',system-ui,sans-serif;font-size:14px;background:#FAF8F3;border-top:1px solid #E8E4D8"><a href="../" style="color:#8C6E1A;font-weight:600;text-decoration:none">&larr; Semua alat perancangan pusaka · All estate planning tools</a></div>
+</body>
+</html>
