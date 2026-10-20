@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>WSB Client Suite — Process Flow · Faraid Calculator · Plans &amp; Packages</title>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,500&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
   :root {
     /* Agreed brand palette */
@@ -93,7 +93,7 @@
 
   /* ── TAB NAV ── */
   .tab-nav {
-    position: sticky; top: 58px; z-index: 150;
+    position: sticky; top: 59px; z-index: 150;
     background: #fff;
     border-bottom: 1px solid var(--border);
     display: flex;
@@ -385,31 +385,44 @@
   .example-box .ex-row:last-child { border-bottom: none; font-weight: 600; color: var(--teal); }
   .example-box .ex-row span:last-child { font-weight: 500; }
 </style>
+<style id="wsb-shared">
+/* ── Shared chrome: identical on every page ── */
+.wsb-bar{position:sticky;top:0;z-index:300;height:56px;background:#1A1A1A;color:#F3EBD8;font-family:'DM Sans',system-ui,sans-serif;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:0 20px}
+.wsb-bar::after{content:"";position:absolute;left:0;right:0;bottom:-3px;height:3px;background:linear-gradient(90deg,#1A3A8F 0 33.3%,#2E9E4F 33.3% 66.6%,#F5A800 66.6% 100%)}
+.wsb-left{display:flex;align-items:center;gap:18px;min-width:0}
+.wsb-home{color:#F3EBD8;text-decoration:none;font-size:14px;font-weight:600;white-space:nowrap}
+.wsb-home:hover{color:#E8D49A}
+.wsb-brand{font-size:12px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:#B8952A;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.wsb-right{display:flex;align-items:center;gap:10px}
+.wsb-lang{display:inline-flex;border:1px solid #4A443A;border-radius:999px;overflow:hidden}
+.wsb-lang button{background:none;border:0;color:#D9CFBA;font:600 13px 'DM Sans',system-ui,sans-serif;padding:7px 14px;cursor:pointer;line-height:1}
+.wsb-lang button[aria-pressed="true"]{background:#B8952A;color:#1A1A1A}
+.wsb-btn{background:none;border:1px solid #B8952A;color:#F3EBD8;font:600 13px 'DM Sans',system-ui,sans-serif;padding:7px 14px;border-radius:999px;cursor:pointer;line-height:1;white-space:nowrap}
+.wsb-btn:hover{background:rgba(184,149,42,.15)}
+.wsb-bar a:focus-visible,.wsb-bar button:focus-visible,.wsb-foot a:focus-visible{outline:2px solid #F5A800;outline-offset:2px}
+.wsb-foot{background:#1A1A1A;color:#D9CFBA;font-family:'DM Sans',system-ui,sans-serif;font-size:14px;text-align:center;padding:22px 16px 26px;line-height:1.7}
+.wsb-foot a{color:#E8D49A;text-decoration:none;font-weight:600}
+.wsb-foot .wsb-sep{color:#6B6660;margin:0 8px}
+@media (max-width:640px){.wsb-brand{display:none}.wsb-bar{padding:0 14px}.wsb-btn .wsb-long{display:none}}
+@media print{.wsb-bar,.wsb-foot{display:none!important}}
+</style>
 </head>
 <body data-lang="ms">
+<div class="wsb-bar">
+  <div class="wsb-left"><a class="wsb-home" href="../">&larr; <span data-wsb-ms="Semua alat" data-wsb-en="All tools">Semua alat</span></a><span class="wsb-brand">Shakina K. · Kausar Wealth</span></div>
+  <div class="wsb-right"><div class="wsb-lang" role="group" aria-label="Bahasa / Language"><button type="button" data-l="ms" aria-pressed="true" onclick="wsbSetLang('ms')">BM</button><button type="button" data-l="en" aria-pressed="false" onclick="wsbSetLang('en')">EN</button></div></div>
+</div>
 
 <!-- ═══════════════════════════════════════════════════════════════════
      MASTER TOP BAR
      ═══════════════════════════════════════════════════════════════════ -->
-<div class="topbar">
-  <div>
-    <div class="brand-mark">Wasiyyah <span>Shoppe</span> Berhad</div>
-    <div class="brand-tag"><span class="en">Islamic Estate Planning Suite</span><span class="bm">Suite Perancangan Harta Islam</span></div>
-  </div>
-  <div class="lang-bar">
-    <span class="lang-label">Lang</span>
-    <button class="lang-btn" id="lang-en" onclick="setLang('en')">English</button>
-    <button class="lang-btn active" id="lang-ms" onclick="setLang('ms')">Bahasa</button>
-  </div>
-</div>
-
 <!-- ═══════════════════════════════════════════════════════════════════
      STAT BANNER
      ═══════════════════════════════════════════════════════════════════ -->
 <div style="background:var(--dark);border-bottom:1px solid rgba(184,149,42,0.3);padding:10px 24px;text-align:center;">
   <span style="font-size:12px;color:#aaa;">
-    <span class="en">💡 Did you know? <strong style="color:var(--gold);">RM90 billion</strong> in assets are frozen in Malaysia — <strong style="color:var(--gold);">90% belong to Muslims.</strong> Most families wait <strong style="color:#fff;">5–10 years</strong> just to access what is rightfully theirs.</span>
-    <span class="bm">💡 Tahukah anda? <strong style="color:var(--gold);">RM90 bilion</strong> aset dibekukan di Malaysia — <strong style="color:var(--gold);">90% milik orang Islam.</strong> Kebanyakan keluarga menunggu <strong style="color:#fff;">5–10 tahun</strong> hanya untuk mendapatkan apa yang menjadi hak mereka.</span>
+    <span class="en">💡 Did you know? <strong style="color:var(--gold);">RM90 billion</strong> in assets are frozen in Malaysia — <strong style="color:var(--gold);">90% belong to Muslims.</strong> Without planning, families can wait <strong style="color:#fff;">years</strong> to access what is rightfully theirs.</span>
+    <span class="bm">💡 Tahukah anda? <strong style="color:var(--gold);">RM90 bilion</strong> aset dibekukan di Malaysia — <strong style="color:var(--gold);">90% milik orang Islam.</strong> Tanpa perancangan, keluarga boleh menunggu <strong style="color:#fff;">bertahun-tahun</strong> untuk mendapatkan apa yang menjadi hak mereka.</span>
   </span>
 </div>
 
@@ -1480,6 +1493,10 @@
     margin-top: 10px;
     line-height: 1.5;
   }
+  .hb-pkg-price { display:flex; align-items:baseline; gap:6px; margin-top:12px; }
+  .hb-pkg-price .amt { font-family:'Playfair Display',serif; font-size:32px; font-weight:700; line-height:1; color:#fff; }
+  .hb-pkg-price .per { font-size:13px; font-weight:600; color:rgba(255,255,255,.85); }
+  .hb-pkg-sst { font-size:12px; color:rgba(255,255,255,.8); margin-top:4px; }
   .hb-pkg-price-bar {
     background: var(--gold);
     color: #fff;
@@ -1776,13 +1793,14 @@
       <div class="hb-pkg-header" style="background:#237A3D;">
         <div class="hb-pkg-type"><span class="en">Ages 18–60 · New</span><span class="bm">Umur 18–60 · Baharu</span></div>
         <div class="hb-pkg-name">Al-Wasitah Intan</div>
+        <div class="hb-pkg-price"><span class="amt">RM30</span><span class="per"><span class="en">/month</span><span class="bm">/bulan</span></span></div>
+        <div class="hb-pkg-sst"><span class="en">RM32.40 with 8% SST</span><span class="bm">RM32.40 dengan SST 8%</span></div>
         <div class="hb-pkg-tagline"><span class="en">Entry plan for smaller estates</span><span class="bm">Pelan permulaan untuk harta kecil</span></div>
       </div>
       <div class="hb-pkg-body">
         <div class="hb-pkg-section">
-          <div class="hb-pkg-section-title"><span class="en">Fee</span><span class="bm">Yuran</span></div>
+          <div class="hb-pkg-section-title"><span class="en">Total contribution</span><span class="bm">Jumlah caruman</span></div>
           <ul class="hb-pkg-list">
-            <li><span class="en"><strong>RM30/mo</strong> (RM32.40 with 8% SST)</span><span class="bm"><strong>RM30/bulan</strong> (RM32.40 dengan SST 8%)</span></li>
             <li><span class="en">Max 180 months · RM5,400 total before SST</span><span class="bm">Maks 180 bulan · jumlah RM5,400 sebelum SST</span></li>
           </ul>
         </div>
@@ -1801,19 +1819,19 @@
         </div>
         <div class="hb-pkg-note">💡 <span class="en">Lowest monthly fee, but the lowest coverage limit too. Suits simple estates with few titles.</span><span class="bm">Yuran paling rendah, tetapi had tanggungan juga paling rendah. Sesuai untuk harta ringkas dengan sedikit hakmilik.</span></div>
       </div>
-      <div class="hb-pkg-price-bar" style="background:#237A3D;"><span class="en">RM30/mo</span><span class="bm">RM30/bulan</span></div>
     </div>
     <div class="hb-pkg" style="border:2px solid var(--gold);">
       <div class="hb-pkg-header" style="background:var(--teal);">
         <div class="hb-pkg-type"><span class="en">Ages 18–60 · Most popular</span><span class="bm">Umur 18–60 · Paling popular</span></div>
         <div class="hb-pkg-name">Al-Wasitah Mutiara</div>
+        <div class="hb-pkg-price"><span class="amt">RM65</span><span class="per"><span class="en">/month</span><span class="bm">/bulan</span></span></div>
+        <div class="hb-pkg-sst"><span class="en">RM70.20 with 8% SST</span><span class="bm">RM70.20 dengan SST 8%</span></div>
         <div class="hb-pkg-tagline"><span class="en">Complete estate management</span><span class="bm">Pengurusan pusaka lengkap</span></div>
       </div>
       <div class="hb-pkg-body">
         <div class="hb-pkg-section">
-          <div class="hb-pkg-section-title"><span class="en">Fee</span><span class="bm">Yuran</span></div>
+          <div class="hb-pkg-section-title"><span class="en">Total contribution</span><span class="bm">Jumlah caruman</span></div>
           <ul class="hb-pkg-list">
-            <li><span class="en"><strong>RM65/mo</strong> (RM70.20 with 8% SST)</span><span class="bm"><strong>RM65/bulan</strong> (RM70.20 dengan SST 8%)</span></li>
             <li><span class="en">Max 180 months · RM11,700 total before SST</span><span class="bm">Maks 180 bulan · jumlah RM11,700 sebelum SST</span></li>
           </ul>
         </div>
@@ -1831,19 +1849,19 @@
         </div>
         <div class="hb-pkg-note">💡 <span class="en">The balanced choice for most families with a home and savings.</span><span class="bm">Pilihan seimbang untuk kebanyakan keluarga yang mempunyai rumah dan simpanan.</span></div>
       </div>
-      <div class="hb-pkg-price-bar" style="background:var(--teal);"><span class="en">RM65/mo</span><span class="bm">RM65/bulan</span></div>
     </div>
     <div class="hb-pkg">
       <div class="hb-pkg-header" style="background:var(--wsb-blue);">
         <div class="hb-pkg-type"><span class="en">Ages 18–60 · Premium</span><span class="bm">Umur 18–60 · Premium</span></div>
         <div class="hb-pkg-name">Al-Wasitah Berlian</div>
+        <div class="hb-pkg-price"><span class="amt">RM175</span><span class="per"><span class="en">/month</span><span class="bm">/bulan</span></span></div>
+        <div class="hb-pkg-sst"><span class="en">RM189.00 with 8% SST</span><span class="bm">RM189.00 dengan SST 8%</span></div>
         <div class="hb-pkg-tagline"><span class="en">For larger or more complex estates</span><span class="bm">Untuk harta lebih besar atau kompleks</span></div>
       </div>
       <div class="hb-pkg-body">
         <div class="hb-pkg-section">
-          <div class="hb-pkg-section-title"><span class="en">Fee</span><span class="bm">Yuran</span></div>
+          <div class="hb-pkg-section-title"><span class="en">Total contribution</span><span class="bm">Jumlah caruman</span></div>
           <ul class="hb-pkg-list">
-            <li><span class="en"><strong>RM175/mo</strong> (RM189.00 with 8% SST)</span><span class="bm"><strong>RM175/bulan</strong> (RM189.00 dengan SST 8%)</span></li>
             <li><span class="en">Max 180 months · RM31,500 total before SST</span><span class="bm">Maks 180 bulan · jumlah RM31,500 sebelum SST</span></li>
           </ul>
         </div>
@@ -1861,7 +1879,6 @@
         </div>
         <div class="hb-pkg-note">💡 <span class="en">For estates above RM5M, many titles, or where a High Court grant is preferred.</span><span class="bm">Untuk harta melebihi RM5 juta, banyak hakmilik, atau jika geran Mahkamah Tinggi lebih sesuai.</span></div>
       </div>
-      <div class="hb-pkg-price-bar" style="background:var(--wsb-blue);"><span class="en">RM175/mo</span><span class="bm">RM175/bulan</span></div>
     </div>
   </div>
 
@@ -1871,13 +1888,14 @@
       <div class="hb-pkg-header" style="background:#5F6368;">
         <div class="hb-pkg-type"><span class="en">Ages 61+ · New</span><span class="bm">Umur 61 ke atas · Baharu</span></div>
         <div class="hb-pkg-name">Khairat Pusaka Warga Emas · Silver</div>
+        <div class="hb-pkg-price"><span class="amt">RM85</span><span class="per"><span class="en">/month</span><span class="bm">/bulan</span></span></div>
+        <div class="hb-pkg-sst"><span class="en">RM91.80 with 8% SST</span><span class="bm">RM91.80 dengan SST 8%</span></div>
         <div class="hb-pkg-tagline"><span class="en">Estate management for senior citizens</span><span class="bm">Pengurusan pusaka untuk warga emas</span></div>
       </div>
       <div class="hb-pkg-body">
         <div class="hb-pkg-section">
-          <div class="hb-pkg-section-title"><span class="en">Fee</span><span class="bm">Yuran</span></div>
+          <div class="hb-pkg-section-title"><span class="en">Total contribution</span><span class="bm">Jumlah caruman</span></div>
           <ul class="hb-pkg-list">
-            <li><span class="en"><strong>RM85/mo</strong> (RM91.80 with 8% SST)</span><span class="bm"><strong>RM85/bulan</strong> (RM91.80 dengan SST 8%)</span></li>
             <li><span class="en">Max 180 months · RM15,300 total before SST</span><span class="bm">Maks 180 bulan · jumlah RM15,300 sebelum SST</span></li>
           </ul>
         </div>
@@ -1895,19 +1913,19 @@
         </div>
         <div class="hb-pkg-note">💡 <span class="en">The Mutiara equivalent for parents and grandparents above 60.</span><span class="bm">Setara Mutiara untuk ibu bapa dan datuk nenek berumur lebih 60 tahun.</span></div>
       </div>
-      <div class="hb-pkg-price-bar" style="background:#5F6368;"><span class="en">RM85/mo</span><span class="bm">RM85/bulan</span></div>
     </div>
     <div class="hb-pkg">
       <div class="hb-pkg-header" style="background:#1A1A1A;">
         <div class="hb-pkg-type"><span class="en">Ages 61+ · New</span><span class="bm">Umur 61 ke atas · Baharu</span></div>
         <div class="hb-pkg-name">Khairat Pusaka Warga Emas · Gold</div>
+        <div class="hb-pkg-price"><span class="amt">RM195</span><span class="per"><span class="en">/month</span><span class="bm">/bulan</span></span></div>
+        <div class="hb-pkg-sst"><span class="en">RM210.60 with 8% SST</span><span class="bm">RM210.60 dengan SST 8%</span></div>
         <div class="hb-pkg-tagline"><span class="en">Senior plan for larger estates</span><span class="bm">Pelan warga emas untuk harta lebih besar</span></div>
       </div>
       <div class="hb-pkg-body">
         <div class="hb-pkg-section">
-          <div class="hb-pkg-section-title"><span class="en">Fee</span><span class="bm">Yuran</span></div>
+          <div class="hb-pkg-section-title"><span class="en">Total contribution</span><span class="bm">Jumlah caruman</span></div>
           <ul class="hb-pkg-list">
-            <li><span class="en"><strong>RM195/mo</strong> (RM210.60 with 8% SST)</span><span class="bm"><strong>RM195/bulan</strong> (RM210.60 dengan SST 8%)</span></li>
             <li><span class="en">Max 180 months · RM35,100 total before SST</span><span class="bm">Maks 180 bulan · jumlah RM35,100 sebelum SST</span></li>
           </ul>
         </div>
@@ -1925,7 +1943,6 @@
         </div>
         <div class="hb-pkg-note">💡 <span class="en">The Berlian equivalent for those above 60.</span><span class="bm">Setara Berlian untuk mereka yang berumur lebih 60 tahun.</span></div>
       </div>
-      <div class="hb-pkg-price-bar" style="background:var(--gold);color:#1A1A1A;"><span class="en">RM195/mo</span><span class="bm">RM195/bulan</span></div>
     </div>
   </div>
 
@@ -2037,8 +2054,6 @@
    ══════════════════════════════════════════════════════════════════════ */
 function setLang(l) {
   document.body.setAttribute('data-lang', l);
-  document.getElementById('lang-en').classList.toggle('active', l === 'en');
-  document.getElementById('lang-ms').classList.toggle('active', l === 'ms');
   try { localStorage.setItem('wsb-lang', l); } catch(e) {}
 }
 
@@ -2051,8 +2066,6 @@ function setTab(id) {
 
 // Restore last state
 try {
-  const savedLang = localStorage.getItem('wsb-lang');
-  if (savedLang) setLang(savedLang);
   const savedTab = localStorage.getItem('wsb-tab');
   if (savedTab && ['flow','faraid','hibah'].includes(savedTab)) setTab(savedTab);
 } catch(e) {}
@@ -2399,6 +2412,25 @@ function fcRender(result, net) {
 document.addEventListener('DOMContentLoaded', fcUpdateNet);
 </script>
 
-<div style="text-align:center;padding:22px 16px 30px;font-family:'DM Sans',system-ui,sans-serif;font-size:14px;background:#FAF8F3;border-top:1px solid #E8E4D8"><a href="../" style="color:#8C6E1A;font-weight:600;text-decoration:none">&larr; Semua alat perancangan pusaka · All estate planning tools</a></div>
+<div class="wsb-foot"><a href="../">&larr; <span data-wsb-ms="Semua alat" data-wsb-en="All tools">Semua alat</span></a><span class="wsb-sep">·</span>Shakina K. · Kausar Wealth · WSB Advisor<span class="wsb-sep">·</span><a href="https://wa.me/60173335664" target="_blank" rel="noopener">WhatsApp 017-333 5664</a></div>
+<script>window.wsbOnLang=function(l){setLang(l);};</script>
+<script id="wsb-shared-js">
+(function(){
+  var KEY = 'wsb-lang';
+  function saved(){ try { return localStorage.getItem(KEY) === 'en' ? 'en' : 'ms'; } catch (e) { return 'ms'; } }
+  window.wsbSetLang = function(l){
+    l = (l === 'en') ? 'en' : 'ms';
+    try { localStorage.setItem(KEY, l); } catch (e) {}
+    document.documentElement.lang = l;
+    var bs = document.querySelectorAll('.wsb-lang button');
+    for (var i = 0; i < bs.length; i++) bs[i].setAttribute('aria-pressed', String(bs[i].getAttribute('data-l') === l));
+    var ts = document.querySelectorAll('[data-wsb-ms]');
+    for (var j = 0; j < ts.length; j++) ts[j].textContent = ts[j].getAttribute(l === 'en' ? 'data-wsb-en' : 'data-wsb-ms');
+    if (typeof window.wsbOnLang === 'function') window.wsbOnLang(l);
+  };
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', function(){ wsbSetLang(saved()); });
+  else wsbSetLang(saved());
+})();
+</script>
 </body>
 </html>

@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ms">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Penilaian Pakej Hibah Hartanah | Hibah Package Assessment</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,500&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
 :root{
   --gold:#B8952A;
@@ -28,7 +28,7 @@
 }
 *{box-sizing:border-box;margin:0;padding:0}
 body{
-  font-family:'Roboto',-apple-system,BlinkMacSystemFont,sans-serif;
+  font-family:'DM Sans',-apple-system,BlinkMacSystemFont,sans-serif;
   background:var(--paper);
   color:var(--ink);
   line-height:1.65;
@@ -38,7 +38,8 @@ body{
 .wrap{max-width:880px;margin:0 auto;padding:0 20px 72px}
 
 /* ---------- Header ---------- */
-.masthead{border-top:5px solid var(--gold);background:var(--card);border-bottom:1px solid var(--line)}
+.masthead{background:#1A1A1A;color:#F3EBD8}
+.masthead .sub{color:#D9CFBA}
 .masthead .inner{max-width:880px;margin:0 auto;padding:26px 20px 22px;display:flex;justify-content:space-between;align-items:flex-start;gap:20px;flex-wrap:wrap}
 .strips{display:flex;gap:4px;margin-bottom:14px}
 .strips span{height:4px;width:34px;border-radius:2px}
@@ -161,7 +162,7 @@ footer{margin-top:34px;padding-top:20px;border-top:1px solid var(--line);font-si
 footer strong{color:var(--ink-70);font-weight:500}
 .disc{font-size:12px;line-height:1.6;margin-top:10px}
 
-@media print{.langbtn,.cta-row,.final{display:none}}
+@media print{.cta-row,.final{display:none}}
 @media (max-width:560px){
   h1{font-size:24px}
   .masthead .inner{padding:22px 20px 18px}
@@ -170,18 +171,41 @@ footer strong{color:var(--ink-70);font-weight:500}
   .sect-note{display:none}
 }
 </style>
+<style id="wsb-shared">
+/* ── Shared chrome: identical on every page ── */
+.wsb-bar{position:sticky;top:0;z-index:300;height:56px;background:#1A1A1A;color:#F3EBD8;font-family:'DM Sans',system-ui,sans-serif;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:0 20px}
+.wsb-bar::after{content:"";position:absolute;left:0;right:0;bottom:-3px;height:3px;background:linear-gradient(90deg,#1A3A8F 0 33.3%,#2E9E4F 33.3% 66.6%,#F5A800 66.6% 100%)}
+.wsb-left{display:flex;align-items:center;gap:18px;min-width:0}
+.wsb-home{color:#F3EBD8;text-decoration:none;font-size:14px;font-weight:600;white-space:nowrap}
+.wsb-home:hover{color:#E8D49A}
+.wsb-brand{font-size:12px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:#B8952A;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.wsb-right{display:flex;align-items:center;gap:10px}
+.wsb-lang{display:inline-flex;border:1px solid #4A443A;border-radius:999px;overflow:hidden}
+.wsb-lang button{background:none;border:0;color:#D9CFBA;font:600 13px 'DM Sans',system-ui,sans-serif;padding:7px 14px;cursor:pointer;line-height:1}
+.wsb-lang button[aria-pressed="true"]{background:#B8952A;color:#1A1A1A}
+.wsb-btn{background:none;border:1px solid #B8952A;color:#F3EBD8;font:600 13px 'DM Sans',system-ui,sans-serif;padding:7px 14px;border-radius:999px;cursor:pointer;line-height:1;white-space:nowrap}
+.wsb-btn:hover{background:rgba(184,149,42,.15)}
+.wsb-bar a:focus-visible,.wsb-bar button:focus-visible,.wsb-foot a:focus-visible{outline:2px solid #F5A800;outline-offset:2px}
+.wsb-foot{background:#1A1A1A;color:#D9CFBA;font-family:'DM Sans',system-ui,sans-serif;font-size:14px;text-align:center;padding:22px 16px 26px;line-height:1.7}
+.wsb-foot a{color:#E8D49A;text-decoration:none;font-weight:600}
+.wsb-foot .wsb-sep{color:#6B6660;margin:0 8px}
+@media (max-width:640px){.wsb-brand{display:none}.wsb-bar{padding:0 14px}.wsb-btn .wsb-long{display:none}}
+@media print{.wsb-bar,.wsb-foot{display:none!important}}
+</style>
 </head>
 <body>
+<div class="wsb-bar">
+  <div class="wsb-left"><a class="wsb-home" href="../">&larr; <span data-wsb-ms="Semua alat" data-wsb-en="All tools">Semua alat</span></a><span class="wsb-brand">Shakina K. · Kausar Wealth</span></div>
+  <div class="wsb-right"><div class="wsb-lang" role="group" aria-label="Bahasa / Language"><button type="button" data-l="ms" aria-pressed="true" onclick="wsbSetLang('ms')">BM</button><button type="button" data-l="en" aria-pressed="false" onclick="wsbSetLang('en')">EN</button></div></div>
+</div>
 
 <div class="masthead">
   <div class="inner">
     <div>
-      <div class="strips"><span style="background:var(--wsb-blue)"></span><span style="background:var(--wsb-green)"></span><span style="background:var(--gold-lt)"></span></div>
       <div class="eyebrow" data-en="Wasiyyah Shoppe Berhad · Kausar Wealth" data-ms="Wasiyyah Shoppe Berhad · Kausar Wealth">Wasiyyah Shoppe Berhad · Kausar Wealth</div>
       <h1 data-en="Which Hibah package fits your property?" data-ms="Pakej Hibah mana yang sesuai untuk hartanah anda?">Which Hibah package fits your property?</h1>
       <p class="sub" data-en="Answer eleven questions. You will get a side-by-side cost comparison, a recommendation with reasoning, and a checklist of what must be in place before a Hibah can be executed." data-ms="Jawab sebelas soalan. Anda akan dapat perbandingan kos, cadangan pakej beserta sebabnya, dan senarai semak perkara yang perlu ada sebelum Hibah boleh dilaksanakan.">Answer eleven questions. You will get a side-by-side cost comparison, a recommendation with reasoning, and a checklist of what must be in place before a Hibah can be executed.</p>
     </div>
-    <button class="langbtn" onclick="toggleLang()" id="langbtn">Bahasa Malaysia</button>
   </div>
 </div>
 
@@ -383,7 +407,7 @@ footer strong{color:var(--ink-70);font-weight:500}
 </div>
 
 <script>
-var LANG = 'en';
+var LANG = 'ms';
 var SST = 0.08;
 
 function txt(en, ms){ return LANG === 'en' ? en : ms; }
@@ -442,10 +466,8 @@ function toggleCustomRate(){
   document.getElementById('rateWrap').classList.toggle('hidden', !custom);
 }
 
-function toggleLang(){
-  LANG = (LANG === 'en') ? 'ms' : 'en';
-  document.documentElement.lang = (LANG === 'en') ? 'en' : 'ms';
-  document.getElementById('langbtn').textContent = (LANG === 'en') ? 'Bahasa Malaysia' : 'English';
+function setLang(l){
+  LANG = (l === 'en') ? 'en' : 'ms';
   var nodes = document.querySelectorAll('[data-en]');
   for (var i = 0; i < nodes.length; i++){
     var n = nodes[i];
@@ -918,6 +940,25 @@ function reset(){
   document.getElementById('formSect').scrollIntoView({behavior:'smooth', block:'start'});
 }
 </script>
-<div style="text-align:center;padding:22px 16px 30px;font-family:'DM Sans',system-ui,sans-serif;font-size:14px;background:#FAF8F3;border-top:1px solid #E8E4D8"><a href="../" style="color:#8C6E1A;font-weight:600;text-decoration:none">&larr; Semua alat perancangan pusaka · All estate planning tools</a></div>
+<div class="wsb-foot"><a href="../">&larr; <span data-wsb-ms="Semua alat" data-wsb-en="All tools">Semua alat</span></a><span class="wsb-sep">·</span>Shakina K. · Kausar Wealth · WSB Advisor<span class="wsb-sep">·</span><a href="https://wa.me/60173335664" target="_blank" rel="noopener">WhatsApp 017-333 5664</a></div>
+<script>window.wsbOnLang=function(l){setLang(l);};</script>
+<script id="wsb-shared-js">
+(function(){
+  var KEY = 'wsb-lang';
+  function saved(){ try { return localStorage.getItem(KEY) === 'en' ? 'en' : 'ms'; } catch (e) { return 'ms'; } }
+  window.wsbSetLang = function(l){
+    l = (l === 'en') ? 'en' : 'ms';
+    try { localStorage.setItem(KEY, l); } catch (e) {}
+    document.documentElement.lang = l;
+    var bs = document.querySelectorAll('.wsb-lang button');
+    for (var i = 0; i < bs.length; i++) bs[i].setAttribute('aria-pressed', String(bs[i].getAttribute('data-l') === l));
+    var ts = document.querySelectorAll('[data-wsb-ms]');
+    for (var j = 0; j < ts.length; j++) ts[j].textContent = ts[j].getAttribute(l === 'en' ? 'data-wsb-en' : 'data-wsb-ms');
+    if (typeof window.wsbOnLang === 'function') window.wsbOnLang(l);
+  };
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', function(){ wsbSetLang(saved()); });
+  else wsbSetLang(saved());
+})();
+</script>
 </body>
 </html>

@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Selepas Kematian: Aliran, Kos & Tempoh | Al-Wasitah</title>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;1,500&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,500&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
 :root{
   --gold:#B8952A; --gold-mid:#D4A843; --gold-light:#F5E9C4; --gold-wash:#FBF5E4;
@@ -211,8 +211,33 @@ footer{padding:22px 24px;font-size:12px;color:var(--muted);max-width:900px;margi
 table.cov5{min-width:640px}
 table.cov5 th[colspan]{border-bottom:1px solid rgba(184,149,42,.5)}
 </style>
+<style id="wsb-shared">
+/* ── Shared chrome: identical on every page ── */
+.wsb-bar{position:sticky;top:0;z-index:300;height:56px;background:#1A1A1A;color:#F3EBD8;font-family:'DM Sans',system-ui,sans-serif;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:0 20px}
+.wsb-bar::after{content:"";position:absolute;left:0;right:0;bottom:-3px;height:3px;background:linear-gradient(90deg,#1A3A8F 0 33.3%,#2E9E4F 33.3% 66.6%,#F5A800 66.6% 100%)}
+.wsb-left{display:flex;align-items:center;gap:18px;min-width:0}
+.wsb-home{color:#F3EBD8;text-decoration:none;font-size:14px;font-weight:600;white-space:nowrap}
+.wsb-home:hover{color:#E8D49A}
+.wsb-brand{font-size:12px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:#B8952A;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.wsb-right{display:flex;align-items:center;gap:10px}
+.wsb-lang{display:inline-flex;border:1px solid #4A443A;border-radius:999px;overflow:hidden}
+.wsb-lang button{background:none;border:0;color:#D9CFBA;font:600 13px 'DM Sans',system-ui,sans-serif;padding:7px 14px;cursor:pointer;line-height:1}
+.wsb-lang button[aria-pressed="true"]{background:#B8952A;color:#1A1A1A}
+.wsb-btn{background:none;border:1px solid #B8952A;color:#F3EBD8;font:600 13px 'DM Sans',system-ui,sans-serif;padding:7px 14px;border-radius:999px;cursor:pointer;line-height:1;white-space:nowrap}
+.wsb-btn:hover{background:rgba(184,149,42,.15)}
+.wsb-bar a:focus-visible,.wsb-bar button:focus-visible,.wsb-foot a:focus-visible{outline:2px solid #F5A800;outline-offset:2px}
+.wsb-foot{background:#1A1A1A;color:#D9CFBA;font-family:'DM Sans',system-ui,sans-serif;font-size:14px;text-align:center;padding:22px 16px 26px;line-height:1.7}
+.wsb-foot a{color:#E8D49A;text-decoration:none;font-weight:600}
+.wsb-foot .wsb-sep{color:#6B6660;margin:0 8px}
+@media (max-width:640px){.wsb-brand{display:none}.wsb-bar{padding:0 14px}.wsb-btn .wsb-long{display:none}}
+@media print{.wsb-bar,.wsb-foot{display:none!important}}
+</style>
 </head>
 <body>
+<div class="wsb-bar">
+  <div class="wsb-left"><a class="wsb-home" href="../">&larr; <span data-wsb-ms="Semua alat" data-wsb-en="All tools">Semua alat</span></a><span class="wsb-brand">Shakina K. · Kausar Wealth</span></div>
+  <div class="wsb-right"><button type="button" class="wsb-btn" onclick="window.print()"><span data-wsb-ms="PDF" data-wsb-en="PDF">PDF</span><span class="wsb-long"> / </span><span class="wsb-long" data-wsb-ms="Cetak" data-wsb-en="Print">Cetak</span></button><div class="wsb-lang" role="group" aria-label="Bahasa / Language"><button type="button" data-l="ms" aria-pressed="true" onclick="wsbSetLang('ms')">BM</button><button type="button" data-l="en" aria-pressed="false" onclick="wsbSetLang('en')">EN</button></div></div>
+</div>
 
 <svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
 <g id="i-lock"><rect x="4" y="10" width="16" height="11" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></g>
@@ -227,13 +252,6 @@ table.cov5 th[colspan]{border-bottom:1px solid rgba(184,149,42,.5)}
 <g id="i-shield"><path d="M12 3l7 3v5c0 5-3.2 8.3-7 10-3.8-1.7-7-5-7-10V6z"/></g>
 <g id="i-route"><circle cx="6" cy="6" r="2.5"/><circle cx="18" cy="18" r="2.5"/><path d="M6 8.5v5a4 4 0 0 0 4 4h5.5"/></g>
 </defs></svg>
-<div class="bar">
-  <div class="seg" role="group" aria-label="Bahasa / Language">
-    <button id="bBM" aria-pressed="true" onclick="setLang('bm')">BM</button>
-    <button id="bEN" aria-pressed="false" onclick="setLang('en')">EN</button>
-  </div>
-  <button class="print" onclick="window.print()"><span class="bm">Simpan PDF / Cetak</span><span class="en">Save PDF / Print</span></button>
-</div>
 
 <header class="hero">
   <div class="wrap">
@@ -625,7 +643,7 @@ const fmt=n=>'RM'+Math.round(n).toLocaleString('en-MY');
 const $=id=>document.getElementById(id);
 function press(on,off){$(on).setAttribute('aria-pressed','true');$(off).setAttribute('aria-pressed','false');}
 function pressPlans(){['i','m','s','b','g'].forEach(k=>$('c'+k.toUpperCase()).setAttribute('aria-pressed',String(k===plan)));}
-function setLang(l){lang=l;document.body.classList.toggle('lang-en',l==='en');document.documentElement.lang=l==='en'?'en':'ms';l==='en'?press('bEN','bBM'):press('bBM','bEN');calc();}
+function setLang(l){lang=(l==='en')?'en':'bm';document.body.classList.toggle('lang-en',lang==='en');calc();}
 function showTier(t){
   document.body.classList.toggle('tier-b',t==='b');
   document.body.classList.toggle('tier-n',t==='n');
@@ -714,6 +732,25 @@ function calc(){
 }
 calc();
 </script>
-<div style="text-align:center;padding:22px 16px 30px;font-family:'DM Sans',system-ui,sans-serif;font-size:14px;background:#FAF8F3;border-top:1px solid #E8E4D8"><a href="../" style="color:#8C6E1A;font-weight:600;text-decoration:none">&larr; Semua alat perancangan pusaka · All estate planning tools</a></div>
+<div class="wsb-foot"><a href="../">&larr; <span data-wsb-ms="Semua alat" data-wsb-en="All tools">Semua alat</span></a><span class="wsb-sep">·</span>Shakina K. · Kausar Wealth · WSB Advisor<span class="wsb-sep">·</span><a href="https://wa.me/60173335664" target="_blank" rel="noopener">WhatsApp 017-333 5664</a></div>
+<script>window.wsbOnLang=function(l){setLang(l);};</script>
+<script id="wsb-shared-js">
+(function(){
+  var KEY = 'wsb-lang';
+  function saved(){ try { return localStorage.getItem(KEY) === 'en' ? 'en' : 'ms'; } catch (e) { return 'ms'; } }
+  window.wsbSetLang = function(l){
+    l = (l === 'en') ? 'en' : 'ms';
+    try { localStorage.setItem(KEY, l); } catch (e) {}
+    document.documentElement.lang = l;
+    var bs = document.querySelectorAll('.wsb-lang button');
+    for (var i = 0; i < bs.length; i++) bs[i].setAttribute('aria-pressed', String(bs[i].getAttribute('data-l') === l));
+    var ts = document.querySelectorAll('[data-wsb-ms]');
+    for (var j = 0; j < ts.length; j++) ts[j].textContent = ts[j].getAttribute(l === 'en' ? 'data-wsb-en' : 'data-wsb-ms');
+    if (typeof window.wsbOnLang === 'function') window.wsbOnLang(l);
+  };
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', function(){ wsbSetLang(saved()); });
+  else wsbSetLang(saved());
+})();
+</script>
 </body>
 </html>

@@ -9,7 +9,7 @@
 <meta property="og:description" content="Proses pusaka, kalkulator Faraid, kos pusaka dan penilaian Hibah — dalam BM dan English.">
 <meta property="og:type" content="website">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,500&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
 :root{
   --gold:#B8952A; --gold-lt:#F5E9C4; --black:#1A1A1A; --ink:#2D2D2D; --muted:#6B6660;
@@ -52,18 +52,35 @@ a.card:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
 footer{max-width:980px;margin:0 auto;padding:28px 20px 40px;font-size:12px;color:var(--muted)}
 @media (max-width:560px){header{padding:28px 16px 40px}main{padding:32px 16px 12px}.cta{margin:28px 16px 0;padding:22px}footer{padding:24px 16px 36px}}
 </style>
+<style id="wsb-shared">
+/* ── Shared chrome: identical on every page ── */
+.wsb-bar{position:sticky;top:0;z-index:300;height:56px;background:#1A1A1A;color:#F3EBD8;font-family:'DM Sans',system-ui,sans-serif;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:0 20px}
+.wsb-bar::after{content:"";position:absolute;left:0;right:0;bottom:-3px;height:3px;background:linear-gradient(90deg,#1A3A8F 0 33.3%,#2E9E4F 33.3% 66.6%,#F5A800 66.6% 100%)}
+.wsb-left{display:flex;align-items:center;gap:18px;min-width:0}
+.wsb-home{color:#F3EBD8;text-decoration:none;font-size:14px;font-weight:600;white-space:nowrap}
+.wsb-home:hover{color:#E8D49A}
+.wsb-brand{font-size:12px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:#B8952A;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.wsb-right{display:flex;align-items:center;gap:10px}
+.wsb-lang{display:inline-flex;border:1px solid #4A443A;border-radius:999px;overflow:hidden}
+.wsb-lang button{background:none;border:0;color:#D9CFBA;font:600 13px 'DM Sans',system-ui,sans-serif;padding:7px 14px;cursor:pointer;line-height:1}
+.wsb-lang button[aria-pressed="true"]{background:#B8952A;color:#1A1A1A}
+.wsb-btn{background:none;border:1px solid #B8952A;color:#F3EBD8;font:600 13px 'DM Sans',system-ui,sans-serif;padding:7px 14px;border-radius:999px;cursor:pointer;line-height:1;white-space:nowrap}
+.wsb-btn:hover{background:rgba(184,149,42,.15)}
+.wsb-bar a:focus-visible,.wsb-bar button:focus-visible,.wsb-foot a:focus-visible{outline:2px solid #F5A800;outline-offset:2px}
+.wsb-foot{background:#1A1A1A;color:#D9CFBA;font-family:'DM Sans',system-ui,sans-serif;font-size:14px;text-align:center;padding:22px 16px 26px;line-height:1.7}
+.wsb-foot a{color:#E8D49A;text-decoration:none;font-weight:600}
+.wsb-foot .wsb-sep{color:#6B6660;margin:0 8px}
+@media (max-width:640px){.wsb-brand{display:none}.wsb-bar{padding:0 14px}.wsb-btn .wsb-long{display:none}}
+@media print{.wsb-bar,.wsb-foot{display:none!important}}
+</style>
 </head>
 <body>
-<div class="strip"></div>
+<div class="wsb-bar">
+  <div class="wsb-left"><span class="wsb-brand" style="display:block">Shakina K. · Kausar Wealth · WSB Advisor</span></div>
+  <div class="wsb-right"><div class="wsb-lang" role="group" aria-label="Bahasa / Language"><button type="button" data-l="ms" aria-pressed="true" onclick="wsbSetLang('ms')">BM</button><button type="button" data-l="en" aria-pressed="false" onclick="wsbSetLang('en')">EN</button></div></div>
+</div>
 <header>
   <div class="wrap">
-    <div class="top">
-      <div class="brand">Kausar Wealth · WSB Advisor</div>
-      <div class="lang" role="group" aria-label="Bahasa / Language">
-        <button id="bBM" aria-pressed="true" onclick="setLang('bm')">BM</button>
-        <button id="bEN" aria-pressed="false" onclick="setLang('en')">EN</button>
-      </div>
-    </div>
     <h1><span class="bm">Perancangan pusaka Islam, dijelaskan dengan mudah</span><span class="en">Islamic estate planning, explained simply</span></h1>
     <p class="lead"><span class="bm">Alat percuma untuk anda faham apa yang berlaku kepada harta selepas kematian, berapa kosnya, dan pilihan yang ada untuk keluarga.</span><span class="en">Free tools to understand what happens to assets after death, what it costs, and the options available to your family.</span></p>
     <div class="rule"></div>
@@ -95,7 +112,7 @@ footer{max-width:980px;margin:0 auto;padding:28px 20px 40px;font-size:12px;color
   <div class="start"><b><span class="bm">Baru bermula?</span><span class="en">New to this?</span></b> <span class="bm">Mulakan dengan Proses Pusaka &amp; Faraid, kemudian semak Kos Pusaka.</span><span class="en">Start with Estate Process &amp; Faraid, then check Estate Costs.</span></div>
 </main>
 
-<section class="cta">
+<section class="cta" style="margin-bottom:36px">
   <div class="wrap">
     <div>
       <h3><span class="bm">Ada soalan tentang keluarga anda?</span><span class="en">Questions about your family's situation?</span></h3>
@@ -110,15 +127,25 @@ footer{max-width:980px;margin:0 auto;padding:28px 20px 40px;font-size:12px;color
   <span class="en">For educational purposes only, not legal advice. Prices follow Wasiyyah Shoppe Berhad's current price list and are subject to change.</span>
 </footer>
 
-<script>
-function setLang(l){
-  document.body.classList.toggle('lang-en', l === 'en');
-  document.documentElement.lang = l === 'en' ? 'en' : 'ms';
-  document.getElementById('bBM').setAttribute('aria-pressed', String(l !== 'en'));
-  document.getElementById('bEN').setAttribute('aria-pressed', String(l === 'en'));
-  try { localStorage.setItem('hub-lang', l); } catch (e) {}
-}
-try { var s = localStorage.getItem('hub-lang'); if (s) setLang(s); } catch (e) {}
+<div class="wsb-foot">Shakina K. · Kausar Wealth · WSB Advisor<span class="wsb-sep">·</span><a href="https://wa.me/60173335664" target="_blank" rel="noopener">WhatsApp 017-333 5664</a></div>
+<script>window.wsbOnLang=function(l){document.body.classList.toggle('lang-en',l==='en');};</script>
+<script id="wsb-shared-js">
+(function(){
+  var KEY = 'wsb-lang';
+  function saved(){ try { return localStorage.getItem(KEY) === 'en' ? 'en' : 'ms'; } catch (e) { return 'ms'; } }
+  window.wsbSetLang = function(l){
+    l = (l === 'en') ? 'en' : 'ms';
+    try { localStorage.setItem(KEY, l); } catch (e) {}
+    document.documentElement.lang = l;
+    var bs = document.querySelectorAll('.wsb-lang button');
+    for (var i = 0; i < bs.length; i++) bs[i].setAttribute('aria-pressed', String(bs[i].getAttribute('data-l') === l));
+    var ts = document.querySelectorAll('[data-wsb-ms]');
+    for (var j = 0; j < ts.length; j++) ts[j].textContent = ts[j].getAttribute(l === 'en' ? 'data-wsb-en' : 'data-wsb-ms');
+    if (typeof window.wsbOnLang === 'function') window.wsbOnLang(l);
+  };
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', function(){ wsbSetLang(saved()); });
+  else wsbSetLang(saved());
+})();
 </script>
 </body>
 </html>
