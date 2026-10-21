@@ -78,6 +78,23 @@ input[type=number]:focus,select:focus{outline:none;border-color:var(--gold);box-
 .opt input:checked + span{border-color:var(--gold);background:var(--gold);color:#fff;font-weight:500}
 .opt input:focus-visible + span{box-shadow:0 0 0 3px rgba(184,149,42,.3)}
 .hidden{display:none}
+[hidden]{display:none!important}
+input[type=text],input[type=tel],input[type=email]{width:100%;padding:11px 13px;border:1px solid var(--line);border-radius:8px;background:var(--card);font:inherit;font-size:15px;color:var(--ink)}
+input[type=text]:focus,input[type=tel]:focus,input[type=email]:focus{outline:none;border-color:var(--gold);box-shadow:0 0 0 3px rgba(184,149,42,.13)}
+.fam-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:0 14px;margin-bottom:6px}
+.fam-grid .q{margin-bottom:18px}
+.q-num input{max-width:120px}
+.fine{font-size:13px;color:var(--ink-45);margin-top:-4px}
+.send{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:22px 24px;position:relative}
+.send-lead{font-size:15px;color:var(--ink-70);margin-bottom:16px}
+.send-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:0 14px}
+.consent{display:flex;gap:10px;align-items:flex-start;font-size:14px;color:var(--ink-70);cursor:pointer;margin-top:4px}
+.consent input{margin-top:4px;width:18px;height:18px;accent-color:var(--gold);flex:none}
+.send-ok{background:#1A1A1A;color:#F3EBD8;border:0}
+.send-ok h3{font-family:'Playfair Display',serif;font-size:22px;font-weight:600;margin-bottom:8px}
+.send-ok p{color:#D9CFBA;font-size:15px;margin-bottom:16px}
+.send-ok .wa{display:inline-block;background:#B8952A;color:#1A1A1A;text-decoration:none;font-weight:600;padding:11px 20px;border-radius:8px}
+#sendBtn[disabled]{opacity:.6;cursor:wait}
 
 .cta-row{margin-top:22px;display:flex;gap:12px;align-items:center;flex-wrap:wrap}
 .btn{
@@ -204,7 +221,7 @@ footer strong{color:var(--ink-70);font-weight:500}
     <div>
       <div class="eyebrow" data-en="Wasiyyah Shoppe Berhad · Kausar Wealth" data-ms="Wasiyyah Shoppe Berhad · Kausar Wealth">Wasiyyah Shoppe Berhad · Kausar Wealth</div>
       <h1 data-en="Which Hibah package fits your property?" data-ms="Pakej Hibah mana yang sesuai untuk hartanah anda?">Which Hibah package fits your property?</h1>
-      <p class="sub" data-en="Answer eleven questions. You will get a side-by-side cost comparison, a recommendation with reasoning, and a checklist of what must be in place before a Hibah can be executed." data-ms="Jawab sebelas soalan. Anda akan dapat perbandingan kos, cadangan pakej beserta sebabnya, dan senarai semak perkara yang perlu ada sebelum Hibah boleh dilaksanakan.">Answer eleven questions. You will get a side-by-side cost comparison, a recommendation with reasoning, and a checklist of what must be in place before a Hibah can be executed.</p>
+      <p class="sub" data-en="Answer a few questions to see which Hibah package suits your property. Then send your result to Shakina for a free follow-up conversation." data-ms="Jawab beberapa soalan untuk melihat pakej Hibah yang sesuai dengan hartanah anda. Kemudian hantar keputusan kepada Shakina untuk perbincangan lanjut secara percuma.">Jawab beberapa soalan untuk melihat pakej Hibah yang sesuai dengan hartanah anda. Kemudian hantar keputusan kepada Shakina untuk perbincangan lanjut secara percuma.</p>
     </div>
   </div>
 </div>
@@ -216,7 +233,7 @@ footer strong{color:var(--ink-70);font-weight:500}
   <div class="sect-head">
     <span class="sect-num">01</span>
     <span class="sect-title" data-en="About your situation" data-ms="Tentang keadaan anda">About your situation</span>
-    <span class="sect-note" data-en="Nothing is saved or sent" data-ms="Tiada maklumat disimpan atau dihantar">Nothing is saved or sent</span>
+    <span class="sect-note" data-en="Only sent when you press Send" data-ms="Hanya dihantar apabila anda tekan Hantar">Hanya dihantar apabila anda tekan Hantar</span>
   </div>
 
   <div class="group">
@@ -298,7 +315,7 @@ footer strong{color:var(--ink-70);font-weight:500}
 
     <div class="q">
       <label data-en="Your age" data-ms="Umur anda">Your age</label>
-      <p class="hint" data-en="Used to estimate the planning horizon and to check eligibility: Hibah Komprehensif and al-Wasitah are open up to age 60." data-ms="Digunakan untuk menganggar jangka masa perancangan dan menyemak kelayakan: Hibah Komprehensif dan al-Wasitah dibuka sehingga umur 60.">Used to estimate the planning horizon and to check eligibility: Hibah Komprehensif and al-Wasitah are open up to age 60.</p>
+      <p class="hint" data-en="Used to estimate the planning horizon and check which packages apply to you." data-ms="Digunakan untuk menganggar jangka masa perancangan dan menyemak pakej yang berkaitan dengan anda.">Digunakan untuk menganggar jangka masa perancangan dan menyemak pakej yang berkaitan dengan anda.</p>
       <input type="number" id="q_age" min="18" max="90" step="1" placeholder="45">
     </div>
 
@@ -332,14 +349,31 @@ footer strong{color:var(--ink-70);font-weight:500}
     </div>
 
     <div class="q">
-      <label data-en="Are you already an al-Wasitah subscriber?" data-ms="Adakah anda sudah menjadi pelanggan al-Wasitah?">Are you already an al-Wasitah subscriber?</label>
-      <p class="hint" data-en="al-Wasitah is the estate administration service. One package below requires it." data-ms="al-Wasitah ialah perkhidmatan pentadbiran harta pusaka. Satu pakej di bawah memerlukannya.">al-Wasitah is the estate administration service. One package below requires it.</p>
+      <label data-en="Do you already subscribe to al-Wasitah or Khairat Pusaka Warga Emas?" data-ms="Adakah anda sudah melanggan al-Wasitah atau Khairat Pusaka Warga Emas?">Adakah anda sudah melanggan al-Wasitah atau Khairat Pusaka Warga Emas?</label>
+      <p class="hint" data-en="These are the estate administration plans. Hibah Komprehensif must be paired with one of them, or with a peruntukan pusaka." data-ms="Ini pelan pengurusan pusaka. Hibah Komprehensif perlu digandingkan dengan salah satu daripadanya, atau dengan peruntukan pusaka.">Ini pelan pengurusan pusaka. Hibah Komprehensif perlu digandingkan dengan salah satu daripadanya, atau dengan peruntukan pusaka.</p>
       <div class="opts" id="q_wasitah">
         <label class="opt"><input type="radio" name="wasitah" value="yes"><span data-en="Yes" data-ms="Ya">Yes</span></label>
         <label class="opt"><input type="radio" name="wasitah" value="no"><span data-en="No" data-ms="Tidak">No</span></label>
         <label class="opt"><input type="radio" name="wasitah" value="unsure"><span data-en="Not sure" data-ms="Tidak pasti">Not sure</span></label>
       </div>
     </div>
+  </div>
+
+
+  <div class="group">
+    <span class="group-label" data-en="Your family (optional)" data-ms="Keluarga anda (pilihan)">Keluarga anda (pilihan)</span>
+    <p class="hint" style="margin:-6px 0 16px" data-en="Helps Shakina estimate how the rest of your estate would be divided under Faraid. Count only family members who are alive today." data-ms="Membantu Shakina menganggar pembahagian Faraid bagi baki harta anda. Kira ahli keluarga yang masih hidup sahaja.">Membantu Shakina menganggar pembahagian Faraid bagi baki harta anda. Kira ahli keluarga yang masih hidup sahaja.</p>
+    <div class="q"><label data-en="You are" data-ms="Anda">Anda</label><div class="opts"><label class="opt"><input type="radio" name="gender" value="m" onchange="toggleSpouse()"><span data-en="Male" data-ms="Lelaki">Lelaki</span></label><label class="opt"><input type="radio" name="gender" value="f" onchange="toggleSpouse()"><span data-en="Female" data-ms="Perempuan">Perempuan</span></label></div></div>
+    <div class="q"><label data-en="Married?" data-ms="Sudah berkahwin?">Sudah berkahwin?</label><div class="opts"><label class="opt"><input type="radio" name="married" value="yes" onchange="toggleSpouse()"><span data-en="Yes" data-ms="Ya">Ya</span></label><label class="opt"><input type="radio" name="married" value="no" onchange="toggleSpouse()"><span data-en="No" data-ms="Tidak">Tidak</span></label></div></div>
+    <div class="q hidden" id="wivesWrap"><label for="f_wife" data-en="Number of wives" data-ms="Bilangan isteri">Bilangan isteri</label><input type="number" id="f_wife" min="1" max="4" step="1" value="1" inputmode="numeric"></div>
+    <div class="fam-grid">
+      <div class="q q-num"><label for="f_son" data-en="Sons" data-ms="Anak lelaki">Anak lelaki</label><input type="number" id="f_son" min="0" max="20" step="1" value="0" inputmode="numeric"></div>
+      <div class="q q-num"><label for="f_daughter" data-en="Daughters" data-ms="Anak perempuan">Anak perempuan</label><input type="number" id="f_daughter" min="0" max="20" step="1" value="0" inputmode="numeric"></div>
+      <div class="q q-num"><label for="f_brother" data-en="Full brothers" data-ms="Adik-beradik lelaki">Adik-beradik lelaki</label><input type="number" id="f_brother" min="0" max="20" step="1" value="0" inputmode="numeric"></div>
+      <div class="q q-num"><label for="f_sister" data-en="Full sisters" data-ms="Adik-beradik perempuan">Adik-beradik perempuan</label><input type="number" id="f_sister" min="0" max="20" step="1" value="0" inputmode="numeric"></div>
+    </div>
+    <div class="q"><label data-en="Is your father alive?" data-ms="Bapa masih hidup?">Bapa masih hidup?</label><div class="opts"><label class="opt"><input type="radio" name="father" value="yes"><span data-en="Yes" data-ms="Ya">Ya</span></label><label class="opt"><input type="radio" name="father" value="no"><span data-en="No" data-ms="Tidak">Tidak</span></label></div></div>
+    <div class="q" style="margin-bottom:0"><label data-en="Is your mother alive?" data-ms="Ibu masih hidup?">Ibu masih hidup?</label><div class="opts"><label class="opt"><input type="radio" name="mother" value="yes"><span data-en="Yes" data-ms="Ya">Ya</span></label><label class="opt"><input type="radio" name="mother" value="no"><span data-en="No" data-ms="Tidak">Tidak</span></label></div></div>
   </div>
 
   <div class="cta-row">
@@ -354,7 +388,7 @@ footer strong{color:var(--ink-70);font-weight:500}
   <div class="sect">
     <div class="sect-head">
       <span class="sect-num">02</span>
-      <span class="sect-title" data-en="What suits you" data-ms="Apa yang sesuai untuk anda">What suits you</span>
+      <span class="sect-title" data-en="What suits you" data-ms="Cadangan untuk anda">Cadangan untuk anda</span>
     </div>
     <div id="gate"></div>
     <div class="verdict" id="verdict"></div>
@@ -363,39 +397,45 @@ footer strong{color:var(--ink-70);font-weight:500}
   <div class="sect">
     <div class="sect-head">
       <span class="sect-num">03</span>
-      <span class="sect-title" data-en="The three packages side by side" data-ms="Tiga pakej diperbandingkan">The three packages side by side</span>
+      <span class="sect-title" data-en="Rough cost of each package" data-ms="Anggaran kos setiap pakej">Anggaran kos setiap pakej</span>
     </div>
     <div class="cards" id="cards"></div>
-    <div class="panel" id="savePanel"></div>
-    <div class="panel" id="adequacy"></div>
+    <p class="fine" data-en="Fees from the Wasiyyah Shoppe price list, before 8% SST unless stated. Your final quotation is confirmed by Wasiyyah Shoppe Berhad." data-ms="Yuran mengikut senarai harga Wasiyyah Shoppe, belum termasuk SST 8% kecuali dinyatakan. Sebut harga muktamad disahkan oleh Wasiyyah Shoppe Berhad.">Yuran mengikut senarai harga Wasiyyah Shoppe, belum termasuk SST 8% kecuali dinyatakan. Sebut harga muktamad disahkan oleh Wasiyyah Shoppe Berhad.</p>
   </div>
 
-  <div class="sect">
+  <!-- Advisor-only workings: rendered for the email, never shown on screen -->
+  <div id="advisor" hidden>
+    <div id="savePanel"></div><div id="adequacy"></div><div id="insights"></div><div id="caveats"></div><div id="checklist"></div>
+  </div>
+
+  <div class="sect" id="sendSect">
     <div class="sect-head">
       <span class="sect-num">04</span>
-      <span class="sect-title" data-en="What this means" data-ms="Apa maksudnya">What this means</span>
+      <span class="sect-title" data-en="Send your result to Shakina" data-ms="Hantar keputusan kepada Shakina">Hantar keputusan kepada Shakina</span>
     </div>
-    <div class="panel" id="insights"></div>
-    <div class="caveats" id="caveats"></div>
-  </div>
-
-  <div class="sect">
-    <div class="sect-head">
-      <span class="sect-num">05</span>
-      <span class="sect-title" data-en="Before a Hibah can be executed" data-ms="Sebelum Hibah boleh dilaksanakan">Before a Hibah can be executed</span>
+    <div class="send" id="sendBox">
+      <p class="send-lead" data-en="Shakina will review your answers and contact you to explain the options and the next step. There is no obligation." data-ms="Shakina akan menyemak jawapan anda dan menghubungi anda untuk menerangkan pilihan dan langkah seterusnya. Tiada sebarang komitmen.">Shakina akan menyemak jawapan anda dan menghubungi anda untuk menerangkan pilihan dan langkah seterusnya. Tiada sebarang komitmen.</p>
+      <div class="send-grid">
+        <div class="q"><label for="c_name" data-en="Name *" data-ms="Nama *">Nama *</label><input type="text" id="c_name" autocomplete="name" maxlength="80"></div>
+        <div class="q"><label for="c_phone" data-en="Phone / WhatsApp *" data-ms="Telefon / WhatsApp *">Telefon / WhatsApp *</label><input type="tel" id="c_phone" autocomplete="tel" inputmode="tel" maxlength="20" placeholder="012-345 6789"></div>
+        <div class="q"><label for="c_email" data-en="Email (optional)" data-ms="Emel (pilihan)">Emel (pilihan)</label><input type="email" id="c_email" autocomplete="email" maxlength="100"></div>
+      </div>
+      <input type="text" id="c_honey" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px">
+      <label class="consent"><input type="checkbox" id="c_ok"> <span data-en="I agree that these details are sent to Shakina K. (Kausar Wealth, Wasiyyah Shoppe Berhad advisor) so she can contact me about estate planning." data-ms="Saya bersetuju maklumat ini dihantar kepada Shakina K. (Kausar Wealth, penasihat Wasiyyah Shoppe Berhad) untuk menghubungi saya berkaitan perancangan harta.">Saya bersetuju maklumat ini dihantar kepada Shakina K. (Kausar Wealth, penasihat Wasiyyah Shoppe Berhad) untuk menghubungi saya berkaitan perancangan harta.</span></label>
+      <div class="cta-row" style="margin-top:16px">
+        <button class="btn" id="sendBtn" onclick="sendResult()" data-en="Send to Shakina" data-ms="Hantar kepada Shakina">Hantar kepada Shakina</button>
+        <span class="err" id="sendErr"></span>
+      </div>
     </div>
-    <div class="panel" id="checklist"></div>
-  </div>
-
-  <div class="final">
-    <h3 data-en="Let's go through this together" data-ms="Mari kita bincang bersama">Let's go through this together</h3>
-    <p data-en="This tool gives you the shape of the decision. The actual quotation depends on your title documents, your family structure, and your wishes — which is a conversation, not a form." data-ms="Alat ini memberi anda gambaran keputusan. Sebut harga sebenar bergantung pada dokumen hakmilik, struktur keluarga, dan hasrat anda — itu memerlukan perbincangan, bukan borang.">This tool gives you the shape of the decision. The actual quotation depends on your title documents, your family structure, and your wishes — which is a conversation, not a form.</p>
-    <a class="wa" id="waLink" href="#" target="_blank" rel="noopener" data-en="Message Shakina on WhatsApp" data-ms="Hubungi Shakina di WhatsApp">Message Shakina on WhatsApp</a>
+    <div class="send send-ok" id="sendOk" hidden>
+      <h3 data-en="Thank you, your result has been sent" data-ms="Terima kasih, keputusan anda telah dihantar">Terima kasih, keputusan anda telah dihantar</h3>
+      <p data-en="Shakina will contact you within two working days. For anything urgent, message her on WhatsApp." data-ms="Shakina akan menghubungi anda dalam masa dua hari bekerja. Untuk perkara segera, hubungi beliau melalui WhatsApp.">Shakina akan menghubungi anda dalam masa dua hari bekerja. Untuk perkara segera, hubungi beliau melalui WhatsApp.</p>
+      <a class="wa" id="waLink" href="https://wa.me/60173335664" target="_blank" rel="noopener" data-en="WhatsApp Shakina" data-ms="WhatsApp Shakina">WhatsApp Shakina</a>
+    </div>
   </div>
 
   <div class="cta-row">
-    <button class="btn btn-ghost" onclick="reset()" data-en="Start over" data-ms="Mula semula">Start over</button>
-    <button class="btn btn-ghost" onclick="window.print()" data-en="Print or save as PDF" data-ms="Cetak atau simpan sebagai PDF">Print or save as PDF</button>
+    <button class="btn btn-ghost" onclick="reset()" data-en="Start over" data-ms="Mula semula">Mula semula</button>
   </div>
 </div>
 
@@ -448,7 +488,7 @@ function peruntukan(v){
   if (v <= 8000000) return 122000;
   return 150000;
 }
-var AGE_CAP = 60; /* Hibah Komprehensif and al-Wasitah: up to age 60 */
+var AGE_CAP = 60; /* al-Wasitah is 18–60; from 61, Khairat Pusaka Warga Emas. Komprehensif 61+ pending WSB confirmation */
 
 function toggleMrtt(){
   var c = document.querySelector('input[name=cagar]:checked');
@@ -473,12 +513,364 @@ function setLang(l){
     var n = nodes[i];
     n.textContent = (LANG === 'en') ? n.getAttribute('data-en') : n.getAttribute('data-ms');
   }
-  if (document.getElementById('results').style.display === 'block') run();
+  if (STATE && document.getElementById('results').style.display === 'block') renderAll();
 }
 
 function pick(name){
   var el = document.querySelector('input[name=' + name + ']:checked');
   return el ? el.value : null;
+}
+
+
+var STATE = null, REC = null;
+function renderAll(){
+  var d = STATE;
+  renderGate(d.milik, d.cagar, d.mrtt);
+  REC = recommend({milik:d.milik, afford:d.afford, contest:d.contest, fund:d.fund, gap:d.gap, wasitah:d.wasitah, over60:d.over60});
+  renderVerdict(REC, d);
+  renderCards(REC.key, d);
+  renderSaving(d.saving, d.savingPct, d.per, d.ama, d.kom);
+  renderAdequacy(d.grown, d.cost, d.gap, d.years, d.rate, d.per, d.fund);
+  renderInsights({value:d.value, pra:d.pra, ama:d.ama, kom:d.kom, per:d.per, saving:d.saving, gap:d.gap, years:d.years, rate:d.rate, fund:d.fund, afford:d.afford, contest:d.contest});
+  renderCaveats(d.value);
+  renderChecklist({milik:d.milik, cagar:d.cagar, mrtt:d.mrtt, contest:d.contest, wasitah:d.wasitah, rec:REC.key, fund:d.fund, over60:d.over60});
+}
+
+function toggleSpouse(){
+  var m = pick('married') === 'yes', g = pick('gender');
+  document.getElementById('wivesWrap').classList.toggle('hidden', !(m && g === 'm'));
+}
+function intVal(id, lo, hi){ var v = parseInt(document.getElementById(id).value, 10); return isNaN(v) ? lo : Math.min(Math.max(v, lo), hi); }
+function family(){
+  var g = pick('gender'); if (!g) return null;
+  var married = pick('married') === 'yes';
+  return { husband: (married && g === 'f') ? 1 : 0, wife: (married && g === 'm') ? intVal('f_wife', 1, 4) : 0,
+           father: pick('father') === 'yes' ? 1 : 0, mother: pick('mother') === 'yes' ? 1 : 0,
+           son: intVal('f_son', 0, 20), daughter: intVal('f_daughter', 0, 20), brother: intVal('f_brother', 0, 20), sister: intVal('f_sister', 0, 20) };
+}
+
+/* Faraid engine: same code as the /pusaka/ calculator */
+class F {
+  constructor(n, d=1) {
+    if (d === 0) throw new Error('div0');
+    if (d < 0) { n = -n; d = -d; }
+    const g = F.gcd(Math.abs(n), Math.abs(d));
+    this.n = n / g; this.d = d / g;
+  }
+  static gcd(a, b) { return b === 0 ? a : F.gcd(b, a % b); }
+  add(o) { return new F(this.n * o.d + o.n * this.d, this.d * o.d); }
+  sub(o) { return new F(this.n * o.d - o.n * this.d, this.d * o.d); }
+  mul(o) { return new F(this.n * o.n, this.d * o.d); }
+  div(o) { return new F(this.n * o.d, this.d * o.n); }
+  toNum() { return this.n / this.d; }
+  toStr() {
+    if (this.n === 0) return '0';
+    if (this.d === 1) return String(this.n);
+    return this.n + '/' + this.d;
+  }
+}
+const _0 = new F(0), _1 = new F(1);
+
+function fcFormatRM(n) {
+  return 'RM ' + Math.round(n).toLocaleString('en-MY');
+}
+
+function fcUpdateNet() {
+  const gross = parseFloat(document.getElementById('fc-gross').value) || 0;
+  const funeral = parseFloat(document.getElementById('fc-funeral').value) || 0;
+  const debts = parseFloat(document.getElementById('fc-debts').value) || 0;
+  const wasiatInput = parseFloat(document.getElementById('fc-wasiat').value) || 0;
+  const hibah = parseFloat(document.getElementById('fc-hibah').value) || 0;
+  const sepencarian = parseFloat(document.getElementById('fc-sepencarian').value) || 0;
+  const adminPct = parseFloat(document.getElementById('fc-admin-pct').value) || 0;
+
+  const adminAmt = Math.round(gross * adminPct / 100);
+  const adminDisplay = document.getElementById('fc-admin-display');
+  if (adminDisplay && adminPct > 0 && gross > 0) {
+    adminDisplay.textContent = '= RM ' + adminAmt.toLocaleString('en-MY');
+  } else if (adminDisplay) {
+    adminDisplay.textContent = '';
+  }
+
+  // Hibah is separated FIRST — it is already outside the estate before any deductions
+  const postHibah = Math.max(0, gross - hibah - sepencarian);
+  const postDebt = Math.max(0, postHibah - funeral - debts - adminAmt);
+  const wasiatCap = postDebt / 3;
+  const wasiat = Math.min(wasiatInput, wasiatCap);
+
+  const net = Math.max(0, postDebt - wasiat);
+  document.getElementById('fc-net-display').textContent = fcFormatRM(net);
+
+  // Warn if wasiat exceeds cap
+  const wasiatEl = document.getElementById('fc-wasiat');
+  if (wasiatInput > wasiatCap && wasiatCap > 0) {
+    wasiatEl.style.borderColor = 'var(--coral)';
+    wasiatEl.title = 'Capped at 1/3: RM ' + Math.round(wasiatCap).toLocaleString();
+  } else {
+    wasiatEl.style.borderColor = '';
+    wasiatEl.title = '';
+  }
+
+  return net;
+}
+
+function fcSetMaxWasiat() {
+  const gross = parseFloat(document.getElementById('fc-gross').value) || 0;
+  const funeral = parseFloat(document.getElementById('fc-funeral').value) || 0;
+  const debts = parseFloat(document.getElementById('fc-debts').value) || 0;
+  const hibah = parseFloat(document.getElementById('fc-hibah').value) || 0;
+  const sepencarian = parseFloat(document.getElementById('fc-sepencarian').value) || 0;
+  const adminPct = parseFloat(document.getElementById('fc-admin-pct').value) || 0;
+  const adminAmt = Math.round(gross * adminPct / 100);
+  const postHibah = Math.max(0, gross - hibah - sepencarian);
+  const postDebt = Math.max(0, postHibah - funeral - debts - adminAmt);
+  const wasiatCap = Math.floor(postDebt / 3);
+  document.getElementById('fc-wasiat').value = wasiatCap > 0 ? wasiatCap : '';
+  fcUpdateNet();
+}
+
+function fcGoto(step) {
+  document.querySelectorAll('[id^="fc-card-"]').forEach((c, i) => {
+    c.style.display = (i + 1 === step) ? 'block' : 'none';
+  });
+  for (let i = 1; i <= 3; i++) {
+    const el = document.getElementById('fc-step-' + i);
+    el.classList.remove('active', 'done');
+    if (i === step) el.classList.add('active');
+    else if (i < step) el.classList.add('done');
+  }
+  window.scrollTo({ top: document.querySelector('.fc-header').offsetTop - 100, behavior: 'smooth' });
+}
+
+function fcGetHeirs() {
+  return {
+    husband: document.getElementById('fc-h-husband').checked ? 1 : 0,
+    wife: Math.max(0, parseInt(document.getElementById('fc-h-wife').value) || 0),
+    father: document.getElementById('fc-h-father').checked ? 1 : 0,
+    mother: document.getElementById('fc-h-mother').checked ? 1 : 0,
+    son: Math.max(0, parseInt(document.getElementById('fc-h-son').value) || 0),
+    daughter: Math.max(0, parseInt(document.getElementById('fc-h-daughter').value) || 0),
+    brother: Math.max(0, parseInt(document.getElementById('fc-h-brother').value) || 0),
+    sister: Math.max(0, parseInt(document.getElementById('fc-h-sister').value) || 0),
+  };
+}
+
+function fcCompute(h) {
+  const hasChild = (h.son + h.daughter) > 0;
+  const hasSon = h.son > 0;
+  const shares = {}; // heir -> { type, share (F), count }
+
+  // ── FARDH (Fixed) ──
+  // Husband
+  if (h.husband) {
+    shares.husband = { type: 'fardh', share: hasChild ? new F(1,4) : new F(1,2), count: 1 };
+  }
+  // Wife/wives (share equally)
+  if (h.wife > 0) {
+    shares.wife = { type: 'fardh', share: hasChild ? new F(1,8) : new F(1,4), count: h.wife };
+  }
+  // Mother
+  if (h.mother) {
+    let mShare;
+    if (hasChild || (h.brother + h.sister) >= 2) mShare = new F(1,6);
+    else if (h.father && h.husband) mShare = new F(1,6);      // Umariyyatain: 1/3 of the 1/2 left after husband
+    else if (h.father && h.wife > 0) mShare = new F(1,4);     // Umariyyatain: 1/3 of the 3/4 left after wife(s)
+    else mShare = new F(1,3);
+    shares.mother = { type: 'fardh', share: mShare, count: 1 };
+  }
+  // Father
+  if (h.father) {
+    if (hasSon) {
+      shares.father = { type: 'fardh', share: new F(1,6), count: 1 };
+    } else if (h.daughter > 0) {
+      // 1/6 fardh + residue as asabah
+      shares.father = { type: 'fardh+asabah', share: new F(1,6), count: 1 };
+    } else {
+      shares.father = { type: 'asabah', share: _0, count: 1 };
+    }
+  }
+
+  // Daughters without sons
+  if (h.daughter > 0 && !hasSon) {
+    const dShare = h.daughter === 1 ? new F(1,2) : new F(2,3);
+    shares.daughter = { type: 'fardh', share: dShare, count: h.daughter };
+  }
+
+  // ── HIJAB — siblings blocked by son or father ──
+  const siblingsBlocked = hasSon || h.father === 1;
+  if (!siblingsBlocked && (h.brother + h.sister) > 0) {
+    if (h.brother === 0 && h.sister > 0 && h.daughter === 0) {
+      // Sisters alone, no son, no father, no daughter
+      const sShare = h.sister === 1 ? new F(1,2) : new F(2,3);
+      shares.sister = { type: 'fardh', share: sShare, count: h.sister };
+    }
+    // If brothers present, they become asabah (handled in residue)
+  }
+
+  // ── SUM FARDH ──
+  let fardhTotal = _0;
+  for (const k in shares) fardhTotal = fardhTotal.add(shares[k].share);
+
+  // ── AWL ──
+  let awlApplied = false;
+  if (fardhTotal.toNum() > 1) {
+    awlApplied = true;
+    const factor = new F(_1.n * fardhTotal.d, _1.d * fardhTotal.n);
+    for (const k in shares) {
+      if (shares[k].type === 'fardh' || shares[k].type === 'fardh+asabah') {
+        shares[k].share = shares[k].share.mul(factor);
+      }
+    }
+    fardhTotal = _1;
+  }
+
+  // ── RESIDUE (ASABAH) ──
+  let residue = _1.sub(fardhTotal);
+
+  if (residue.toNum() > 0) {
+    // Priority: sons (with daughters if present), then father (if no son), then brothers
+    if (hasSon) {
+      // Sons and daughters share residue 2:1 — store COLLECTIVE shares
+      const units = h.son * 2 + h.daughter;
+      // sons collective = 2*son / units of residue
+      shares.son = { type: 'asabah', share: new F(residue.n * h.son * 2, residue.d * units), count: h.son };
+      if (h.daughter > 0) {
+        shares.daughter = { type: 'asabah', share: new F(residue.n * h.daughter, residue.d * units), count: h.daughter };
+      }
+      residue = _0;
+    } else if (shares.father && shares.father.type === 'fardh+asabah') {
+      shares.father.share = shares.father.share.add(residue);
+      residue = _0;
+    } else if (shares.father && shares.father.type === 'asabah') {
+      shares.father.share = shares.father.share.add(residue);
+      residue = _0;
+    } else if (!siblingsBlocked && h.brother === 0 && h.sister > 0 && h.daughter > 0) {
+      // Full sisters with daughters: asabah ma'a al-ghayr, they take the residue
+      shares.sister = { type: 'asabah', share: residue, count: h.sister };
+      residue = _0;
+    } else if (!siblingsBlocked && h.brother > 0) {
+      // Brothers (and sisters) share residue 2:1 — collective shares
+      const units = h.brother * 2 + h.sister;
+      shares.brother = { type: 'asabah', share: new F(residue.n * h.brother * 2, residue.d * units), count: h.brother };
+      if (h.sister > 0) {
+        shares.sister = { type: 'asabah', share: new F(residue.n * h.sister, residue.d * units), count: h.sister };
+      }
+      residue = _0;
+    }
+  }
+
+  // ── RADD — return residue to eligible fardh heirs ONLY (father, mother — NOT spouse, NOT daughter/son) ──
+  // Per Malaysian MAIS / e-Faraid ruling: daughters do NOT receive Radd. Residue goes to Baitulmal.
+  let raddApplied = false;
+  let baitulmalApplied = false;
+  if (residue.toNum() > 0) {
+    const raddEligible = ['father','mother']; // only these qualify for Radd under Malaysian ruling
+    const raddHeirs = Object.keys(shares).filter(k => raddEligible.includes(k)
+      && (shares[k].type === 'fardh' || shares[k].type === 'fardh+asabah'));
+    if (raddHeirs.length > 0) {
+      raddApplied = true;
+      let raddBase = _0;
+      raddHeirs.forEach(k => { raddBase = raddBase.add(shares[k].share); });
+      raddHeirs.forEach(k => {
+        const proportion = shares[k].share.div(raddBase);
+        const extra = residue.mul(proportion);
+        shares[k].share = shares[k].share.add(extra);
+      });
+      residue = _0;
+    } else if (Object.keys(shares).filter(k => k === 'husband' || k === 'wife').length > 0) {
+      // Residue goes to Baitulmal — daughters/sons do not receive Radd under Malaysian MAIS ruling
+      baitulmalApplied = true;
+      shares.baitulmal = { type: 'baitulmal', share: residue, count: 1 };
+      residue = _0;
+    } else {
+      // No fardh heirs at all who qualify for radd — Baitulmal
+      baitulmalApplied = true;
+      shares.baitulmal = { type: 'baitulmal', share: residue, count: 1 };
+      residue = _0;
+    }
+  }
+
+  return { shares, residue, awlApplied, raddApplied, baitulmalApplied };
+}
+
+var HEIR_EN = {husband:'Husband', wife:'Wife', father:'Father', mother:'Mother', son:'Sons', daughter:'Daughters', brother:'Full brothers', sister:'Full sisters', baitulmal:'Baitulmal'};
+function faraidText(h){
+  if (!h) return 'Family details not given.';
+  var lines = ['Heirs: ' + Object.keys(h).filter(function(k){ return h[k] > 0; }).map(function(k){ return HEIR_EN[k] + ' ' + h[k]; }).join(', ')];
+  if (Object.keys(h).every(function(k){ return h[k] === 0; })) return lines[0] + 'none listed (estate would pass to Baitulmal or distant heirs not covered by this tool).';
+  var r = fcCompute(h);
+  for (var k in r.shares){
+    var sh = r.shares[k]; if (sh.share.toNum() <= 0) continue;
+    var pct = sh.share.toNum() * 100;
+    lines.push('- ' + HEIR_EN[k] + (sh.count > 1 ? ' (x' + sh.count + ', ' + (pct / sh.count).toFixed(2) + '% each)' : '') + ': ' + sh.share.toStr() + ' = ' + pct.toFixed(2) + '%');
+  }
+  if (r.awlApplied) lines.push('Awl applied.');
+  if (r.raddApplied) lines.push('Radd applied (to father/mother).');
+  if (r.baitulmalApplied) lines.push('Residue to Baitulmal per MAIS practice.');
+  lines.push('Shares apply to the estate after this Hibah property, debts, funeral costs and any Wasiat (max 1/3).');
+  return lines.join('\n');
+}
+
+function htmlToText(html){
+  return html.replace(/<(br|\/p|\/h4|\/h5|\/li|\/div|\/tr)[^>]*>/gi, '\n').replace(/<li[^>]*>/gi, '- ').replace(/<\/span>/gi, ' ')
+             .replace(/<[^>]+>/g, '').replace(/&nbsp;/g, ' ').replace(/&amp;/g, '&').replace(/&lt;/g, '<').replace(/&gt;/g, '>')
+             .replace(/[ \t]{2,}/g, ' ').replace(/[ \t]+\n/g, '\n').replace(/\n{3,}/g, '\n\n').trim();
+}
+function advisorText(){
+  var prev = LANG; LANG = 'en'; renderAll();
+  var d = STATE, rec = REC, A = function(v){ return v || '-'; };
+  var veh = d.fund === 'yes' ? (document.getElementById('q_veh').selectedOptions[0].getAttribute('data-en') + (document.getElementById('q_veh').value === 'custom' ? ' (' + (d.rate * 100).toFixed(1) + '%)' : '')) : '-';
+  var out = {
+    recommendation: rec.name + (d.over60 && rec.key === 'kom' ? '  [AGE 61+: Komprehensif pending WSB confirmation]' : '') + '\n\nWhy: ' + rec.why + '\n\nIn plain terms: ' + rec.plain,
+    answers: ['Property value: ' + fmt(d.value), 'Titles (geran) band: ' + (document.getElementById('q_geran').selectedOptions[0].getAttribute('data-en') || document.getElementById('q_geran').selectedOptions[0].textContent),
+              'Fully owned (milik sempurna): ' + d.milik, 'Bank loan on property: ' + d.cagar + (d.mrtt ? ' | MRTA/MRTT: ' + d.mrtt : ''),
+              'Beneficiary can afford court costs: ' + d.afford, 'Expects an heir to object: ' + d.contest, 'Age: ' + d.age,
+              'Can set aside funds: ' + d.fund, 'Peruntukan vehicle: ' + veh, 'Already on al-Wasitah / KPWE: ' + d.wasitah].join('\n'),
+    costs: ['Pra Hibah: ' + fmt(d.pra) + ' (' + fmt(d.pra * (1 + SST)) + ' incl. SST)',
+            'Hibah Amanah: ' + fmt(d.ama) + ' (' + fmt(d.ama * (1 + SST)) + ' incl. SST) + peruntukan ' + fmt(d.per),
+            'Hibah Komprehensif: ' + fmt(d.kom) + ' (' + fmt(d.kom * (1 + SST)) + ' incl. SST)',
+            'Peruntukan projected over ' + d.years + ' years: grows to ' + fmt(d.grown) + ' vs cost ' + fmt(d.cost) + ' (gap ' + fmt(d.gap) + ')'].join('\n'),
+    faraid: faraidText(family()),
+    gate: htmlToText(document.getElementById('gate').innerHTML) || 'None',
+    notes: ['savePanel', 'adequacy', 'insights', 'checklist', 'caveats'].map(function(id){ return htmlToText(document.getElementById(id).innerHTML); }).filter(Boolean).join('\n\n------------------------------\n\n')
+  };
+  LANG = prev; renderAll();
+  return out;
+}
+
+var SEND_TO = 'https://formsubmit.co/ajax/shakinakushairi@gmail.com';
+function sendResult(){
+  var err = document.getElementById('sendErr'), btn = document.getElementById('sendBtn');
+  var name = document.getElementById('c_name').value.trim(), phone = document.getElementById('c_phone').value.trim(), email = document.getElementById('c_email').value.trim();
+  var bad = !name ? txt('Please enter your name.', 'Sila masukkan nama anda.')
+          : (phone.replace(/\D/g, '').length < 9) ? txt('Please enter a valid phone number.', 'Sila masukkan nombor telefon yang sah.')
+          : (email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) ? txt('Please check your email address.', 'Sila semak alamat emel anda.')
+          : !document.getElementById('c_ok').checked ? txt('Please tick the consent box.', 'Sila tandakan kotak persetujuan.') : '';
+  if (bad){ err.textContent = bad; err.style.display = 'inline'; return; }
+  if (document.getElementById('c_honey').value) return;
+  err.style.display = 'none'; btn.disabled = true; btn.textContent = txt('Sending…', 'Menghantar…');
+  var t = advisorText();
+  var body = {
+    _subject: 'Penilaian Hibah: ' + name + ' (' + REC.name + ')', _template: 'box', _captcha: 'false',
+    'Name': name, 'Phone': phone, 'Email': email || '-', 'Client language': LANG === 'en' ? 'English' : 'Bahasa Malaysia',
+    '1. Recommendation': t.recommendation, '2. Answers': t.answers, '3. Package costs': t.costs,
+    '4. Family and Faraid estimate': t.faraid, '5. Ownership / mortgage flags': t.gate, '6. Advisor notes': t.notes
+  };
+  if (email) body._replyto = email;
+  fetch(SEND_TO, { method: 'POST', headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' }, body: JSON.stringify(body) })
+    .then(function(r){ return r.json().catch(function(){ return {}; }).then(function(j){ return r.ok && String(j.success) === 'true'; }); })
+    .catch(function(){ return false; })
+    .then(function(ok){
+      btn.disabled = false; btn.textContent = txt('Send to Shakina', 'Hantar kepada Shakina');
+      if (ok){
+        document.getElementById('sendBox').hidden = true; document.getElementById('sendOk').hidden = false;
+        document.getElementById('sendOk').scrollIntoView({behavior:'smooth', block:'center'});
+      } else {
+        var msg = 'Salam Shakina, saya ' + name + ' (' + phone + '). Saya baru guna Penilaian Pakej Hibah; cadangan: ' + REC.name + ', hartanah sekitar ' + fmt(STATE.value) + '.';
+        err.innerHTML = txt('Could not send just now. ', 'Tidak berjaya dihantar. ') + '<a href="https://wa.me/60173335664?text=' + encodeURIComponent(msg) + '" target="_blank" rel="noopener">' + txt('Send via WhatsApp instead', 'Hantar melalui WhatsApp') + '</a>';
+        err.style.display = 'inline';
+      }
+    });
 }
 
 function run(){
@@ -532,17 +924,12 @@ function run(){
   var saving = kom - ama;
   var savingPct = kom > 0 ? (saving / kom * 100) : 0;
 
-  renderGate(milik, cagar, mrtt);
-  var over60 = age > AGE_CAP;
-  var rec = recommend({milik:milik, afford:afford, contest:contest, fund:fund, gap:gap, wasitah:wasitah, over60:over60});
-  renderVerdict(rec, {pra:pra, ama:ama, kom:kom, per:per});
-  renderCards(rec.key, {pra:pra, ama:ama, kom:kom, per:per, grown:grown, cost:cost, over60:over60});
-  renderSaving(saving, savingPct, per, ama, kom);
-  renderAdequacy(grown, cost, gap, years, rate, per, fund);
-  renderInsights({value:value, pra:pra, ama:ama, kom:kom, per:per, saving:saving, gap:gap, years:years, rate:rate, fund:fund, afford:afford, contest:contest});
-  renderCaveats(value);
-  renderChecklist({milik:milik, cagar:cagar, mrtt:mrtt, contest:contest, wasitah:wasitah, rec:rec.key, fund:fund, over60:over60});
-  buildWa(value, rec.name);
+  STATE = {value:value, age:age, bandIdx:bandIdx, milik:milik, cagar:cagar, mrtt:mrtt, afford:afford, contest:contest, fund:fund, wasitah:wasitah,
+           rate:rate, years:years, pra:pra, ama:ama, kom:kom, per:per, grown:grown, cost:cost, gap:gap, saving:saving, savingPct:savingPct,
+           over60: age > AGE_CAP};
+  renderAll();
+  document.getElementById('sendBox').hidden = false;
+  document.getElementById('sendOk').hidden = true;
 
   document.getElementById('results').style.display = 'block';
   document.getElementById('results').scrollIntoView({behavior:'smooth', block:'start'});
@@ -568,30 +955,6 @@ function renderGate(milik, cagar, mrtt){
 }
 
 function recommend(a){
-  if (a.over60){
-    if (a.afford === 'yes' && a.contest !== 'yes'){
-      return {
-        key:'pra',
-        name:txt('Pra Hibah', 'Pra Hibah'),
-        why:txt('Hibah Komprehensif is only open up to age 60, so the choice is between Pra Hibah and Hibah Amanah. Your beneficiary can carry the court costs, so Pra Hibah gives you a valid, properly drafted Hibah at the lowest fee.',
-                'Hibah Komprehensif hanya dibuka sehingga umur 60, jadi pilihannya antara Pra Hibah dan Hibah Amanah. Penerima anda mampu menanggung kos mahkamah, jadi Pra Hibah memberi anda Hibah yang sah dan lengkap pada yuran terendah.'),
-        plain:txt('Your beneficiary can pay the confirmation costs later, so keep the document simple and keep your money.',
-                  'Penerima anda mampu membayar kos pengesahan kemudian, jadi kekalkan dokumen yang ringkas dan simpan wang anda.')
-      };
-    }
-    return {
-      key:'ama',
-      name:txt('Hibah Amanah', 'Hibah Amanah'),
-      why:txt('Hibah Komprehensif is only open up to age 60, so it is not available to you. Hibah Amanah is the closest alternative: you set aside a peruntukan in Tabung Haji, Unit Amanah, Kasihku (ASNB) or Takaful, and that fund pays the court costs at your death.' +
-              (a.contest === 'yes' ? ' Because you expect a challenge, keep the fund generous: a contested case can cost more than the WSB benchmark.' : '') +
-              (a.fund === 'no' ? ' You said you have nothing to set aside yet, so building that fund is the first step. Without it, Pra Hibah is the fallback and your beneficiary pays the court costs.' : ''),
-              'Hibah Komprehensif hanya dibuka sehingga umur 60, jadi ia tidak tersedia untuk anda. Hibah Amanah ialah alternatif paling hampir: anda memperuntukkan dana dalam Tabung Haji, Unit Amanah, Kasihku (ASNB) atau Takaful, dan dana itu membayar kos mahkamah selepas kematian anda.' +
-              (a.contest === 'yes' ? ' Oleh kerana anda menjangka bantahan, sediakan dana yang mencukupi: kes yang dibantah boleh melebihi penanda aras WSB.' : '') +
-              (a.fund === 'no' ? ' Anda menyatakan belum ada simpanan untuk diperuntukkan, jadi membina dana itu ialah langkah pertama. Tanpanya, Pra Hibah menjadi pilihan dan penerima menanggung kos mahkamah.' : '')),
-      plain:txt('Above 60, the package where WSB carries the court costs is closed. Set aside a fund that will pay them instead.',
-                'Selepas umur 60, pakej di mana WSB menanggung kos mahkamah sudah ditutup. Peruntukkan dana yang akan membayarnya.')
-    };
-  }
   if (a.contest === 'yes'){
     return {
       key:'kom',
@@ -643,10 +1006,11 @@ function recommend(a){
 }
 
 function renderVerdict(rec, f){
+  var note = (STATE && STATE.over60 && rec.key === 'kom')
+    ? '<p class="fine" style="margin-top:10px">' + txt('For ages 61 and above, Hibah Komprehensif is subject to WSB confirmation and is paired with Khairat Pusaka Warga Emas or a peruntukan pusaka. Shakina will confirm this with you.', 'Bagi umur 61 ke atas, Hibah Komprehensif tertakluk kepada pengesahan WSB dan digandingkan dengan Khairat Pusaka Warga Emas atau peruntukan pusaka. Shakina akan mengesahkannya dengan anda.') + '</p>' : '';
   var h = '<div class="verdict-tag">' + txt('Suggested starting point', 'Cadangan permulaan') + '</div>' +
     '<h3>' + rec.name + '</h3>' +
-    '<p>' + rec.why + '</p>' +
-    '<div class="plain"><div class="plain-tag">' + txt('In plain terms', 'Dalam bahasa mudah') + '</div><p>' + rec.plain + '</p></div>';
+    '<p>' + rec.plain + '</p>' + note;
   document.getElementById('verdict').innerHTML = h;
 }
 
@@ -672,7 +1036,7 @@ function renderCards(pickKey, d){
   var h = '';
   h += card(txt('Pra Hibah','Pra Hibah'), txt('Beneficiary pays later','Penerima bayar kemudian'), 'var(--wsb-blue)', d.pra, none, fmt(d.cost), pickKey === 'pra');
   h += card(txt('Hibah Amanah','Hibah Amanah'), txt('Your set-aside fund pays','Dana peruntukan anda bayar'), 'var(--gold-lt)', d.ama, fmt(d.per), txt('Only any shortfall','Hanya baki yang tidak cukup'), pickKey === 'ama');
-  h += card(txt('Hibah Komprehensif','Hibah Komprehensif'), d.over60 ? txt('Not available above age 60','Tidak tersedia selepas umur 60') : txt('WSB tabarru\' pays','Tabarru\' WSB yang bayar'), 'var(--wsb-green)', d.kom, none, nil, pickKey === 'kom');
+  h += card(txt('Hibah Komprehensif','Hibah Komprehensif'), d.over60 ? txt('Age 61+: subject to WSB confirmation','Umur 61+: tertakluk pengesahan WSB') : txt('WSB tabarru\' pays','Tabarru\' WSB yang bayar'), 'var(--wsb-green)', d.kom, none, nil, pickKey === 'kom');
   document.getElementById('cards').innerHTML = h;
 }
 
@@ -845,11 +1209,11 @@ function renderChecklist(a){
           'Hakmilik yang bebas cagaran menghapuskan langkah kebenaran bank sepenuhnya, iaitu punca kelewatan paling kerap.'));
   }
 
-  /* Over 60: al-Wasitah is closed; Khairat Pusaka Warga Emas covers estate administration */
+  /* Over 60: estate administration via Khairat Pusaka Warga Emas; Komprehensif pending WSB confirmation */
   if (a.over60){
-    h += chk('info', txt('Estate administration for the rest of your assets', 'Pengurusan pusaka bagi baki harta anda'),
-      txt('al-Wasitah is open up to age 60. From 61, Khairat Pusaka Warga Emas covers estate administration instead: Silver at RM85 a month for estates under RM5 million, Gold at RM195 a month for estates under RM10 million, before 8% SST.',
-          'al-Wasitah dibuka sehingga umur 60. Dari umur 61, Khairat Pusaka Warga Emas menguruskan pusaka anda: Silver RM85 sebulan bagi harta bawah RM5 juta, Gold RM195 sebulan bagi harta bawah RM10 juta, belum termasuk SST 8%.'));
+    h += chk('warn', txt('Client is above 60: confirm Komprehensif eligibility with WSB', 'Pelanggan berumur lebih 60: sahkan kelayakan Komprehensif dengan WSB'),
+      txt('al-Wasitah is open to ages 18–60. From 61, Khairat Pusaka Warga Emas covers estate administration (Silver RM85/month under RM5M, Gold RM195/month under RM10M, before 8% SST). WSB has not yet confirmed whether KPWE satisfies the Komprehensif prerequisite, or whether a peruntukan pusaka is needed instead.',
+          'al-Wasitah dibuka untuk umur 18–60. Dari umur 61, Khairat Pusaka Warga Emas menguruskan pusaka (Silver RM85 sebulan bawah RM5 juta, Gold RM195 sebulan bawah RM10 juta, belum termasuk SST 8%). WSB belum mengesahkan sama ada KPWE memenuhi prasyarat Komprehensif, atau peruntukan pusaka diperlukan.'));
   }
 
   /* al-Wasitah where Komprehensif is the pick */
@@ -913,20 +1277,12 @@ function renderChecklist(a){
   document.getElementById('checklist').innerHTML = h;
 }
 
-function buildWa(value, recName){
-  var band;
-  if (value < 300000) band = 'bawah RM300k';
-  else if (value < 600000) band = 'RM300k-RM600k';
-  else if (value < 1000000) band = 'RM600k-RM1j';
-  else if (value < 2000000) band = 'RM1j-RM2j';
-  else band = 'melebihi RM2j';
-  var msg = 'Salam Shakina, saya baru guna Penilaian Pakej Hibah. Hartanah saya dalam lingkungan ' + band +
-    ' dan cadangan yang keluar ialah ' + recName + '. Boleh saya dapatkan penjelasan lanjut?';
-  document.getElementById('waLink').href = 'https://wa.me/60173335664?text=' + encodeURIComponent(msg);
-}
-
 function reset(){
   document.getElementById('results').style.display = 'none';
+  ['c_name','c_phone','c_email'].forEach(function(id){ document.getElementById(id).value = ''; });
+  document.getElementById('c_ok').checked = false;
+  ['f_son','f_daughter','f_brother','f_sister'].forEach(function(id){ document.getElementById(id).value = 0; });
+  document.getElementById('f_wife').value = 1; document.getElementById('wivesWrap').classList.add('hidden');
   document.getElementById('q_value').value = '';
   document.getElementById('q_age').value = '';
   var radios = document.querySelectorAll('input[type=radio]');
