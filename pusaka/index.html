@@ -406,6 +406,28 @@
 @media (max-width:640px){.wsb-brand{display:none}.wsb-bar{padding:0 14px}.wsb-btn .wsb-long{display:none}}
 @media print{.wsb-bar,.wsb-foot{display:none!important}}
 </style>
+<style id="wsf-css">
+.wsf{background:#fff;border:1px solid #E8E4D8;border-left:4px solid #B8952A;border-radius:0 12px 12px 0;padding:22px 24px;margin-top:22px;color:#2D2D2D;font-family:'DM Sans',system-ui,sans-serif;text-align:left;position:relative}
+.wsf-title{font-family:'Playfair Display',Georgia,serif;font-size:21px;font-weight:600;color:#1A1A1A;margin:0 0 6px}
+.wsf-lead{font-size:14.5px;color:#4A4A4A;margin:0 0 16px;line-height:1.6}
+.wsf-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px 14px}
+.wsf-q{display:block}
+.wsf-l{display:block;font-size:14px;font-weight:600;margin-bottom:5px;color:#1A1A1A}
+.wsf input[type=text],.wsf input[type=tel],.wsf input[type=email]{width:100%;box-sizing:border-box;padding:11px 13px;border:1px solid #E3DFD4;border-radius:8px;background:#fff;font:inherit;font-size:15px;color:#1A1A1A}
+.wsf input:focus{outline:none;border-color:#B8952A;box-shadow:0 0 0 3px rgba(184,149,42,.15)}
+.wsf-honey{position:absolute;left:-9999px;width:1px;height:1px}
+.wsf-consent{display:flex;gap:10px;align-items:flex-start;font-size:13.5px;color:#4A4A4A;margin-top:14px;cursor:pointer;line-height:1.55}
+.wsf-consent input{margin-top:3px;width:18px;height:18px;accent-color:#B8952A;flex:none}
+.wsf-row{display:flex;flex-wrap:wrap;align-items:center;gap:12px;margin-top:16px}
+.wsf-btn{display:inline-block;background:#1A1A1A;color:#F3EBD8;border:0;border-radius:8px;padding:12px 22px;font:600 15px 'DM Sans',system-ui,sans-serif;cursor:pointer;text-decoration:none}
+.wsf-btn:hover{background:#B8952A;color:#1A1A1A}
+.wsf-btn[disabled]{opacity:.6;cursor:wait}
+.wsf-err{font-size:14px;color:#96341C}
+.wsf-err a{color:#96341C;font-weight:600}
+.wsf-ok{background:#1A1A1A;margin:-22px -24px;padding:22px 24px;border-radius:0 12px 12px 0}
+.wsf-ok .wsf-title{color:#F3EBD8}.wsf-ok .wsf-lead{color:#D9CFBA}.wsf-ok .wsf-btn{background:#B8952A;color:#1A1A1A}
+@media print{.wsf{display:none!important}}
+</style>
 </head>
 <body data-lang="ms">
 <div class="wsb-bar">
@@ -1307,10 +1329,30 @@
       <button class="fc-btn fc-btn-secondary" onclick="window.print()">
         <span class="en">🖨 Print</span><span class="bm">🖨 Cetak</span>
       </button>
-      <a href="https://wa.me/60173335664?text=Hi,%20I%20just%20used%20the%20Faraid%20Calculator%20on%20your%20website%20and%20would%20like%20to%20review%20my%20estate%20distribution%20plan%20with%20an%20advisor." class="fc-btn fc-btn-primary" style="text-decoration:none;display:inline-block;">
-        <span class="en">⚖️ Discuss My Faraid Results</span><span class="bm">⚖️ Bincang Keputusan Faraid Saya</span>
-      </a>
     </div>
+
+<div class="wsf" id="fc-wsf">
+  <div class="wsf-form" id="fc-form">
+    <h3 class="wsf-title"><span class="en">Send this result to Shakina</span><span class="bm">Hantar keputusan ini kepada Shakina</span></h3>
+    <p class="wsf-lead"><span class="en">Shakina will review the distribution with you, including whether a Hibah, Wasiat or harta sepencarian declaration would help your family.</span><span class="bm">Shakina akan menyemak agihan ini bersama anda, termasuk sama ada Hibah, Wasiat atau pengisytiharan harta sepencarian boleh membantu keluarga anda.</span></p>
+    <div class="wsf-grid">
+      <label class="wsf-q"><span class="wsf-l"><span class="en">Name *</span><span class="bm">Nama *</span></span><input type="text" id="fc-name" autocomplete="name" maxlength="80"></label>
+      <label class="wsf-q"><span class="wsf-l"><span class="en">Phone / WhatsApp *</span><span class="bm">Telefon / WhatsApp *</span></span><input type="tel" id="fc-phone" autocomplete="tel" inputmode="tel" maxlength="20" placeholder="012-345 6789"></label>
+      <label class="wsf-q"><span class="wsf-l"><span class="en">Email (optional)</span><span class="bm">Emel (pilihan)</span></span><input type="email" id="fc-email" autocomplete="email" maxlength="100"></label>
+    </div>
+    <input type="text" id="fc-honey" tabindex="-1" autocomplete="off" aria-hidden="true" class="wsf-honey">
+    <label class="wsf-consent"><input type="checkbox" id="fc-ok"> <span class="en">I agree that these details are sent to Shakina K. (Kausar Wealth, Wasiyyah Shoppe Berhad advisor) so she can contact me about estate planning.</span><span class="bm">Saya bersetuju maklumat ini dihantar kepada Shakina K. (Kausar Wealth, penasihat Wasiyyah Shoppe Berhad) untuk menghubungi saya berkaitan perancangan harta.</span></label>
+    <div class="wsf-row">
+      <button type="button" class="wsf-btn" id="fc-btn" onclick="wsfSubmit('fc')"><span class="en">Send to Shakina</span><span class="bm">Hantar kepada Shakina</span></button>
+      <span class="wsf-err" id="fc-err"></span>
+    </div>
+  </div>
+  <div class="wsf-ok" id="fc-done" hidden>
+    <h3 class="wsf-title"><span class="en">Thank you, your result has been sent</span><span class="bm">Terima kasih, keputusan anda telah dihantar</span></h3>
+    <p class="wsf-lead"><span class="en">Shakina will contact you within two working days. For anything urgent, message her on WhatsApp.</span><span class="bm">Shakina akan menghubungi anda dalam masa dua hari bekerja. Untuk perkara segera, hubungi beliau melalui WhatsApp.</span></p>
+    <a class="wsf-btn" href="https://wa.me/60173335664" target="_blank" rel="noopener">WhatsApp Shakina</a>
+  </div>
+</div>
   </div>
 
 </div>
@@ -2352,6 +2394,7 @@ function fcCalculate() {
 
   const result = fcCompute(h);
   fcRender(result, net);
+  if (window.wsfReset) wsfReset('fc');
   fcGoto(3);
 }
 
@@ -2374,7 +2417,7 @@ function fcRender(result, net) {
     const row = document.createElement('tr');
     row.innerHTML = `
       <td>
-        <strong>${fcHeirLabels[k][lang]}</strong>${countLabel}
+        <strong>${fcHeirLabels[k][lang === 'en' ? 'en' : 'bm']}</strong>${countLabel}
         ${s.count > 1 ? `<div style="font-size:10px;color:var(--muted);">${fcFormatRM(perHead)} ${lang==='ms'?'setiap satu':'each'}</div>` : ''}
       </td>
       <td class="fc-heir-share-frac">${s.share.toStr()}</td>
@@ -2414,6 +2457,61 @@ document.addEventListener('DOMContentLoaded', fcUpdateNet);
 
 <div class="wsb-foot"><a href="../">&larr; <span data-wsb-ms="Semua alat" data-wsb-en="All tools">Semua alat</span></a><span class="wsb-sep">·</span>Shakina K. · Kausar Wealth · WSB Advisor<span class="wsb-sep">·</span><a href="https://wa.me/60173335664" target="_blank" rel="noopener">WhatsApp 017-333 5664</a></div>
 <script>window.wsbOnLang=function(l){setLang(l);};</script>
+<script id="wsf-js">
+/* Shared submit: each page defines window.wsfPayload[pfx]() returning {subject, fields, wa} */
+window.wsfPayload = window.wsfPayload || {};
+function wsfT(bm, en){ return document.documentElement.lang === 'en' ? en : bm; }
+function wsfSubmit(pfx){
+  var g = function(id){ return document.getElementById(pfx + '-' + id); };
+  var err = g('err'), btn = g('btn');
+  var name = g('name').value.trim(), phone = g('phone').value.trim(), email = g('email').value.trim();
+  var bad = !name ? wsfT('Sila masukkan nama anda.', 'Please enter your name.')
+          : phone.replace(/\D/g, '').length < 9 ? wsfT('Sila masukkan nombor telefon yang sah.', 'Please enter a valid phone number.')
+          : (email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) ? wsfT('Sila semak alamat emel anda.', 'Please check your email address.')
+          : !g('ok').checked ? wsfT('Sila tandakan kotak persetujuan.', 'Please tick the consent box.') : '';
+  if (bad){ err.textContent = bad; return; }
+  if (g('honey').value) return;
+  var p = window.wsfPayload[pfx]();
+  err.textContent = ''; btn.disabled = true;
+  var body = { _subject: p.subject + ': ' + name, _template: 'box', _captcha: 'false',
+               'Name': name, 'Phone': phone, 'Email': email || '-', 'Client language': wsfT('Bahasa Malaysia', 'English') };
+  for (var k in p.fields) body[k] = p.fields[k];
+  if (email) body._replyto = email;
+  fetch('https://formsubmit.co/ajax/shakinakushairi@gmail.com', { method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' }, body: JSON.stringify(body) })
+    .then(function(r){ return r.json().catch(function(){ return {}; }).then(function(j){ return r.ok && String(j.success) === 'true'; }); })
+    .catch(function(){ return false; })
+    .then(function(ok){
+      btn.disabled = false;
+      if (ok){ g('form').hidden = true; g('done').hidden = false; g('wsf').scrollIntoView({behavior:'smooth', block:'center'}); return; }
+      var msg = 'Salam Shakina, saya ' + name + ' (' + phone + '). ' + p.wa;
+      err.innerHTML = wsfT('Tidak berjaya dihantar. ', 'Could not send just now. ') +
+        '<a href="https://wa.me/60173335664?text=' + encodeURIComponent(msg) + '" target="_blank" rel="noopener">' + wsfT('Hantar melalui WhatsApp', 'Send via WhatsApp instead') + '</a>';
+    });
+}
+function wsfReset(pfx){
+  var f = document.getElementById(pfx + '-form'), d = document.getElementById(pfx + '-done');
+  if (f) f.hidden = false; if (d) d.hidden = true;
+}
+</script>
+<script>
+window.wsfPayload = window.wsfPayload || {};
+window.wsfPayload.fc = function(){
+  var v = function(id){ return parseFloat(document.getElementById(id).value) || 0; };
+  var gross = v('fc-gross'), pct = v('fc-admin-pct'), net = fcUpdateNet(), h = fcGetHeirs(), r = fcCompute(h);
+  var R = function(n){ return 'RM ' + Math.round(n).toLocaleString('en-MY'); };
+  var inputs = ['Gross estate: ' + R(gross), 'Hibah (outside estate): ' + R(v('fc-hibah')), 'Harta sepencarian: ' + R(v('fc-sepencarian')),
+                'Funeral: ' + R(v('fc-funeral')), 'Debts: ' + R(v('fc-debts')), 'Admin & legal: ' + pct + '% = ' + R(gross * pct / 100),
+                'Wasiat requested: ' + R(v('fc-wasiat')), 'Net Harta Pusaka for Faraid: ' + R(net)].join('\n');
+  var heirs = Object.keys(h).filter(function(k){ return h[k] > 0; }).map(function(k){ return fcHeirLabels[k].en + ' ' + h[k]; }).join(', ') || 'None';
+  var rows = [];
+  for (var k in r.shares){ var s = r.shares[k], x = s.share.toNum(); if (x <= 0) continue;
+    rows.push('- ' + fcHeirLabels[k].en + (s.count > 1 ? ' (x' + s.count + ')' : '') + ': ' + s.share.toStr() + ' = ' + (x * 100).toFixed(2) + '% = ' + R(net * x) + (s.count > 1 ? ' (' + R(net * x / s.count) + ' each)' : '')); }
+  if (r.awlApplied) rows.push('Awl applied.'); if (r.raddApplied) rows.push('Radd applied (father/mother).'); if (r.baitulmalApplied) rows.push('Residue to Baitulmal per MAIS practice.');
+  return { subject: 'Kalkulator Faraid', wa: 'Saya baru guna Kalkulator Faraid; harta pusaka bersih sekitar ' + R(net) + '.',
+           fields: { '1. Estate and deductions': inputs, '2. Heirs': heirs, '3. Faraid distribution': rows.join('\n') } };
+};
+</script>
 <script id="wsb-shared-js">
 (function(){
   var KEY = 'wsb-lang';

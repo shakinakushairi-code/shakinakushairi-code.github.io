@@ -232,6 +232,28 @@ table.cov5 th[colspan]{border-bottom:1px solid rgba(184,149,42,.5)}
 @media (max-width:640px){.wsb-brand{display:none}.wsb-bar{padding:0 14px}.wsb-btn .wsb-long{display:none}}
 @media print{.wsb-bar,.wsb-foot{display:none!important}}
 </style>
+<style id="wsf-css">
+.wsf{background:#fff;border:1px solid #E8E4D8;border-left:4px solid #B8952A;border-radius:0 12px 12px 0;padding:22px 24px;margin-top:22px;color:#2D2D2D;font-family:'DM Sans',system-ui,sans-serif;text-align:left;position:relative}
+.wsf-title{font-family:'Playfair Display',Georgia,serif;font-size:21px;font-weight:600;color:#1A1A1A;margin:0 0 6px}
+.wsf-lead{font-size:14.5px;color:#4A4A4A;margin:0 0 16px;line-height:1.6}
+.wsf-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px 14px}
+.wsf-q{display:block}
+.wsf-l{display:block;font-size:14px;font-weight:600;margin-bottom:5px;color:#1A1A1A}
+.wsf input[type=text],.wsf input[type=tel],.wsf input[type=email]{width:100%;box-sizing:border-box;padding:11px 13px;border:1px solid #E3DFD4;border-radius:8px;background:#fff;font:inherit;font-size:15px;color:#1A1A1A}
+.wsf input:focus{outline:none;border-color:#B8952A;box-shadow:0 0 0 3px rgba(184,149,42,.15)}
+.wsf-honey{position:absolute;left:-9999px;width:1px;height:1px}
+.wsf-consent{display:flex;gap:10px;align-items:flex-start;font-size:13.5px;color:#4A4A4A;margin-top:14px;cursor:pointer;line-height:1.55}
+.wsf-consent input{margin-top:3px;width:18px;height:18px;accent-color:#B8952A;flex:none}
+.wsf-row{display:flex;flex-wrap:wrap;align-items:center;gap:12px;margin-top:16px}
+.wsf-btn{display:inline-block;background:#1A1A1A;color:#F3EBD8;border:0;border-radius:8px;padding:12px 22px;font:600 15px 'DM Sans',system-ui,sans-serif;cursor:pointer;text-decoration:none}
+.wsf-btn:hover{background:#B8952A;color:#1A1A1A}
+.wsf-btn[disabled]{opacity:.6;cursor:wait}
+.wsf-err{font-size:14px;color:#96341C}
+.wsf-err a{color:#96341C;font-weight:600}
+.wsf-ok{background:#1A1A1A;margin:-22px -24px;padding:22px 24px;border-radius:0 12px 12px 0}
+.wsf-ok .wsf-title{color:#F3EBD8}.wsf-ok .wsf-lead{color:#D9CFBA}.wsf-ok .wsf-btn{background:#B8952A;color:#1A1A1A}
+@media print{.wsf{display:none!important}}
+</style>
 </head>
 <body>
 <div class="wsb-bar">
@@ -560,7 +582,30 @@ table.cov5 th[colspan]{border-bottom:1px solid rgba(184,149,42,.5)}
         <p class="note"><span class="bm">Caj tanpa pelan ialah harga Wasiyyah bagi pusaka luar (1–3 lapisan kematian), belum termasuk caj statutori. Semua yuran dan caj dalam kalkulator ini termasuk SST 8%; caj statutori (bayaran perintah PPK) tidak dikenakan SST. Komisen 5% di bawah s.43(1) hanya untuk laluan Mahkamah Tinggi, atas budi bicara mahkamah; ia had, bukan kadar tetap. Nilai termasuk: Dokumen Pelantikan Wasi &amp; Wasiat ⅓ (RM400 + RM400 mengikut senarai harga) dan, bagi Mutiara, khairat RM2,000. Bagi Intan, dokumen ini disediakan secara DIY, jadi tidak dikira sebagai nilai termasuk. Kematian dalam tempoh menunggu (6 bulan Al-Wasitah, 9 bulan Khairat Pusaka Warga Emas) tidak dilindungi kecuali kemalangan. Tempoh ialah anggaran bagi kes tanpa pertikaian. Caj tanpa pelan dikira pada senarai harga 28 September 2026; senarai harga juga naik dari semasa ke semasa (pusaka besar RM27,000 pada 2021, RM32,000 pada 2025).</span><span class="en">The no-plan figure is Wasiyyah's price for non-subscriber estates (1–3 layers of death), excluding statutory charges. All fees and charges in this calculator include 8% SST; statutory charges (the PPK order fee) carry no SST. The 5% commission under s.43(1) applies only to the High Court route, at the court's discretion; it is a cap, not a fixed rate. Included value: Wasi Appointment &amp; ⅓ Bequest documents (RM400 + RM400 per the price list) and, for Mutiara, a RM2,000 death benefit. For Intan these documents are DIY, so they are not counted as included value. Death within the waiting period (6 months for Al-Wasitah, 9 months for Khairat Pusaka Warga Emas) is not covered unless accidental. Durations are estimates for uncontested cases. No-plan fees use the 28 September 2026 price list; prices also rise over time (large estates RM27,000 in 2021, RM32,000 in 2025).</span></p>
       </div>
     </div>
+  
+<div class="wsf" id="kp-wsf">
+  <div class="wsf-form" id="kp-form">
+    <h3 class="wsf-title"><span class="en">Send this comparison to Shakina</span><span class="bm">Hantar perbandingan ini kepada Shakina</span></h3>
+    <p class="wsf-lead"><span class="en">Shakina will go through the numbers with you and help you choose the right plan for your family.</span><span class="bm">Shakina akan meneliti angka ini bersama anda dan membantu memilih pelan yang sesuai untuk keluarga anda.</span></p>
+    <div class="wsf-grid">
+      <label class="wsf-q"><span class="wsf-l"><span class="en">Name *</span><span class="bm">Nama *</span></span><input type="text" id="kp-name" autocomplete="name" maxlength="80"></label>
+      <label class="wsf-q"><span class="wsf-l"><span class="en">Phone / WhatsApp *</span><span class="bm">Telefon / WhatsApp *</span></span><input type="tel" id="kp-phone" autocomplete="tel" inputmode="tel" maxlength="20" placeholder="012-345 6789"></label>
+      <label class="wsf-q"><span class="wsf-l"><span class="en">Email (optional)</span><span class="bm">Emel (pilihan)</span></span><input type="email" id="kp-email" autocomplete="email" maxlength="100"></label>
+    </div>
+    <input type="text" id="kp-honey" tabindex="-1" autocomplete="off" aria-hidden="true" class="wsf-honey">
+    <label class="wsf-consent"><input type="checkbox" id="kp-ok"> <span class="en">I agree that these details are sent to Shakina K. (Kausar Wealth, Wasiyyah Shoppe Berhad advisor) so she can contact me about estate planning.</span><span class="bm">Saya bersetuju maklumat ini dihantar kepada Shakina K. (Kausar Wealth, penasihat Wasiyyah Shoppe Berhad) untuk menghubungi saya berkaitan perancangan harta.</span></label>
+    <div class="wsf-row">
+      <button type="button" class="wsf-btn" id="kp-btn" onclick="wsfSubmit('kp')"><span class="en">Send to Shakina</span><span class="bm">Hantar kepada Shakina</span></button>
+      <span class="wsf-err" id="kp-err"></span>
+    </div>
   </div>
+  <div class="wsf-ok" id="kp-done" hidden>
+    <h3 class="wsf-title"><span class="en">Thank you, your result has been sent</span><span class="bm">Terima kasih, keputusan anda telah dihantar</span></h3>
+    <p class="wsf-lead"><span class="en">Shakina will contact you within two working days. For anything urgent, message her on WhatsApp.</span><span class="bm">Shakina akan menghubungi anda dalam masa dua hari bekerja. Untuk perkara segera, hubungi beliau melalui WhatsApp.</span></p>
+    <a class="wsf-btn" href="https://wa.me/60173335664" target="_blank" rel="noopener">WhatsApp Shakina</a>
+  </div>
+</div>
+</div>
 </section>
 
 <section style="padding-top:0">
@@ -666,6 +711,7 @@ function svcFee(v,mts){
 function ppkOrderFee(v){return v<=50000?0:v*(v<=2000000?0.002:0.003);}
 
 function calc(){
+  if (window.wsfReset) wsfReset('kp');
   const P=PLANS[plan], v0=+$('v').value, yrs=+$('y').value, g=+$('g').value/100, en=lang==='en', B=P.mts;
   const T=(bm,e)=>en?e:bm;
   const v=v0*Math.pow(1+g,yrs);
@@ -734,6 +780,62 @@ calc();
 </script>
 <div class="wsb-foot"><a href="../">&larr; <span data-wsb-ms="Semua alat" data-wsb-en="All tools">Semua alat</span></a><span class="wsb-sep">·</span>Shakina K. · Kausar Wealth · WSB Advisor<span class="wsb-sep">·</span><a href="https://wa.me/60173335664" target="_blank" rel="noopener">WhatsApp 017-333 5664</a></div>
 <script>window.wsbOnLang=function(l){setLang(l);};</script>
+<script id="wsf-js">
+/* Shared submit: each page defines window.wsfPayload[pfx]() returning {subject, fields, wa} */
+window.wsfPayload = window.wsfPayload || {};
+function wsfT(bm, en){ return document.documentElement.lang === 'en' ? en : bm; }
+function wsfSubmit(pfx){
+  var g = function(id){ return document.getElementById(pfx + '-' + id); };
+  var err = g('err'), btn = g('btn');
+  var name = g('name').value.trim(), phone = g('phone').value.trim(), email = g('email').value.trim();
+  var bad = !name ? wsfT('Sila masukkan nama anda.', 'Please enter your name.')
+          : phone.replace(/\D/g, '').length < 9 ? wsfT('Sila masukkan nombor telefon yang sah.', 'Please enter a valid phone number.')
+          : (email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) ? wsfT('Sila semak alamat emel anda.', 'Please check your email address.')
+          : !g('ok').checked ? wsfT('Sila tandakan kotak persetujuan.', 'Please tick the consent box.') : '';
+  if (bad){ err.textContent = bad; return; }
+  if (g('honey').value) return;
+  var p = window.wsfPayload[pfx]();
+  err.textContent = ''; btn.disabled = true;
+  var body = { _subject: p.subject + ': ' + name, _template: 'box', _captcha: 'false',
+               'Name': name, 'Phone': phone, 'Email': email || '-', 'Client language': wsfT('Bahasa Malaysia', 'English') };
+  for (var k in p.fields) body[k] = p.fields[k];
+  if (email) body._replyto = email;
+  fetch('https://formsubmit.co/ajax/shakinakushairi@gmail.com', { method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' }, body: JSON.stringify(body) })
+    .then(function(r){ return r.json().catch(function(){ return {}; }).then(function(j){ return r.ok && String(j.success) === 'true'; }); })
+    .catch(function(){ return false; })
+    .then(function(ok){
+      btn.disabled = false;
+      if (ok){ g('form').hidden = true; g('done').hidden = false; g('wsf').scrollIntoView({behavior:'smooth', block:'center'}); return; }
+      var msg = 'Salam Shakina, saya ' + name + ' (' + phone + '). ' + p.wa;
+      err.innerHTML = wsfT('Tidak berjaya dihantar. ', 'Could not send just now. ') +
+        '<a href="https://wa.me/60173335664?text=' + encodeURIComponent(msg) + '" target="_blank" rel="noopener">' + wsfT('Hantar melalui WhatsApp', 'Send via WhatsApp instead') + '</a>';
+    });
+}
+function wsfReset(pfx){
+  var f = document.getElementById(pfx + '-form'), d = document.getElementById(pfx + '-done');
+  if (f) f.hidden = false; if (d) d.hidden = true;
+}
+</script>
+<script>
+window.wsfPayload = window.wsfPayload || {};
+window.wsfPayload.kp = function(){
+  var prev = lang; setLang('en');
+  var t = function(id){ var e = document.getElementById(id); return (e && !e.hidden && !(e.parentElement && e.parentElement.hidden)) ? e.innerText.trim() : null; };
+  var P = PLANS[plan], lines = [];
+  [['Plan', P.n], ['Estate value today', t('vOut')], ['Years subscribed before death', t('yOut')], ['Annual asset growth', t('gOut')],
+   ['Estate value at death', t('oVd')], ['Channel', t('oCh')], ['Eligible age / waiting period', t('oAge')], ['Time to get authority', t('oTime')],
+   ['Statutory charge (not covered)', t('oFee')], ['Other costs', t('oLeft')], ['No plan: service fee incl. SST', t('oNo')], ['No plan: s.43 commission', t('oCap')],
+   ['Coverage limit', t('oLim')], ['Subscription paid incl. SST', t('oSub')], ['Above limit, paid by heirs', t('oOver')], ['Less included value', t('oInc')],
+   ['Net cost', t('oNet')], ['Break-even', t('oBE')]].forEach(function(r){ if (r[1]) lines.push(r[0] + ': ' + r[1]); });
+  var warn = t('oWarn'), verdict = t('oVerdict');
+  setLang(prev);
+  var f = { '1. Plan and inputs': lines.slice(0, 4).join('\n'), '2. Results': lines.slice(4).join('\n') };
+  if (verdict) f['3. Verdict'] = verdict;
+  if (warn) f['4. Warning shown'] = warn;
+  return { subject: 'Kos Pusaka: ' + P.n, wa: 'Saya baru guna kalkulator Kos Pusaka untuk ' + P.n + ', harta sekitar ' + (document.getElementById('vOut').innerText) + '.', fields: f };
+};
+</script>
 <script id="wsb-shared-js">
 (function(){
   var KEY = 'wsb-lang';
