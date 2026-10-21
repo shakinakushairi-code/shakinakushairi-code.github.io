@@ -123,6 +123,24 @@ html{scroll-behavior:smooth}.sec{scroll-margin-top:60px}
 .about-role{font-size:14px;color:#E8D49A;margin-bottom:12px}
 .about-body{font-size:16px;line-height:1.7;color:#D9CFBA;max-width:640px;margin-bottom:18px}
 @media (max-width:640px){.about-in{flex-direction:column;align-items:flex-start;gap:18px}.about-pic{width:120px;height:120px}}
+.ptabs{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin:18px 0 14px}
+.ptabs button{background:#fff;border:1px solid var(--line);border-radius:12px;padding:14px 12px;font:600 15px 'DM Sans',system-ui,sans-serif;color:var(--black);cursor:pointer;text-align:left;line-height:1.3}
+.ptabs button:hover{border-color:var(--gold)}
+.ptabs button[aria-selected="true"]{background:var(--black);color:#F3EBD8;border-color:var(--black);box-shadow:inset 0 -3px 0 var(--gold)}
+.ptabs button:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+.pp{display:grid;grid-template-columns:1.2fr 1fr;gap:16px}
+.pp[hidden]{display:none}
+.pp-col{background:#fff;border:1px solid var(--line);border-radius:14px;padding:20px 22px}
+.pp-first{border-left:4px solid var(--gold)}
+.pp-h{font-size:12px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:#8C6E1A;margin-bottom:10px}
+.pp ul{list-style:none;display:grid;gap:10px}
+.pp li{position:relative;padding-left:18px;font-size:15px;color:var(--ink)}
+.pp li::before{content:"";position:absolute;left:0;top:9px;width:7px;height:7px;border-radius:50%;background:var(--gold)}
+.pp-first > p:not(.pp-h){font-size:16px;color:var(--black);font-weight:500}
+.pp-btns{display:flex;flex-wrap:wrap;gap:10px;margin-top:16px}
+.btn-out{display:inline-block;border:1px solid var(--black);color:var(--black);font-weight:600;font-size:15px;text-decoration:none;padding:12px 20px;border-radius:10px}
+.btn-out:hover{border-color:var(--gold);color:#8C6E1A}
+@media (max-width:820px){.ptabs{grid-template-columns:repeat(2,1fr)}.pp{grid-template-columns:1fr}}
 </style>
 <style id="wsb-shared">
 /* ── Shared chrome: identical on every page ── */
@@ -179,13 +197,34 @@ html{scroll-behavior:smooth}.sec{scroll-margin-top:60px}
     <h1><span class="bm">&ldquo;Saya bukan ada harta pun.&rdquo; Betul ke?</span><span class="en">&ldquo;I don&rsquo;t really have any assets.&rdquo; Are you sure?</span></h1>
     <p class="lead"><span class="bm">Ambil 60 saat untuk kira. Ramai yang terkejut, dan semua harta atas nama anda dibekukan pada hari anda meninggal dunia.</span><span class="en">Take 60 seconds to add it up. Most people are surprised, and everything in your name is frozen the day you pass away.</span></p>
     <div class="hero-cta">
-      <a class="btn-gold" href="#semak"><span class="bm">Kira harta saya</span><span class="en">Add up my assets</span></a>
-      <a class="btn-line" href="pusaka/?tab=faraid"><span class="bm">Siapa dapat apa?</span><span class="en">Who gets what?</span></a>
+      <a class="btn-gold" href="#situasi"><span class="bm">Mula di sini</span><span class="en">Start here</span></a>
+      <a class="btn-line" href="#semak"><span class="bm">Kira harta saya</span><span class="en">Add up my assets</span></a>
     </div>
   </div>
 </header>
 
 <main>
+<section class="sec" id="situasi">
+  <div class="wrap">
+    <p class="label"><span class="bm">Mula di sini</span><span class="en">Start here</span></p>
+    <h2 class="h2"><span class="bm">Pilih situasi anda</span><span class="en">Which one sounds like you?</span></h2>
+    <div class="ptabs" role="tablist" aria-label="Situasi"><button type="button" role="tab" id="pt-bujang" aria-selected="true" aria-controls="pp-bujang" onclick="pathPick('bujang')"><span class="bm">Bujang / baru kerja</span><span class="en">Single or starting out</span></button><button type="button" role="tab" id="pt-keluarga" aria-selected="false" aria-controls="pp-keluarga" onclick="pathPick('keluarga')"><span class="bm">Berkeluarga, anak kecil</span><span class="en">Married with young children</span></button><button type="button" role="tab" id="pt-hartanah" aria-selected="false" aria-controls="pp-hartanah" onclick="pathPick('hartanah')"><span class="bm">Ada rumah atau tanah</span><span class="en">Own a house or land</span></button><button type="button" role="tab" id="pt-warga" aria-selected="false" aria-controls="pp-warga" onclick="pathPick('warga')"><span class="bm">Ibu bapa 60 tahun ke atas</span><span class="en">Parents aged 60+</span></button></div>
+    <div class="pp" role="tabpanel" id="pp-bujang" aria-labelledby="pt-bujang">
+      <div class="pp-col"><p class="pp-h"><span class="bm">Perlu tahu</span><span class="en">Worth knowing</span></p><ul><li><span class="bm">Jika masih bujang, ibu bapa dan adik-beradik mewarisi mengikut Faraid, bukan orang yang anda pilih.</span><span class="en">If you are single, your parents and siblings inherit by Faraid, not whoever you might choose.</span></li><li><span class="bm">Penama KWSP dan takaful anda mungkin hanya memegangnya sebagai wasi, untuk diagihkan mengikut Faraid.</span><span class="en">Your KWSP and takaful nominee may only be holding it as wasi, to distribute by Faraid.</span></li></ul></div>
+      <div class="pp-col pp-first"><p class="pp-h"><span class="bm">Langkah pertama anda</span><span class="en">Your first step</span></p><p><span class="bm">Semak penamaan anda, kemudian sediakan Wasiat &#8531; dan lantik wasi.</span><span class="en">Check your nominations, then make a Wasiat &#8531; and appoint a wasi.</span></p><div class="pp-btns"><a class="btn-gold" href="#semak"><span class="bm">Kira harta saya</span><span class="en">Add up my assets</span></a><a class="btn-out" href="pusaka/?tab=faraid"><span class="bm">Siapa dapat apa?</span><span class="en">Who gets what?</span></a></div></div>
+    </div><div class="pp" role="tabpanel" id="pp-keluarga" aria-labelledby="pt-keluarga" hidden>
+      <div class="pp-col"><p class="pp-h"><span class="bm">Perlu tahu</span><span class="en">Worth knowing</span></p><ul><li><span class="bm">Jika ada anak, isteri menerima 1/8 dan suami 1/4. Selebihnya kepada anak-anak dan, kadangkala, ibu bapa anda.</span><span class="en">With children, a wife receives 1/8 and a husband 1/4. The rest goes to the children and, sometimes, your parents.</span></li><li><span class="bm">Anak bawah 18 tahun tidak boleh mengurus bahagian mereka. Perlu ada orang yang dipercayai untuk memegangnya.</span><span class="en">Children under 18 cannot manage their share. Someone must be trusted to hold it for them.</span></li></ul></div>
+      <div class="pp-col pp-first"><p class="pp-h"><span class="bm">Langkah pertama anda</span><span class="en">Your first step</span></p><p><span class="bm">Lantik wasi yang anda percayai untuk anak-anak, bersama Wasiat &#8531;. Pertimbangkan Al-Wasitah supaya pusaka diuruskan untuk keluarga anda.</span><span class="en">Appoint a wasi you trust with your children, plus a Wasiat &#8531;. Consider Al-Wasitah so the estate is handled for your family.</span></p><div class="pp-btns"><a class="btn-gold" href="pusaka/?tab=faraid"><span class="bm">Siapa dapat apa?</span><span class="en">Who gets what?</span></a><a class="btn-out" href="kos-pusaka/?plan=m"><span class="bm">Kos pusaka</span><span class="en">Estate costs</span></a></div></div>
+    </div><div class="pp" role="tabpanel" id="pp-hartanah" aria-labelledby="pt-hartanah" hidden>
+      <div class="pp-col"><p class="pp-h"><span class="bm">Perlu tahu</span><span class="en">Worth knowing</span></p><ul><li><span class="bm">Rumah atas nama anda dibekukan seperti harta lain, dan mungkin dikongsi oleh ramai waris.</span><span class="en">A house in your name is frozen like everything else, and may end up shared among many heirs.</span></li><li><span class="bm">Jika masih ada pinjaman, MRTA atau MRTT yang melangsaikannya supaya hakmilik boleh dipindahkan.</span><span class="en">If there is still a loan, MRTA or MRTT is what clears it so the title can move.</span></li></ul></div>
+      <div class="pp-col pp-first"><p class="pp-h"><span class="bm">Langkah pertama anda</span><span class="en">Your first step</span></p><p><span class="bm">Hibah bagi hartanah itu, supaya ia diterima oleh orang yang anda hasratkan dan selesai di peringkat awal.</span><span class="en">A Hibah for the property, so it goes to whom you intend, resolved at source.</span></p><div class="pp-btns"><a class="btn-gold" href="hibah/"><span class="bm">Cari pakej Hibah saya</span><span class="en">Find my Hibah package</span></a><a class="btn-out" href="kos-pusaka/"><span class="bm">Kos pusaka</span><span class="en">Estate costs</span></a></div></div>
+    </div><div class="pp" role="tabpanel" id="pp-warga" aria-labelledby="pt-warga" hidden>
+      <div class="pp-col"><p class="pp-h"><span class="bm">Perlu tahu</span><span class="en">Worth knowing</span></p><ul><li><span class="bm">Lebih banyak harta dan waris biasanya bermakna lebih banyak urusan, dan pusaka lama yang belum dituntut menambah kerumitan.</span><span class="en">More assets and more heirs usually mean more paperwork, and unclaimed estates from earlier generations make it harder.</span></li><li><span class="bm">Al-Wasitah untuk umur 18 hingga 60. Dari umur 61, Khairat Pusaka Warga Emas menguruskan pusaka.</span><span class="en">Al-Wasitah is for ages 18 to 60. From 61, Khairat Pusaka Warga Emas covers estate administration.</span></li></ul></div>
+      <div class="pp-col pp-first"><p class="pp-h"><span class="bm">Langkah pertama anda</span><span class="en">Your first step</span></p><p><span class="bm">Wasiat &#8531; dan wasi dahulu, kemudian Khairat Pusaka Warga Emas. Anak-anak boleh memulakan perbincangan ini untuk ibu bapa.</span><span class="en">A Wasiat &#8531; and wasi first, then Khairat Pusaka Warga Emas. Children can start this conversation for their parents.</span></p><div class="pp-btns"><a class="btn-gold" href="kos-pusaka/?plan=s"><span class="bm">Pelan warga emas &amp; kos</span><span class="en">Senior plans and costs</span></a><a class="btn-out" href="pusaka/?tab=faraid"><span class="bm">Siapa dapat apa?</span><span class="en">Who gets what?</span></a></div></div>
+    </div>
+  </div>
+</section>
+
 <section id="semak" class="sec">
   <div class="wrap">
     <p class="label"><span class="bm">Langkah 1 · 60 saat</span><span class="en">Step 1 · 60 seconds</span></p>
@@ -406,6 +445,16 @@ function wsfReset(pfx){
   };
   upd();
 })();
+</script>
+<script>
+function pathPick(k){
+  var tabs = document.querySelectorAll('.ptabs button');
+  for (var i = 0; i < tabs.length; i++){
+    var on = tabs[i].id === 'pt-' + k;
+    tabs[i].setAttribute('aria-selected', String(on));
+    document.getElementById(tabs[i].getAttribute('aria-controls')).hidden = !on;
+  }
+}
 </script>
 <script id="wsb-shared-js">
 (function(){

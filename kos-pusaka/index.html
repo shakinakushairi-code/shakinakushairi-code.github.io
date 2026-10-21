@@ -777,6 +777,7 @@ function calc(){
   $('waLink').href='https://wa.me/60173335664?text='+encodeURIComponent(msg);
 }
 calc();
+try { var qp = new URLSearchParams(location.search).get('plan'); if (qp && PLANS[qp]) setPlan(qp); } catch (e) {}
 </script>
 <div class="wsb-foot"><a href="../">&larr; <span data-wsb-ms="Semua alat" data-wsb-en="All tools">Semua alat</span></a><span class="wsb-sep">·</span>Shakina K. · Kausar Wealth · WSB Advisor<span class="wsb-sep">·</span><a href="https://wa.me/60173335664" target="_blank" rel="noopener">WhatsApp 017-333 5664</a></div>
 <script>window.wsbOnLang=function(l){setLang(l);};</script>
