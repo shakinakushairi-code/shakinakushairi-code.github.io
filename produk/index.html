@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Produk Perancangan Harta | Shakina K. · Kausar Wealth</title>
+<meta name="description" content="Produk perancangan harta Wasiyyah Shoppe Berhad mengikut jenis harta: ASB, takaful, Tabung Haji, akaun bank, hartanah, perniagaan.">
+<meta property="og:title" content="Perancangan Pusaka Islam · Shakina K.">
+<meta property="og:description" content="Proses pusaka, kalkulator Faraid, kos pusaka dan penilaian Hibah — dalam BM dan English.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,500&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --gold:#B8952A; --gold-lt:#F5E9C4; --black:#1A1A1A; --ink:#2D2D2D; --muted:#6B6660;
+  --cream:#FAF8F3; --line:#E8E4D8; --blue:#1A3A8F; --green:#2E9E4F; --kausar:#F5A800;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'DM Sans',system-ui,sans-serif;background:var(--cream);color:var(--ink);line-height:1.55}
+.en{display:none} body.lang-en .en{display:inline} body.lang-en .bm{display:none}
+.strip{height:6px;background:linear-gradient(90deg,var(--blue) 0 33.3%,var(--green) 33.3% 66.6%,var(--kausar) 66.6% 100%)}
+header{background:var(--black);color:#F3EBD8;padding:44px 20px 52px}
+.wrap{max-width:980px;margin:0 auto}
+.top{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:34px}
+.brand{font-size:13px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--gold)}
+.lang{display:flex;border:1px solid #4A443A;border-radius:999px;overflow:hidden}
+.lang button{background:none;border:0;color:#D9CFBA;font:600 13px 'DM Sans',sans-serif;padding:7px 14px;cursor:pointer}
+.lang button[aria-pressed=true]{background:var(--gold);color:var(--black)}
+h1{font-family:'Playfair Display',Georgia,serif;font-weight:600;font-size:clamp(34px,6vw,54px);line-height:1.1;max-width:760px}
+.lead{margin-top:16px;font-size:17px;color:#D9CFBA;max-width:640px}
+.rule{width:72px;height:3px;background:var(--gold);margin-top:26px}
+main{padding:40px 20px 20px}
+.label{font-size:12px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:#8C6E1A;margin-bottom:14px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:16px}
+a.card{display:flex;flex-direction:column;gap:10px;background:#fff;border:1px solid var(--line);border-radius:14px;padding:24px;text-decoration:none;color:inherit;position:relative;overflow:hidden;transition:transform .15s,box-shadow .15s}
+a.card::before{content:"";position:absolute;left:0;top:0;right:0;height:4px;background:var(--c)}
+a.card:hover,a.card:focus-visible{transform:translateY(-2px);box-shadow:0 10px 28px rgba(26,26,26,.10)}
+a.card:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+.ic{width:44px;height:44px;border-radius:50%;background:var(--black);display:grid;place-items:center}
+.ic svg{width:22px;height:22px;stroke:var(--gold);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.card h2{font-family:'Playfair Display',Georgia,serif;font-size:22px;font-weight:600;color:var(--black)}
+.card p{font-size:15px;color:var(--muted);flex:1}
+.go{font-size:14px;font-weight:600;color:#8C6E1A}
+.go::after{content:" →"}
+.start{margin-top:28px;background:var(--gold-lt);border-radius:14px;padding:20px 24px;font-size:15px}
+.start b{color:var(--black)}
+.cta{margin:36px 20px 0;background:var(--black);color:#F3EBD8;border-radius:16px;padding:28px}
+.cta .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:18px}
+.cta h3{font-family:'Playfair Display',Georgia,serif;font-size:24px;font-weight:600}
+.cta p{color:#D9CFBA;font-size:15px;margin-top:4px}
+.wa{background:var(--gold);color:var(--black);text-decoration:none;font-weight:600;padding:13px 22px;border-radius:10px;white-space:nowrap}
+footer{max-width:980px;margin:0 auto;padding:28px 20px 40px;font-size:12px;color:var(--muted)}
+@media (max-width:560px){header{padding:28px 16px 40px}main{padding:32px 16px 12px}.cta{margin:28px 16px 0;padding:22px}footer{padding:24px 16px 36px}}
+
+.eyebrow{font-size:12px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-bottom:14px}
+.hero-cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:26px}
+.btn-gold{display:inline-block;background:var(--gold);color:var(--black);font-weight:600;font-size:15px;text-decoration:none;padding:13px 22px;border-radius:10px;text-align:center}
+.btn-gold:hover{background:#D4A843}
+.btn-line{display:inline-block;border:1px solid var(--gold);color:#F3EBD8;font-weight:600;font-size:15px;text-decoration:none;padding:12px 22px;border-radius:10px}
+.btn-line:hover{background:rgba(184,149,42,.15)}
+.btn-gold.full{display:block;margin-top:16px}
+main{padding:0}
+html{scroll-behavior:smooth}.sec{scroll-margin-top:60px}
+.sec{padding:44px 20px 8px}
+.sec.alt{background:#F3EFE4;margin-top:36px;padding-bottom:44px}
+.sec .wrap{max-width:980px;margin:0 auto}
+.h2{font-family:'Playfair Display',Georgia,serif;font-size:clamp(26px,4vw,34px);font-weight:600;color:var(--black);margin-bottom:8px}
+.h3{font-family:'Playfair Display',Georgia,serif;font-size:21px;font-weight:600;color:var(--black);margin:30px 0 14px}
+.sub{color:var(--muted);font-size:15px;max-width:640px;margin-bottom:22px}
+.chk{display:grid;grid-template-columns:1.6fr 1fr;gap:18px;align-items:start}
+.grp{background:#fff;border:1px solid var(--line);border-radius:14px;padding:20px 20px 6px;margin-bottom:14px}
+.grp h3{font-size:12px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:#8C6E1A;margin-bottom:12px}
+.mgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:0 16px}
+.m{display:block;margin-bottom:14px}
+.ml{display:block;font-size:14px;font-weight:600;color:var(--black)}
+.m small{display:block;font-size:12.5px;color:var(--muted);margin-top:1px}
+.rm{display:flex;align-items:center;margin-top:6px;border:1px solid #E3DFD4;border-radius:8px;background:#fff;overflow:hidden}
+.rm:focus-within{border-color:var(--gold);box-shadow:0 0 0 3px rgba(184,149,42,.15)}
+.rm i{font-style:normal;font-size:14px;color:var(--muted);padding:0 4px 0 12px}
+.rm input{border:0;outline:0;flex:1;min-width:0;padding:10px 12px 10px 4px;font:inherit;font-size:16px;color:var(--black);background:transparent}
+.out{position:sticky;top:76px;background:var(--black);color:#F3EBD8;border-radius:14px;padding:22px}
+.tot{display:flex;flex-direction:column;gap:2px;padding-bottom:14px;border-bottom:1px solid #3A3630;margin-bottom:10px}
+.tot span{font-size:13px;color:#D9CFBA}
+.tot b{font-family:'Playfair Display',Georgia,serif;font-size:38px;font-weight:700;color:#E8D49A;line-height:1.1}
+.out .row{display:flex;justify-content:space-between;gap:10px;font-size:14.5px;padding:5px 0;color:#D9CFBA}
+.out .row.strong{color:#F3EBD8;font-weight:600}
+.msgs{margin-top:12px}
+.msg{font-size:14px;line-height:1.55;background:#262421;border-left:3px solid var(--gold);border-radius:0 8px 8px 0;padding:10px 12px;margin-top:8px;color:#E9E1CF}
+.msg b{color:#E8D49A}
+.msg.muted{border-left-color:#4A443A;color:#A89F8C}
+.hadith{background:var(--black);color:#F3EBD8;border-radius:14px;padding:24px 26px;margin:18px 0 6px;border-left:4px solid var(--gold)}
+.hadith p{font-family:'Playfair Display',Georgia,serif;font-size:clamp(18px,2.4vw,22px);line-height:1.5;font-style:italic}
+.hadith cite{display:block;margin-top:10px;font-style:normal;font-size:13.5px;color:#D9CFBA}
+.steps{list-style:none;counter-reset:s;display:grid;gap:10px}
+.steps li{counter-increment:s;display:grid;grid-template-columns:40px 1fr;column-gap:14px;align-items:start;background:#fff;border:1px solid var(--line);border-radius:12px;padding:14px 16px}
+.steps li::before{content:counter(s);grid-row:span 2;width:34px;height:34px;border-radius:50%;background:var(--black);color:#E8D49A;display:grid;place-items:center;font-weight:700;font-family:'Playfair Display',Georgia,serif}
+.steps li:nth-child(4)::before,.steps li:nth-child(4){border-color:var(--gold)}
+.steps li:nth-child(4)::before{background:var(--gold);color:var(--black)}
+.steps b{font-size:16px;color:var(--black)}
+.steps li > span{font-size:14.5px;color:var(--muted)}
+.concepts{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:14px;margin-top:26px}
+.cpt{background:#fff;border:1px solid var(--line);border-top:4px solid var(--gold);border-radius:12px;padding:18px}
+.cpt h4{font-family:'Playfair Display',Georgia,serif;font-size:20px;color:var(--black);margin-bottom:6px}
+.cpt p{font-size:14.5px;color:var(--muted)}
+.note{font-size:13px;color:var(--muted);margin-top:12px}
+.first{display:flex;flex-direction:column;gap:4px;background:var(--gold-lt);border-radius:12px;padding:18px 20px;margin-top:18px;font-size:15px}
+.first b{color:var(--black);font-size:16px}
+.sec .grid{margin-top:6px;grid-template-columns:repeat(4,1fr)}
+.sec .grid .card{padding:22px 20px}
+.sec .grid .card h2{font-size:20px}
+@media (max-width:980px){.sec .grid{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:560px){.sec .grid{grid-template-columns:1fr}}
+@media (max-width:820px){.chk{grid-template-columns:1fr}.out{position:static}}
+.mini{display:none}
+@media (max-width:820px){
+ .mini:not([hidden]){display:flex;position:fixed;left:12px;right:12px;bottom:12px;z-index:250;align-items:center;justify-content:space-between;gap:10px;background:#1A1A1A;color:#F3EBD8;border:1px solid #B8952A;border-radius:12px;padding:12px 16px;text-decoration:none;box-shadow:0 8px 24px rgba(0,0,0,.25);font-size:14px}
+ .mini b{font-family:'Playfair Display',Georgia,serif;font-size:20px;color:#E8D49A}
+ .mini-go{color:#E8D49A;font-weight:600}
+ .out{scroll-margin-top:70px}
+}
+
+.about{background:var(--black);color:#F3EBD8;padding:44px 20px;margin-top:40px}
+.about-in{display:flex;gap:32px;align-items:center;max-width:980px;margin:0 auto}
+.about-pic{width:160px;height:160px;border-radius:50%;object-fit:cover;flex:none;border:3px solid var(--gold);box-shadow:0 0 0 6px rgba(184,149,42,.18)}
+.about .label{color:var(--gold)}
+.about .h2{color:#F3EBD8;margin-bottom:2px}
+.about-role{font-size:14px;color:#E8D49A;margin-bottom:12px}
+.about-body{font-size:16px;line-height:1.7;color:#D9CFBA;max-width:640px;margin-bottom:18px}
+@media (max-width:640px){.about-in{flex-direction:column;align-items:flex-start;gap:18px}.about-pic{width:120px;height:120px}}
+.ptabs{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin:18px 0 14px}
+.ptabs button{background:#fff;border:1px solid var(--line);border-radius:12px;padding:14px 12px;font:600 15px 'DM Sans',system-ui,sans-serif;color:var(--black);cursor:pointer;text-align:left;line-height:1.3}
+.ptabs button:hover{border-color:var(--gold)}
+.ptabs button[aria-selected="true"]{background:var(--black);color:#F3EBD8;border-color:var(--black);box-shadow:inset 0 -3px 0 var(--gold)}
+.ptabs button:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+.pp{display:grid;grid-template-columns:1.2fr 1fr;gap:16px}
+.pp[hidden]{display:none}
+.pp-col{background:#fff;border:1px solid var(--line);border-radius:14px;padding:20px 22px}
+.pp-first{border-left:4px solid var(--gold)}
+.pp-h{font-size:12px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:#8C6E1A;margin-bottom:10px}
+.pp ul{list-style:none;display:grid;gap:10px}
+.pp li{position:relative;padding-left:18px;font-size:15px;color:var(--ink)}
+.pp li::before{content:"";position:absolute;left:0;top:9px;width:7px;height:7px;border-radius:50%;background:var(--gold)}
+.pp-first > p:not(.pp-h){font-size:16px;color:var(--black);font-weight:500}
+.pp-btns{display:flex;flex-wrap:wrap;gap:10px;margin-top:16px}
+.btn-out{display:inline-block;border:1px solid var(--black);color:var(--black);font-weight:600;font-size:15px;text-decoration:none;padding:12px 20px;border-radius:10px}
+.btn-out:hover{border-color:var(--gold);color:#8C6E1A}
+@media (max-width:820px){.ptabs{grid-template-columns:repeat(2,1fr)}.pp{grid-template-columns:1fr}}
+#alat{padding:40px 20px 44px}
+#alat .card h2{font-size:20px}
+@media (min-width:900px){#alat .grid{grid-template-columns:repeat(4,1fr)}}
+</style>
+<style id="wsb-shared">
+/* ── Shared chrome: identical on every page ── */
+.wsb-bar{position:sticky;top:0;z-index:300;height:56px;background:#1A1A1A;color:#F3EBD8;font-family:'DM Sans',system-ui,sans-serif;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:0 20px}
+.wsb-bar::after{content:"";position:absolute;left:0;right:0;bottom:-3px;height:3px;background:linear-gradient(90deg,#1A3A8F 0 33.3%,#2E9E4F 33.3% 66.6%,#F5A800 66.6% 100%)}
+.wsb-left{display:flex;align-items:center;gap:18px;min-width:0}
+.wsb-home{color:#F3EBD8;text-decoration:none;font-size:14px;font-weight:600;white-space:nowrap;padding:10px 4px 10px 0;display:inline-block}
+.wsb-home:hover{color:#E8D49A}
+.wsb-brand{font-size:12px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:#B8952A;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.wsb-right{display:flex;align-items:center;gap:10px}
+.wsb-lang{display:inline-flex;border:1px solid #4A443A;border-radius:999px;overflow:hidden}
+.wsb-lang button{background:none;border:0;color:#D9CFBA;font:600 13px 'DM Sans',system-ui,sans-serif;padding:10px 15px;cursor:pointer;line-height:1}
+.wsb-lang button[aria-pressed="true"]{background:#B8952A;color:#1A1A1A}
+.wsb-btn{background:none;border:1px solid #B8952A;color:#F3EBD8;font:600 13px 'DM Sans',system-ui,sans-serif;padding:10px 14px;border-radius:999px;cursor:pointer;line-height:1;white-space:nowrap}
+.wsb-btn:hover{background:rgba(184,149,42,.15)}
+.wsb-bar a:focus-visible,.wsb-bar button:focus-visible,.wsb-foot a:focus-visible{outline:2px solid #F5A800;outline-offset:2px}
+.wsb-foot{background:#1A1A1A;color:#D9CFBA;font-family:'DM Sans',system-ui,sans-serif;font-size:14px;text-align:center;padding:22px 16px 26px;line-height:1.7}
+.wsb-foot a{color:#E8D49A;text-decoration:none;font-weight:600;display:inline-block;padding:8px 0}
+.wsb-foot .wsb-sep{color:#6B6660;margin:0 8px}
+@media (max-width:640px){.wsb-brand{display:none}.wsb-bar{padding:0 14px}.wsb-btn .wsb-long{display:none}}
+@media print{.wsb-bar,.wsb-foot{display:none!important}}
+</style>
+<style id="wsf-css">
+.wsf{background:#fff;border:1px solid #E8E4D8;border-left:4px solid #B8952A;border-radius:0 12px 12px 0;padding:22px 24px;margin-top:22px;color:#2D2D2D;font-family:'DM Sans',system-ui,sans-serif;text-align:left;position:relative}
+.wsf-title{font-family:'Playfair Display',Georgia,serif;font-size:21px;font-weight:600;color:#1A1A1A;margin:0 0 6px}
+.wsf-lead{font-size:14.5px;color:#4A4A4A;margin:0 0 16px;line-height:1.6}
+.wsf-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px 14px}
+.wsf-q{display:block}
+.wsf-l{display:block;font-size:14px;font-weight:600;margin-bottom:5px;color:#1A1A1A}
+.wsf input[type=text],.wsf input[type=tel],.wsf input[type=email]{width:100%;box-sizing:border-box;padding:11px 13px;border:1px solid #E3DFD4;border-radius:8px;background:#fff;font:inherit;font-size:15px;color:#1A1A1A}
+.wsf input:focus{outline:none;border-color:#B8952A;box-shadow:0 0 0 3px rgba(184,149,42,.15)}
+.wsf-honey{position:absolute;left:-9999px;width:1px;height:1px}
+.wsf-consent{display:flex;gap:10px;align-items:flex-start;font-size:13.5px;color:#4A4A4A;margin-top:14px;cursor:pointer;line-height:1.55}
+.wsf-consent input{margin-top:3px;width:18px;height:18px;accent-color:#B8952A;flex:none}
+.wsf-row{display:flex;flex-wrap:wrap;align-items:center;gap:12px;margin-top:16px}
+.wsf-btn{display:inline-block;background:#1A1A1A;color:#F3EBD8;border:0;border-radius:8px;padding:12px 22px;font:600 15px 'DM Sans',system-ui,sans-serif;cursor:pointer;text-decoration:none}
+.wsf-btn:hover{background:#B8952A;color:#1A1A1A}
+.wsf-btn[disabled]{opacity:.6;cursor:wait}
+.wsf-err{font-size:14px;color:#96341C}
+.wsf-err a{color:#96341C;font-weight:600}
+.wsf-ok{background:#1A1A1A;margin:-22px -24px;padding:22px 24px;border-radius:0 12px 12px 0}
+.wsf-ok .wsf-title{color:#F3EBD8}.wsf-ok .wsf-lead{color:#D9CFBA}.wsf-ok .wsf-btn{background:#B8952A;color:#1A1A1A}
+@media print{.wsf{display:none!important}}
+</style>
+<style>
+.ph{background:var(--black);color:#F3EBD8;padding:40px 20px 34px}
+.ph .wrap,.pm{max-width:980px;margin:0 auto}
+.ph h1{font-family:'Playfair Display',Georgia,serif;font-weight:600;font-size:clamp(30px,5vw,44px);line-height:1.15}
+.ph p{color:#D9CFBA;font-size:16px;margin-top:12px;max-width:660px}
+.kinds{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin-top:22px}
+.kinds div{background:#262421;border-radius:12px;padding:14px 16px;font-size:14.5px;color:#E9E1CF;line-height:1.55}
+.kinds b{display:block;color:#E8D49A;margin-bottom:2px}
+.jump{position:sticky;top:59px;z-index:20;background:var(--cream);border-bottom:1px solid var(--line);display:flex;gap:8px;overflow-x:auto;padding:10px 20px;scrollbar-width:none}
+.jump::-webkit-scrollbar{display:none}
+.jump a{flex:none;font-size:14px;font-weight:600;color:var(--black);text-decoration:none;border:1px solid var(--line);background:#fff;border-radius:999px;padding:9px 14px}
+.jump a:hover{border-color:var(--gold)}
+.pm{padding:10px 20px 40px}
+.grp-sec{padding-top:26px;scroll-margin-top:120px}
+.h2s{font-family:'Playfair Display',Georgia,serif;font-size:24px;font-weight:600;color:var(--black);margin-bottom:12px}
+.pgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:14px}
+.pc{background:#fff;border:1px solid var(--line);border-radius:14px;padding:20px;display:flex;flex-direction:column;gap:10px;scroll-margin-top:120px}
+.pc:target{border-color:var(--gold);box-shadow:0 0 0 3px rgba(184,149,42,.2)}
+.pc-top{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.tag{font-size:11.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;border-radius:999px;padding:4px 10px}
+.t-hibah{background:#E6F4EA;color:#1E6B36}.t-amanah{background:#E7ECF8;color:#1A3A8F}.t-dokumen{background:#F5E9C4;color:#7A5A10}
+.has{font-size:13.5px;color:var(--muted)}
+.pc h3{font-family:'Playfair Display',Georgia,serif;font-size:22px;font-weight:600;color:var(--black)}
+.what{font-size:15px;color:var(--ink);line-height:1.6}
+.fit{font-size:14.5px;color:var(--muted);background:var(--cream);border-radius:10px;padding:10px 12px;line-height:1.55}
+.fit b{color:var(--black)}
+.pc-btns{display:flex;flex-wrap:wrap;gap:8px;margin-top:auto;padding-top:4px}
+.btn-gold.sm,.btn-out.sm{font-size:14px;padding:10px 16px}
+.btn-gold{display:inline-block;background:var(--gold);color:var(--black);font-weight:600;text-decoration:none;border-radius:10px}
+.btn-out{display:inline-block;border:1px solid var(--black);color:var(--black);font-weight:600;text-decoration:none;border-radius:10px}
+.base{margin-top:30px;background:var(--gold-lt);border-radius:14px;padding:20px 22px;font-size:15px;line-height:1.6}
+.base b{color:var(--black)}
+.base a{color:#7A5A10;font-weight:600}
+.src{font-size:12.5px;color:var(--muted);margin-top:16px}
+@media (max-width:640px){.jump{padding:10px 14px}.pgrid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="wsb-bar">
+  <div class="wsb-left"><a class="wsb-home" href="../">&larr; <span data-wsb-ms="Semua alat" data-wsb-en="All tools">Semua alat</span></a><span class="wsb-brand">Shakina K. · Kausar Wealth</span></div>
+  <div class="wsb-right"><div class="wsb-lang" role="group" aria-label="Bahasa / Language"><button type="button" data-l="ms" aria-pressed="true" onclick="wsbSetLang('ms')">BM</button><button type="button" data-l="en" aria-pressed="false" onclick="wsbSetLang('en')">EN</button></div></div>
+</div>
+<header class="ph">
+  <div class="wrap">
+    <h1><span class="bm">Perancangan ikut harta anda</span><span class="en">Plans for what you own</span></h1>
+    <p><span class="bm">Setiap jenis harta ada cara tersendiri untuk sampai kepada orang yang anda pilih. Cari harta anda di bawah, kemudian tanya Shakina mana yang sesuai.</span><span class="en">Each asset has its own way of passing to the people you choose. Find what you own below, then ask Shakina which fits.</span></p>
+    <div class="kinds">
+      <div><b>Hibah</b><span class="bm">Pemberian semasa hidup. Harta diterima oleh penerima, selesai di peringkat awal.</span><span class="en">A gift made during your lifetime. The asset goes to the recipient, resolved at source.</span></div>
+      <div><b><span class="bm">Amanah</span><span class="en">Amanah (trust)</span></b><span class="bm">Wasiyyah memegang harta sebagai pemegang amanah dan melaksanakan arahan anda, contohnya membayar secara berperingkat.</span><span class="en">Wasiyyah holds the asset as trustee and carries out your instructions, for example paying in stages.</span></div>
+    </div>
+  </div>
+</header>
+<nav class="jump" aria-label="Jenis harta"><a href="#g-akaun"><span class="bm">Simpanan &amp; pelaburan</span><span class="en">Savings &amp; investments</span></a><a href="#g-takaful"><span class="bm">Takaful &amp; insurans</span><span class="en">Takaful &amp; insurance</span></a><a href="#g-hartanah"><span class="bm">Rumah &amp; tanah</span><span class="en">House &amp; land</span></a><a href="#g-alih"><span class="bm">Harta alih lain</span><span class="en">Other things you own</span></a><a href="#g-keluarga"><span class="bm">Keluarga &amp; amal jariah</span><span class="en">Family &amp; amal jariah</span></a><a href="#g-bisnes"><span class="bm">Perniagaan</span><span class="en">Business</span></a></nav>
+<main class="pm">
+
+  <section class="grp-sec" id="g-akaun">
+    <h2 class="h2s"><span class="bm">Simpanan &amp; pelaburan</span><span class="en">Savings &amp; investments</span></h2>
+    <div class="pgrid"><article class="pc" id="kasihku">
+        <div class="pc-top"><span class="tag t-amanah"><span class="bm">Amanah</span><span class="en">Amanah (trust)</span></span><span class="has"><span class="bm">Dana ASB / ASNB</span><span class="en">ASB / ASNB funds</span></span></div>
+        <h3>Kasihku</h3>
+        <p class="what"><span class="bm">Dana ASNB anda dipegang Wasiyyah sebagai pemegang amanah di bawah Surat Ikatan Amanah, dan dibayar kepada penerima pilihan anda mengikut arahan anda, contohnya secara berperingkat.</span><span class="en">Your ASNB funds are held by Wasiyyah as trustee under a trust deed and paid to your chosen recipients by your instructions, for example in stages.</span></p>
+        <p class="fit"><b><span class="bm">Sesuai jika</span><span class="en">Suits you if</span></b> <span class="bm">Anda mahu kawalan lebih daripada penamaan biasa, atau penerima termasuk anak kecil.</span><span class="en">You want more control than a simple nomination, or recipients include young children.</span></p>
+        <div class="pc-btns"><a class="btn-out sm" href="https://wa.me/60173335664?text=Salam%20Shakina%2C%20saya%20ingin%20tahu%20tentang%20Kasihku." target="_blank" rel="noopener"><span class="bm">Tanya Shakina</span><span class="en">Ask Shakina</span></a></div>
+      </article><article class="pc" id="th">
+        <div class="pc-top"><span class="tag t-hibah"><span class="bm">Hibah</span><span class="en">Hibah</span></span><span class="has"><span class="bm">Tabung Haji, unit amanah, AHB</span><span class="en">Tabung Haji, unit trusts, AHB</span></span></div>
+        <h3>Hibah Tabung Haji &amp; Unit Amanah</h3>
+        <p class="what"><span class="bm">Dokumen Hibah supaya akaun itu diterima oleh orang yang anda pilih, selesai di peringkat awal tanpa menunggu proses pusaka.</span><span class="en">A Hibah document so the account goes to the person you choose, resolved at source rather than through the estate process.</span></p>
+        <p class="fit"><b><span class="bm">Sesuai jika</span><span class="en">Suits you if</span></b> <span class="bm">Anda menyimpan di Tabung Haji, unit amanah atau Amanah Hartanah Bumiputera.</span><span class="en">You hold savings in Tabung Haji, a unit trust or Amanah Hartanah Bumiputera.</span></p>
+        <div class="pc-btns"><a class="btn-out sm" href="https://wa.me/60173335664?text=Salam%20Shakina%2C%20saya%20ingin%20tahu%20tentang%20Hibah%20Tabung%20Haji%20%26%20Unit%20Amanah." target="_blank" rel="noopener"><span class="bm">Tanya Shakina</span><span class="en">Ask Shakina</span></a></div>
+      </article><article class="pc" id="ehsan">
+        <div class="pc-top"><span class="tag t-amanah"><span class="bm">Amanah</span><span class="en">Amanah (trust)</span></span><span class="has"><span class="bm">Akaun bank</span><span class="en">Bank accounts</span></span></div>
+        <h3>Ehsan</h3>
+        <p class="what"><span class="bm">Akaun simpanan, simpanan tetap atau semasa diserahkan kepada penerima pilihan melalui Surat Ikatan Amanah. Bagi penerima bawah 18 tahun, pemegang amanah gantian memegangnya sehingga umur yang anda tetapkan.</span><span class="en">Savings, fixed deposit or current accounts passed to your chosen recipients through a trust deed. For recipients under 18, a substitute trustee holds it until the age you set.</span></p>
+        <p class="fit"><b><span class="bm">Sesuai jika</span><span class="en">Suits you if</span></b> <span class="bm">Sebahagian besar simpanan anda berada dalam akaun bank.</span><span class="en">A large part of your savings sits in bank accounts.</span></p>
+        <div class="pc-btns"><a class="btn-out sm" href="https://wa.me/60173335664?text=Salam%20Shakina%2C%20saya%20ingin%20tahu%20tentang%20Ehsan." target="_blank" rel="noopener"><span class="bm">Tanya Shakina</span><span class="en">Ask Shakina</span></a></div>
+      </article></div>
+  </section>
+  <section class="grp-sec" id="g-takaful">
+    <h2 class="h2s"><span class="bm">Takaful &amp; insurans</span><span class="en">Takaful &amp; insurance</span></h2>
+    <div class="pgrid"><article class="pc" id="istiman">
+        <div class="pc-top"><span class="tag t-amanah"><span class="bm">Amanah</span><span class="en">Amanah (trust)</span></span><span class="has"><span class="bm">Polisi takaful atau insurans</span><span class="en">Takaful or insurance policies</span></span></div>
+        <h3>Isti'man</h3>
+        <p class="what"><span class="bm">Polisi diserahkan (assignment) kepada Wasiyyah sebagai pemegang amanah. Semasa kematian, pampasan dibayar kepada Wasiyyah, yang kemudian membayarnya kepada penerima mengikut arahan anda, bukan sekali gus.</span><span class="en">The policy is assigned to Wasiyyah as trustee. On death the payout comes to Wasiyyah, which pays your beneficiaries by your instructions instead of as one lump sum.</span></p>
+        <p class="fit"><b><span class="bm">Sesuai jika</span><span class="en">Suits you if</span></b> <span class="bm">Pampasan yang besar, atau anak-anak masih kecil.</span><span class="en">The payout is large, or your children are young.</span></p>
+        <div class="pc-btns"><a class="btn-out sm" href="https://wa.me/60173335664?text=Salam%20Shakina%2C%20saya%20ingin%20tahu%20tentang%20Isti%27man." target="_blank" rel="noopener"><span class="bm">Tanya Shakina</span><span class="en">Ask Shakina</span></a></div>
+      </article></div>
+  </section>
+  <section class="grp-sec" id="g-hartanah">
+    <h2 class="h2s"><span class="bm">Rumah &amp; tanah</span><span class="en">House &amp; land</span></h2>
+    <div class="pgrid"><article class="pc" id="hibah-hartanah">
+        <div class="pc-top"><span class="tag t-hibah"><span class="bm">Hibah</span><span class="en">Hibah</span></span><span class="has"><span class="bm">Rumah atau tanah</span><span class="en">A house or land</span></span></div>
+        <h3>Hibah Hartanah</h3>
+        <p class="what"><span class="bm">Hartanah diterima oleh orang yang anda pilih, selesai di peringkat awal. Tiga pakej, bergantung kepada siapa menanggung kos pengesahan di mahkamah.</span><span class="en">The property goes to the person you choose, resolved at source. Three packages, depending on who carries the court confirmation costs.</span></p>
+        <p class="fit"><b><span class="bm">Sesuai jika</span><span class="en">Suits you if</span></b> <span class="bm">Anda memiliki hartanah dan tahu kepada siapa ia patut diberikan.</span><span class="en">You own property and know who it should go to.</span></p>
+        <div class="pc-btns"><a class="btn-gold sm" href="../hibah/"><span class="bm">Cari pakej Hibah saya</span><span class="en">Find my Hibah package</span></a><a class="btn-out sm" href="https://wa.me/60173335664?text=Salam%20Shakina%2C%20saya%20ingin%20tahu%20tentang%20Hibah%20Hartanah." target="_blank" rel="noopener"><span class="bm">Tanya Shakina</span><span class="en">Ask Shakina</span></a></div>
+      </article><article class="pc" id="amanah-hartanah">
+        <div class="pc-top"><span class="tag t-amanah"><span class="bm">Amanah</span><span class="en">Amanah (trust)</span></span><span class="has"><span class="bm">Hartanah dengan arahan</span><span class="en">Property with instructions</span></span></div>
+        <h3>Amanah Hartanah</h3>
+        <p class="what"><span class="bm">Wasiyyah memegang hartanah sebagai pemegang amanah dan melaksanakan arahan anda, seperti menjual dan membahagikan hasilnya, atau memindah milik kepada penerima.</span><span class="en">Wasiyyah holds the property as trustee and carries out your instructions, such as selling it and dividing the proceeds, or transferring it to beneficiaries.</span></p>
+        <p class="fit"><b><span class="bm">Sesuai jika</span><span class="en">Suits you if</span></b> <span class="bm">Hartanah telah selesai dibayar, milik penuh anda dan bukan tanah rizab Melayu. Diambil bersama Ri'ayah, Kasihku atau Isti'man.</span><span class="en">The property is fully paid, solely in your name and not Malay reserve land. Taken together with Ri'ayah, Kasihku or Isti'man.</span></p>
+        <div class="pc-btns"><a class="btn-out sm" href="https://wa.me/60173335664?text=Salam%20Shakina%2C%20saya%20ingin%20tahu%20tentang%20Amanah%20Hartanah." target="_blank" rel="noopener"><span class="bm">Tanya Shakina</span><span class="en">Ask Shakina</span></a></div>
+      </article></div>
+  </section>
+  <section class="grp-sec" id="g-alih">
+    <h2 class="h2s"><span class="bm">Harta alih lain</span><span class="en">Other things you own</span></h2>
+    <div class="pgrid"><article class="pc" id="hibah-alih">
+        <div class="pc-top"><span class="tag t-hibah"><span class="bm">Hibah</span><span class="en">Hibah</span></span><span class="has"><span class="bm">Kereta, emas, barang kemas, saham</span><span class="en">Car, gold, jewellery, shares</span></span></div>
+        <h3><span class="bm">Hibah harta alih</span><span class="en">Hibah for other assets</span></h3>
+        <p class="what"><span class="bm">Dokumen Hibah berasingan bagi kenderaan, barang kemas, barang berharga, akaun pelaburan emas, akaun CDS dan trading, saham koperasi serta Sijil Simpanan Premium BSN.</span><span class="en">Separate Hibah documents for vehicles, jewellery, valuables, gold investment accounts, CDS and trading accounts, cooperative shares and BSN Premium Savings Certificates.</span></p>
+        <p class="fit"><b><span class="bm">Sesuai jika</span><span class="en">Suits you if</span></b> <span class="bm">Anda mahu barang tertentu diterima oleh orang tertentu.</span><span class="en">You want a specific item to go to a specific person.</span></p>
+        <div class="pc-btns"><a class="btn-out sm" href="https://wa.me/60173335664?text=Salam%20Shakina%2C%20saya%20ingin%20tahu%20tentang%20Hibah%20harta%20alih." target="_blank" rel="noopener"><span class="bm">Tanya Shakina</span><span class="en">Ask Shakina</span></a></div>
+      </article></div>
+  </section>
+  <section class="grp-sec" id="g-keluarga">
+    <h2 class="h2s"><span class="bm">Keluarga &amp; amal jariah</span><span class="en">Family &amp; amal jariah</span></h2>
+    <div class="pgrid"><article class="pc" id="riayah">
+        <div class="pc-top"><span class="tag t-amanah"><span class="bm">Amanah</span><span class="en">Amanah (trust)</span></span><span class="has"><span class="bm">Tunai untuk menyara keluarga</span><span class="en">Cash to provide for family</span></span></div>
+        <h3>Amanah Ri'ayah</h3>
+        <p class="what"><span class="bm">Akaun amanah bersama Wasiyyah yang menyara keluarga anda dari semasa ke semasa, contohnya nafkah bulanan atau pendidikan, mengikut arahan anda. Akaun bermula RM100,000.</span><span class="en">A trust account with Wasiyyah that provides for your family over time, for example monthly support or education, by your instructions. Account from RM100,000.</span></p>
+        <p class="fit"><b><span class="bm">Sesuai jika</span><span class="en">Suits you if</span></b> <span class="bm">Anda mahu keluarga dilindungi dengan sokongan berterusan, bukan sekali gus.</span><span class="en">You want your family protected with steady support, not a lump sum.</span></p>
+        <div class="pc-btns"><a class="btn-out sm" href="https://wa.me/60173335664?text=Salam%20Shakina%2C%20saya%20ingin%20tahu%20tentang%20Amanah%20Ri%27ayah." target="_blank" rel="noopener"><span class="bm">Tanya Shakina</span><span class="en">Ask Shakina</span></a></div>
+      </article><article class="pc" id="nawfal">
+        <div class="pc-top"><span class="tag t-amanah"><span class="bm">Amanah</span><span class="en">Amanah (trust)</span></span><span class="has"><span class="bm">Dana untuk kebajikan</span><span class="en">Funds for charity</span></span></div>
+        <h3>Amanah Nawfal</h3>
+        <p class="what"><span class="bm">Akaun amanah untuk amal jariah: Wasiyyah menyalurkan dana kepada tujuan yang anda tetapkan. Terbuka kepada individu dan organisasi. Akaun bermula RM100,000.</span><span class="en">A trust account for amal jariah: Wasiyyah channels the funds to the causes you name. Open to individuals and organisations. Account from RM100,000.</span></p>
+        <p class="fit"><b><span class="bm">Sesuai jika</span><span class="en">Suits you if</span></b> <span class="bm">Anda mahu pahala berterusan melalui sedekah, wakaf atau pendidikan.</span><span class="en">You want continuing reward through charity, wakaf or education.</span></p>
+        <div class="pc-btns"><a class="btn-out sm" href="https://wa.me/60173335664?text=Salam%20Shakina%2C%20saya%20ingin%20tahu%20tentang%20Amanah%20Nawfal." target="_blank" rel="noopener"><span class="bm">Tanya Shakina</span><span class="en">Ask Shakina</span></a></div>
+      </article><article class="pc" id="sepencarian">
+        <div class="pc-top"><span class="tag t-dokumen"><span class="bm">Dokumen</span><span class="en">Document</span></span><span class="has"><span class="bm">Harta yang dikumpul bersama pasangan</span><span class="en">Assets built together as a couple</span></span></div>
+        <h3><span class="bm">Pengisytiharan Harta Sepencarian</span><span class="en">Harta Sepencarian declaration</span></h3>
+        <p class="what"><span class="bm">Dokumen pengakuan suami isteri tentang harta tertentu yang menjadi harta sepencarian. Ia memudahkan tuntutan, dan bahagian itu diasingkan sebelum Faraid.</span><span class="en">A document in which both spouses acknowledge which specific assets are harta sepencarian. It makes the claim easier, and that share is set aside before Faraid.</span></p>
+        <p class="fit"><b><span class="bm">Sesuai jika</span><span class="en">Suits you if</span></b> <span class="bm">Pasangan anda menyumbang, secara langsung atau tidak langsung, kepada rumah atau harta lain.</span><span class="en">Your spouse contributed, directly or indirectly, to a home or other assets.</span></p>
+        <div class="pc-btns"><a class="btn-out sm" href="https://wa.me/60173335664?text=Salam%20Shakina%2C%20saya%20ingin%20tahu%20tentang%20Pengisytiharan%20Harta%20Sepencarian." target="_blank" rel="noopener"><span class="bm">Tanya Shakina</span><span class="en">Ask Shakina</span></a></div>
+      </article></div>
+  </section>
+  <section class="grp-sec" id="g-bisnes">
+    <h2 class="h2s"><span class="bm">Perniagaan</span><span class="en">Business</span></h2>
+    <div class="pgrid"><article class="pc" id="tijarah">
+        <div class="pc-top"><span class="tag t-hibah"><span class="bm">Hibah</span><span class="en">Hibah</span></span><span class="has"><span class="bm">Saham syarikat atau perkongsian</span><span class="en">Company shares or a partnership</span></span></div>
+        <h3>At-Tijarah</h3>
+        <p class="what"><span class="bm">Hibah saham anda bersama Perjanjian Pemegang Saham atau Perjanjian Perkongsian, supaya pemilikan berpindah seperti dirancang dan perniagaan boleh diteruskan. Pakej komprehensif termasuk pengesahan di Mahkamah Syariah.</span><span class="en">Hibah of your shares together with a shareholders' or partnership agreement, so ownership passes as you plan and the business can continue. The comprehensive package includes confirmation at the Syariah Court.</span></p>
+        <p class="fit"><b><span class="bm">Sesuai jika</span><span class="en">Suits you if</span></b> <span class="bm">Anda memiliki atau berkongsi Sdn Bhd, Bhd atau perkongsian.</span><span class="en">You own or co-own a Sdn Bhd, Bhd or partnership.</span></p>
+        <div class="pc-btns"><a class="btn-out sm" href="https://wa.me/60173335664?text=Salam%20Shakina%2C%20saya%20ingin%20tahu%20tentang%20At-Tijarah." target="_blank" rel="noopener"><span class="bm">Tanya Shakina</span><span class="en">Ask Shakina</span></a></div>
+      </article><article class="pc" id="tujjar">
+        <div class="pc-top"><span class="tag t-amanah"><span class="bm">Amanah</span><span class="en">Amanah (trust)</span></span><span class="has"><span class="bm">Dana perniagaan</span><span class="en">Business funds</span></span></div>
+        <h3>Amanah Tujjar</h3>
+        <p class="what"><span class="bm">Akaun amanah korporat bersama Wasiyyah bagi dana syarikat, termasuk pampasan takaful keyman, diuruskan mengikut arahan anda.</span><span class="en">A corporate trust account with Wasiyyah for company funds, including keyman takaful proceeds, managed by your instructions.</span></p>
+        <p class="fit"><b><span class="bm">Sesuai jika</span><span class="en">Suits you if</span></b> <span class="bm">Syarikat anda mahu dana sedia untuk kesinambungan jika individu penting meninggal dunia.</span><span class="en">Your company wants funds kept ready for continuity if a key person passes away.</span></p>
+        <div class="pc-btns"><a class="btn-out sm" href="https://wa.me/60173335664?text=Salam%20Shakina%2C%20saya%20ingin%20tahu%20tentang%20Amanah%20Tujjar." target="_blank" rel="noopener"><span class="bm">Tanya Shakina</span><span class="en">Ask Shakina</span></a></div>
+      </article></div>
+  </section>
+  <div class="base"><b><span class="bm">Mulakan dengan asas</span><span class="en">Start with the basics</span></b><br><span class="bm">Apa pun pilihan lain, Wasiat &#8531; dan pelantikan wasi didahulukan, dan Al-Wasitah atau Khairat Pusaka Warga Emas menguruskan harta lain yang tidak termasuk di atas.</span><span class="en">Whatever else you choose, a Wasiat &#8531; and a wasi appointment come first, and Al-Wasitah or Khairat Pusaka Warga Emas looks after everything not covered above.</span> <a href="../pusaka/?tab=hibah"><span class="bm">Lihat pelan &rarr;</span><span class="en">See the plans &rarr;</span></a></div>
+  <p class="src"><span class="bm">Berdasarkan bahan produk Wasiyyah Shoppe Berhad dan senarai harga bertarikh 28 September 2026. Kelayakan dan terma disahkan oleh Wasiyyah Shoppe Berhad.</span><span class="en">Based on Wasiyyah Shoppe Berhad product material and the price list dated 28 September 2026. Eligibility and terms are confirmed by Wasiyyah Shoppe Berhad.</span></p>
+</main>
+<div class="wsb-foot"><a href="../">&larr; <span data-wsb-ms="Semua alat" data-wsb-en="All tools">Semua alat</span></a><span class="wsb-sep">·</span>Shakina K. · Kausar Wealth · WSB Advisor<span class="wsb-sep">·</span><a href="https://wa.me/60173335664" target="_blank" rel="noopener">WhatsApp 017-333 5664</a></div>
+<script>window.wsbOnLang=function(l){document.body.classList.toggle('lang-en',l==='en');};</script>
+<script id="wsb-shared-js">
+(function(){
+  var KEY = 'wsb-lang';
+  function saved(){ try { return localStorage.getItem(KEY) === 'en' ? 'en' : 'ms'; } catch (e) { return 'ms'; } }
+  window.wsbSetLang = function(l){
+    l = (l === 'en') ? 'en' : 'ms';
+    try { localStorage.setItem(KEY, l); } catch (e) {}
+    document.documentElement.lang = l;
+    var bs = document.querySelectorAll('.wsb-lang button');
+    for (var i = 0; i < bs.length; i++) bs[i].setAttribute('aria-pressed', String(bs[i].getAttribute('data-l') === l));
+    var ts = document.querySelectorAll('[data-wsb-ms]');
+    for (var j = 0; j < ts.length; j++) ts[j].textContent = ts[j].getAttribute(l === 'en' ? 'data-wsb-en' : 'data-wsb-ms');
+    if (typeof window.wsbOnLang === 'function') window.wsbOnLang(l);
+  };
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', function(){ wsbSetLang(saved()); });
+  else wsbSetLang(saved());
+})();
+</script>
+</body>
+</html>
