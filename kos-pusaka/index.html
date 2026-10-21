@@ -219,6 +219,17 @@ table.cov5 th[colspan]{border-bottom:1px solid rgba(184,149,42,.5)}
   .calc input[type=range]::-moz-range-thumb{width:26px;height:26px}
 }
 </style>
+<style>
+/* Collapsible timeline stages on phones */
+.cbody[hidden]{display:none!important}
+.more{display:inline-flex;align-items:center;gap:6px;margin-top:10px;background:none;border:0;color:#8C6E1A;font:600 14px 'DM Sans',sans-serif;padding:8px 0;cursor:pointer}
+.stage.dead .more{color:var(--gold-light)}
+.more::after{content:'';width:7px;height:7px;border-right:2px solid currentColor;border-bottom:2px solid currentColor;transform:rotate(45deg);margin-top:-4px;transition:transform .15s}
+.more[aria-expanded="true"]::after{transform:rotate(-135deg);margin-top:3px}
+.tl-all{display:none;margin:0 0 16px;background:#fff;border:1px solid var(--line);border-radius:999px;padding:9px 16px;font:600 14px 'DM Sans',sans-serif;color:var(--black);cursor:pointer}
+.tl.collapsible .card h3{cursor:pointer}
+@media print{.cbody{display:block!important}.more,.tl-all{display:none!important}}
+</style>
 <style id="wsb-shared">
 /* ── Shared chrome: identical on every page ── */
 .wsb-bar{position:sticky;top:0;z-index:300;height:56px;background:#1A1A1A;color:#F3EBD8;font-family:'DM Sans',system-ui,sans-serif;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:0 20px}
@@ -316,6 +327,7 @@ table.cov5 th[colspan]{border-bottom:1px solid rgba(184,149,42,.5)}
       <small class="only-n"><span class="bm">Tiada wasi dilantik · waris urus sendiri</span><span class="en">No wasi appointed · heirs handle it themselves</span></small>
     </div>
 
+    <button type="button" class="tl-all" id="tlAll" aria-expanded="false"><span class="bm">Buka semua peringkat</span><span class="en">Open all stages</span></button>
     <div class="tl">
 
       <div class="stage dead">
@@ -789,6 +801,58 @@ try { var qp = new URLSearchParams(location.search).get('plan'); if (qp && PLANS
 </script>
 <div class="wsb-foot"><a href="../">&larr; <span data-wsb-ms="Semua alat" data-wsb-en="All tools">Semua alat</span></a><span class="wsb-sep">·</span>Shakina K. · Kausar Wealth · WSB Advisor<span class="wsb-sep">·</span><a href="https://wa.me/60173335664" target="_blank" rel="noopener">WhatsApp 017-333 5664</a></div>
 <script>window.wsbOnLang=function(l){setLang(l);};</script>
+<script>
+(function(){
+  if (!window.matchMedia || !matchMedia('(max-width:720px)').matches) return;
+  var tl = document.querySelector('.tl'); if (!tl) return;
+  tl.classList.add('collapsible');
+  var toggles = [];
+  tl.querySelectorAll('.stage > .card').forEach(function(card, i){
+    var h = card.querySelector('h3'); if (!h) return;
+    var cover = card.querySelector(':scope > .cover');
+    var body = document.createElement('div'); body.className = 'cbody';
+    Array.prototype.slice.call(card.children).forEach(function(el){ if (el !== h && el !== cover) body.appendChild(el); });
+    if (!body.children.length) return;
+    if (cover) card.appendChild(cover);
+    card.appendChild(body);
+    var btn = document.createElement('button'); btn.type = 'button'; btn.className = 'more';
+    btn.innerHTML = '<span class="bm">Baca lanjut</span><span class="en">Read more</span>';
+    card.appendChild(btn);
+    function set(open){
+      body.hidden = !open; btn.setAttribute('aria-expanded', String(open));
+      btn.innerHTML = open ? '<span class="bm">Tutup</span><span class="en">Close</span>' : '<span class="bm">Baca lanjut</span><span class="en">Read more</span>';
+    }
+    set(i === 0);
+    btn.addEventListener('click', function(){ set(body.hidden); });
+    h.addEventListener('click', function(){ set(body.hidden); });
+    toggles.push(set);
+  });
+  var all = document.getElementById('tlAll'); all.style.display = 'inline-block';
+  all.addEventListener('click', function(){
+    var open = all.getAttribute('aria-expanded') !== 'true';
+    toggles.forEach(function(t){ t(open); });
+    all.setAttribute('aria-expanded', String(open));
+    all.innerHTML = open ? '<span class="bm">Tutup semua peringkat</span><span class="en">Close all stages</span>' : '<span class="bm">Buka semua peringkat</span><span class="en">Open all stages</span>';
+  });
+})();
+</script>
+<script>
+(function(){
+  if (!window.matchMedia || !matchMedia('(max-width:720px)').matches) return;
+  function fold(el, bm, en, dark){
+    if (!el) return;
+    var btn = document.createElement('button'); btn.type = 'button'; btn.className = 'more';
+    if (dark) btn.style.color = 'var(--gold-light)';
+    var lab = function(open){ return open ? '<span class="bm">Tutup</span><span class="en">Close</span>' : '<span class="bm">' + bm + '</span><span class="en">' + en + '</span>'; };
+    btn.innerHTML = lab(false); btn.setAttribute('aria-expanded', 'false');
+    el.parentNode.insertBefore(btn, el); el.hidden = true; el.classList.add('cbody');
+    btn.addEventListener('click', function(){ var o = el.hidden; el.hidden = !o; btn.setAttribute('aria-expanded', String(o)); btn.innerHTML = lab(o); });
+  }
+  var cov = document.querySelector('table.cov5'); cov = cov && cov.closest('.cmpwrap');
+  fold(cov, 'Lihat jadual liputan penuh', 'See the full coverage table');
+  fold(document.querySelector('.calc p.note'), 'Nota pengiraan', 'How this is calculated', true);
+})();
+</script>
 <script id="wsf-js">
 /* Shared submit: each page defines window.wsfPayload[pfx]() returning {subject, fields, wa} */
 window.wsfPayload = window.wsfPayload || {};
