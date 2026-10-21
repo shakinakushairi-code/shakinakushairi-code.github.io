@@ -115,6 +115,14 @@ html{scroll-behavior:smooth}.sec{scroll-margin-top:60px}
  .out{scroll-margin-top:70px}
 }
 
+.about{background:var(--black);color:#F3EBD8;padding:44px 20px;margin-top:40px}
+.about-in{display:flex;gap:32px;align-items:center;max-width:980px;margin:0 auto}
+.about-pic{width:160px;height:160px;border-radius:50%;object-fit:cover;flex:none;border:3px solid var(--gold);box-shadow:0 0 0 6px rgba(184,149,42,.18)}
+.about .label{color:var(--gold)}
+.about .h2{color:#F3EBD8;margin-bottom:2px}
+.about-role{font-size:14px;color:#E8D49A;margin-bottom:12px}
+.about-body{font-size:16px;line-height:1.7;color:#D9CFBA;max-width:640px;margin-bottom:18px}
+@media (max-width:640px){.about-in{flex-direction:column;align-items:flex-start;gap:18px}.about-pic{width:120px;height:120px}}
 </style>
 <style id="wsb-shared">
 /* ── Shared chrome: identical on every page ── */
@@ -289,13 +297,16 @@ html{scroll-behavior:smooth}.sec{scroll-margin-top:60px}
 </main>
 <a class="mini" id="mini" href="#o_box" hidden><span><span class="bm">Jumlah harta</span><span class="en">Total assets</span></span><b id="mini_tot">RM0</b><span class="mini-go"><span class="bm">Lihat</span><span class="en">View</span> &darr;</span></a>
 
-<section class="cta" style="margin-bottom:36px">
-  <div class="wrap">
-    <div>
-      <h3><span class="bm">Ada soalan tentang keluarga anda?</span><span class="en">Questions about your family's situation?</span></h3>
-      <p>Shakina K. · 017-333 5664</p>
+<section class="about" id="tentang">
+  <div class="wrap about-in">
+    <img class="about-pic" src="assets/shakina.jpg" width="160" height="160" alt="Shakina K.">
+    <div class="about-txt">
+      <p class="label"><span class="bm">Tentang Shakina</span><span class="en">About Shakina</span></p>
+      <h2 class="h2">Shakina K.</h2>
+      <p class="about-role">Kausar Wealth · <span class="bm">Penasihat Wasiyyah Shoppe Berhad</span><span class="en">Wasiyyah Shoppe Berhad advisor</span></p>
+      <p class="about-body"><span class="bm">Saya mula dengan merancang pusaka keluarga sendiri, dan sedar betapa ramai yang tidak tahu apa berlaku kepada harta selepas kematian. Saya bukan jurujual. Dengan semangat untuk terus belajar tentang agama dan lebih 15 tahun dalam dunia korporat dalam bidang analisis dan perancangan, saya suka memudahkan perkara yang rumit supaya anda boleh membuat keputusan sendiri.</span><span class="en">I started by planning my own family&rsquo;s estate, and realised how few people know what happens to their assets after death. I&rsquo;m not a salesperson. With a passion for continuous learning in our deen and over 15 years in the corporate world in analysis and planning roles, I like to make complicated things simple so you can decide for yourself.</span></p>
+      <a class="btn-gold" href="https://wa.me/60173335664?text=Assalamualaikum%20Shakina%2C%20saya%20ingin%20bertanya%20tentang%20perancangan%20pusaka." target="_blank" rel="noopener">WhatsApp Shakina · 017-333 5664</a>
     </div>
-    <a class="wa" href="https://wa.me/60173335664?text=Assalamualaikum%20Shakina%2C%20saya%20ingin%20bertanya%20tentang%20perancangan%20pusaka." target="_blank" rel="noopener">WhatsApp Shakina</a>
   </div>
 </section>
 
