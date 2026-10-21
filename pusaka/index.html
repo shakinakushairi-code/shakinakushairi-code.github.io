@@ -2110,6 +2110,14 @@ function setTab(id) {
 try {
   const savedTab = localStorage.getItem('wsb-tab');
   if (savedTab && ['flow','faraid','hibah'].includes(savedTab)) setTab(savedTab);
+  const q = new URLSearchParams(location.search), qt = q.get('tab');
+  if (['flow','faraid','hibah'].includes(qt)) setTab(qt);
+  const qh = parseFloat(q.get('harta')), qd = parseFloat(q.get('hutang'));
+  if (qh > 0) {
+    document.getElementById('fc-gross').value = Math.round(qh);
+    if (qd > 0) document.getElementById('fc-debts').value = Math.round(qd);
+    window.addEventListener('load', function(){ try { fcUpdateNet(); } catch (e) {} });
+  }
 } catch(e) {}
 
 /* ══════════════════════════════════════════════════════════════════════
