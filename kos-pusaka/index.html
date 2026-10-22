@@ -249,6 +249,13 @@ table.cov5 th[colspan]{border-bottom:1px solid rgba(184,149,42,.5)}
 .wsb-foot a{color:#E8D49A;text-decoration:none;font-weight:600;display:inline-block;padding:8px 0}
 .wsb-foot .wsb-sep{color:#6B6660;margin:0 8px}
 @media (max-width:640px){.wsb-brand{display:none}.wsb-bar{padding:0 14px}.wsb-btn .wsb-long{display:none}}
+.wsb-id{display:flex;align-items:center;gap:10px;min-width:0;text-decoration:none}
+.wsb-logos{display:inline-flex;align-items:center;gap:7px;background:#fff;border-radius:8px;padding:4px 8px;flex:none}
+.wsb-logos img{height:26px;width:auto;display:block}
+.wsb-logos i{width:1px;height:20px;background:#E3DFD4}
+.wsb-name{font-size:15px;font-weight:600;color:#F3EBD8;white-space:nowrap}
+.wsb-left,.wsb-id{min-width:0}.wsb-name{overflow:hidden;text-overflow:ellipsis}
+@media (max-width:640px){.wsb-bar .wsb-btn{display:none}.wsb-home .wsb-hometxt{display:none}.wsb-home{font-size:20px;padding:8px 6px 8px 0}.wsb-logos img{height:24px}.wsb-name{font-size:14px}}
 @media print{.wsb-bar,.wsb-foot{display:none!important}}
 </style>
 <style id="wsf-css">
@@ -276,7 +283,7 @@ table.cov5 th[colspan]{border-bottom:1px solid rgba(184,149,42,.5)}
 </head>
 <body>
 <div class="wsb-bar">
-  <div class="wsb-left"><a class="wsb-home" href="../">&larr; <span data-wsb-ms="Semua alat" data-wsb-en="All tools">Semua alat</span></a><span class="wsb-brand">Shakina K. · Kausar Wealth</span></div>
+  <div class="wsb-left"><a class="wsb-home" href="../" aria-label="Semua alat">&larr;<span class="wsb-hometxt"> <span data-wsb-ms="Semua alat" data-wsb-en="All tools">Semua alat</span></span></a><a class="wsb-id" href="../"><span class="wsb-logos"><img src="../assets/icon-wasiyyah.png" width="19" height="26" alt="Wasiyyah Shoppe Berhad"><i></i><img src="../assets/icon-kausar.png" width="17" height="26" alt="Kausar Wealth"></span><span class="wsb-name">Shakina K.</span></a></div>
   <div class="wsb-right"><button type="button" class="wsb-btn" onclick="window.print()"><span data-wsb-ms="PDF" data-wsb-en="PDF">PDF</span><span class="wsb-long"> / </span><span class="wsb-long" data-wsb-ms="Cetak" data-wsb-en="Print">Cetak</span></button><div class="wsb-lang" role="group" aria-label="Bahasa / Language"><button type="button" data-l="ms" aria-pressed="true" onclick="wsbSetLang('ms')">BM</button><button type="button" data-l="en" aria-pressed="false" onclick="wsbSetLang('en')">EN</button></div></div>
 </div>
 
