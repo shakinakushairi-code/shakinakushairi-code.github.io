@@ -599,5 +599,23 @@ function pathPick(k){
   else wsbSetLang(saved());
 })();
 </script>
+<!-- Visitor analytics (GoatCounter, cookie-free) -->
+<script data-goatcounter="https://GC_CODE.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+<script>
+(function(){
+  var page=(location.pathname.replace(/\/index\.html$/,'').replace(/^\/|\/$/g,'')||'home');
+  function ev(name){try{if(window.goatcounter&&window.goatcounter.count){window.goatcounter.count({path:name+'-'+page,title:name,event:true});}}catch(e){}}
+  document.addEventListener('click',function(e){
+    var a=e.target.closest&&e.target.closest('a[href]');if(!a)return;
+    var h=a.getAttribute('href')||'';
+    if(/wa\.me|api\.whatsapp/i.test(h))ev('whatsapp');
+    else if(/^mailto:/i.test(h))ev('email');
+  },true);
+  ['wsfSubmit','sendResult'].forEach(function(fn){
+    var orig=window[fn];if(typeof orig!=='function')return;
+    window[fn]=function(){ev('submit');return orig.apply(this,arguments);};
+  });
+})();
+</script>
 </body>
 </html>
