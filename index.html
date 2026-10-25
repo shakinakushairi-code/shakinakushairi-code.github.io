@@ -599,6 +599,59 @@ function pathPick(k){
   else wsbSetLang(saved());
 })();
 </script>
+<!-- Mobile tap-to-open sections -->
+<style>
+@media (max-width:760px){
+  .acc{padding:0 20px!important;margin:0!important;border-bottom:1px solid #E4DCC8}
+  .acc .wrap{margin-top:0!important;padding-top:0!important}
+  .acc .acc-head{position:relative;cursor:pointer;padding:22px 44px 18px 0;-webkit-tap-highlight-color:transparent}
+  .acc .acc-head .label{margin-bottom:4px}
+  .acc .acc-head .h2{margin:0;font-size:22px}
+  .acc .acc-head::after{content:"";position:absolute;right:6px;top:50%;width:10px;height:10px;margin-top:-8px;border-right:2px solid #B8952A;border-bottom:2px solid #B8952A;transform:rotate(45deg);transition:transform .25s}
+  .acc.open .acc-head::after{transform:rotate(-135deg);margin-top:-2px}
+  .acc .acc-body{display:none}
+  .acc.open .acc-body{display:block;padding-bottom:32px;animation:accIn .3s ease}
+  .acc .acc-head:focus-visible{outline:2px solid #B8952A;outline-offset:2px}
+  .sec.alt.acc{background:#F3EFE4}
+  @keyframes accIn{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:none}}
+}
+</style>
+<script>
+(function(){
+  var ids=['situasi','semak','asas','barzakh','alat'];
+  var secs=[];
+  ids.forEach(function(id){
+    var s=document.getElementById(id); if(!s) return;
+    var w=s.querySelector('.wrap'); var h2=w&&w.querySelector(':scope > .h2'); if(!h2) return;
+    var head=document.createElement('div'); head.className='acc-head';
+    head.setAttribute('role','button'); head.setAttribute('tabindex','0'); head.setAttribute('aria-expanded','false');
+    var body=document.createElement('div'); body.className='acc-body';
+    var lab=h2.previousElementSibling;
+    if(lab&&lab.classList.contains('label')) head.appendChild(lab);
+    var rest=[]; for(var n=h2.nextSibling;n;n=n.nextSibling) rest.push(n);
+    head.appendChild(h2); rest.forEach(function(n){body.appendChild(n);});
+    w.innerHTML=''; w.appendChild(head); w.appendChild(body);
+    s.classList.add('acc'); secs.push(s);
+    head.addEventListener('click',function(){toggle(s);});
+    head.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();toggle(s);}});
+  });
+  function mobile(){return window.matchMedia('(max-width:760px)').matches;}
+  function setOpen(s,on){s.classList.toggle('open',on);s.querySelector('.acc-head').setAttribute('aria-expanded',on?'true':'false');}
+  function toggle(s,force){
+    var on=force===true?true:!s.classList.contains('open');
+    if(on) secs.forEach(function(o){if(o!==s) setOpen(o,false);});
+    setOpen(s,on);
+    if(on&&mobile()) setTimeout(function(){s.scrollIntoView({behavior:'smooth',block:'start'});},30);
+  }
+  function fromHash(){var id=location.hash.slice(1);var s=document.getElementById(id);if(s&&secs.indexOf(s)>-1&&mobile()) toggle(s,true);}
+  document.addEventListener('click',function(e){
+    var a=e.target.closest&&e.target.closest('a[href^="#"]'); if(!a||!mobile()) return;
+    var s=document.getElementById(a.getAttribute('href').slice(1));
+    if(s&&secs.indexOf(s)>-1){e.preventDefault();toggle(s,true);history.replaceState(null,'','#'+s.id);}
+  });
+  window.addEventListener('hashchange',fromHash); fromHash();
+})();
+</script>
 <!-- Visitor analytics (GoatCounter, cookie-free) -->
 <script data-goatcounter="https://wsbshakina.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 <script>
