@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Situasi Keluarga Anda | Shakina K. · Kausar Wealth</title>
+<meta name="description" content="Pilih situasi keluarga anda dan lihat risiko serta solusi perancangan harta, dalam BM dan English.">
+<meta property="og:title" content="Situasi Keluarga Anda | Shakina K. · Kausar Wealth">
+<meta property="og:description" content="Pilih situasi keluarga anda dan lihat risiko serta solusi perancangan harta, dalam BM dan English.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,500&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--gold:#B8952A;--gold-dk:#8C6E1A;--gold-lt:#F5E9C4;--black:#1A1A1A;--ink:#2D2D2D;--muted:#6B6660;
+--cream:#FAF8F3;--line:#E8E4D8;--blue:#1A3A8F;--green:#2E9E4F;--kausar:#F5A800}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'DM Sans',system-ui,sans-serif;background:var(--cream);color:var(--ink);line-height:1.5}
+.en{display:none} body.lang-en .en{display:inline} body.lang-en .bm{display:none}
+.wrap{max-width:980px;margin:0 auto}
+.hero{background:var(--black);color:#F3EBD8;padding:40px 20px 44px}
+.eyebrow{font-size:12px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-bottom:12px}
+h1{font-family:'Playfair Display',Georgia,serif;font-weight:600;font-size:clamp(32px,5.5vw,48px);line-height:1.1}
+.lead{margin-top:12px;font-size:16.5px;color:#D9CFBA;max-width:620px}
+main{padding:32px 20px 40px}
+.label{font-size:12px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--gold-dk);margin-bottom:12px}
+.ic{width:46px;height:46px;border-radius:50%;background:var(--black);display:grid;place-items:center;flex:none}
+.ic svg{width:23px;height:23px;stroke:var(--gold);fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.cta{margin-top:34px;background:var(--black);color:#F3EBD8;border-radius:16px;padding:24px 26px;display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:16px}
+.cta h3{font-family:'Playfair Display',Georgia,serif;font-size:22px;font-weight:600}
+.cta p{color:#D9CFBA;font-size:14.5px;margin-top:2px}
+.btn-gold{display:inline-block;background:var(--gold);color:var(--black);font-weight:600;font-size:15px;text-decoration:none;padding:12px 20px;border-radius:10px;text-align:center;border:0;cursor:pointer}
+.btn-gold:hover{background:#D4A843}
+.btn-out{display:inline-block;border:1px solid var(--black);color:var(--black);font-weight:600;font-size:15px;text-decoration:none;padding:11px 18px;border-radius:10px;text-align:center;background:#fff}
+.btn-out:hover{background:var(--gold-lt)}
+.fine{font-size:12.5px;color:var(--muted);margin-top:22px}
+a:focus-visible,button:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+@media (max-width:560px){.hero{padding:28px 16px 32px}main{padding:24px 16px 32px}.cta{padding:20px}}
+
+.hadith{margin-top:22px;border-left:3px solid var(--gold);padding:4px 0 4px 16px;max-width:680px}
+.hadith p{font-family:'Playfair Display',Georgia,serif;font-style:italic;font-size:clamp(16px,2.2vw,19px);line-height:1.45;color:#F3EBD8}
+.hadith cite{display:block;margin-top:6px;font-style:normal;font-size:12.5px;color:#BFB49C}
+.tiles{display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:12px}
+.tile{display:flex;flex-direction:column;align-items:flex-start;gap:14px;background:#fff;border:1px solid var(--line);border-radius:14px;padding:18px 16px;cursor:pointer;text-align:left;font:inherit;color:var(--black);min-height:132px;position:relative;transition:transform .15s,box-shadow .15s,border-color .15s}
+.tile:hover{transform:translateY(-2px);box-shadow:0 10px 26px rgba(26,26,26,.09);border-color:var(--gold)}
+.tile b{font-size:15.5px;font-weight:600;line-height:1.3}
+.tile::after{content:"";position:absolute;right:16px;top:28px;width:8px;height:8px;border-right:2px solid var(--gold);border-top:2px solid var(--gold);transform:rotate(45deg)}
+.others{margin-top:30px}
+.bmtag{font-size:11.5px;font-weight:600;letter-spacing:.06em;color:#8C4A1A;background:#FBEDE6;border-radius:999px;padding:3px 9px;margin-top:-6px}
+.bmbox{margin-top:26px;background:#fff;border:1px solid var(--line);border-left:4px solid #A0482A;border-radius:0 14px 14px 0;padding:18px 20px}
+.bmbox h2{font-family:'Playfair Display',Georgia,serif;font-size:21px;font-weight:600;color:var(--black);margin-bottom:4px}
+.bmbox>p{font-size:14.5px;color:var(--muted);margin-bottom:12px}
+.bmlist{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:8px}
+.bmlist div{background:#FBF4EF;border-radius:10px;padding:10px 12px;font-size:14.5px;color:var(--black);font-weight:500}
+.bmbox .fine{margin-top:10px}
+.olist{display:grid;gap:10px}
+.orow{display:flex;gap:14px;align-items:center;background:#fff;border:1px solid var(--line);border-radius:12px;padding:14px 16px}
+.orow .ic{width:38px;height:38px}.orow .ic svg{width:19px;height:19px}
+.orow b{display:block;font-size:15px;color:var(--black)}
+.orow span.d{font-size:14px;color:var(--muted)}
+/* sheet */
+.scrim{position:fixed;inset:0;background:rgba(26,26,26,.55);z-index:400;display:flex;align-items:center;justify-content:center;padding:20px;opacity:0;pointer-events:none;transition:opacity .2s}
+.scrim.on{opacity:1;pointer-events:auto}
+.sheet{background:var(--cream);width:100%;max-width:560px;max-height:calc(100vh - 40px);overflow:auto;border-radius:18px;position:relative;transform:translateY(12px);transition:transform .22s}
+.scrim.on .sheet{transform:none}
+.sh-top{background:var(--black);color:#F3EBD8;padding:22px 56px 20px 22px;display:flex;gap:14px;align-items:center;border-radius:18px 18px 0 0;position:relative}
+.sh-top::after{content:"";position:absolute;left:0;right:0;bottom:0;height:3px;background:linear-gradient(90deg,var(--blue) 0 33.3%,var(--green) 33.3% 66.6%,var(--kausar) 66.6% 100%)}
+.sh-top .ic{background:#2A2722}
+.sh-top h2{font-family:'Playfair Display',Georgia,serif;font-size:23px;font-weight:600;line-height:1.2}
+.x{position:absolute;right:12px;top:14px;width:40px;height:40px;border-radius:50%;border:0;background:transparent;color:#F3EBD8;font-size:26px;line-height:1;cursor:pointer}
+.x:hover{background:#2A2722}
+.sh-body{padding:20px 22px 22px}
+.bar{margin-bottom:18px}
+.bar-ex{font-size:12.5px;color:var(--muted);margin-bottom:8px}
+.bar-track{display:flex;height:34px;border-radius:8px;overflow:hidden;gap:2px;background:var(--line)}
+.bar-track i{display:block;height:100%}
+.bar-key{display:flex;flex-wrap:wrap;gap:6px 14px;margin-top:8px;font-size:13px;color:var(--ink)}
+.bar-key>span{display:inline-flex;align-items:center;gap:6px}
+.bar-key em{width:11px;height:11px;border-radius:3px;display:inline-block}
+.c-gold{background:var(--gold)}.c-black{background:var(--black)}.c-blue{background:var(--blue)}.c-green{background:var(--green)}.c-kausar{background:var(--kausar)}
+.rows{display:grid;gap:10px}
+.r{display:grid;grid-template-columns:34px 1fr;gap:12px;align-items:start;background:#fff;border:1px solid var(--line);border-radius:12px;padding:12px 14px}
+.r-ic{width:34px;height:34px;border-radius:9px;display:grid;place-items:center}
+.r-ic svg{width:18px;height:18px;fill:none;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round}
+.r.risk .r-ic{background:#FBEDE6}.r.risk svg{stroke:#A0482A}
+.r.kesan .r-ic{background:#EEF1F8}.r.kesan svg{stroke:var(--blue)}
+.r.sol{border-color:var(--gold);border-left:4px solid var(--gold)}.r.sol .r-ic{background:var(--gold-lt)}.r.sol svg{stroke:var(--gold-dk)}
+.r small{display:block;font-size:11.5px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:2px}
+.r p{font-size:15px;color:var(--black);line-height:1.45}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:2px}
+.chip{background:var(--black);color:#E8D49A;font-size:13.5px;font-weight:600;padding:6px 11px;border-radius:999px}
+.sh-btns{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}
+.sh-btns a{flex:1 1 200px}
+body.lock{overflow:hidden}
+@media (max-width:560px){
+ .tiles{grid-template-columns:1fr 1fr;gap:10px}
+ .tile{min-height:120px;padding:16px 14px}
+ .tile::after{display:none}
+ .scrim{align-items:flex-end;padding:0}
+ .sheet{max-width:none;border-radius:18px 18px 0 0;max-height:92vh}
+ .sh-top{padding:20px 52px 18px 18px}.sh-body{padding:18px 16px 24px}
+}
+@media (prefers-reduced-motion:reduce){.tile,.sheet,.scrim{transition:none}}
+</style>
+<style id="wsb-shared">
+/* ── Shared chrome: identical on every page ── */
+.wsb-bar{position:sticky;top:0;z-index:300;height:56px;background:#1A1A1A;color:#F3EBD8;font-family:'DM Sans',system-ui,sans-serif;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:0 20px}
+.wsb-bar::after{content:"";position:absolute;left:0;right:0;bottom:-3px;height:3px;background:linear-gradient(90deg,#1A3A8F 0 33.3%,#2E9E4F 33.3% 66.6%,#F5A800 66.6% 100%)}
+.wsb-left{display:flex;align-items:center;gap:18px;min-width:0}
+.wsb-home{color:#F3EBD8;text-decoration:none;font-size:14px;font-weight:600;white-space:nowrap;padding:10px 4px 10px 0;display:inline-block}
+.wsb-home:hover{color:#E8D49A}
+.wsb-brand{font-size:12px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:#B8952A;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.wsb-right{display:flex;align-items:center;gap:10px}
+.wsb-lang{display:inline-flex;border:1px solid #4A443A;border-radius:999px;overflow:hidden}
+.wsb-lang button{background:none;border:0;color:#D9CFBA;font:600 13px 'DM Sans',system-ui,sans-serif;padding:10px 15px;cursor:pointer;line-height:1}
+.wsb-lang button[aria-pressed="true"]{background:#B8952A;color:#1A1A1A}
+.wsb-btn{background:none;border:1px solid #B8952A;color:#F3EBD8;font:600 13px 'DM Sans',system-ui,sans-serif;padding:10px 14px;border-radius:999px;cursor:pointer;line-height:1;white-space:nowrap}
+.wsb-btn:hover{background:rgba(184,149,42,.15)}
+.wsb-bar a:focus-visible,.wsb-bar button:focus-visible,.wsb-foot a:focus-visible{outline:2px solid #F5A800;outline-offset:2px}
+.wsb-foot{background:#1A1A1A;color:#D9CFBA;font-family:'DM Sans',system-ui,sans-serif;font-size:14px;text-align:center;padding:22px 16px 26px;line-height:1.7}
+.wsb-foot a{color:#E8D49A;text-decoration:none;font-weight:600;display:inline-block;padding:8px 0}
+.wsb-foot .wsb-sep{color:#6B6660;margin:0 8px}
+@media (max-width:640px){.wsb-brand{display:none}.wsb-bar{padding:0 14px}.wsb-btn .wsb-long{display:none}}
+.wsb-id{display:flex;align-items:center;gap:10px;min-width:0;text-decoration:none}
+.wsb-logos{display:inline-flex;align-items:center;gap:9px;flex:none}
+.wsb-logos img{height:28px;width:auto;display:block}
+.wsb-logos i{width:1px;height:22px;background:#4A443A}
+.wsb-name{font-size:15px;font-weight:600;color:#F3EBD8;white-space:nowrap}
+.wsb-left,.wsb-id{min-width:0}.wsb-name{overflow:hidden;text-overflow:ellipsis}
+@media (max-width:640px){.wsb-bar .wsb-btn{display:none}.wsb-home .wsb-hometxt{display:none}.wsb-home{font-size:20px;padding:8px 6px 8px 0}.wsb-logos img{height:24px}.wsb-name{font-size:14px}}
+@media print{.wsb-bar,.wsb-foot{display:none!important}}
+</style>
+</head>
+<body>
+<div class="wsb-bar">
+  <div class="wsb-left"><a class="wsb-home" href="../" aria-label="Semua alat">&larr;<span class="wsb-hometxt"> <span data-wsb-ms="Semua alat" data-wsb-en="All tools">Semua alat</span></span></a><a class="wsb-id" href="../"><span class="wsb-logos"><img src="../assets/icon-wasiyyah.png" width="19" height="26" alt="Wasiyyah Shoppe Berhad"><i></i><img src="../assets/icon-kausar.png" width="17" height="26" alt="Kausar Wealth"></span><span class="wsb-name">Shakina K.</span></a></div>
+  <div class="wsb-right"><div class="wsb-lang" role="group" aria-label="Bahasa / Language"><button type="button" data-l="ms" aria-pressed="true" onclick="wsbSetLang('ms')">BM</button><button type="button" data-l="en" aria-pressed="false" onclick="wsbSetLang('en')">EN</button></div></div>
+</div>
+<header class="hero"><div class="wrap">
+  <p class="eyebrow"><span class="bm">Saya yang mana?</span><span class="en">Which one is me?</span></p>
+  <h1><span class="bm">Situasi Keluarga Anda</span><span class="en">Your Family Situation</span></h1>
+  <p class="lead"><span class="bm">Setiap keluarga berbeza, jadi caranya pun berbeza. Pilih situasi yang paling dekat dengan anda.</span><span class="en">Every family is different, so the approach differs too. Pick the situation closest to yours.</span></p>
+  <blockquote class="hadith"><p><span class="bm">&ldquo;Tidak sepatutnya bagi seorang Muslim yang mempunyai sesuatu untuk diwasiatkan, bermalam dua malam melainkan wasiatnya telah tertulis di sisinya.&rdquo;</span><span class="en">&ldquo;It is not right for a Muslim who has something to bequeath to spend two nights without having his wasiat written down with him.&rdquo;</span></p>
+  <cite><span class="bm">Hadis riwayat al-Bukhari dan Muslim, daripada Ibn Umar</span><span class="en">Narrated by al-Bukhari and Muslim, from Ibn Umar</span></cite></blockquote>
+</div></header>
+<main><div class="wrap">
+  <p class="label"><span class="bm">Ketik situasi anda</span><span class="en">Tap your situation</span></p>
+  <div class="tiles"><button type="button" class="tile" data-id="rumah"><span class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 10.5 12 3l9 7.5"/><path d="M5 9.5V21h14V9.5"/><path d="M10 21v-6h4v6"/></svg></span><b><span class="bm">Rumah atas nama berdua</span><span class="en">House in both names</span></b></button><button type="button" class="tile" data-id="tiada-anak"><span class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="8.5" cy="7.5" r="3.2"/><circle cx="16.5" cy="8.5" r="2.6"/><path d="M2.8 20a5.7 5.7 0 0 1 11.4 0"/><path d="M15 14.2a5.2 5.2 0 0 1 6.2 5.8"/></svg></span><b><span class="bm">Tiada anak</span><span class="en">No children</span></b><span class="bmtag">Baitulmal</span></button><button type="button" class="tile" data-id="anak-perempuan"><span class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="6.5" r="3.2"/><path d="M12 10.2 6.8 20h10.4z"/></svg></span><b><span class="bm">Anak perempuan sahaja</span><span class="en">Daughters only</span></b><span class="bmtag">Baitulmal</span></button><button type="button" class="tile" data-id="anak-lelaki-perempuan"><span class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="7.5" cy="6" r="2.6"/><path d="M7.5 9 4 17.5h7z"/><circle cx="16.5" cy="6" r="2.6"/><path d="M13.5 20v-7a3 3 0 0 1 6 0v7"/></svg></span><b><span class="bm">Anak lelaki & perempuan</span><span class="en">Sons and daughters</span></b></button><button type="button" class="tile" data-id="anak-kecil"><span class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="8" cy="5" r="2.6"/><path d="M4 21v-8a4 4 0 0 1 8 0v8"/><circle cx="17" cy="11" r="2"/><path d="M14.4 21v-4.6a2.6 2.6 0 0 1 5.2 0V21"/></svg></span><b><span class="bm">Anak kecil / ibu atau bapa tunggal</span><span class="en">Young children / single parent</span></b></button><button type="button" class="tile" data-id="anak-oku"><span class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="4" r="2"/><path d="M11 7v6h5.5l2 5.5"/><path d="M11 10h4.5"/><path d="M8 11.3a5.6 5.6 0 1 0 6.6 7.6"/></svg></span><b><span class="bm">Anak OKU</span><span class="en">A child with special needs</span></b></button><button type="button" class="tile" data-id="anak-angkat"><span class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 8.6c-1-2.2-4.6-2-4.6.8 0 2 4.6 4.8 4.6 4.8s4.6-2.8 4.6-4.8c0-2.8-3.6-3-4.6-.8z"/><path d="M2.5 15.5h3.5l3 2h5a1.5 1.5 0 0 1 0 3H8.5"/><path d="M14 18.5l5.2-3.4a1.6 1.6 0 0 1 2 2.4L15 21.5H2.5"/></svg></span><b><span class="bm">Anak angkat</span><span class="en">Adopted child</span></b></button><button type="button" class="tile" data-id="ibu-bapa"><span class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10" cy="4.5" r="2.4"/><path d="M8.2 21l1.3-6.5-1.8-2 1.8-3.8h2.2l2.2 4 2.4 1"/><path d="M11.2 14.5l1.2 6.5"/><path d="M17.5 12.5V21"/></svg></span><b><span class="bm">Ibu bapa masih hidup</span><span class="en">Your parents are alive</span></b></button><button type="button" class="tile" data-id="poligami"><span class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="9" cy="14.5" r="5"/><circle cx="15" cy="14.5" r="5"/><path d="M10 6.5 12 3.5l2 3"/></svg></span><b><span class="bm">Kahwin semula / poligami</span><span class="en">Remarried / polygamous</span></b></button><button type="button" class="tile" data-id="perniagaan"><span class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M9 7V5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2"/><path d="M3 13h18"/></svg></span><b><span class="bm">Pemilik perniagaan</span><span class="en">Business owner</span></b></button></div>
+  <section class="bmbox"><h2><span class="bm">Bila harta boleh ke Baitulmal</span><span class="en">When assets can go to Baitulmal</span></h2><p><span class="bm">Jika tiada waris yang berhak atas baki, baki itu boleh diserahkan kepada Baitulmal, bukan kepada orang yang anda sayang.</span><span class="en">If no heir is entitled to the remainder, it can go to Baitulmal instead of the people you love.</span></p><div class="bmlist"><div><span class="bm">Anak perempuan sahaja, tiada adik-beradik lelaki</span><span class="en">Daughters only, no brothers</span></div><div><span class="bm">Tiada anak, tiada ibu bapa atau adik-beradik</span><span class="en">No children, parents or siblings</span></div><div><span class="bm">Tiada waris Muslim langsung, contohnya mualaf</span><span class="en">No Muslim heirs at all, e.g. a new Muslim</span></div></div><p class="fine"><span class="bm">Prinsip ini terpakai di seluruh Malaysia, dan dilaksanakan oleh Majlis Agama Islam negeri masing-masing. Waris boleh menebus bahagian Baitulmal, tetapi dengan bayaran. Hibah dan Wasiat ⅓ boleh menyalurkan harta kepada orang pilihan anda dari awal.</span><span class="en">This applies across Malaysia, administered by each state’s Majlis Agama Islam. Heirs can buy back Baitulmal’s share, but at a price. Hibah and a Wasiat ⅓ can direct assets to the people you choose from the start.</span></p></section>
+  <section class="others"><p class="label"><span class="bm">Lain-lain</span><span class="en">Others</span></p><div class="olist"><div class="orow"><span class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="3.6"/><path d="M5 20.5a7 7 0 0 1 14 0"/></svg></span><div><b><span class="bm">Bujang</span><span class="en">Single</span></b><span class="d"><span class="bm">Ibu bapa dan adik-beradik mewarisi, atau Baitulmal jika tiada. Mula dengan Wasiat ⅓ dan lantik wasi.</span><span class="en">Parents and siblings inherit, or Baitulmal if there are none. Start with a Wasiat ⅓ and appoint a wasi.</span></span></div></div><div class="orow"><span class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15.5 3.5a8.5 8.5 0 1 0 5 14.2 7 7 0 1 1-5-14.2z"/></svg></span><div><b><span class="bm">Mualaf</span><span class="en">New Muslim</span></b><span class="d"><span class="bm">Keluarga bukan Islam tidak mewarisi. Tanpa waris Muslim, harta boleh ke Baitulmal. Hibah atau Wasiat ⅓ masih boleh.</span><span class="en">Non-Muslim family do not inherit. With no Muslim heir, assets can go to Baitulmal. Hibah or a Wasiat ⅓ still can.</span></span></div></div><div class="orow"><span class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7.5 12 4l8 3.5v9.5L12 20.5 4 17z"/><path d="M4 7.5 12 11l8-3.5"/><path d="M12 11v9.5"/><path d="M4 11l8 3.5 8-3.5"/></svg></span><div><b><span class="bm">Bakal haji / umrah</span><span class="en">Going for haj / umrah</span></b><span class="d"><span class="bm">Dokumen perlukan masa. Mula awal, bukan minggu terakhir.</span><span class="en">Documents take time. Start early, not in the final week.</span></span></div></div></div></section>
+  <div class="cta"><div><h3><span class="bm">Lebih daripada satu situasi?</span><span class="en">More than one fits?</span></h3><p><span class="bm">Itu biasa. Kita susun bersama, satu langkah pada satu masa.</span><span class="en">That is common. We will sort it together, one step at a time.</span></p></div>
+  <a class="btn-gold" href="https://wa.me/60173335664?text=Assalamualaikum%20Shakina%2C%20saya%20ingin%20bincang%20situasi%20keluarga%20saya." target="_blank" rel="noopener">WhatsApp Shakina</a></div>
+  <p class="fine"><span class="bm">Contoh pembahagian adalah ringkasan untuk gambaran sahaja. Bahagian sebenar bergantung kepada waris yang masih hidup. Untuk tujuan pendidikan, bukan nasihat guaman.</span><span class="en">Example splits are simplified for illustration. Actual shares depend on which heirs are alive. For education only, not legal advice.</span></p>
+</div></main>
+<div class="scrim" id="scrim" aria-hidden="true"><div class="sheet" role="dialog" aria-modal="true" aria-labelledby="sh-title" tabindex="-1" id="sheet"></div></div>
+<script>
+(function(){
+var D=[{"id": "rumah", "icon": "home", "t": ["Rumah atas nama berdua", "House in both names"], "r": ["Bahagian anda dalam geran menjadi pusaka, bukan terus milik pasangan.", "Your share of the title becomes estate, not automatically your spouse’s."], "k": ["Pasangan berkongsi rumah dengan waris lain, atau perlu menebusnya.", "Your spouse shares the house with other heirs, or must buy them out."], "s": [["Hibah Hartanah dua hala", "Two-way property Hibah"]], "bar": {"ex": ["Contoh: rumah atas dua nama, suami meninggal dunia", "Example: house in both names, the husband passes away"], "seg": [[1, 2, "Bahagian isteri sendiri", "Wife’s own half", "gold"], [1, 2, "Bahagian suami, dibahagi Faraid", "Husband’s half, divided by Faraid", "black"]]}, "go": ["hibah/", "Cari pakej Hibah", "Find a Hibah package"]}, {"id": "tiada-anak", "icon": "couple", "t": ["Tiada anak", "No children"], "r": ["Isteri hanya menerima 1/4, suami 1/2.", "A wife receives only 1/4, a husband 1/2."], "k": ["Selebihnya kepada ibu bapa atau adik-beradik, atau Baitulmal jika tiada. Rumah mungkin terpaksa dijual.", "The rest goes to parents or siblings, or Baitulmal if there are none. The house may have to be sold."], "s": [["Hibah kepada pasangan", "Hibah to your spouse"]], "bar": {"ex": ["Contoh: suami meninggal, tiada anak, ibu bapa telah tiada, ada adik-beradik", "Example: husband passes away, no children, parents gone, has siblings"], "seg": [[1, 4, "Isteri", "Wife", "gold"], [3, 4, "Adik-beradik suami", "Husband’s siblings", "black"]]}, "go": ["pusaka/?tab=faraid", "Kira Faraid saya", "Run my Faraid"]}, {"id": "anak-perempuan", "icon": "girl", "t": ["Anak perempuan sahaja", "Daughters only"], "r": ["Anak perempuan menerima bahagian tetap: 1/2 seorang, 2/3 jika lebih.", "Daughters receive a fixed share: 1/2 for one, 2/3 if more."], "k": ["Baki pergi kepada adik-beradik lelaki anda, atau Baitulmal jika tiada waris lelaki.", "The rest goes to your brothers, or Baitulmal if there is no male heir."], "s": [["Hibah", "Hibah"], ["Amanah", "Amanah"]], "bar": {"ex": ["Contoh: bapa meninggal, ada isteri, 2 anak perempuan, seorang adik lelaki, ibu bapa telah tiada", "Example: father passes away, leaving a wife, 2 daughters and a brother, parents gone"], "seg": [[3, 24, "Isteri 1/8", "Wife 1/8", "gold"], [16, 24, "2 anak perempuan 2/3", "2 daughters 2/3", "blue"], [5, 24, "Adik lelaki", "Brother", "black"]]}, "go": ["pusaka/?tab=faraid", "Kira Faraid saya", "Run my Faraid"]}, {"id": "anak-lelaki-perempuan", "icon": "boygirl", "t": ["Anak lelaki & perempuan", "Sons and daughters"], "r": ["Faraid: bahagian anak lelaki dua kali bahagian anak perempuan.", "Faraid gives a son twice a daughter’s share."], "k": ["Bahagian mungkin tidak sepadan dengan keperluan atau jagaan setiap anak.", "Shares may not match each child’s needs, or who cares for you."], "s": [["Hibah semasa hidup", "Hibah during your lifetime"]], "bar": {"ex": ["Contoh: bahagian anak-anak, seorang anak lelaki dan seorang anak perempuan", "Example: the children’s portion, one son and one daughter"], "seg": [[2, 3, "Anak lelaki", "Son", "green"], [1, 3, "Anak perempuan", "Daughter", "blue"]]}, "go": ["pusaka/?tab=faraid", "Kira Faraid saya", "Run my Faraid"]}, {"id": "anak-kecil", "icon": "child", "t": ["Anak kecil / ibu atau bapa tunggal", "Young children / single parent"], "r": ["Tiada wasi dilantik untuk mengurus harta anak.", "No wasi appointed to manage your children’s assets."], "k": ["Bahagian anak sukar digunakan untuk keperluan harian dan persekolahan.", "Their share is hard to use for daily needs and schooling."], "s": [["Lantik wasi", "Appoint a wasi"], ["Amanah", "Amanah"]], "bar": null, "go": ["pusaka/?tab=flow", "Lihat proses pusaka", "See the estate process"]}, {"id": "anak-oku", "icon": "oku", "t": ["Anak OKU", "A child with special needs"], "r": ["Faraid tiada bahagian tambahan untuk anak OKU.", "Faraid gives no extra share for a child with special needs."], "k": ["Kos jagaan berterusan, tetapi tiada siapa ditetapkan untuk mengurus wangnya.", "Care costs continue, but no one is set up to manage the money."], "s": [["Amanah Ri'ayah", "Amanah Ri'ayah"], ["Lantik wasi", "Appoint a wasi"]], "bar": null, "go": ["produk/", "Lihat pilihan amanah", "See trust options"]}, {"id": "anak-angkat", "icon": "adopt", "t": ["Anak angkat", "Adopted child"], "r": ["Anak angkat bukan waris Faraid, begitu juga sebaliknya.", "An adopted child is not a Faraid heir, and the same applies the other way."], "k": ["Tanpa perancangan, mereka tidak menerima apa-apa.", "Without a plan, they receive nothing."], "s": [["Hibah", "Hibah"], ["Wasiat ⅓", "Wasiat ⅓"]], "bar": null, "go": ["produk/", "Lihat pilihan", "See options"]}, {"id": "ibu-bapa", "icon": "elder", "t": ["Ibu bapa masih hidup", "Your parents are alive"], "r": ["Ibu bapa sentiasa waris Faraid, sekurang-kurangnya 1/6 seorang.", "Parents always inherit, at least 1/6 each."], "k": ["Jika mereka meninggal sebelum pusaka selesai, kes menjadi berlapis dan lebih lama.", "If they pass before it is settled, the case becomes layered and longer."], "s": [["Hibah ikut keperluan", "Hibah by need"], ["Al-Wasitah", "Al-Wasitah"]], "bar": null, "go": ["kos-pusaka/", "Kos & tempoh pusaka", "Estate cost & time"]}, {"id": "poligami", "icon": "rings", "t": ["Kahwin semula / poligami", "Remarried / polygamous"], "r": ["Semua isteri berkongsi satu bahagian (1/8 atau 1/4) sama rata.", "All wives split one share (1/8 or 1/4) equally."], "k": ["Keperluan setiap keluarga berbeza, dan mudah timbul salah faham.", "Each family’s needs differ, and misunderstandings come easily."], "s": [["Hibah", "Hibah"], ["Harta Sepencarian", "Harta Sepencarian"]], "bar": {"ex": ["Contoh: suami meninggal, ada 2 isteri dan anak", "Example: husband passes away, leaving 2 wives and children"], "seg": [[1, 16, "Isteri 1", "Wife 1", "gold"], [1, 16, "Isteri 2", "Wife 2", "kausar"], [14, 16, "Anak-anak & waris lain", "Children & other heirs", "black"]]}, "go": ["produk/", "Lihat pilihan", "See options"]}, {"id": "perniagaan", "icon": "brief", "t": ["Pemilik perniagaan", "Business owner"], "r": ["Saham syarikat menjadi pusaka semua waris.", "Company shares become estate for all heirs."], "k": ["Operasi tergendala, dan waris tanpa pengalaman turut membuat keputusan.", "Operations stall, and heirs without experience get a say."], "s": [["At-Tijarah", "At-Tijarah"], ["Amanah Tujjar", "Amanah Tujjar"]], "bar": null, "go": ["produk/", "Lihat pilihan perniagaan", "See business options"]}], ICON={"adopt": "<path d=\"M12 8.6c-1-2.2-4.6-2-4.6.8 0 2 4.6 4.8 4.6 4.8s4.6-2.8 4.6-4.8c0-2.8-3.6-3-4.6-.8z\"/><path d=\"M2.5 15.5h3.5l3 2h5a1.5 1.5 0 0 1 0 3H8.5\"/><path d=\"M14 18.5l5.2-3.4a1.6 1.6 0 0 1 2 2.4L15 21.5H2.5\"/>", "alert": "<path d=\"M12 3.5 2.5 20h19z\"/><path d=\"M12 10v4.5\"/><path d=\"M12 17.3v.2\"/>", "arrow": "<path d=\"M6 6l12 12\"/><path d=\"M18 9v9H9\"/>", "boygirl": "<circle cx=\"7.5\" cy=\"6\" r=\"2.6\"/><path d=\"M7.5 9 4 17.5h7z\"/><circle cx=\"16.5\" cy=\"6\" r=\"2.6\"/><path d=\"M13.5 20v-7a3 3 0 0 1 6 0v7\"/>", "brief": "<rect x=\"3\" y=\"7\" width=\"18\" height=\"13\" rx=\"2\"/><path d=\"M9 7V5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2\"/><path d=\"M3 13h18\"/>", "child": "<circle cx=\"8\" cy=\"5\" r=\"2.6\"/><path d=\"M4 21v-8a4 4 0 0 1 8 0v8\"/><circle cx=\"17\" cy=\"11\" r=\"2\"/><path d=\"M14.4 21v-4.6a2.6 2.6 0 0 1 5.2 0V21\"/>", "couple": "<circle cx=\"8.5\" cy=\"7.5\" r=\"3.2\"/><circle cx=\"16.5\" cy=\"8.5\" r=\"2.6\"/><path d=\"M2.8 20a5.7 5.7 0 0 1 11.4 0\"/><path d=\"M15 14.2a5.2 5.2 0 0 1 6.2 5.8\"/>", "elder": "<circle cx=\"10\" cy=\"4.5\" r=\"2.4\"/><path d=\"M8.2 21l1.3-6.5-1.8-2 1.8-3.8h2.2l2.2 4 2.4 1\"/><path d=\"M11.2 14.5l1.2 6.5\"/><path d=\"M17.5 12.5V21\"/>", "girl": "<circle cx=\"12\" cy=\"6.5\" r=\"3.2\"/><path d=\"M12 10.2 6.8 20h10.4z\"/>", "home": "<path d=\"M3 10.5 12 3l9 7.5\"/><path d=\"M5 9.5V21h14V9.5\"/><path d=\"M10 21v-6h4v6\"/>", "key": "<circle cx=\"8\" cy=\"15\" r=\"4\"/><path d=\"M11 12l9-9\"/><path d=\"M17 6l3 3\"/><path d=\"M15 8l2 2\"/>", "oku": "<circle cx=\"11\" cy=\"4\" r=\"2\"/><path d=\"M11 7v6h5.5l2 5.5\"/><path d=\"M11 10h4.5\"/><path d=\"M8 11.3a5.6 5.6 0 1 0 6.6 7.6\"/>", "rings": "<circle cx=\"9\" cy=\"14.5\" r=\"5\"/><circle cx=\"15\" cy=\"14.5\" r=\"5\"/><path d=\"M10 6.5 12 3.5l2 3\"/>"};
+function sv(n){return '<svg viewBox="0 0 24 24" aria-hidden="true">'+ICON[n]+'</svg>';}
+function tt(p){return '<span class="bm">'+p[0]+'</span><span class="en">'+p[1]+'</span>';}
+function en(){return document.documentElement.lang==='en';}
+var scrim=document.getElementById('scrim'), sheet=document.getElementById('sheet'), last=null;
+function render(s){
+  var h='<div class="sh-top"><span class="ic">'+sv(s.icon)+'</span><h2 id="sh-title">'+tt(s.t)+'</h2><button type="button" class="x" aria-label="Tutup / Close">&times;</button></div><div class="sh-body">';
+  if(s.bar){
+    var tot=0; s.bar.seg.forEach(function(g){tot+=g[0]/g[1];});
+    h+='<div class="bar"><p class="bar-ex">'+tt(s.bar.ex)+'</p><div class="bar-track" role="img" aria-label="'+s.bar.seg.map(function(g){return g[2];}).join(', ')+'">';
+    s.bar.seg.forEach(function(g){h+='<i class="c-'+g[4]+'" style="flex:'+(g[0]/g[1])+'"></i>';});
+    h+='</div><div class="bar-key">';
+    s.bar.seg.forEach(function(g){h+='<span><em class="c-'+g[4]+'"></em>'+tt([g[2],g[3]])+'</span>';});
+    h+='</div></div>';
+  }
+  h+='<div class="rows">'
+   +'<div class="r risk"><span class="r-ic">'+sv('alert')+'</span><div><small>'+tt(['Risiko','Risk'])+'</small><p>'+tt(s.r)+'</p></div></div>'
+   +'<div class="r kesan"><span class="r-ic">'+sv('arrow')+'</span><div><small>'+tt(['Kesan','Effect'])+'</small><p>'+tt(s.k)+'</p></div></div>'
+   +'<div class="r sol"><span class="r-ic">'+sv('key')+'</span><div><small>'+tt(['Solusi','Solution'])+'</small><div class="chips">'+s.s.map(function(c){return '<span class="chip">'+tt(c)+'</span>';}).join('')+'</div></div></div>'
+   +'</div>';
+  var wa='https://wa.me/60173335664?text='+encodeURIComponent('Assalamualaikum Shakina, situasi saya: '+s.t[0]+'. Boleh bantu?');
+  h+='<div class="sh-btns"><a class="btn-gold" href="../'+s.go[0]+'">'+tt([s.go[1],s.go[2]])+'</a><a class="btn-out" href="'+wa+'" target="_blank" rel="noopener">'+tt(['Tanya Shakina','Ask Shakina'])+'</a></div></div>';
+  sheet.innerHTML=h;
+  sheet.querySelector('.x').addEventListener('click',function(){history.length>1&&location.hash?history.back():close();});
+}
+function open(id,push){
+  var s=D.filter(function(x){return x.id===id;})[0]; if(!s) return;
+  last=document.activeElement; render(s);
+  scrim.classList.add('on'); scrim.setAttribute('aria-hidden','false'); document.body.classList.add('lock');
+  setTimeout(function(){sheet.focus();},30);
+  if(push&&location.hash!=='#'+id) history.pushState(null,'','#'+id);
+  try{if(window.goatcounter&&window.goatcounter.count) window.goatcounter.count({path:'situasi-'+id,title:'Situasi: '+s.t[0],event:true});}catch(e){}
+}
+function close(){
+  scrim.classList.remove('on'); scrim.setAttribute('aria-hidden','true'); document.body.classList.remove('lock');
+  if(location.hash) history.replaceState(null,'',location.pathname+location.search);
+  if(last&&last.focus) last.focus();
+}
+document.querySelectorAll('.tile').forEach(function(b){b.addEventListener('click',function(){open(b.getAttribute('data-id'),true);});});
+scrim.addEventListener('click',function(e){if(e.target===scrim) close();});
+document.addEventListener('keydown',function(e){if(e.key==='Escape'&&scrim.classList.contains('on')) close();});
+function fromHash(){var id=location.hash.slice(1); if(id&&D.some(function(x){return x.id===id;})) open(id,false); else if(scrim.classList.contains('on')) close();}
+window.addEventListener('popstate',fromHash); fromHash();
+})();
+</script>
+<div class="wsb-foot"><a href="../">&larr; <span data-wsb-ms="Semua alat" data-wsb-en="All tools">Semua alat</span></a><span class="wsb-sep">·</span>Shakina K. · Kausar Wealth · WSB Advisor<span class="wsb-sep">·</span><a href="https://wa.me/60173335664" target="_blank" rel="noopener">WhatsApp 017-333 5664</a></div>
+<script>window.wsbOnLang=function(l){document.body.classList.toggle('lang-en',l==='en');};</script>
+<script id="wsb-shared-js">
+(function(){
+  var KEY = 'wsb-lang';
+  function saved(){ try { return localStorage.getItem(KEY) === 'en' ? 'en' : 'ms'; } catch (e) { return 'ms'; } }
+  window.wsbSetLang = function(l){
+    l = (l === 'en') ? 'en' : 'ms';
+    try { localStorage.setItem(KEY, l); } catch (e) {}
+    document.documentElement.lang = l;
+    var bs = document.querySelectorAll('.wsb-lang button');
+    for (var i = 0; i < bs.length; i++) bs[i].setAttribute('aria-pressed', String(bs[i].getAttribute('data-l') === l));
+    var ts = document.querySelectorAll('[data-wsb-ms]');
+    for (var j = 0; j < ts.length; j++) ts[j].textContent = ts[j].getAttribute(l === 'en' ? 'data-wsb-en' : 'data-wsb-ms');
+    if (typeof window.wsbOnLang === 'function') window.wsbOnLang(l);
+  };
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', function(){ wsbSetLang(saved()); });
+  else wsbSetLang(saved());
+})();
+</script>
+<!-- Visitor analytics (GoatCounter, cookie-free) -->
+<script data-goatcounter="https://wsbshakina.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+<script>
+(function(){
+  var page=(location.pathname.replace(/\/index\.html$/,'').replace(/^\/|\/$/g,'')||'home');
+  function ev(name){try{if(window.goatcounter&&window.goatcounter.count){window.goatcounter.count({path:name+'-'+page,title:name,event:true});}}catch(e){}}
+  document.addEventListener('click',function(e){
+    var a=e.target.closest&&e.target.closest('a[href]');if(!a)return;
+    var h=a.getAttribute('href')||'';
+    if(/wa\.me|api\.whatsapp/i.test(h))ev('whatsapp');
+    else if(/^mailto:/i.test(h))ev('email');
+  },true);
+  ['wsfSubmit','sendResult'].forEach(function(fn){
+    var orig=window[fn];if(typeof orig!=='function')return;
+    window[fn]=function(){ev('submit');return orig.apply(this,arguments);};
+  });
+})();
+</script>
+</body>
+</html>

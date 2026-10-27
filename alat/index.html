@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Alat Perancangan Pusaka | Shakina K. · Kausar Wealth</title>
+<meta name="description" content="Kalkulator Faraid, kos pusaka, Hibah dan proses pusaka, disusun ikut peringkat.">
+<meta property="og:title" content="Alat Perancangan Pusaka | Shakina K. · Kausar Wealth">
+<meta property="og:description" content="Kalkulator Faraid, kos pusaka, Hibah dan proses pusaka, disusun ikut peringkat.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,500&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--gold:#B8952A;--gold-dk:#8C6E1A;--gold-lt:#F5E9C4;--black:#1A1A1A;--ink:#2D2D2D;--muted:#6B6660;
+--cream:#FAF8F3;--line:#E8E4D8;--blue:#1A3A8F;--green:#2E9E4F;--kausar:#F5A800}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'DM Sans',system-ui,sans-serif;background:var(--cream);color:var(--ink);line-height:1.5}
+.en{display:none} body.lang-en .en{display:inline} body.lang-en .bm{display:none}
+.wrap{max-width:980px;margin:0 auto}
+.hero{background:var(--black);color:#F3EBD8;padding:40px 20px 44px}
+.eyebrow{font-size:12px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-bottom:12px}
+h1{font-family:'Playfair Display',Georgia,serif;font-weight:600;font-size:clamp(32px,5.5vw,48px);line-height:1.1}
+.lead{margin-top:12px;font-size:16.5px;color:#D9CFBA;max-width:620px}
+main{padding:32px 20px 40px}
+.label{font-size:12px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--gold-dk);margin-bottom:12px}
+.ic{width:46px;height:46px;border-radius:50%;background:var(--black);display:grid;place-items:center;flex:none}
+.ic svg{width:23px;height:23px;stroke:var(--gold);fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.cta{margin-top:34px;background:var(--black);color:#F3EBD8;border-radius:16px;padding:24px 26px;display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:16px}
+.cta h3{font-family:'Playfair Display',Georgia,serif;font-size:22px;font-weight:600}
+.cta p{color:#D9CFBA;font-size:14.5px;margin-top:2px}
+.btn-gold{display:inline-block;background:var(--gold);color:var(--black);font-weight:600;font-size:15px;text-decoration:none;padding:12px 20px;border-radius:10px;text-align:center;border:0;cursor:pointer}
+.btn-gold:hover{background:#D4A843}
+.btn-out{display:inline-block;border:1px solid var(--black);color:var(--black);font-weight:600;font-size:15px;text-decoration:none;padding:11px 18px;border-radius:10px;text-align:center;background:#fff}
+.btn-out:hover{background:var(--gold-lt)}
+.fine{font-size:12.5px;color:var(--muted);margin-top:22px}
+a:focus-visible,button:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+@media (max-width:560px){.hero{padding:28px 16px 32px}main{padding:24px 16px 32px}.cta{padding:20px}}
+
+.stage{margin-top:8px}
+.stage+.stage{margin-top:38px}
+.st-head{display:flex;gap:14px;align-items:center;margin-bottom:6px}
+.st-head .ic{width:40px;height:40px;background:var(--gold)}.st-head .ic svg{stroke:var(--black);width:20px;height:20px}
+.st-head h2{font-family:'Playfair Display',Georgia,serif;font-size:clamp(22px,3.4vw,28px);font-weight:600;color:var(--black)}
+.st-sub{color:var(--muted);font-size:14.5px;margin:0 0 16px 54px}
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px}
+a.card{display:flex;gap:14px;align-items:flex-start;background:#fff;border:1px solid var(--line);border-radius:14px;padding:18px 16px;text-decoration:none;color:inherit;position:relative;overflow:hidden;transition:transform .15s,box-shadow .15s}
+a.card::before{content:"";position:absolute;left:0;top:0;bottom:0;width:4px;background:var(--c)}
+a.card:hover{transform:translateY(-2px);box-shadow:0 10px 26px rgba(26,26,26,.09)}
+a.card .ic{width:40px;height:40px}a.card .ic svg{width:20px;height:20px}
+a.card b{display:block;font-size:16px;color:var(--black);margin-bottom:3px}
+a.card span.d{display:block;font-size:14px;color:var(--muted);line-height:1.45}
+.hint{margin-top:30px;background:var(--gold-lt);border-radius:12px;padding:16px 18px;font-size:15px;display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between}
+.hint a{color:var(--black);font-weight:600}
+@media (max-width:560px){.st-sub{margin-left:0}.cards{grid-template-columns:1fr}}
+</style>
+<style id="wsb-shared">
+/* ── Shared chrome: identical on every page ── */
+.wsb-bar{position:sticky;top:0;z-index:300;height:56px;background:#1A1A1A;color:#F3EBD8;font-family:'DM Sans',system-ui,sans-serif;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:0 20px}
+.wsb-bar::after{content:"";position:absolute;left:0;right:0;bottom:-3px;height:3px;background:linear-gradient(90deg,#1A3A8F 0 33.3%,#2E9E4F 33.3% 66.6%,#F5A800 66.6% 100%)}
+.wsb-left{display:flex;align-items:center;gap:18px;min-width:0}
+.wsb-home{color:#F3EBD8;text-decoration:none;font-size:14px;font-weight:600;white-space:nowrap;padding:10px 4px 10px 0;display:inline-block}
+.wsb-home:hover{color:#E8D49A}
+.wsb-brand{font-size:12px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:#B8952A;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.wsb-right{display:flex;align-items:center;gap:10px}
+.wsb-lang{display:inline-flex;border:1px solid #4A443A;border-radius:999px;overflow:hidden}
+.wsb-lang button{background:none;border:0;color:#D9CFBA;font:600 13px 'DM Sans',system-ui,sans-serif;padding:10px 15px;cursor:pointer;line-height:1}
+.wsb-lang button[aria-pressed="true"]{background:#B8952A;color:#1A1A1A}
+.wsb-btn{background:none;border:1px solid #B8952A;color:#F3EBD8;font:600 13px 'DM Sans',system-ui,sans-serif;padding:10px 14px;border-radius:999px;cursor:pointer;line-height:1;white-space:nowrap}
+.wsb-btn:hover{background:rgba(184,149,42,.15)}
+.wsb-bar a:focus-visible,.wsb-bar button:focus-visible,.wsb-foot a:focus-visible{outline:2px solid #F5A800;outline-offset:2px}
+.wsb-foot{background:#1A1A1A;color:#D9CFBA;font-family:'DM Sans',system-ui,sans-serif;font-size:14px;text-align:center;padding:22px 16px 26px;line-height:1.7}
+.wsb-foot a{color:#E8D49A;text-decoration:none;font-weight:600;display:inline-block;padding:8px 0}
+.wsb-foot .wsb-sep{color:#6B6660;margin:0 8px}
+@media (max-width:640px){.wsb-brand{display:none}.wsb-bar{padding:0 14px}.wsb-btn .wsb-long{display:none}}
+.wsb-id{display:flex;align-items:center;gap:10px;min-width:0;text-decoration:none}
+.wsb-logos{display:inline-flex;align-items:center;gap:9px;flex:none}
+.wsb-logos img{height:28px;width:auto;display:block}
+.wsb-logos i{width:1px;height:22px;background:#4A443A}
+.wsb-name{font-size:15px;font-weight:600;color:#F3EBD8;white-space:nowrap}
+.wsb-left,.wsb-id{min-width:0}.wsb-name{overflow:hidden;text-overflow:ellipsis}
+@media (max-width:640px){.wsb-bar .wsb-btn{display:none}.wsb-home .wsb-hometxt{display:none}.wsb-home{font-size:20px;padding:8px 6px 8px 0}.wsb-logos img{height:24px}.wsb-name{font-size:14px}}
+@media print{.wsb-bar,.wsb-foot{display:none!important}}
+</style>
+</head>
+<body>
+<div class="wsb-bar">
+  <div class="wsb-left"><a class="wsb-home" href="../" aria-label="Semua alat">&larr;<span class="wsb-hometxt"> <span data-wsb-ms="Semua alat" data-wsb-en="All tools">Semua alat</span></span></a><a class="wsb-id" href="../"><span class="wsb-logos"><img src="../assets/icon-wasiyyah.png" width="19" height="26" alt="Wasiyyah Shoppe Berhad"><i></i><img src="../assets/icon-kausar.png" width="17" height="26" alt="Kausar Wealth"></span><span class="wsb-name">Shakina K.</span></a></div>
+  <div class="wsb-right"><div class="wsb-lang" role="group" aria-label="Bahasa / Language"><button type="button" data-l="ms" aria-pressed="true" onclick="wsbSetLang('ms')">BM</button><button type="button" data-l="en" aria-pressed="false" onclick="wsbSetLang('en')">EN</button></div></div>
+</div>
+<header class="hero"><div class="wrap">
+  <p class="eyebrow"><span class="bm">Alat</span><span class="en">Tools</span></p>
+  <h1><span class="bm">Pilih ikut peringkat anda</span><span class="en">Choose by where you are</span></h1>
+  <p class="lead"><span class="bm">Setiap alat ada tujuannya. Mula dengan peringkat yang sesuai.</span><span class="en">Each tool has its purpose. Start with the stage that fits.</span></p>
+</div></header>
+<main><div class="wrap">
+<section class="stage" id="rancang"><div class="st-head"><span class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21v-9"/><path d="M12 12c0-4 3-7 7-7 0 4-3 7-7 7z"/><path d="M12 14c0-3-2.5-5.5-6-5.5 0 3.5 2.5 5.5 6 5.5z"/></svg></span><h2><span class="bm">Masih hidup · Merancang</span><span class="en">While alive · Planning</span></h2></div><p class="st-sub"><span class="bm">Fahami kedudukan anda dan pilih cara merancang.</span><span class="en">Understand where you stand and choose how to plan.</span></p><div class="cards"><a class="card" href="../situasi/" style="--c:var(--gold)"><span class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="3.5" width="7" height="7" rx="1.5"/><rect x="13.5" y="3.5" width="7" height="7" rx="1.5"/><rect x="3.5" y="13.5" width="7" height="7" rx="1.5"/><rect x="13.5" y="13.5" width="7" height="7" rx="1.5"/></svg></span><span><b><span class="bm">Saya yang mana?</span><span class="en">Which one is me?</span></b><span class="d"><span class="bm">Pilih situasi keluarga, lihat risiko dan solusi.</span><span class="en">Pick your family situation, see risks and solutions.</span></span></span></a><a class="card" href="../#semak" style="--c:var(--kausar)"><span class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17 4H7l6 8-6 8h10"/></svg></span><span><b><span class="bm">Kira harta saya</span><span class="en">Add up my assets</span></b><span class="d"><span class="bm">Jumlah harta dan hutang dalam 60 saat.</span><span class="en">Your assets and debts in 60 seconds.</span></span></span></a><a class="card" href="../pusaka/?tab=faraid" style="--c:var(--blue)"><span class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v18"/><path d="M5 21h14"/><path d="M4 7h16"/><path d="M4 7l-2.5 6a3 3 0 0 0 5 0z"/><path d="M20 7l-2.5 6a3 3 0 0 0 5 0z"/></svg></span><span><b><span class="bm">Siapa dapat apa?</span><span class="en">Who gets what?</span></b><span class="d"><span class="bm">Kalkulator Faraid untuk keluarga anda.</span><span class="en">Faraid calculator for your family.</span></span></span></a><a class="card" href="../hibah/" style="--c:var(--green)"><span class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 10.5 12 3l9 7.5"/><path d="M5 9.5V21h14V9.5"/><path d="M10 21v-6h4v6"/></svg></span><span><b><span class="bm">Pakej Hibah hartanah</span><span class="en">Property Hibah package</span></b><span class="d"><span class="bm">Cari pakej yang sesuai untuk rumah atau tanah.</span><span class="en">Find the package that fits your house or land.</span></span></span></a><a class="card" href="../produk/" style="--c:var(--gold)"><span class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="8" cy="15" r="4"/><path d="M11 12l9-9"/><path d="M17 6l3 3"/><path d="M15 8l2 2"/></svg></span><span><b><span class="bm">Pilihan ikut harta</span><span class="en">Options by asset</span></b><span class="d"><span class="bm">ASB, Tabung Haji, takaful, perniagaan dan lain-lain.</span><span class="en">ASB, Tabung Haji, takaful, business and more.</span></span></span></a></div></section><section class="stage" id="urus"><div class="st-head"><span class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 19c0-8 6-14 15-14 0 9-6 15-14 15"/><path d="M5 19l7-7"/></svg></span><h2><span class="bm">Selepas kematian · Urus pusaka</span><span class="en">After a death · Settling the estate</span></h2></div><p class="st-sub"><span class="bm">Untuk keluarga yang sedang atau bakal menguruskan pusaka.</span><span class="en">For families settling, or about to settle, an estate.</span></p><div class="cards"><a class="card" href="../pusaka/?tab=flow" style="--c:var(--blue)"><span class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="5" cy="6" r="2.2"/><circle cx="19" cy="6" r="2.2"/><circle cx="12" cy="18" r="2.2"/><path d="M7.2 6h9.6"/><path d="M17.8 7.9 13.2 16"/><path d="M6.2 7.9 10.8 16"/></svg></span><span><b><span class="bm">Proses pusaka</span><span class="en">The estate process</span></b><span class="d"><span class="bm">Tiga peringkat selepas kematian, langkah demi langkah.</span><span class="en">The three stages after death, step by step.</span></span></span></a><a class="card" href="../pusaka/?tab=faraid" style="--c:var(--gold)"><span class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v18"/><path d="M5 21h14"/><path d="M4 7h16"/><path d="M4 7l-2.5 6a3 3 0 0 0 5 0z"/><path d="M20 7l-2.5 6a3 3 0 0 0 5 0z"/></svg></span><span><b><span class="bm">Kira Faraid</span><span class="en">Calculate Faraid</span></b><span class="d"><span class="bm">Bahagian setiap waris yang masih hidup.</span><span class="en">Each living heir’s share.</span></span></span></a><a class="card" href="../kos-pusaka/" style="--c:var(--green)"><span class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></svg></span><span><b><span class="bm">Kos & tempoh</span><span class="en">Cost & time</span></b><span class="d"><span class="bm">Anggaran kos waris dan berapa lama prosesnya.</span><span class="en">What heirs pay and how long it takes.</span></span></span></a></div></section>
+<div class="hint"><span><span class="bm">Tak pasti mula di mana?</span><span class="en">Not sure where to start?</span></span><a href="https://wa.me/60173335664?text=Assalamualaikum%20Shakina%2C%20saya%20ingin%20bertanya%20tentang%20perancangan%20pusaka." target="_blank" rel="noopener"><span class="bm">WhatsApp Shakina</span><span class="en">WhatsApp Shakina</span> &rarr;</a></div>
+<p class="fine"><span class="bm">Untuk tujuan pendidikan sahaja, bukan nasihat guaman.</span><span class="en">For education only, not legal advice.</span></p>
+</div></main>
+
+<div class="wsb-foot"><a href="../">&larr; <span data-wsb-ms="Semua alat" data-wsb-en="All tools">Semua alat</span></a><span class="wsb-sep">·</span>Shakina K. · Kausar Wealth · WSB Advisor<span class="wsb-sep">·</span><a href="https://wa.me/60173335664" target="_blank" rel="noopener">WhatsApp 017-333 5664</a></div>
+<script>window.wsbOnLang=function(l){document.body.classList.toggle('lang-en',l==='en');};</script>
+<script id="wsb-shared-js">
+(function(){
+  var KEY = 'wsb-lang';
+  function saved(){ try { return localStorage.getItem(KEY) === 'en' ? 'en' : 'ms'; } catch (e) { return 'ms'; } }
+  window.wsbSetLang = function(l){
+    l = (l === 'en') ? 'en' : 'ms';
+    try { localStorage.setItem(KEY, l); } catch (e) {}
+    document.documentElement.lang = l;
+    var bs = document.querySelectorAll('.wsb-lang button');
+    for (var i = 0; i < bs.length; i++) bs[i].setAttribute('aria-pressed', String(bs[i].getAttribute('data-l') === l));
+    var ts = document.querySelectorAll('[data-wsb-ms]');
+    for (var j = 0; j < ts.length; j++) ts[j].textContent = ts[j].getAttribute(l === 'en' ? 'data-wsb-en' : 'data-wsb-ms');
+    if (typeof window.wsbOnLang === 'function') window.wsbOnLang(l);
+  };
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', function(){ wsbSetLang(saved()); });
+  else wsbSetLang(saved());
+})();
+</script>
+<!-- Visitor analytics (GoatCounter, cookie-free) -->
+<script data-goatcounter="https://wsbshakina.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+<script>
+(function(){
+  var page=(location.pathname.replace(/\/index\.html$/,'').replace(/^\/|\/$/g,'')||'home');
+  function ev(name){try{if(window.goatcounter&&window.goatcounter.count){window.goatcounter.count({path:name+'-'+page,title:name,event:true});}}catch(e){}}
+  document.addEventListener('click',function(e){
+    var a=e.target.closest&&e.target.closest('a[href]');if(!a)return;
+    var h=a.getAttribute('href')||'';
+    if(/wa\.me|api\.whatsapp/i.test(h))ev('whatsapp');
+    else if(/^mailto:/i.test(h))ev('email');
+  },true);
+  ['wsfSubmit','sendResult'].forEach(function(fn){
+    var orig=window[fn];if(typeof orig!=='function')return;
+    window[fn]=function(){ev('submit');return orig.apply(this,arguments);};
+  });
+})();
+</script>
+</body>
+</html>
