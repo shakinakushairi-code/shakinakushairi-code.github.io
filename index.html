@@ -244,6 +244,100 @@ html{scroll-behavior:smooth}.sec{scroll-margin-top:60px}
 </header>
 
 <main>
+<!-- ================================================================
+     VIDEO SECTION · Shakina K. estate-planning video (BM / EN)
+     Paste this whole block into index.html, between the end of the
+     hero (</header>) and <section class="sec" id="situasi">.
+     Needs these 4 files in the repository:
+       assets/video/pusaka-ms.mp4   assets/video/poster-ms.jpg
+       assets/video/pusaka-en.mp4   assets/video/poster-en.jpg
+     The video follows the site's BM / EN switch automatically.
+     ================================================================ -->
+<style>
+  .wsv-grid{display:grid;grid-template-columns:minmax(0,340px) minmax(0,1fr);gap:36px;align-items:center;margin-top:8px}
+  .wsv-frame{position:relative;width:100%;aspect-ratio:9/16;border-radius:18px;overflow:hidden;background:var(--black,#1A1A1A);box-shadow:0 14px 40px rgba(26,26,26,.18)}
+  .wsv-frame video{display:block;width:100%;height:100%;object-fit:cover;background:var(--black,#1A1A1A)}
+  .wsv-play{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;border:0;padding:0;background:rgba(26,26,26,.15);cursor:pointer}
+  .wsv-play span{width:84px;height:84px;border-radius:50%;background:var(--kausar,#F5A800);display:flex;align-items:center;justify-content:center;box-shadow:0 8px 24px rgba(0,0,0,.35);transition:transform .15s ease}
+  .wsv-play:hover span,.wsv-play:focus-visible span{transform:scale(1.07)}
+  .wsv-play:focus-visible{outline:3px solid var(--kausar,#F5A800);outline-offset:-3px}
+  .wsv-play svg{width:34px;height:34px;margin-left:6px;fill:var(--black,#1A1A1A)}
+  .wsv-play[hidden]{display:none}
+  .wsv-points{list-style:none;padding:0;margin:14px 0 0;display:flex;flex-direction:column;gap:12px}
+  .wsv-points li{position:relative;padding-left:26px;color:var(--ink,#2D2D2D);font-size:16px;line-height:1.5}
+  .wsv-points li:before{content:"";position:absolute;left:4px;top:8px;width:10px;height:10px;transform:rotate(45deg);background:var(--gold,#B8952A)}
+  .wsv-meta{margin-top:18px;font-size:14px;color:var(--muted,#6B6660)}
+  @media (max-width:720px){
+    .wsv-grid{grid-template-columns:1fr;gap:22px}
+    .wsv-frame{max-width:340px;margin:0 auto}
+  }
+  @media (prefers-reduced-motion:reduce){.wsv-play span{transition:none}}
+</style>
+
+<section class="sec" id="video">
+  <div class="wrap">
+    <p class="label"><span class="bm">Video · 4 minit</span><span class="en">Video · 4 minutes</span></p>
+    <h2 class="h2"><span class="bm">Apa berlaku kepada harta anda?</span><span class="en">What happens to your assets?</span></h2>
+    <div class="wsv-grid">
+      <div class="wsv-frame">
+        <video id="wsv-player" controls playsinline preload="none" poster="assets/video/poster-ms.jpg">
+          <source src="assets/video/pusaka-ms.mp4" type="video/mp4">
+        </video>
+        <button type="button" class="wsv-play" id="wsv-play" aria-label="Main video / Play video">
+          <span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 4l15 8-15 8z"/></svg></span>
+        </button>
+      </div>
+      <div>
+        <ul class="wsv-points">
+          <li><span class="bm">Kenapa harta dibekukan sebaik sahaja anda meninggal dunia</span><span class="en">Why your assets are frozen the moment you pass away</span></li>
+          <li><span class="bm">“Saya tak ada harta pun” — tetapi bagaimana dengan hutang?</span><span class="en">“I don’t have any harta” — but what about your debts?</span></li>
+          <li><span class="bm">Contoh RM1 juta: jenazah, hutang, wasiat dan Faraid</span><span class="en">An RM1 million example: funeral, debts, wasiat and Faraid</span></li>
+          <li><span class="bm">3 peringkat yang perlu dilalui keluarga anda</span><span class="en">The 3 stages your family must go through</span></li>
+          <li><span class="bm">Cara merancang dengan Al-Wasitah, hibah dan amanah</span><span class="en">How to plan with Al-Wasitah, hibah and trusts</span></li>
+        </ul>
+        <p class="wsv-meta"><span class="bm">Bersama Shakina K. · Tukar BM / EN di atas untuk menonton dalam bahasa lain.</span><span class="en">With Shakina K. · Switch BM / EN above to watch in the other language.</span></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+(function () {
+  var v = document.getElementById('wsv-player');
+  var btn = document.getElementById('wsv-play');
+  if (!v || !btn) return;
+  var files = {
+    ms: { src: 'assets/video/pusaka-ms.mp4', poster: 'assets/video/poster-ms.jpg' },
+    en: { src: 'assets/video/pusaka-en.mp4', poster: 'assets/video/poster-en.jpg' }
+  };
+  // swap to the video for the site's current language (BM is the default)
+  function useLang(l) {
+    l = l === 'en' ? 'en' : 'ms';
+    if (v.getAttribute('data-l') === l) return;
+    v.pause();
+    v.setAttribute('data-l', l);
+    v.poster = files[l].poster;
+    v.querySelector('source').src = files[l].src;
+    v.load();
+    btn.hidden = false;
+  }
+  btn.addEventListener('click', function () { v.play(); });
+  var counted = {};
+  v.addEventListener('play', function () {
+    btn.hidden = true;
+    var l = v.getAttribute('data-l') || 'ms';
+    if (!counted[l]) { counted[l] = 1; try { if (window.goatcounter && window.goatcounter.count) window.goatcounter.count({ path: 'video-play-' + l, title: 'Video play (' + l + ')', event: true }); } catch (e) {} }
+  });
+  v.addEventListener('ended', function () { btn.hidden = false; });
+  // follow the site's BM / EN switch: it sets <html lang>, so watch that attribute
+  // (works whatever order the site's own scripts run in)
+  new MutationObserver(function () { useLang(document.documentElement.lang); })
+    .observe(document.documentElement, { attributes: true, attributeFilter: ['lang'] });
+  useLang(document.documentElement.lang);
+})();
+</script>
+<!-- ======================= END VIDEO SECTION ======================= -->
+
 <section class="sec" id="situasi">
   <div class="wrap">
     <p class="label"><span class="bm">Mula di sini</span><span class="en">Start here</span></p>
