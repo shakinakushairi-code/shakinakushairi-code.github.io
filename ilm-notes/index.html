@@ -26,12 +26,18 @@ h1 em{font-style:italic;font-weight:400;color:var(--accent)}
 .vf{font:600 12.5px Mulish;color:var(--muted);margin-top:10px}
 .bism{font:400 30px Amiri,serif;color:var(--gold);margin-bottom:18px}
 .cats{position:sticky;top:0;z-index:5;background:rgba(246,241,231,.93);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
-.cats .wrap{display:flex;gap:8px;overflow-x:auto;padding-top:12px;padding-bottom:12px;scrollbar-width:none}
-.cats .wrap::-webkit-scrollbar{display:none}
-.cats a{flex:none;display:inline-flex;align-items:center;gap:8px;font:700 13px Mulish;text-decoration:none;color:var(--ink);border:1.5px solid var(--line);background:var(--card);padding:7px 14px;border-radius:999px}
-.cats a i{width:9px;height:9px;border-radius:50%;background:var(--c)}
-.cats a:hover{border-color:var(--c)}
+.cats .wrap{display:flex;gap:8px;padding-top:10px;padding-bottom:10px}
+.cats a{flex:none;display:inline-flex;align-items:center;justify-content:center;gap:7px;font:700 13px Mulish;text-decoration:none;white-space:nowrap;color:var(--ink);border:1.5px solid color-mix(in srgb,var(--c) 45%,transparent);background:color-mix(in srgb,var(--c) 12%,#fff);padding:7px 14px;border-radius:999px;box-shadow:0 1px 0 color-mix(in srgb,var(--c) 35%,transparent),0 2px 6px rgba(30,42,35,.08);transition:transform .12s,background .15s}
+.cats a .lg{margin-left:-3px}
+.cats a i{width:8px;height:8px;border-radius:50%;background:var(--c);flex:none}
+.cats a b{font:800 10.5px Mulish;background:var(--c);color:#fff;border-radius:999px;padding:1px 6px;line-height:1.5}
+.cats a:hover,.cats a.on{background:var(--c);color:#fff;border-color:var(--c)}
+.cats a:hover i,.cats a.on i{background:#fff}
+.cats a:hover b,.cats a.on b{background:#fff;color:var(--c)}
+.cats a:active{transform:translateY(1px)}
 .cats a.kid{background:var(--night);color:#F8EFD8;border-color:var(--night)}
+.cats a.kid b{background:var(--sun);color:var(--night)}
+.cats a.kid.on,.cats a.kid:hover{background:#2C3270;border-color:var(--sun)}
 section{padding:44px 0 6px;scroll-margin-top:64px}
 .sh{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;margin-bottom:4px}
 section h2{font:600 28px Fraunces,serif;border-left:5px solid var(--c);padding-left:12px;line-height:1.15}
@@ -106,9 +112,9 @@ footer .ar{font:400 22px/1.9 Amiri,serif;color:var(--ink);direction:rtl;margin-b
  .kbody p{font-size:13px}
  footer{font-size:12.5px;padding:22px 0 34px}
  footer .ar{font-size:18px}
- .cats a{padding:5px 9px;font-size:12px;gap:6px}
- .cats .wrap{gap:6px}
- .cats .lg{display:none}
+ .cats .wrap{gap:5px}
+ .cats a{flex:1 1 auto;padding:7px 4px;font-size:11.5px;gap:5px;min-width:0}
+ .cats a b,.cats .lg{display:none}
 }
 .swipe{display:none;font:700 11px Mulish;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin:-4px 0 8px}
 </style>
@@ -125,10 +131,10 @@ footer .ar{font:400 22px/1.9 Amiri,serif;color:var(--ink);direction:rtl;margin-b
 </div>
 
 <nav class="cats" aria-label="Categories"><div class="wrap">
-  <a href="#tadabbur" style="--c:var(--c-tad)"><i></i>Tadabbur<span class="lg"> Al-Quran</span></a>
-  <a href="#sirah" style="--c:var(--c-sir)"><i></i>Sirah<span class="lg"> Nabi ﷺ</span></a>
-  <a href="#asmaul-husna" style="--c:var(--c-asm)"><i></i>Asmaul Husna</a>
-  <a href="#kids" class="kid" style="--c:var(--sun)"><i></i>For Kids</a>
+  <a href="#tadabbur" style="--c:var(--c-tad)"><i></i>Tadabbur<span class="lg">Al-Quran</span> <b>18</b></a>
+  <a href="#sirah" style="--c:var(--c-sir)"><i></i>Sirah<span class="lg">Nabi ﷺ</span> <b>3</b></a>
+  <a href="#asmaul-husna" style="--c:var(--c-asm)"><i></i>Asmaul Husna <b>1</b></a>
+  <a href="#kids" class="kid" style="--c:var(--sun)"><i></i>For Kids <b>1</b></a>
 </div></nav>
 
 <div class="wrap">
@@ -353,5 +359,10 @@ footer .ar{font:400 22px/1.9 Amiri,serif;color:var(--ink);direction:rtl;margin-b
     <p style="margin-top:14px">Personal notes compiled by Shakina Kushairi (SK). Any mistakes are mine — please tegur. والله أعلم</p>
   </footer>
 </div>
+<script>
+(()=>{const L=[...document.querySelectorAll('.cats a')],m=new Map(L.map(a=>[a.getAttribute('href').slice(1),a]));
+const o=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){L.forEach(a=>a.classList.remove('on'));const a=m.get(e.target.id);a&&a.classList.add('on')}})},{rootMargin:'-45% 0px -50% 0px'});
+m.forEach((a,id)=>{const el=document.getElementById(id);el&&o.observe(el)})})();
+</script>
 </body>
 </html>
