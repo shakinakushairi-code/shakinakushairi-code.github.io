@@ -21,7 +21,10 @@ h1{font:600 clamp(40px,8vw,64px)/1.02 Fraunces,serif;letter-spacing:-.02em;margi
 h1 em{font-style:italic;font-weight:400;color:var(--accent)}
 .lead{font:400 18px/1.6 Fraunces,serif;max-width:640px}
 .bism{font:400 30px Amiri,serif;color:var(--gold);margin-bottom:18px}
-section{padding:40px 0 10px}
+section{padding:40px 0 10px;scroll-margin-top:12px}
+.cats{display:flex;gap:8px;flex-wrap:wrap;padding:22px 0 0}
+.cats a{font:700 13px Mulish;text-decoration:none;color:var(--ink);border:1.5px solid var(--line);background:var(--card);padding:7px 14px;border-radius:999px}
+.cats a:hover{border-color:var(--accent);color:var(--accent)}
 h2{font:600 26px Fraunces,serif;margin-bottom:6px}
 .sub{color:var(--muted);font-size:14px;margin-bottom:20px}
 .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:16px}
@@ -48,9 +51,10 @@ footer .ar{font:400 22px/1.9 Amiri,serif;color:var(--ink);direction:rtl;margin-b
     <p class="lead">My personal notes from the 'ilm classes I attend — compiled for my own revision, and shared in case they benefit you too. Semua ayat dan hadith disemak dengan quran.com, sunnah.com dan dorar.net.</p>
   </header>
 
-  <section>
+  <nav class="cats"><a href="#tadabbur">Tadabbur Al-Quran</a><a href="#sirah">Sirah Nabi ﷺ</a><a href="#asmaul-husna">Asmaul Husna</a></nav>
+  <section id="tadabbur">
     <h2>Tadabbur Al-Quran</h2>
-    <p class="sub">Weekly tadabbur class — newest first.</p>
+    <p class="sub">Weekly tadabbur class: surah by surah, newest first.</p>
     <div class="grid">
       <article class="card">
         <span class="tag">Edisi Khas</span>
@@ -66,9 +70,74 @@ footer .ar{font:400 22px/1.9 Amiri,serif;color:var(--ink);direction:rtl;margin-b
         <p>Bermegah dengan 'banyak' until the grave. Word-by-word, the levels of yakin, and "hartaku, hartaku" — what's actually ours.</p>
         <div class="actions"><a class="btn primary" href="notes/surah-at-takathur/">Read</a><a class="btn" href="notes/surah-at-takathur/Nota-Surah-At-Takathur.pdf" download>PDF</a></div>
       </article>
-      <div class="card soon">More notes coming, in shaa Allah.</div>
+      <article class="card">
+        <span class="tag">Siri 17</span>
+        <h3>Surah Quraysh</h3>
+        <span class="date">22 Oktober 2026</span>
+        <p>Rezeki in a barren valley, the two trade journeys, and why food &amp; safety come first — so worship the Lord of this House.</p>
+        <div class="actions"><a class="btn primary" href="notes/surah-quraysh/">Read</a><a class="btn" href="notes/surah-quraysh/Nota-Surah-Quraysh.pdf" download>PDF</a></div>
+      </article>
+      <article class="card">
+        <span class="tag">Siri 12</span>
+        <h3>Surah Al-'Asr</h3>
+        <span class="date">10 September 2026</span>
+        <p>Masa = modal. Everyone's in loss except four traits, the conditions of amal soleh, and the four levels of sabar.</p>
+        <div class="actions"><a class="btn primary" href="notes/surah-al-asr/">Read</a><a class="btn" href="notes/surah-al-asr/Nota-Surah-Al-Asr.pdf" download>PDF</a></div>
+      </article>
+      <article class="card">
+        <span class="tag">Siri 4</span>
+        <h3>Al-Fatihah: Ayat 3–4</h3>
+        <span class="date">Al-Fatihah series</span>
+        <p>Ar-Rahman vs Ar-Rahim, the danger of feeling 'enough', and Maliki yawmid-din — the questions that hold our feet on that Day.</p>
+        <div class="actions"><a class="btn primary" href="notes/al-fatihah-ayat-3-4/">Read</a><a class="btn" href="notes/al-fatihah-ayat-3-4/Nota-Al-Fatihah-Ayat-3-4.pdf" download>PDF</a></div>
+      </article>
+      <article class="card">
+        <span class="tag">Siri 1</span>
+        <h3>Al-Fatihah: Bismillah</h3>
+        <span class="date">Al-Fatihah series</span>
+        <p>Al-Fatihah as the summary of the Quran, why Allah introduces Himself through mercy, and nikmat that go unused.</p>
+        <div class="actions"><a class="btn primary" href="notes/al-fatihah-bismillah/">Read</a><a class="btn" href="notes/al-fatihah-bismillah/Nota-Al-Fatihah-Bismillah.pdf" download>PDF</a></div>
+      </article>
+      <div class="card soon">More surahs coming once the ustaz has checked them, in shaa Allah.</div>
     </div>
   </section>
+
+  <section id="sirah">
+    <h2>Sirah Nabi ﷺ</h2>
+    <p class="sub">Based on <i>As-Sirah an-Nabawiyyah</i> by Dr. Ali Muhammad al-Sallabi, newest first.</p>
+    <div class="grid">
+      <article class="card">
+        <span class="tag">Kelas 3</span>
+        <h3>Tarbiyah 'Aqliyyah: Menyucikan Akal</h3>
+        <span class="date">27 Oktober 2026</span>
+        <p>How the Prophet ﷺ trained the mind: look at the sky and your food, Ulul Albab, and tabayyun before you forward.</p>
+        <div class="actions"><a class="btn primary" href="notes/sirah-kelas-3/">Read</a><a class="btn" href="notes/sirah-kelas-3/Nota-Sirah-Kelas-3.pdf" download>PDF</a></div>
+      </article>
+      <article class="card">
+        <span class="tag">Kelas 2</span>
+        <h3>Solat: Jalan Menyucikan Jiwa</h3>
+        <span class="date">13 Oktober 2026</span>
+        <p>Solat as satisfaction and rest, dunia as a flower, rezeki for giving — and the du'a that gathers everything.</p>
+        <div class="actions"><a class="btn primary" href="notes/sirah-kelas-2/">Read</a><a class="btn" href="notes/sirah-kelas-2/Nota-Sirah-Kelas-2.pdf" download>PDF</a></div>
+      </article>
+      <article class="card">
+        <span class="tag">Kelas 1</span>
+        <h3>Ibadah &amp; Tarbiyah Awal Rasulullah ﷺ</h3>
+        <span class="date">29 September 2026</span>
+        <p>What counts as ibadah, the keys of the unseen, and why the Prophet ﷺ was told to rise at night before anything else.</p>
+        <div class="actions"><a class="btn primary" href="notes/sirah-kelas-1/">Read</a><a class="btn" href="notes/sirah-kelas-1/Nota-Sirah-Kelas-1.pdf" download>PDF</a></div>
+      </article>
+    </div>
+  </section>
+
+  <section id="asmaul-husna">
+    <h2>Asmaul Husna</h2>
+    <p class="sub">The Names of Allah: one Name per session.</p>
+    <div class="grid">
+      <div class="card soon">First notes coming once the ustaz has checked them, in shaa Allah.</div>
+    </div>
+  </section>
+
 
   <footer>
     <p class="ar">إِذَا مَاتَ الإِنْسَانُ انْقَطَعَ عَنْهُ عَمَلُهُ إِلاَّ مِنْ ثَلاَثَةٍ: صَدَقَةٍ جَارِيَةٍ، أَوْ عِلْمٍ يُنْتَفَعُ بِهِ، أَوْ وَلَدٍ صَالِحٍ يَدْعُو لَهُ</p>
