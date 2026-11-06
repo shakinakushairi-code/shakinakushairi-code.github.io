@@ -11,50 +11,102 @@
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Fraunces:ital,wght@0,400;0,600;1,400&family=Mulish:wght@400;600;700;800&display=swap" rel="stylesheet">
 <style>
-:root{--paper:#F6F1E7;--card:#FFFDF8;--ink:#1E2A23;--accent:#A4572F;--muted:#6E6A5C;--gold:#B8925A;--line:#E6DCC8}
+:root{--paper:#F6F1E7;--card:#FFFDF8;--ink:#1E2A23;--accent:#A4572F;--muted:#6E6A5C;--gold:#B8925A;--line:#E6DCC8;
+ --c-tad:#A4572F;--c-sir:#3E6B4B;--c-asm:#9A7A2E;--night:#1B1F4A;--night2:#2B2F6B;--sun:#F2B544}
 *{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
 body{background:var(--paper);color:var(--ink);font:400 16px/1.6 Mulish,sans-serif}
-.wrap{max-width:860px;margin:0 auto;padding:0 16px}
-header{padding:64px 0 40px;border-bottom:2px solid var(--gold)}
+.wrap{max-width:1000px;margin:0 auto;padding:0 16px}
+header.hero{padding:56px 0 34px;border-bottom:2px solid var(--gold)}
 .kicker{font:800 12px Mulish;letter-spacing:.22em;text-transform:uppercase;color:var(--accent)}
 h1{font:600 clamp(40px,8vw,64px)/1.02 Fraunces,serif;letter-spacing:-.02em;margin:10px 0 16px}
 h1 em{font-style:italic;font-weight:400;color:var(--accent)}
 .lead{font:400 18px/1.6 Fraunces,serif;max-width:640px}
 .bism{font:400 30px Amiri,serif;color:var(--gold);margin-bottom:18px}
-section{padding:40px 0 10px;scroll-margin-top:12px}
-.cats{display:flex;gap:8px;flex-wrap:wrap;padding:22px 0 0}
-.cats a{font:700 13px Mulish;text-decoration:none;color:var(--ink);border:1.5px solid var(--line);background:var(--card);padding:7px 14px;border-radius:999px}
-.cats a:hover{border-color:var(--accent);color:var(--accent)}
-h2{font:600 26px Fraunces,serif;margin-bottom:6px}
-.sub{color:var(--muted);font-size:14px;margin-bottom:20px}
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:16px}
-.card{background:var(--card);border:1px solid var(--line);border-radius:6px;padding:22px;display:flex;flex-direction:column;gap:8px;transition:transform .15s,box-shadow .15s}
-.card:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(30,42,35,.08)}
-.tag{font:800 11px Mulish;letter-spacing:.16em;text-transform:uppercase;color:var(--accent)}
-.card h3{font:600 22px/1.15 Fraunces,serif}
+.cats{position:sticky;top:0;z-index:5;background:rgba(246,241,231,.93);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.cats .wrap{display:flex;gap:8px;overflow-x:auto;padding-top:12px;padding-bottom:12px;scrollbar-width:none}
+.cats .wrap::-webkit-scrollbar{display:none}
+.cats a{flex:none;display:inline-flex;align-items:center;gap:8px;font:700 13px Mulish;text-decoration:none;color:var(--ink);border:1.5px solid var(--line);background:var(--card);padding:7px 14px;border-radius:999px}
+.cats a i{width:9px;height:9px;border-radius:50%;background:var(--c)}
+.cats a:hover{border-color:var(--c)}
+.cats a.kid{background:var(--night);color:#F8EFD8;border-color:var(--night)}
+section{padding:44px 0 6px;scroll-margin-top:64px}
+.sh{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;margin-bottom:4px}
+section h2{font:600 28px Fraunces,serif;border-left:5px solid var(--c);padding-left:12px;line-height:1.15}
+.count{font:700 12px Mulish;letter-spacing:.12em;text-transform:uppercase;color:var(--c)}
+.sub{color:var(--muted);font-size:14px;margin:6px 0 18px 17px}
+.group{font:800 12px Mulish;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin:26px 0 12px;display:flex;align-items:center;gap:10px}
+.group::after{content:"";flex:1;height:1px;background:var(--line)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:14px}
+.card{background:var(--card);border:1px solid var(--line);border-top:4px solid var(--c);border-radius:8px;padding:20px;display:flex;flex-direction:column;gap:7px;transition:transform .15s,box-shadow .15s}
+.card:hover{transform:translateY(-2px);box-shadow:0 10px 26px rgba(30,42,35,.09)}
+.tag{font:800 11px Mulish;letter-spacing:.16em;text-transform:uppercase;color:var(--c)}
+.card h3{font:600 21px/1.18 Fraunces,serif}
 .card p{font-size:14.5px;color:#3c463f}
 .date{font-size:13px;color:var(--muted)}
 .actions{margin-top:auto;padding-top:10px;display:flex;gap:10px;flex-wrap:wrap}
-.btn{font:700 13px Mulish;text-decoration:none;padding:8px 14px;border-radius:999px;border:1.5px solid var(--ink);color:var(--ink)}
+.btn{font:700 13px Mulish;text-decoration:none;padding:8px 15px;border-radius:999px;border:1.5px solid var(--ink);color:var(--ink)}
 .btn.primary{background:var(--ink);color:#F3ECDF}
-.soon{border-style:dashed;background:transparent;justify-content:center;color:var(--muted);font-size:14px}
-footer{margin:56px 0 0;padding:28px 0 48px;border-top:1px solid var(--line);font-size:14px;color:var(--muted)}
+.soon{border:1.5px dashed var(--line);border-radius:8px;display:flex;align-items:center;justify-content:center;text-align:center;color:var(--muted);font-size:14px;padding:20px;min-height:90px}
+#tadabbur{--c:var(--c-tad)} #sirah{--c:var(--c-sir)} #asmaul-husna{--c:var(--c-asm)}
+/* kids band */
+.kids{margin-top:52px;padding:56px 0 60px;color:#F8EFD8;position:relative;overflow:hidden;
+ background:radial-gradient(1.5px 1.5px at 12% 22%,#fff8 50%,transparent 51%),radial-gradient(1.5px 1.5px at 78% 14%,#fff9 50%,transparent 51%),radial-gradient(2px 2px at 44% 30%,#ffffff70 50%,transparent 51%),radial-gradient(1.5px 1.5px at 90% 62%,#fff7 50%,transparent 51%),radial-gradient(1.5px 1.5px at 6% 74%,#fff6 50%,transparent 51%),radial-gradient(700px 360px at 85% 120%,#C9607A55,transparent 70%),linear-gradient(180deg,var(--night),var(--night2))}
+.kids .moon{position:absolute;right:max(16px,calc(50% - 480px));top:30px;width:64px;height:64px;border-radius:50%;box-shadow:-14px 6px 0 0 var(--sun);transform:rotate(-20deg);opacity:.95}
+.kids .kicker{color:var(--sun)}
+.kids h2{font:600 clamp(30px,6vw,40px)/1.05 Fraunces,serif;margin:8px 0 8px}
+.kids h2 em{font-style:italic;font-weight:400;color:var(--sun)}
+.kids .sub2{max-width:560px;color:#D9D4EA;font-size:15px;margin-bottom:24px}
+.kcard{display:grid;grid-template-columns:1fr;gap:0;background:#FFF8E6;color:var(--ink);border-radius:16px;overflow:hidden;max-width:820px;box-shadow:0 18px 40px rgba(0,0,0,.25)}
+@media(min-width:720px){.kcard{grid-template-columns:300px 1fr}}
+.kart{background:linear-gradient(180deg,#26266A,#B9517C 70%,#F7B45E);min-height:170px;position:relative}
+.kart svg{position:absolute;inset:0;width:100%;height:100%}
+.kbody{padding:22px 22px 24px;display:flex;flex-direction:column;gap:8px}
+.kbody .tag{color:#5B3FA0}
+.kbody h3{font:600 26px/1.1 Fraunces,serif}
+.kbody p{font-size:14.5px;color:#3c463f}
+.chips{display:flex;gap:6px;flex-wrap:wrap}
+.chips span{font:700 11.5px Mulish;padding:4px 10px;border-radius:999px;background:#EDE6FA;color:#46307F}
+.kbody .btn.primary{background:var(--sun);color:#2B1B00;border-color:var(--sun)}
+.kbody .btn{border-color:#2B1B00}
+footer{margin:0;padding:30px 0 48px;font-size:14px;color:var(--muted)}
 footer .ar{font:400 22px/1.9 Amiri,serif;color:var(--ink);direction:rtl;margin-bottom:6px}
+@media(max-width:719px){
+ .grid{grid-auto-flow:column;grid-auto-columns:84%;grid-template-columns:none;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:10px;margin-right:-16px;padding-right:16px;scrollbar-width:none}
+ .grid::-webkit-scrollbar{display:none}
+ .grid>*{scroll-snap-align:start}
+ .swipe{display:block}
+ .kids .moon{top:16px;width:40px;height:40px;box-shadow:-9px 4px 0 0 var(--sun)}
+ .cats a{padding:5px 9px;font-size:12px;gap:6px}
+ .cats .wrap{gap:6px}
+ .cats .lg{display:none}
+}
+.swipe{display:none;font:700 11px Mulish;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin:-4px 0 8px}
 </style>
 </head>
 <body>
 <div class="wrap">
-  <header>
+  <header class="hero">
     <div class="bism">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</div>
     <div class="kicker">Nota Kelas Ilmu</div>
     <h1>Ilm Class <em>Notes</em></h1>
     <p class="lead">My personal notes from the 'ilm classes I attend — compiled for my own revision, and shared in case they benefit you too. Semua ayat dan hadith disemak dengan quran.com, sunnah.com dan dorar.net.</p>
   </header>
+</div>
 
-  <nav class="cats"><a href="#tadabbur">Tadabbur Al-Quran</a><a href="#sirah">Sirah Nabi ﷺ</a><a href="#asmaul-husna">Asmaul Husna</a><a href="#kids">For Kids</a></nav>
+<nav class="cats" aria-label="Categories"><div class="wrap">
+  <a href="#tadabbur" style="--c:var(--c-tad)"><i></i>Tadabbur<span class="lg"> Al-Quran</span></a>
+  <a href="#sirah" style="--c:var(--c-sir)"><i></i>Sirah<span class="lg"> Nabi ﷺ</span></a>
+  <a href="#asmaul-husna" style="--c:var(--c-asm)"><i></i>Asmaul Husna</a>
+  <a href="#kids" class="kid" style="--c:var(--sun)"><i></i>For Kids</a>
+</div></nav>
+
+<div class="wrap">
   <section id="tadabbur">
-    <h2>Tadabbur Al-Quran</h2>
-    <p class="sub">Weekly tadabbur class: surah by surah, newest first.</p>
+    <div class="sh"><h2>Tadabbur Al-Quran</h2><span class="count">18 notes</span></div>
+    <p class="sub">Weekly tadabbur class, grouped by series.</p>
+    <p class="swipe">Swipe each row →</p>
+    <div class="group">Edisi Khas</div>
     <div class="grid">
       <article class="card">
         <span class="tag">Edisi Khas</span>
@@ -63,33 +115,36 @@ footer .ar{font:400 22px/1.9 Amiri,serif;color:var(--ink);direction:rtl;margin-b
         <p>Dunia ni sekejap je. Harta &amp; anak sebagai fitnah, what the Prophet ﷺ feared for us, and living like a traveller resting under a tree.</p>
         <div class="actions"><a class="btn primary" href="notes/hakikat-kehidupan-dunia/">Read</a><a class="btn" href="notes/hakikat-kehidupan-dunia/Nota-Hakikat-Kehidupan-Dunia.pdf" download>PDF</a></div>
       </article>
+    </div>
+    <div class="group">Juz 'Amma · newest first</div>
+    <div class="grid">
       <article class="card">
         <span class="tag">Siri 18</span>
         <h3>Surah At-Takathur</h3>
         <span class="date">29 Oktober 2026</span>
-        <p>Bermegah dengan 'banyak' until the grave. Word-by-word, the levels of yakin, and "hartaku, hartaku" — what's actually ours.</p>
+        <p>Bermegah dengan 'banyak' until the grave. The levels of yakin, and "hartaku, hartaku" — what's actually ours.</p>
         <div class="actions"><a class="btn primary" href="notes/surah-at-takathur/">Read</a><a class="btn" href="notes/surah-at-takathur/Nota-Surah-At-Takathur.pdf" download>PDF</a></div>
       </article>
       <article class="card">
         <span class="tag">Siri 17</span>
         <h3>Surah Quraysh</h3>
         <span class="date">22 Oktober 2026</span>
-        <p>Rezeki in a barren valley, the two trade journeys, and why food &amp; safety come first — so worship the Lord of this House.</p>
+        <p>Rezeki in a barren valley, the two trade journeys, and why food &amp; safety come first.</p>
         <div class="actions"><a class="btn primary" href="notes/surah-quraysh/">Read</a><a class="btn" href="notes/surah-quraysh/Nota-Surah-Quraysh.pdf" download>PDF</a></div>
       </article>
       <article class="card">
         <span class="tag">Tadabbur</span>
         <h3>Surah Al-Fil</h3>
         <span class="date">8 Oktober 2026</span>
-        <p>The army of the elephant, Abdul Muttalib's 'the House has its Lord', and Ali 'Imran 3:160. With a kids' story to go with it.</p>
+        <p>The army of the elephant, "the House has its Lord", and Ali 'Imran 3:160. With a kids' story to go with it.</p>
         <div class="actions"><a class="btn primary" href="notes/surah-al-fil/">Read</a><a class="btn" href="notes/surah-al-fil/Nota-Surah-Al-Fil.pdf" download>PDF</a></div>
       </article>
       <article class="card">
-        <span class="tag">Tafsir</span>
-        <h3>Surah Maryam: Ayat 23–34</h3>
-        <span class="date">7 Oktober 2026</span>
-        <p>Maryam under the date palm, the vow of silence, and Nabi Isa's ten declarations from the cradle — through to his return.</p>
-        <div class="actions"><a class="btn primary" href="notes/surah-maryam-23-34/">Read</a><a class="btn" href="notes/surah-maryam-23-34/Nota-Surah-Maryam-23-34.pdf" download>PDF</a></div>
+        <span class="tag">Siri 14</span>
+        <h3>Surah Al-Kauthar</h3>
+        <span class="date">24 September 2026</span>
+        <p>Abundant good, the river and the telaga, prayer and sacrifice for your Lord — and who's really cut off.</p>
+        <div class="actions"><a class="btn primary" href="notes/surah-al-kauthar/">Read</a><a class="btn" href="notes/surah-al-kauthar/Nota-Surah-Al-Kauthar.pdf" download>PDF</a></div>
       </article>
       <article class="card">
         <span class="tag">Siri 13</span>
@@ -102,14 +157,14 @@ footer .ar{font:400 22px/1.9 Amiri,serif;color:var(--ink);direction:rtl;margin-b
         <span class="tag">Siri 12</span>
         <h3>Surah Al-'Asr</h3>
         <span class="date">10 September 2026</span>
-        <p>Masa = modal. Everyone's in loss except four traits, the conditions of amal soleh, and the four levels of sabar.</p>
+        <p>Masa = modal. Everyone's in loss except those with four traits, and the four levels of sabar.</p>
         <div class="actions"><a class="btn primary" href="notes/surah-al-asr/">Read</a><a class="btn" href="notes/surah-al-asr/Nota-Surah-Al-Asr.pdf" download>PDF</a></div>
       </article>
       <article class="card">
         <span class="tag">Siri 11</span>
         <h3>Surah Al-Falaq</h3>
         <span class="date">Al-Mu'awwidhat</span>
-        <p>Refuge from the evil of the night, sihir and hasad — and the Prophet's ﷺ 3 Qul routine before sleep.</p>
+        <p>Refuge from the evil of the night, sihir and hasad — and the 3 Qul routine before sleep.</p>
         <div class="actions"><a class="btn primary" href="notes/surah-al-falaq/">Read</a><a class="btn" href="notes/surah-al-falaq/Nota-Surah-Al-Falaq.pdf" download>PDF</a></div>
       </article>
       <article class="card">
@@ -123,36 +178,77 @@ footer .ar{font:400 22px/1.9 Amiri,serif;color:var(--ink);direction:rtl;margin-b
         <span class="tag">Siri 9</span>
         <h3>Surah Al-Ikhlas</h3>
         <span class="date">Al-Mu'awwidhat</span>
-        <p>Who Allah is, in four ayat. What 'a third of the Quran' really means, and the three whose deeds were for show.</p>
+        <p>Who Allah is, in four ayat. What 'a third of the Quran' means, and deeds done for show.</p>
         <div class="actions"><a class="btn primary" href="notes/surah-al-ikhlas/">Read</a><a class="btn" href="notes/surah-al-ikhlas/Nota-Surah-Al-Ikhlas.pdf" download>PDF</a></div>
       </article>
-      <article class="card">
-        <span class="tag">Siri 4</span>
-        <h3>Al-Fatihah: Ayat 3–4</h3>
-        <span class="date">Al-Fatihah series</span>
-        <p>Ar-Rahman vs Ar-Rahim, the danger of feeling 'enough', and Maliki yawmid-din — the questions that hold our feet on that Day.</p>
-        <div class="actions"><a class="btn primary" href="notes/al-fatihah-ayat-3-4/">Read</a><a class="btn" href="notes/al-fatihah-ayat-3-4/Nota-Al-Fatihah-Ayat-3-4.pdf" download>PDF</a></div>
-      </article>
-      <article class="card">
-        <span class="tag">Siri 3</span>
-        <h3>Al-Fatihah: Ayat 2</h3>
-        <span class="date">Al-Fatihah series</span>
-        <p>Why the Quran opens with praise, the three levels of syukur, and what 'Rabb' and 'Al-'Alamin' really mean.</p>
-        <div class="actions"><a class="btn primary" href="notes/al-fatihah-ayat-2/">Read</a><a class="btn" href="notes/al-fatihah-ayat-2/Nota-Al-Fatihah-Ayat-2.pdf" download>PDF</a></div>
-      </article>
+    </div>
+    <div class="group">Surah Al-Fatihah · ayat by ayat</div>
+    <div class="grid">
       <article class="card">
         <span class="tag">Siri 1</span>
-        <h3>Al-Fatihah: Bismillah</h3>
-        <span class="date">Al-Fatihah series</span>
+        <h3>Bismillah</h3>
+        <span class="date">Ayat 1</span>
         <p>Al-Fatihah as the summary of the Quran, why Allah introduces Himself through mercy, and nikmat that go unused.</p>
         <div class="actions"><a class="btn primary" href="notes/al-fatihah-bismillah/">Read</a><a class="btn" href="notes/al-fatihah-bismillah/Nota-Al-Fatihah-Bismillah.pdf" download>PDF</a></div>
       </article>
-      <div class="card soon">More surahs coming once the ustaz has checked them, in shaa Allah.</div>
+      <article class="card">
+        <span class="tag">Siri 3</span>
+        <h3>Al-hamdu lillahi Rabbil-'alamin</h3>
+        <span class="date">Ayat 2</span>
+        <p>Why the Quran opens with praise, the three levels of syukur, and what 'Rabb' really means.</p>
+        <div class="actions"><a class="btn primary" href="notes/al-fatihah-ayat-2/">Read</a><a class="btn" href="notes/al-fatihah-ayat-2/Nota-Al-Fatihah-Ayat-2.pdf" download>PDF</a></div>
+      </article>
+      <article class="card">
+        <span class="tag">Siri 4</span>
+        <h3>Ar-Rahmanir-Rahim · Maliki yawmid-din</h3>
+        <span class="date">Ayat 3–4</span>
+        <p>Ar-Rahman vs Ar-Rahim, the danger of feeling 'enough', and the questions that hold our feet on that Day.</p>
+        <div class="actions"><a class="btn primary" href="notes/al-fatihah-ayat-3-4/">Read</a><a class="btn" href="notes/al-fatihah-ayat-3-4/Nota-Al-Fatihah-Ayat-3-4.pdf" download>PDF</a></div>
+      </article>
+      <article class="card">
+        <span class="tag">Siri 5</span>
+        <h3>Iyyaka na'budu wa iyyaka nasta'in</h3>
+        <span class="date">Ayat 5</span>
+        <p>The pivot of Al-Fatihah: worship before asking, small deeds that weigh heavy, and the two ropes.</p>
+        <div class="actions"><a class="btn primary" href="notes/al-fatihah-ayat-5/">Read</a><a class="btn" href="notes/al-fatihah-ayat-5/Nota-Al-Fatihah-Ayat-5.pdf" download>PDF</a></div>
+      </article>
+      <article class="card">
+        <span class="tag">Siri 7</span>
+        <h3>Ihdinas-siratal-mustaqim</h3>
+        <span class="date">Ayat 6</span>
+        <p>The two kinds of hidayah — what we can pass on, and what only Allah gives.</p>
+        <div class="actions"><a class="btn primary" href="notes/al-fatihah-ayat-6/">Read</a><a class="btn" href="notes/al-fatihah-ayat-6/Nota-Al-Fatihah-Ayat-6.pdf" download>PDF</a></div>
+      </article>
+      <article class="card">
+        <span class="tag">Siri 8</span>
+        <h3>Siratal-ladhina an'amta 'alaihim</h3>
+        <span class="date">Ayat 7</span>
+        <p>Three paths, two ways to fail: knowledge without action, and action without knowledge.</p>
+        <div class="actions"><a class="btn primary" href="notes/al-fatihah-ayat-7/">Read</a><a class="btn" href="notes/al-fatihah-ayat-7/Nota-Al-Fatihah-Ayat-7.pdf" download>PDF</a></div>
+      </article>
     </div>
+    <div class="group">Surah Maryam</div>
+    <div class="grid">
+      <article class="card">
+        <span class="tag">Tafsir</span>
+        <h3>Maryam: Ayat 23–34</h3>
+        <span class="date">7 Oktober 2026</span>
+        <p>Maryam under the date palm, the vow of silence, and Nabi Isa's ten declarations from the cradle.</p>
+        <div class="actions"><a class="btn primary" href="notes/surah-maryam-23-34/">Read</a><a class="btn" href="notes/surah-maryam-23-34/Nota-Surah-Maryam-23-34.pdf" download>PDF</a></div>
+      </article>
+      <article class="card">
+        <span class="tag">Tafsir</span>
+        <h3>Maryam: Ayat 34–37</h3>
+        <span class="date">14 Oktober 2026</span>
+        <p>Thirteen virtues of solat, then the truth about Isa — and why Allah has no son.</p>
+        <div class="actions"><a class="btn primary" href="notes/surah-maryam-34-37/">Read</a><a class="btn" href="notes/surah-maryam-34-37/Nota-Surah-Maryam-34-37.pdf" download>PDF</a></div>
+      </article>
+    </div>
+    <div class="soon" style="margin-top:14px">More surahs coming, in shaa Allah.</div>
   </section>
 
   <section id="sirah">
-    <h2>Sirah Nabi ﷺ</h2>
+    <div class="sh"><h2>Sirah Nabi ﷺ</h2><span class="count">3 notes</span></div>
     <p class="sub">Based on <i>As-Sirah an-Nabawiyyah</i> by Dr. Ali Muhammad al-Sallabi, newest first.</p>
     <div class="grid">
       <article class="card">
@@ -173,35 +269,54 @@ footer .ar{font:400 22px/1.9 Amiri,serif;color:var(--ink);direction:rtl;margin-b
         <span class="tag">Kelas 1</span>
         <h3>Ibadah &amp; Tarbiyah Awal Rasulullah ﷺ</h3>
         <span class="date">29 September 2026</span>
-        <p>What counts as ibadah, the keys of the unseen, and why the Prophet ﷺ was told to rise at night before anything else.</p>
+        <p>What counts as ibadah, the keys of the unseen, and why the Prophet ﷺ was told to rise at night first.</p>
         <div class="actions"><a class="btn primary" href="notes/sirah-kelas-1/">Read</a><a class="btn" href="notes/sirah-kelas-1/Nota-Sirah-Kelas-1.pdf" download>PDF</a></div>
       </article>
     </div>
   </section>
 
-  <section id="kids">
-    <h2>For Kids</h2>
-    <p class="sub">Interactive stories I made to share the class material with my own children. Try them with yours.</p>
+  <section id="asmaul-husna">
+    <div class="sh"><h2>Asmaul Husna</h2><span class="count">1 note</span></div>
+    <p class="sub">The Names of Allah — one Name per session.</p>
     <div class="grid">
       <article class="card">
-        <span class="tag">Surah Al-Fil · Ages 4–12</span>
-        <h3>Year of the Elephant</h3>
-        <span class="date">About 15 minutes, together</span>
-        <p>A tap-through story: build Abraha's church, march the army, turn Mahmud the elephant, send the birds — then match each ayah and face "my elephant". Sources tagged as Quran, sahih hadith or sirah, with notes for parents.</p>
-        <div class="actions"><a class="btn primary" href="kids/year-of-the-elephant/">Open the story</a><a class="btn" href="notes/surah-al-fil/">Class notes</a></div>
+        <span class="tag">Al-Mu'ti Al-Mani'</span>
+        <h3>Al-Mani' — Yang Menghalang &amp; Melindungi</h3>
+        <span class="date">6 Oktober 2026</span>
+        <p>What Allah gives, no one can stop; what He holds back, no one can release. Nikmat meant to flow through us.</p>
+        <div class="actions"><a class="btn primary" href="notes/asmaul-husna-al-mani/">Read</a><a class="btn" href="notes/asmaul-husna-al-mani/Nota-Asmaul-Husna-Al-Mani.pdf" download>PDF</a></div>
       </article>
     </div>
   </section>
+</div>
 
-  <section id="asmaul-husna">
-    <h2>Asmaul Husna</h2>
-    <p class="sub">The Names of Allah: one Name per session.</p>
-    <div class="grid">
-      <div class="card soon">First notes coming once the ustaz has checked them, in shaa Allah.</div>
-    </div>
-  </section>
+<section id="kids" class="kids">
+  <div class="moon" aria-hidden="true"></div>
+  <div class="wrap">
+    <div class="kicker">For Kids</div>
+    <h2>Stories to share <em>with your little ones</em></h2>
+    <p class="sub2">Interactive stories I made to pass the class material on to my own children. Sit together, let them tap, and ask the questions before you reveal the answers.</p>
+    <article class="kcard">
+      <div class="kart" aria-hidden="true"><svg viewBox="0 0 300 170" preserveAspectRatio="xMidYMax slice">
+        <circle cx="150" cy="168" r="70" fill="#FFE1A0" opacity=".85"/>
+        <path d="M0 140 L40 110 L80 128 L130 96 L170 122 L215 100 L260 126 L300 108 V170 H0Z" fill="#5B356F"/>
+        <path d="M0 158 Q150 148 300 158 V170 H0Z" fill="#17142E"/>
+        <g fill="#17142E"><rect x="196" y="112" width="44" height="48"/><rect x="196" y="120" width="44" height="5" fill="#F2B544"/></g>
+        <g fill="#17142E" transform="translate(92 160) scale(.42)"><rect x="-64" y="-62" width="28" height="62" rx="9"/><rect x="-30" y="-62" width="28" height="62" rx="9"/><rect x="16" y="-62" width="28" height="62" rx="9"/><rect x="48" y="-62" width="28" height="62" rx="9"/><ellipse cx="0" cy="-98" rx="80" ry="54"/><circle cx="74" cy="-116" r="40"/><path d="M104 -112 C128 -98 128 -70 114 -54" stroke="#17142E" stroke-width="19" fill="none" stroke-linecap="round"/><path d="M-40 -150 Q0 -160 40 -148 L44 -98 Q0 -90 -44 -98Z" fill="#F2B544"/></g>
+        <g fill="#17142E"><path transform="translate(60 40)" d="M-9 -1 Q-4 -7 0 0 Q4 -7 9 -1 Q4 -3 0 2 Q-4 -3 -9 -1Z"/><path transform="translate(110 26) scale(.8)" d="M-9 -1 Q-4 -7 0 0 Q4 -7 9 -1 Q4 -3 0 2 Q-4 -3 -9 -1Z"/><path transform="translate(180 50) scale(1.1)" d="M-9 -1 Q-4 -7 0 0 Q4 -7 9 -1 Q4 -3 0 2 Q-4 -3 -9 -1Z"/><path transform="translate(240 30) scale(.7)" d="M-9 -1 Q-4 -7 0 0 Q4 -7 9 -1 Q4 -3 0 2 Q-4 -3 -9 -1Z"/></g>
+      </svg></div>
+      <div class="kbody">
+        <span class="tag">Surah Al-Fil</span>
+        <h3>Year of the Elephant</h3>
+        <div class="chips"><span>Ages 4–12</span><span>~15 minutes</span><span>Sound on/off</span></div>
+        <p>Build Abraha's church, march the army, turn Mahmud the elephant, send the birds — then match each ayah and face "my elephant". Sources tagged as Quran, sahih hadith or sirah, with notes for parents.</p>
+        <div class="actions"><a class="btn primary" href="kids/year-of-the-elephant/">Open the story</a><a class="btn" href="notes/surah-al-fil/">Class notes</a></div>
+      </div>
+    </article>
+  </div>
+</section>
 
-
+<div class="wrap">
   <footer>
     <p class="ar">إِذَا مَاتَ الإِنْسَانُ انْقَطَعَ عَنْهُ عَمَلُهُ إِلاَّ مِنْ ثَلاَثَةٍ: صَدَقَةٍ جَارِيَةٍ، أَوْ عِلْمٍ يُنْتَفَعُ بِهِ، أَوْ وَلَدٍ صَالِحٍ يَدْعُو لَهُ</p>
     <p>"When a person dies, his deeds end except for three: ongoing charity, knowledge that benefits, or a righteous child who prays for him." — Muslim 1631</p>
