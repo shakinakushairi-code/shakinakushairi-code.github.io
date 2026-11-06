@@ -1,0 +1,522 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Year of the Elephant · A Surah Al-Fil story for kids</title><meta name="author" content="Shakina Kushairi"><meta name="description" content="An interactive, tap-through story of Surah Al-Fil for children, with sources tagged as Quran, sahih hadith or sirah.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Mulish:wght@400;600;800&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT,WONK@9..144,400..800,0..100,0..1&display=swap">
+<style>
+/* Layout: one lit shadow-theatre stage, a storyteller's panel beside or below it, one scene at a time. */
+:root{
+  --bg:#ECEEF6; --surface:#FFFFFF; --ink:#191C42; --muted:#565B82; --line:#D3D7E8;
+  --accent:#9A5600; --btn:#F2B544; --on-btn:#2B1B00; --soft:#F6EFD9;
+  --q:#17696F; --h:#3F6A1E; --s:#8A4B1E; --ok:#2E7D4F; --edge:#191C42;
+  --display:"Fraunces",Georgia,"Times New Roman",serif;
+  --body:"Mulish","Segoe UI",system-ui,sans-serif;
+  --arabic:"Amiri","Scheherazade New","Traditional Arabic",serif;
+}
+@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]){
+  --bg:#0E1030; --surface:#191C46; --ink:#F3EFDF; --muted:#A8ACD0; --line:#30356D;
+  --accent:#F2B544; --btn:#F2B544; --on-btn:#2B1B00; --soft:#242858;
+  --q:#7FD3D6; --h:#A9D67C; --s:#E6AE7C; --ok:#7FD6A0; --edge:#30356D; color-scheme:dark } }
+:root[data-theme="dark"]{
+  --bg:#0E1030; --surface:#191C46; --ink:#F3EFDF; --muted:#A8ACD0; --line:#30356D;
+  --accent:#F2B544; --btn:#F2B544; --on-btn:#2B1B00; --soft:#242858;
+  --q:#7FD3D6; --h:#A9D67C; --s:#E6AE7C; --ok:#7FD6A0; --edge:#30356D; color-scheme:dark }
+
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.55}
+.wrap{max-width:1120px;margin-inline:auto;padding-inline:16px;padding-block:14px 48px;display:grid;gap:14px}
+h1,h2,h3{font-family:var(--display);font-variation-settings:"SOFT" 100,"WONK" 1;text-wrap:balance;margin:0;line-height:1.12}
+p{margin:0}
+button{font:inherit;color:inherit;cursor:pointer}
+:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+
+.top{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.brand{font-family:var(--display);font-variation-settings:"SOFT" 100,"WONK" 1;font-weight:700;font-size:1.15rem}
+.brand small{display:block;font-family:var(--body);font-weight:600;font-size:.74rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.ghost{background:none;border:1.5px solid var(--line);border-radius:999px;padding:8px 16px;font-weight:800;font-size:.86rem}
+.ghost:hover{border-color:var(--accent)}
+.ghost[aria-pressed="false"]{color:var(--muted)}
+.tools{display:flex;gap:8px;flex-wrap:wrap}
+
+.dots{display:flex;gap:5px}
+.dots button{flex:1;min-width:0;height:26px;padding:9px 0;background:none;border:0}
+.dots button i{display:block;height:8px;border-radius:99px;background:var(--line)}
+.dots button.done i{background:var(--muted)}
+.dots button.on i{background:var(--btn)}
+
+.book{display:grid;gap:14px}
+.stagebox{border-radius:20px;overflow:hidden;aspect-ratio:8/5;max-width:100%;background:#17142E;border:2px solid var(--edge)}
+.stagebox svg{display:block;width:100%;height:100%}
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:20px;padding:20px 18px;display:grid;gap:14px;min-width:0}
+@media (min-width:980px){
+  .book{grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);align-items:start}
+  .stagebox{position:sticky;top:calc(env(safe-area-inset-top,0px) + 12px)}
+  .panel{padding:26px 24px}
+}
+.kick{display:flex;flex-wrap:wrap;gap:6px 12px;align-items:center;font-size:.74rem;font-weight:800;letter-spacing:.09em;text-transform:uppercase;color:var(--muted)}
+.src{font-size:.7rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase;border:1.5px solid currentColor;border-radius:99px;padding:1px 9px;white-space:nowrap}
+.src[data-k="quran"]{color:var(--q)} .src[data-k="hadith"]{color:var(--h)} .src[data-k="sirah"]{color:var(--s)}
+.panel h1{font-size:clamp(2rem,7vw,2.9rem);font-weight:800}
+.panel h2{font-size:clamp(1.55rem,5vw,2rem);font-weight:750}
+.narr{display:grid;gap:10px;max-width:62ch}
+.narr b{font-weight:800}
+.note{font-size:.9rem;color:var(--muted)}
+.ask{border:2px dashed var(--line);border-radius:14px;padding:11px 14px;display:grid;gap:3px}
+.ask b{font-size:.72rem;letter-spacing:.09em;text-transform:uppercase;color:var(--accent)}
+.act{display:flex;flex-wrap:wrap;gap:8px}
+.btn{background:var(--btn);color:var(--on-btn);border:0;border-radius:14px;padding:13px 18px;font-weight:800;min-height:48px}
+.btn:hover{filter:brightness(1.06)} .btn:active{transform:translateY(1px)}
+.btn[disabled]{background:var(--line);color:var(--muted);cursor:default;filter:none}
+.btn.alt{background:var(--soft);color:var(--ink);border:1.5px solid var(--line)}
+.btn.alt[aria-pressed="true"]{border-color:var(--accent);box-shadow:inset 0 0 0 1.5px var(--accent)}
+.result{background:var(--soft);border-radius:14px;padding:12px 14px;display:grid;gap:8px}
+.nav{display:flex;justify-content:space-between;gap:10px;border-top:1px solid var(--line);padding-top:14px}
+.nav .btn{flex:0 1 auto}
+
+.talk{display:grid;gap:8px}
+.say{max-width:88%;border-radius:16px;padding:10px 14px;background:var(--soft);display:grid;gap:2px}
+.say b{font-size:.7rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.say.m{justify-self:end;background:var(--btn);color:var(--on-btn)} .say.m b{color:var(--on-btn);opacity:.75}
+.say.key{font-family:var(--display);font-variation-settings:"SOFT" 100,"WONK" 1;font-size:1.25rem;font-weight:700;line-height:1.25}
+
+.ar{font-family:var(--arabic);direction:rtl;font-size:clamp(1.4rem,5.6vw,1.8rem);line-height:1.9;text-align:right}
+.ayat{display:grid;gap:8px}
+.ayah{display:grid;gap:2px;text-align:left;width:100%;background:var(--soft);border:1.5px solid transparent;border-radius:14px;padding:10px 14px}
+.ayah .tr{font-style:italic;color:var(--muted);font-size:.9rem}
+.ayah.hit{border-color:var(--ok)} .ayah.miss{border-color:var(--s)}
+.num{font-family:var(--body);font-size:.72rem;font-weight:800;letter-spacing:.08em;color:var(--muted)}
+.verse{border-left:5px solid var(--btn);padding:4px 0 4px 14px;display:grid;gap:6px}
+.verse .mean{font-family:var(--display);font-variation-settings:"SOFT" 100,"WONK" 1;font-size:1.3rem;font-weight:700;line-height:1.25}
+.cite{font-size:.8rem;color:var(--muted);font-weight:600}
+
+.tbl{overflow-x:auto}
+table{border-collapse:collapse;width:100%;font-size:.92rem}
+th,td{text-align:left;padding:9px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.tally td:first-child{font-weight:800}
+.tally button{background:var(--soft);border:1.5px solid var(--line);border-radius:10px;padding:6px 12px;font-weight:800;min-height:40px}
+.yes{color:var(--ok);font-weight:800} .no{color:var(--s);font-weight:800}
+.peb{display:inline-block;border-radius:50%;background:#A2452E;vertical-align:middle}
+
+.guide{background:var(--surface);border:1px solid var(--line);border-radius:20px;padding:24px 18px;display:grid;gap:22px}
+.guide section{display:grid;gap:10px;min-width:0}
+.guide h2{font-size:1.9rem} .guide h3{font-size:1.25rem}
+.guide p,.guide li{max-width:68ch}
+.guide ol{margin:0;padding-left:1.2em;display:grid;gap:5px}
+@media (min-width:980px){.guide{padding:32px 34px}}
+
+/* stage motion */
+.el .legs,.el .upper{transition:transform .5s ease}
+.el.kneel .legs{transform:scaleY(.3)}
+.el.kneel .upper{transform:translateY(43px)}
+#mwrap{transition:transform 1.1s ease} #mflip{transition:transform .3s ease}
+#army{transition:transform 1.4s ease}
+#fear{transition:transform .8s cubic-bezier(.3,1.4,.5,1)}
+.def{transition:opacity .8s ease 1s} .def.lost{opacity:.18}
+#army6{transition:opacity 1.6s ease} #straw{transition:opacity 1.6s ease;opacity:0}
+.fall #army6{opacity:0} .fall #straw{opacity:1}
+.fly{animation:fly var(--t) linear var(--d) both}
+.fly path{transform-box:fill-box;transform-origin:center;animation:flap .28s ease-in-out infinite alternate}
+.stone{opacity:0;animation:drop .7s ease-in var(--d) forwards}
+@keyframes fly{from{transform:translate(-60px,var(--y))}to{transform:translate(880px,var(--y))}}
+@keyframes flap{from{transform:scaleY(1)}to{transform:scaleY(.35)}}
+@keyframes drop{0%{transform:translate(var(--x),var(--y));opacity:1}100%{transform:translate(var(--x),438px);opacity:1}}
+.pop{animation:pop .35s ease}
+@keyframes pop{from{transform:translateY(8px);opacity:.4}to{transform:none;opacity:1}}
+@media (prefers-reduced-motion: reduce){
+  .el .legs,.el .upper,#mwrap,#mflip,#army,#fear,.def,#army6,#straw{transition:none}
+  .fly,.fly path,.stone,.pop{animation:none}
+  .stone{opacity:1;transform:translate(var(--x),438px)}
+  .fly{transform:translate(var(--x0),var(--y))}
+}
+</style>
+
+<div class="wrap">
+  <header class="top">
+    <div class="brand"><small>Surah Al-Fil · 105</small>Year of the Elephant</div>
+    <div class="tools"><a class="ghost" href="../../" style="text-decoration:none;color:inherit">← Ilm Class Notes</a><button class="ghost" id="snd" type="button" aria-pressed="true">Sound: on</button><button class="ghost" id="toggle" type="button">Notes for parents</button></div>
+  </header>
+
+  <main id="book">
+    <nav class="dots" id="dots" aria-label="Chapters"></nav>
+    <div class="book" style="margin-top:8px">
+      <div class="stagebox"><svg id="stage" viewBox="0 0 800 500" preserveAspectRatio="xMidYMid slice" role="img"></svg></div>
+      <article class="panel" id="panel" aria-live="polite"></article>
+    </div>
+  </main>
+
+  <article class="guide" id="guide" hidden>
+    <section>
+      <h2>Notes for parents</h2>
+      <p>About 15 minutes, one sitting. You tell the story, they do the tapping. In every chapter, read the <b>Ask them first</b> box and wait for an answer before anyone taps. The waiting is where the lesson lands.</p>
+      <ol>
+        <li>Open with the question on the cover and let them argue about it.</li>
+        <li>Go chapter by chapter. Let a different child hold the screen each time.</li>
+        <li>At the surah, recite it together before the matching game.</li>
+        <li>End with <i>My Elephant</i>. Each child picks their own, out loud.</li>
+        <li>Later that day, ask one of them to retell it to someone who was not there.</li>
+      </ol>
+    </section>
+
+    <section>
+      <h3>How the Prophet ﷺ taught, and where it shows up here</h3>
+      <div class="tbl"><table>
+        <tr><th>What he did</th><th>Evidence</th><th>In this story</th></tr>
+        <tr><td>Asked a question before giving the answer</td><td>He asked the companions which tree is like a Muslim, and let them think. Sahih al-Bukhari 61</td><td>The cover question and every “Ask them first” box</td></tr>
+        <tr><td>Drew pictures to explain an idea</td><td>He drew a square and lines to explain a person's life and hopes. Sahih al-Bukhari 6417</td><td>Every scene is a picture they act on</td></tr>
+        <tr><td>Repeated important words three times</td><td>Anas said he would repeat a sentence three times so it was understood. Sahih al-Bukhari 95</td><td>“Say it three times” in the last chapter</td></tr>
+        <tr><td>Taught a child directly, in short sentences</td><td>“Young man, I will teach you some words…” to Ibn Abbas, riding behind him. Jami at-Tirmidhi 2516, sahih</td><td>Chapter 9, and the short lines throughout</td></tr>
+      </table></div>
+    </section>
+
+    <section>
+      <h3>What is from the Qur'an, what is sahih, what is history</h3>
+      <p>Each chapter carries a tag. These are what the tags mean, checked on quran.com, sunnah.com and dorar.net.</p>
+      <div class="tbl"><table>
+        <tr><th>Part of the story</th><th>Source</th><th>Strength</th></tr>
+        <tr><td>The army of the elephant, their plan ruined, birds in flocks, stones of baked clay, left like chewed straw</td><td>Qur'an 105:1–5</td><td><span class="src" data-k="quran">Qur'an</span> Certain</td></tr>
+        <tr><td>“She was held back by the One who held back the elephant”</td><td>Sahih al-Bukhari 2731</td><td><span class="src" data-k="hadith">Sahih hadith</span></td></tr>
+        <tr><td>“Allah held the elephant back from Makkah”</td><td>Sahih al-Bukhari 2434 (the Arabic text)</td><td><span class="src" data-k="hadith">Sahih hadith</span></td></tr>
+        <tr><td>Be mindful of Allah and He will protect you</td><td>Jami at-Tirmidhi 2516. Sahih: at-Tirmidhi, al-Albani, Ahmad Shakir</td><td><span class="src" data-k="hadith">Sahih hadith</span></td></tr>
+        <tr><td>Trusting Allah like the birds</td><td>Jami at-Tirmidhi 2344. Sahih: al-Albani, al-Hakim</td><td><span class="src" data-k="hadith">Sahih hadith</span></td></tr>
+        <tr><td>Hasbunallahu wa ni'mal wakil</td><td>Qur'an 3:173 and Sahih al-Bukhari 4563</td><td><span class="src" data-k="quran">Qur'an</span> <span class="src" data-k="hadith">Sahih hadith</span></td></tr>
+        <tr><td>Al-Qullays, Mahmud, Nufayl, the 200 camels, the conversation, the dua at the door, Abraha's journey home and death</td><td>Ibn Ishaq, in Ibn Hisham's Sirah. Retold in Tafsir Ibn Kathir</td><td><span class="src" data-k="sirah">Sirah report</span> History passed down by the scholars of sirah, without sahih chains. Tell it as history, not as hadith.</td></tr>
+        <tr><td>The Prophet ﷺ was born that year</td><td>The well-known view of the sirah scholars. Also Jami at-Tirmidhi 3619</td><td><span class="src" data-k="sirah">Sirah report</span> The hadith's chain is disputed: al-Albani graded this chain weak, adh-Dhahabi graded it hasan.</td></tr>
+      </table></div>
+      <p class="note">Three places where the reports differ, so you are not caught out. The number of elephants: one, eight or twelve. What happened to the church: one man dirtied it, or in another report some young men's fire burnt it. And Abraha's return: the reports I checked say his men carried him while his body fell apart piece by piece, not that he crawled. If you have heard that he crawled, it is worth asking which book that is from.</p>
+    </section>
+
+    <section>
+      <h3>Pitching it by age</h3>
+      <div class="tbl"><table>
+        <tr><th>Age</th><th>Aim for</th><th>A question to ask</th></tr>
+        <tr><td>Around age 4–6</td><td>One idea only: Allah is stronger than anything big. Let them do the building, the turning and the birds. Read chapter 7 gently and keep it short.</td><td>“Who looked after the Ka'bah when everyone went up the mountain?”</td></tr>
+        <tr><td>Around age 7–9</td><td>Retelling the story in order, and matching each ayah to its part.</td><td>“What was Abdul Muttalib's job, and what did he leave to Allah?”</td></tr>
+        <tr><td>Around age 10–12</td><td>The harder thought behind it. Ibn Kathir points out that Abraha's people had a revealed book while Quraysh then worshipped idols. Makkah was not saved because Quraysh deserved it. Allah was protecting His House, and preparing the city for the Prophet ﷺ.</td><td>“Read the second half of 3:160. What makes a person lose Allah's help? What did Abraha do that we should watch for in ourselves?”</td></tr>
+      </table></div>
+    </section>
+  </article>
+</div>
+
+<script>
+const $=(s,r=document)=>r.querySelector(s);
+const stage=$('#stage'), panel=$('#panel'), dots=$('#dots');
+const calm=matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+/* ---------- drawing kit: cut-paper silhouettes ---------- */
+const INK='#17142E',INK2='#2D2756',INK3='#4A4180',GOLD='#F2B544',IVORY='#F5E9C8',CLAY='#A2452E',RUG='#B23542';
+const sky=(...c)=>`<defs><linearGradient id="g" x1="0" y1="0" x2="0" y2="1">${c.map((x,i)=>`<stop offset="${i/(c.length-1)}" stop-color="${x}"/>`).join('')}</linearGradient></defs><rect width="800" height="500" fill="url(#g)"/>`;
+const ground=(fill=INK,y=446,b=18)=>`<path d="M0 ${y} Q400 ${y-b} 800 ${y} V500 H0Z" fill="${fill}"/>`;
+const hills=(y,fill)=>`<path d="M0 ${y} L60 ${y-70} L120 ${y-30} L200 ${y-110} L270 ${y-50} L340 ${y-90} L420 ${y-30} L500 ${y-100} L580 ${y-40} L660 ${y-120} L730 ${y-60} L800 ${y-95} V500 H0Z" fill="${fill}"/>`;
+const dune=(y,a,fill)=>`<path d="M0 ${y} Q220 ${y-a} 420 ${y-a*.3} T800 ${y-a*.5} V500 H0Z" fill="${fill}"/>`;
+
+function elephant({x=0,y=0,s=1,flip=0,kneel=0,cloth=GOLD,fill=INK}={}){
+  return `<g class="el${kneel?' kneel':''}" transform="translate(${x} ${y}) scale(${flip?-s:s} ${s})">
+  <g class="legs" fill="${fill}"><rect x="-64" y="-62" width="28" height="62" rx="9"/><rect x="-30" y="-62" width="28" height="62" rx="9"/><rect x="16" y="-62" width="28" height="62" rx="9"/><rect x="48" y="-62" width="28" height="62" rx="9"/></g>
+  <g class="upper"><path d="M-74 -118 Q-98 -100 -92 -66" stroke="${fill}" stroke-width="7" fill="none" stroke-linecap="round"/>
+  <ellipse cx="0" cy="-98" rx="80" ry="54" fill="${fill}"/><circle cx="74" cy="-116" r="40" fill="${fill}"/>
+  <path d="M104 -112 C128 -98 128 -70 114 -54 C108 -44 118 -38 127 -47" stroke="${fill}" stroke-width="19" fill="none" stroke-linecap="round"/>
+  <path d="M96 -90 Q114 -76 124 -92" stroke="${IVORY}" stroke-width="7" fill="none" stroke-linecap="round"/>
+  <ellipse cx="50" cy="-110" rx="23" ry="34" fill="${INK3}"/>
+  ${cloth?`<path d="M-40 -150 Q0 -160 40 -148 L44 -98 Q0 -90 -44 -98Z" fill="${cloth}"/><path d="M-44 -98 Q0 -90 44 -98" stroke="${CLAY}" stroke-width="5" fill="none"/>`:''}</g></g>`;
+}
+function person({x,y,h=110,fill=INK,crown=0,sit=0,lean=0}){
+  const w=h*.2,r=h*.105,hh=sit?h*.62:h,sh=-hh+2.1*r;
+  return `<g transform="translate(${x} ${y}) rotate(${lean})" fill="${fill}"><path d="M${-w*.75} ${sh+4} Q0 ${sh-8} ${w*.75} ${sh+4} L${sit?w*1.9:w*1.15} 0 H${sit?-w*1.9:-w*1.15}Z"/><circle cx="0" cy="${-hh+r}" r="${r}"/>${crown?`<path d="M${-r} ${-hh+r*.3} v${-r*1.2} l${r*.5} ${r*.55} l${r*.5} ${-r*.8} l${r*.5} ${r*.8} l${r*.5} ${-r*.55} v${r*1.2}Z" fill="${GOLD}"/>`:''}</g>`;
+}
+const soldier=(x,y,h=64,lean=0,fill=INK)=>person({x,y,h,fill,lean})+`<path d="M${x+h*.24} ${y-h*1.25} V${y}" stroke="${fill}" stroke-width="3"/><path d="M${x+h*.24-4} ${y-h*1.25} l4 -12 l4 12Z" fill="${fill}"/>`;
+const camel=({x,y,s=1,flip=0,fill=INK})=>`<g transform="translate(${x} ${y}) scale(${flip?-s:s} ${s})" fill="${fill}" stroke="${fill}"><ellipse cx="0" cy="-54" rx="36" ry="18"/><ellipse cx="-4" cy="-72" rx="17" ry="15"/><path d="M28 -58 Q48 -66 46 -102" stroke-width="11" fill="none" stroke-linecap="round"/><ellipse cx="54" cy="-104" rx="13" ry="7"/><path d="M-26 -44 V0 M-14 -44 V0 M14 -44 V0 M26 -44 V0" stroke-width="6" stroke-linecap="round"/></g>`;
+const kaabah=({x,y,s=1})=>`<g transform="translate(${x} ${y}) scale(${s})"><path d="M50 -112 L74 -126 V-12 L50 0Z" fill="#2A2350"/><path d="M-50 -112 L-26 -126 H74 L50 -112Z" fill="#3B3070"/><rect x="-50" y="-112" width="100" height="112" fill="#0E0C1C"/><rect x="-50" y="-90" width="100" height="10" fill="${GOLD}"/><path d="M50 -90 L74 -104 V-94 L50 -80Z" fill="#C98F2B"/><rect x="8" y="-56" width="26" height="56" fill="#C98F2B"/><circle cx="14" cy="-28" r="3.5" fill="none" stroke="#0E0C1C" stroke-width="2"/></g>`;
+const WING='M-18 -2 Q-9 -14 0 0 Q9 -14 18 -2 Q9 -6 0 5 Q-9 -6 -18 -2Z';
+const bird=(x,y,s=1,fill=INK)=>`<path transform="translate(${x} ${y}) scale(${s})" d="${WING}" fill="${fill}"/>`;
+function church(x,y,t,fill=INK2){
+  let h='',top=y;const w=220;
+  for(let i=0;i<t;i++){const hh=i?52:80,ww=w-28*i;top-=hh;
+    h+=`<rect x="${x-ww/2}" y="${top}" width="${ww}" height="${hh+1}" fill="${fill}"/>`;
+    const n=Math.max(1,5-i);for(let k=0;k<n;k++){const wx=x-ww/2+ww*(k+.5)/n;h+=`<path d="M${wx-8} ${top+hh-12} v-18 a8 8 0 0 1 16 0 v18Z" fill="${GOLD}"/>`}
+    h+=`<rect x="${x-ww/2-6}" y="${top-4}" width="${ww+12}" height="8" rx="3" fill="${INK}"/>`}
+  const ww=w-28*(t-1);
+  return h+`<path d="M${x-ww*.36} ${top} a${ww*.36} ${ww*.3} 0 0 1 ${ww*.72} 0Z" fill="${INK}"/><path d="M${x} ${top-ww*.3} v-34 M${x-10} ${top-ww*.3-22} h20" stroke="${INK}" stroke-width="5" stroke-linecap="round"/>`;
+}
+const litter=(x,y,k)=>person({x:x-74,y,h:84})+person({x:x+74,y,h:84})+`<path d="M${x-86} ${y-54} H${x+86}" stroke="${INK}" stroke-width="6" stroke-linecap="round"/><path d="M${x-48} ${y-54} q48 24 96 0Z" fill="${INK2}"/><ellipse cx="${x-4}" cy="${y-63}" rx="${40*k}" ry="${10*k+2}" fill="${RUG}"/><circle cx="${x-4+46*k}" cy="${y-65}" r="${10*k}" fill="${RUG}"/>`;
+const rnd=(()=>{let s=7;return()=>(s=(s*16807)%2147483647)/2147483647})();
+const stars=n=>Array.from({length:n},()=>`<circle cx="${rnd()*800|0}" cy="${rnd()*260|0}" r="${(rnd()*1.6+.6).toFixed(1)}" fill="${IVORY}" opacity="${(rnd()*.6+.4).toFixed(2)}"/>`).join('');
+
+
+/* ---------- sound: synthesised natural effects only (wind, feet, wings, stones, an elephant). No music. ---------- */
+let AC=null,NB=null,OUT=null,soundOn=true;
+try{soundOn=localStorage.getItem('fil-sound')!=='off'}catch(e){}
+function audio(){
+  if(!soundOn)return null;
+  try{
+    if(!AC){const C=window.AudioContext||window.webkitAudioContext;if(!C)return null;AC=new C();
+      OUT=AC.createDynamicsCompressor();const m=AC.createGain();m.gain.value=.9;OUT.connect(m);m.connect(AC.destination);
+      NB=AC.createBuffer(1,AC.sampleRate*2,AC.sampleRate);const d=NB.getChannelData(0);for(let i=0;i<d.length;i++)d[i]=Math.random()*2-1}
+    if(AC.state==='suspended')AC.resume();
+    return AC}catch(e){return null}
+}
+function env(g,t,a,d,peak){g.gain.setValueAtTime(.0001,t);g.gain.exponentialRampToValueAtTime(peak,t+a);g.gain.exponentialRampToValueAtTime(.0001,t+a+d)}
+function noise(at,{f=1000,f2,q=1,type='bandpass',a=.01,d=.2,g=.3}={}){const ac=audio();if(!ac)return;const t=ac.currentTime+at;
+  const s=ac.createBufferSource();s.buffer=NB;s.loop=true;const fl=ac.createBiquadFilter();fl.type=type;fl.frequency.setValueAtTime(f,t);fl.Q.value=q;
+  if(f2)fl.frequency.exponentialRampToValueAtTime(f2,t+a+d);
+  const gn=ac.createGain();env(gn,t,a,d,g);s.connect(fl);fl.connect(gn);gn.connect(OUT);s.start(t,Math.random());s.stop(t+a+d+.05)}
+function tone(at,{f=80,f2,type='sine',a=.005,d=.25,g=.4}={}){const ac=audio();if(!ac)return;const t=ac.currentTime+at;
+  const o=ac.createOscillator();o.type=type;o.frequency.setValueAtTime(f,t);if(f2)o.frequency.exponentialRampToValueAtTime(f2,t+a+d);
+  const gn=ac.createGain();env(gn,t,a,d,g);o.connect(gn);gn.connect(OUT);o.start(t);o.stop(t+a+d+.05)}
+const SFX={
+  step(at=0,g=.5){tone(at,{f:90,f2:42,d:.22,g});noise(at,{type:'lowpass',f:300,d:.12,g:g*.5})},
+  steps(n,gap,g=.45,at=0){for(let i=0;i<n;i++)SFX.step(at+i*gap,g*(i%2?.8:1))},
+  feet(n,dur,at=0,g=.16){for(let i=0;i<n;i++)noise(at+Math.random()*dur,{type:'lowpass',f:520,d:.07,g})},
+  block(){tone(0,{f:120,f2:55,d:.3,g:.55});noise(0,{type:'lowpass',f:900,f2:200,d:.25,g:.4});noise(.05,{f:2500,q:.7,d:.3,g:.05})},
+  clash(at=0){for(let i=0;i<4;i++)noise(at+i*.11+Math.random()*.04,{type:'highpass',f:3200,d:.05,g:.1})},
+  tick(at=0){noise(at,{type:'highpass',f:1800,d:.04,g:.12})},
+  knock(at=0,g=.3){tone(at,{f:200,f2:120,d:.06,g});noise(at,{type:'lowpass',f:1200,d:.03,g:g*.5})},
+  dull(at=0){tone(at,{f:110,f2:70,d:.16,g:.3})},
+  swish(at=0){noise(at,{f:600,f2:2400,q:.8,a:.08,d:.22,g:.1})},
+  sink(at=0){noise(at,{f:1800,f2:300,q:.9,a:.05,d:.5,g:.14})},
+  wind(dur=3,g=.16,at=0){noise(at,{f:300,f2:700,q:1.2,a:dur*.4,d:dur*.6,g});noise(at+.2,{f:900,f2:400,q:2,a:dur*.5,d:dur*.5,g:g*.5})},
+  rumble(at=0,d=1,g=.4){noise(at,{type:'lowpass',f:110,a:.1,d,g})},
+  flap(at){noise(at,{f:1400+Math.random()*1400,q:1.5,a:.012,d:.05,g:.05+Math.random()*.05})},
+  wings(dur,n,at=0){for(let i=0;i<n;i++)SFX.flap(at+Math.random()*dur)},
+  chirp(at=0){const f=2400+Math.random()*1400;tone(at,{f,f2:f*1.35,a:.01,d:.07,g:.05})},
+  chirps(n,dur,at=0){for(let i=0;i<n;i++){const t=at+Math.random()*dur;SFX.chirp(t);if(Math.random()<.6)SFX.chirp(t+.11)}},
+  stone(at=0){noise(at,{type:'highpass',f:2500,d:.03,g:.2});tone(at,{f:180,f2:90,d:.06,g:.18})},
+  rustle(at=0,dur=2){noise(at,{type:'highpass',f:3000,f2:1200,a:dur*.3,d:dur*.7,g:.1})},
+  trumpet(at=0,g=.2){const ac=audio();if(!ac)return;const t=ac.currentTime+at,d=.95;
+    const o1=ac.createOscillator(),o2=ac.createOscillator(),lfo=ac.createOscillator(),lg=ac.createGain(),am=ac.createGain(),bp=ac.createBiquadFilter(),gn=ac.createGain();
+    [o1,o2].forEach((o,i)=>{const k=i?1.012:1;o.type='sawtooth';o.frequency.setValueAtTime(330*k,t);o.frequency.exponentialRampToValueAtTime(640*k,t+.16);o.frequency.setValueAtTime(640*k,t+.5);o.frequency.exponentialRampToValueAtTime(400*k,t+d);o.connect(am)});
+    lfo.frequency.value=34;lg.gain.value=.45;lfo.connect(lg);lg.connect(am.gain);am.gain.value=.55;
+    bp.type='bandpass';bp.frequency.value=1100;bp.Q.value=1.4;am.connect(bp);bp.connect(gn);
+    gn.gain.setValueAtTime(.0001,t);gn.gain.exponentialRampToValueAtTime(g,t+.08);gn.gain.setValueAtTime(g,t+.55);gn.gain.exponentialRampToValueAtTime(.0001,t+d);
+    gn.connect(OUT);[o1,o2,lfo].forEach(o=>{o.start(t);o.stop(t+d+.05)});
+    noise(at,{f:1500,q:.8,a:.06,d:.7,g:g*.3})}
+};
+/* a little atmosphere when a chapter opens (only ever called from a tap or key press) */
+const AMBIENT=[null,null,()=>SFX.wind(2.5,.08),null,()=>SFX.wind(3.5,.1),()=>SFX.rumble(.1,1.2,.22),()=>{SFX.wind(3,.1);SFX.wings(2.5,10,.4)},
+  ()=>{if(S.home===0){SFX.feet(40,2.4,.1);SFX.wind(2.5,.07)}},()=>SFX.chirps(6,2.2,.2),null,null];
+function turnPage(){SFX.swish();AMBIENT[cur]?.()}
+
+/* ---------- story state ---------- */
+const S={pick:null,tiers:1,stop:0,line:0,dua:0,tried:{},dir:'makkah',flocks:0,home:0,quiz:0,miss:0,rows:{},show:0,fear:null,says:0};
+let cur=0;
+const src=k=>`<span class="src" data-k="${k}">${{quran:"Qur'an",hadith:'Sahih hadith',sirah:'Sirah report'}[k]}</span>`;
+const ask=q=>`<aside class="ask"><b>Ask them first</b><p>${q}</p></aside>`;
+const head=(place,title,...k)=>`<p class="kick"><span>${cur?'Chapter '+cur:'Start here'}</span><span>${place}</span>${k.map(src).join('')}</p><h2>${title}</h2>`;
+
+const STOPS=[
+  ['San\'a','One night an Arab man slipped into the church and dirtied it. Abraha was furious. He swore to go to Makkah and pull the Ka\'bah down, stone by stone. He set out with a huge army and war elephants. The biggest elephant, at the front, was called <b>Mahmud</b>.'],
+  ['The road through Yemen','A nobleman of Yemen named Dhu Nafr gathered his people to stop the army. They fought. They lost.'],
+  ['The land of Khath\'am','Nufayl bin Habib and his tribes stood in the way. They lost too. Nufayl was captured and made to guide the army through the desert.'],
+  ['Ta\'if','The people of Ta\'if did not fight at all. They sent a man called Abu Righal to show Abraha the road to Makkah.'],
+  ['Al-Mughammas, outside Makkah','The army set up camp at the edge of Makkah. Tribe after tribe had tried. Nobody on earth had been able to stop it.']];
+const XS=[110,270,430,580,690];
+const TALK=[
+  ['a','Abraha, through his translator','What do you need?'],
+  ['m','Abdul Muttalib','I want the king to give me back my two hundred camels.'],
+  ['a','Abraha','When I first saw you, I admired you. Now I think less of you. You talk to me about camels, and say nothing about the House I have come to destroy? It is your religion, and the religion of your fathers!'],
+  ['m key','Abdul Muttalib','I am the lord of the camels. The House has a Lord of its own, and He will protect it.'],
+  ['a','Abraha','He cannot protect it from me.'],
+  ['m','Abdul Muttalib','Then that is between you and Him.']];
+const DIRS={yemen:['Yemen','translate(-235px,0px)',1,'Mahmud jumps up and hurries off toward Yemen.'],
+  sham:['Sham','translate(-150px,-30px) scale(.8)',1,'Up he gets, trotting north toward Sham.'],
+  east:['The east','translate(-70px,-52px) scale(.68)',1,'He is on his feet at once, heading east.'],
+  makkah:['Makkah','translate(0px,0px)',0,'He walks back, faces the Ka\'bah, and kneels. They hit him and pull at him with hooks. He will not get up.']};
+const AYAT=[
+  ['أَلَمْ تَرَ كَيْفَ فَعَلَ رَبُّكَ بِأَصْحَـٰبِ ٱلْفِيلِ','Alam tara kayfa fa\'ala rabbuka bi-as-haabil-feel','Have you not seen what your Lord did to the people of the elephant?'],
+  ['أَلَمْ يَجْعَلْ كَيْدَهُمْ فِى تَضْلِيلٍۢ','Alam yaj\'al kaydahum fee tadleel','Did He not make their plan go completely wrong?'],
+  ['وَأَرْسَلَ عَلَيْهِمْ طَيْرًا أَبَابِيلَ','Wa arsala \'alayhim tayran abaabeel','He sent against them birds, flock after flock,'],
+  ['تَرْمِيهِم بِحِجَارَةٍۢ مِّن سِجِّيلٍۢ','Tarmeehim bi-hijaaratim-min sijjeel','throwing at them stones of baked clay,'],
+  ['فَجَعَلَهُمْ كَعَصْفٍۢ مَّأْكُولٍۭ','Fa-ja\'alahum ka-\'asfim-ma\'kool','and He left them like chewed-up straw.']];
+const QUIZ=[['Which ayah tells us about the birds?',3],['Which ayah tells us what the stones were made of?',4],['Which ayah says their plan was ruined?',2],['Which ayah tells us how the army ended?',5]];
+const ROWS=[['Soldiers','A huge army','None stayed'],['Elephants','Mahmud and more','None'],['Weapons','Spears and swords','None'],['Walls and guards','A whole camp','An empty city']];
+const FEARS={test:['A big test','Study a little every day, then walk in calm.'],dark:['The dark','Say your duas before you sleep, and remember Allah sees in the dark.'],unkind:['Someone unkind','Tell a grown-up you trust, and stay close to good friends.'],fresh:['Something new','Say bismillah, and try the first small step.'],other:['Something else','Tell your mum or dad what it is, and plan the first small step together.']};
+
+/* ---------- scenes ---------- */
+const scenes=[
+{ label:'The Ka\'bah at dawn, an elephant facing it, and birds arriving in the sky',
+  draw:()=>sky('#26266A','#B9517C','#F7B45E')+`<circle cx="400" cy="430" r="150" fill="#FFE1A0" opacity=".85"/>`+hills(410,'#5B356F')+ground()+kaabah({x:590,y:440,s:1.05})+elephant({x:215,y:442,s:.92})+[[90,90,1.5],[150,60,1.2],[210,110,1.3],[280,70,1],[340,120,1.1],[420,60,.9],[470,100,.8],[130,140,1],[540,70,.7]].map(b=>bird(...b)).join(''),
+  html:()=>`<p class="kick"><span>Start here</span><span>Makkah, about 1,450 years ago</span></p>
+    <h1>The Year of the Elephant</h1>
+    <div class="narr"><p>A king came to Makkah with an army and the biggest animal anyone had ever seen. He wanted to knock down the Ka'bah. This is the story of what happened to him, and Allah tells it in just five short ayat.</p></div>
+    ${ask('Before we begin: which one is stronger?')}
+    <div class="act"><button class="btn alt" data-act="pick" data-v="elephant" aria-pressed="${S.pick==='elephant'}">An elephant</button><button class="btn alt" data-act="pick" data-v="bird" aria-pressed="${S.pick==='bird'}">A tiny bird</button></div>
+    ${S.pick?`<div class="result pop"><p>You chose <b>${S.pick==='bird'?'the tiny bird':'the elephant'}</b>. Hold on to that answer. We will check it at the end.</p></div>`:''}`,
+  act(a,el){S.pick=el.dataset.v;SFX.knock();renderPanel()}
+},
+{ label:'A tall church rising over the houses of San\'a, with travellers on a far road walking toward the Ka\'bah',
+  draw:()=>sky('#63BBD3','#BDE2D2','#FBE9B8')+`<circle cx="672" cy="86" r="44" fill="#FFF3C4"/>`+dune(418,34,'#7FA3A6')+kaabah({x:716,y:410,s:.34})+[560,596,628,656,680].map((x,i)=>person({x,y:414-i*1.2,h:24-i,fill:'#35506A'})).join('')+ground()+[[40,58,50],[100,46,64],[152,40,44],[450,54,56],[512,44,40]].map(([x,w,h])=>`<rect x="${x}" y="${442-h}" width="${w}" height="${h+6}" fill="${INK}"/><rect x="${x+w/2-5}" y="${442-h+12}" width="10" height="14" fill="${GOLD}" opacity=".8"/>`).join('')+`<g class="pop">${church(300,442,S.tiers)}</g>`,
+  html:()=>`${head("San'a, Yemen",'The tallest church','sirah')}
+    <div class="narr"><p>In Yemen ruled a man named <b>Abraha</b>, on behalf of the king of Abyssinia. Every year he watched the Arabs travel to Makkah, to the Ka'bah. He wanted them to come to <i>him</i> instead.</p><p>So he built a church in San'a, taller and grander than anything the Arabs had seen.</p></div>
+    ${ask('Can you make people love a place just by making it very, very tall?')}
+    <div class="act"><button class="btn" data-act="build" ${S.tiers>=6?'disabled':''}>${S.tiers>=6?'It cannot go higher':'Build it taller'}</button></div>
+    <div class="result"><p>${['','A church.','Taller than the houses.','Taller than anything in San\'a.','Still not enough for Abraha.','Higher!','So tall that the Arabs named it <b>al-Qullays</b>, because you had to tip your head right back to see the top.'][S.tiers]}</p>
+    ${S.tiers>=6?`<p>Abraha wrote to his king: <i>I will not rest until the Arabs make their pilgrimage here.</i></p><p>Now look at the little road on the right. Where are the people still walking?</p>`:''}</div>`,
+  act(){if(S.tiers<6){S.tiers++;SFX.block()}renderStage();renderPanel()}
+},
+{ label:'Abraha\'s army and elephants marching across the desert toward Makkah',
+  draw:()=>sky('#E3924A','#F2C583','#FBE6BC')+`<circle cx="150" cy="120" r="52" fill="#FFF1C9" opacity=".9"/>`+hills(400,'#C9814F')+kaabah({x:772,y:432,s:.3})+ground()+
+    `<path d="M40 470 H770" stroke="${GOLD}" stroke-width="4" stroke-dasharray="2 14" stroke-linecap="round"/>`+XS.map((x,i)=>`<circle class="pin" cx="${x}" cy="470" r="11" fill="${i<=S.stop?GOLD:INK}" stroke="${GOLD}" stroke-width="4"/>`).join('')+
+    [1,2].map(i=>`<g class="def${S.stop>=i?' lost':''}" data-i="${i}">${[0,26,52].map(d=>soldier(XS[i]+70+d,440,56)).join('')}</g>`).join('')+
+    `<g transform="translate(0 440)"><g id="army" style="transform:translateX(${XS[S.stop]}px)">${elephant({x:-205,s:.42,cloth:CLAY})}${[-150,-122,-96,-70].map(x=>soldier(x,0,56)).join('')}${elephant({x:0,s:.52})}</g></g>`,
+  html:()=>`${head(STOPS[S.stop][0],'The march to Makkah','sirah')}
+    <div class="narr"><p class="pop">${STOPS[S.stop][1]}</p></div>
+    ${ask(S.stop<4?'People are going to try to stop this army. Do you think anyone can?':'Nobody could stop him. So who is left to protect the Ka\'bah?')}
+    <div class="act"><button class="btn" data-act="march" ${S.stop>=4?'disabled':''}>${S.stop>=4?'The army has arrived':'March on'}</button></div>
+    <p class="note">Stop ${S.stop+1} of 5 on the road from San'a to Makkah.</p>`,
+  act(){if(S.stop<4){S.stop++;SFX.steps(7,.19);SFX.feet(16,1.3);if(S.stop===1||S.stop===2){SFX.clash(calm?.1:1.05);SFX.clash(calm?.3:1.3)}if(S.stop===4)SFX.trumpet(calm?.2:1.4)}
+    const a=$('#army',stage);if(a)a.style.transform=`translateX(${XS[S.stop]}px)`;
+    stage.querySelectorAll('.pin').forEach((p,i)=>p.setAttribute('fill',i<=S.stop?GOLD:INK));
+    stage.querySelectorAll('.def').forEach(d=>d.classList.toggle('lost',S.stop>=+d.dataset.i));
+    renderPanel()}
+},
+{ label:'Inside Abraha\'s tent: an empty throne, and two men sitting together on a red carpet',
+  draw:()=>sky('#3C2A70','#C8607A','#F4B769')+hills(400,'#4A2E63')+ground()+[[52,.5],[104,.44],[726,.5],[770,.42]].map(([x,s],i)=>camel({x,y:442,s,flip:i>1})).join('')+
+    `<path d="M150 446 L250 150 Q400 86 550 150 L650 446Z" fill="#6A4688"/><ellipse cx="400" cy="320" rx="190" ry="150" fill="${GOLD}" opacity=".22"/><path d="M250 150 Q400 86 550 150" stroke="${GOLD}" stroke-width="6" fill="none"/><path d="M400 112 V168" stroke="${INK}" stroke-width="3"/><circle cx="400" cy="184" r="34" fill="${GOLD}" opacity=".3"/><circle cx="400" cy="184" r="14" fill="${GOLD}"/>
+    <rect x="212" y="290" width="62" height="156" rx="8" fill="${INK}"/><rect x="204" y="372" width="86" height="74" rx="6" fill="${INK2}"/><path d="M212 290 l10 -20 l10 14 l11 -18 l11 18 l10 -14 l10 20Z" fill="${GOLD}"/>
+    <path d="M292 452 L326 420 H592 L628 452Z" fill="${RUG}"/><path d="M318 444 L340 428 H578 L602 444Z" fill="none" stroke="${GOLD}" stroke-width="3"/>`+
+    person({x:400,y:442,h:128,sit:1,crown:1})+person({x:520,y:442,h:150,sit:1}),
+  html:()=>`${head('Abraha\'s tent, al-Mughammas','Two hundred camels','sirah')}
+    <div class="narr"><p>Abraha's riders took the animals grazing outside Makkah. Two hundred of the camels belonged to <b>Abdul Muttalib</b>, chief of Quraysh, and grandfather of the Prophet ﷺ.</p><p>Abraha sent a message into the city: <i>I have not come to fight you. I have only come to destroy this House.</i> So Abdul Muttalib went out to meet him. He was tall and dignified, and Abraha was so impressed that he stepped down from his throne and sat beside him on the carpet.</p></div>
+    <div class="talk">${TALK.slice(0,S.line).map(([c,who,t])=>`<div class="say ${c}"><b>${who}</b><span>${t}</span></div>`).join('')}</div>
+    ${S.line===3?ask('The king is mocking him. What do you think Abdul Muttalib will answer?'):S.line===0?ask('If a king took your things and you met him, what would you ask for?'):''}
+    ${S.line>=TALK.length?`<div class="result pop"><p>Abraha gave the camels back. Abdul Muttalib walked home to Makkah.</p></div>${ask('Was he scared? Why did he sound so sure?')}`:`<div class="act"><button class="btn" data-act="talk">${S.line?'What was said next?':'Hear what they said'}</button></div>`}`,
+  act(){if(S.line<TALK.length){S.line++;SFX.knock(0,S.line===4?.5:.28);if(S.line===4)SFX.step(.02,.4)}renderPanel()}
+},
+{ label:'Night at the Ka\'bah. A man holds the ring of its door while lantern lights climb the mountains',
+  draw:()=>sky('#0B0F33','#28358A','#8676BE')+stars(60)+`<path d="M640 56 a34 34 0 1 0 24 58 a28 28 0 1 1 -24 -58Z" fill="${IVORY}"/>`+hills(410,'#191B4D')+
+    (S.dua?[[70,352],[118,372],[190,318],[232,340],[330,330],[505,322],[560,350],[640,304],[676,330],[742,352],[150,392],[600,384]].map(([x,y])=>`<circle cx="${x}" cy="${y}" r="4" fill="${GOLD}"/><circle cx="${x}" cy="${y}" r="10" fill="${GOLD}" opacity=".25"/>`).join(''):'')+
+    `<ellipse cx="412" cy="330" rx="240" ry="180" fill="${GOLD}" opacity=".13"/>`+ground('#0A0A1F')+kaabah({x:400,y:446,s:1.9})+
+    `<path d="M476 370 L430 392" stroke="#8C80C9" stroke-width="8" stroke-linecap="round"/>`+person({x:486,y:448,h:112,fill:'#8C80C9'}),
+  html:()=>`${head('The door of the Ka\'bah','The dua at the door','sirah')}
+    <div class="narr"><p>Abdul Muttalib told the people of Makkah to leave the city and climb to the tops of the mountains, where they would be safe.</p><p>Then he went to the Ka'bah, took hold of the ring on its door, and called on Allah.</p></div>
+    <div class="act"><button class="btn" data-act="dua" ${S.dua?'disabled':''}>Hear his dua</button><button class="btn alt" data-act="guard" ${S.dua>1||!S.dua?'disabled':''}>Who is left on guard?</button></div>
+    ${S.dua?`<div class="result pop"><p class="verse"><span class="mean">O Allah, a man protects what is his. So protect what is Yours.</span><span class="cite">The meaning of his words, as the sirah books report them</span></p><p>Then he let go of the ring and climbed the mountain with the others. Count the lights going up.</p></div>`:''}
+    ${S.dua>1?`<div class="result pop"><p>No soldiers. No walls. No elephants. An empty city, and the Lord of the House.</p></div>`:ask('He did three things: he asked for his camels, he moved his people to safety, and he made dua. Which part was his job, and which part did he leave to Allah?')}`,
+  act(a){if(a==='dua'){S.dua=1;renderStage();SFX.wind(4,.14);SFX.feet(18,3,.6,.07)}else{S.dua=2;SFX.wind(2.5,.07)}renderPanel()}
+},
+{ label:'Mahmud the elephant in front of the army, with the Ka\'bah in the distance',
+  draw:()=>sky('#F09A55','#F8CF8E','#FDEBC4')+`<circle cx="640" cy="350" r="76" fill="#FFF1C0"/>`+hills(404,'#CB7E4F')+kaabah({x:716,y:432,s:.52})+ground()+[60,96,130].map(x=>soldier(x,442,62)).join('')+person({x:552,y:444,h:70})+
+    `<g transform="translate(390 442)"><g id="mwrap" style="transform:${DIRS[S.dir][1]}"><g id="mflip" style="transform:scaleX(${DIRS[S.dir][2]?-1:1})">${elephant({kneel:S.dir==='makkah'})}</g></g></g>`,
+  html:()=>`${head('Morning, on the road into Makkah','Mahmud will not move','sirah')}
+    <div class="narr"><p>In the morning Abraha lined up his army, with Mahmud at the very front. Nufayl stepped close, took hold of the elephant's ear, and whispered:</p><p><i>Kneel, Mahmud, or go straight back the way you came. You are in Allah's sacred land.</i></p><p>Mahmud knelt. Then Nufayl ran for the mountain.</p></div>
+    ${ask('The soldiers want him to walk to Makkah. Try turning him each way. What do you notice?')}
+    <div class="act">${Object.entries(DIRS).map(([k,v])=>`<button class="btn ${k==='makkah'?'':'alt'}" data-act="turn" data-v="${k}" aria-pressed="${S.dir===k}">Turn him to ${v[0]}</button>`).join('')}</div>
+    <div class="result"><p>${Object.keys(S.tried).length?DIRS[S.dir][3]:'He is kneeling, facing Makkah. The soldiers are shouting at him to get up.'}</p></div>
+    ${S.tried.makkah&&Object.keys(S.tried).length>1?`<div class="result pop"><p class="kick">${src('hadith')}<span>Years later</span></p><p>The Prophet's ﷺ own camel, al-Qaswa, once knelt on the way to Makkah and would not go on. People said she was being stubborn. He ﷺ said she was not, and that was not her nature:</p><p class="verse"><span class="mean">She was held back by the One who held back the elephant.</span><span class="cite">Sahih al-Bukhari 2731</span></p></div>`:''}`,
+  act(a,el){S.dir=el.dataset.v;S.tried[S.dir]=1;const d=DIRS[S.dir];
+    const w=$('#mwrap',stage),f=$('#mflip',stage),e=$('.el',w);
+    e.classList.remove('kneel');f.style.transform=`scaleX(${d[2]?-1:1})`;w.style.transform=d[1];
+    if(S.dir==='makkah'){SFX.steps(4,.26,.42);const k=calm?.05:1.1;SFX.step(k,.75);SFX.rumble(k,.9,.3);SFX.clash(k+.5)}else{SFX.trumpet(0);SFX.steps(5,.2,.4,.15)}
+    if(S.dir==='makkah')setTimeout(()=>{if(S.dir==='makkah'&&cur===5)e.classList.add('kneel')},calm?0:1100);
+    renderPanel()}
+},
+{ label:'Flocks of birds crossing a stormy sky above the army',
+  draw:()=>sky('#1C3157','#4A7F90','#E5CD92')+`<rect x="0" y="366" width="800" height="50" fill="#2F6F7E"/><path d="M0 374 h800" stroke="#9AD0D4" stroke-width="2" opacity=".5"/>`+dune(420,22,'#35495C')+ground()+
+    `<g id="straw">${Array.from({length:60},(_,i)=>{const x=40+i*12+rnd()*10,y=424+rnd()*24,a=rnd()*160-80;return `<path transform="translate(${x|0} ${y|0}) rotate(${a|0})" d="M-11 0 H11" stroke="#E9C65B" stroke-width="3.5" stroke-linecap="round"/>`}).join('')}</g>
+    <g id="army6">${elephant({x:170,y:442,s:.62})}${elephant({x:640,y:442,s:.62,flip:1,cloth:CLAY})}${[280,316,352,388,424,460,496,532].map(x=>soldier(x,442,58)).join('')}</g>
+    <g id="hover">${hover(S.flocks)}</g><g id="flock"></g>`,
+  html:()=>`${head('The sky over the army','Birds from the sea','quran','sirah')}
+    <div class="narr"><p>Then the sky over the sea turned dark with wings. Birds came, <b>flock after flock</b>. The Qur'an's word for it is <i>ababil</i>.</p><p>The reports say each bird carried three stones: one in its beak and one in each foot. Each stone was about this small: <span class="peb" style="width:9px;height:9px"></span> a chickpea, <span class="peb" style="width:6px;height:6px"></span> a lentil.</p></div>
+    ${ask('A stone smaller than a pea against an army with elephants. Who do you think wins?')}
+    <div class="act"><button class="btn" data-act="birds" ${S.flocks>=3?'disabled':''}>${['Send the first flock','Send another flock','And another','The sky is full'][S.flocks]}</button></div>
+    ${S.flocks?`<div class="result pop"><p>${['','The first stones fall. The soldiers look up.','More and more. Nobody the stones reach is left standing.','Look at the ground now. The great army lies <b>like chewed-up straw</b>, the way a field looks after the animals have eaten.'][S.flocks]}</p></div>`:''}`,
+  act(){if(S.flocks>=3)return;S.flocks++;sendFlock();SFX.wings(4.6,70);SFX.chirps(7,4);SFX.wind(4.5,.08);
+    if(S.flocks>=3){const k=calm?.2:2.6;SFX.rustle(k,2.4);SFX.wind(3,.1,k)}
+    $('#hover',stage).innerHTML=hover(S.flocks);
+    if(S.flocks>=3)setTimeout(()=>{if(cur===6)stage.classList.add('fall')},calm?0:2600);
+    renderPanel()},
+  enter(){stage.classList.toggle('fall',S.flocks>=3)}, leave(){stage.classList.remove('fall')}
+},
+{ label:'Abraha being carried home on a litter',
+  draw:()=>[
+    ()=>sky('#3B3355','#A56A6A','#E8C09A')+hills(404,'#5A4468')+ground()+[[70,-28],[130,-22],[190,-30],[250,-18]].map(([x,l])=>person({x,y:444,h:60,lean:l})).join('')+`<path d="M300 446 l40 -6 M90 452 l44 -4 M580 450 l38 -5" stroke="${INK3}" stroke-width="3"/>`+litter(470,444,1),
+    ()=>sky('#2A2A55','#8D5F78','#E0A77F')+dune(410,40,'#4A3D66')+ground()+`<path d="M0 478 Q400 458 800 478" stroke="${GOLD}" stroke-width="3" stroke-dasharray="2 14" fill="none" stroke-linecap="round"/>`+litter(400,444,.64),
+    ()=>sky('#1F2450','#6E5585','#D99C7E')+dune(416,26,'#3B3766')+ground()+[[40,58,50],[100,46,64],[640,54,56],[702,44,40]].map(([x,w,h])=>`<rect x="${x}" y="${442-h}" width="${w}" height="${h+6}" fill="${INK}"/>`).join('')+church(250,442,6,'#241F47')+litter(520,444,.3),
+    ()=>sky('#2A2A72','#D46A7F','#FBC66B')+`<circle cx="400" cy="440" r="170" fill="#FFE7AE" opacity=".8"/>`+hills(412,'#6B3F73')+ground()+kaabah({x:400,y:446,s:1.35})+`<g transform="translate(400 120)"><circle r="46" fill="${IVORY}" opacity=".22"/><circle r="24" fill="${IVORY}" opacity=".35"/><path d="M0 -34 L7 -7 L34 0 L7 7 L0 34 L-7 7 L-34 0 L-7 -7Z" fill="#FFF8E1"/></g>`
+  ][S.home](),
+  html:()=>`${head(['Outside Makkah','The road south','San\'a, Yemen','Makkah, that same year'][S.home],S.home<3?'The long way home':'A new morning',S.home<3?'sirah':'sirah')}
+    <div class="narr pop">${[
+      `<p>The soldiers ran for their lives, falling along every road, shouting for Nufayl to show them the way home. Nufayl watched from the mountain.</p><p>Abraha was struck too. His men lifted him and carried him away.</p>`,
+      `<p>All the long road back to Yemen, his body fell apart piece by piece. The sirah books say it went fingertip by fingertip.</p>`,
+      `<p>When they reached San'a, the king who had built the tallest church was as small and weak as a baby bird. Then his chest split open, and he died.</p><p>Look how tall the church is. Look how small he is.</p>`,
+      `<p>The Ka'bah stood exactly where it had always stood.</p><p>And in Makkah, in that same year, a baby boy was born. His name was <b>Muhammad ﷺ</b>.</p>`][S.home]}</div>
+    ${S.home===2?ask('He wanted to be the biggest. What made him so small?'):S.home===3?ask('Allah kept His House safe that year. Who was He getting the city ready for?'):''}
+    <div class="act"><button class="btn" data-act="home" ${S.home>=3?'disabled':''}>${['Follow him south','Follow him to San\'a','Go back to Makkah','The story is told'][S.home]}</button></div>`,
+  act(){if(S.home<3){S.home++;if(S.home===3){SFX.chirps(12,3,.2);SFX.wind(3,.05)}else{SFX.steps(4,.45,.3);SFX.wind(3,.1);if(S.home===2)SFX.dull(1.9)}}renderStage();renderPanel()}
+},
+{ label:'The Ka\'bah standing peacefully in the morning',
+  draw:()=>sky('#7DB7C9','#F6D6A8','#FCEFCB')+`<circle cx="400" cy="420" r="140" fill="#FFF3CF" opacity=".8"/>`+hills(412,'#9B8DAE')+ground()+kaabah({x:400,y:446,s:1.3})+[[130,110,1],[190,80,.8],[640,100,.9],[700,140,.7]].map(b=>bird(...b)).join(''),
+  html:()=>{const q=QUIZ[S.quiz];return `${head('Surah 105','Now read the story the way Allah tells it','quran')}
+    <div class="narr"><p>Five ayat. Everything you just watched is inside them. Recite it together once, slowly.</p></div>
+    <div class="result"><p><b>${q?q[0]:'You matched them all. Now try reciting it with the screen turned over.'}</b></p>${q?`<p class="note">${S.miss?'Not that one. Look again and tap another.':'Tap the ayah.'}</p>`:''}</div>
+    <div class="ayat">${AYAT.map(([ar,tr,en],i)=>`<button class="ayah${q&&S.miss===i+1?' miss':''}${S.hit===i+1?' hit':''}" data-act="ayah" data-v="${i+1}"><span class="num">AYAH ${i+1}</span><span class="ar" lang="ar">${ar}</span><span class="tr">${tr}</span><span>${en}</span></button>`).join('')}</div>`},
+  act(a,el){const q=QUIZ[S.quiz];if(!q)return;const v=+el.dataset.v;
+    if(v===q[1]){S.hit=v;S.miss=0;S.quiz++;SFX.knock(0);SFX.knock(.12)}else{S.miss=v;S.hit=0;SFX.dull()}renderPanel()}
+},
+{ label:'A great army on one side, and the Ka\'bah standing alone on the other',
+  draw:()=>sky('#3B2F6B','#D9727A','#F6C177')+hills(408,'#5C3C73')+ground()+`<ellipse cx="640" cy="360" rx="130" ry="120" fill="${GOLD}" opacity=".25"/>`+kaabah({x:640,y:446,s:1.05})+elephant({x:150,y:444,s:.8})+[272,304,336,368,400].map(x=>soldier(x,444,62)).join('')+elephant({x:30,y:444,s:.6,cloth:CLAY}),
+  html:()=>{const done=Object.keys(S.rows).length>=ROWS.length||S.show;return `${head('What it means for us','If Allah helps you','quran','hadith')}
+    ${ask('Count it up. Tap each row and see who had what.')}
+    <div class="tbl"><table class="tally"><tr><th></th><th>Abraha</th><th>The Ka'bah</th></tr>
+    ${ROWS.map(([n,a,k],i)=>`<tr><td>${n}</td>${S.rows[i]||S.show?`<td class="yes">${a}</td><td class="no">${k}</td>`:`<td colspan="2"><button data-act="row" data-v="${i}">Tap to count</button></td>`}</tr>`).join('')}
+    ${done?`<tr class="pop"><td>Allah's help</td><td class="no">No</td><td class="yes">Yes</td></tr>`:''}</table></div>
+    ${done?`<div class="verse pop"><p class="ar" lang="ar">إِن يَنصُرْكُمُ ٱللَّهُ فَلَا غَالِبَ لَكُمْ</p><p class="mean">If Allah helps you, no one can defeat you.</p><p>And if He leaves you without help, who is there to help you after Him? So let the believers put their trust in Allah.</p><p class="cite">Surah Ali 'Imran 3:160</p></div>
+    <div class="result"><p>${S.pick?`At the start you said <b>${S.pick==='bird'?'the tiny bird':'the elephant'}</b> was stronger. `:''}The elephant was not the strong one, and the bird was not either. The strong One is Allah, who made them both, and told the elephant to kneel and the bird to fly.</p></div>
+    <div class="result"><p class="kick">${src('hadith')}<span>He ﷺ taught this to a boy</span></p><p>Ibn Abbas was a boy, riding behind the Prophet ﷺ, when he turned and said: <i>Young man, I will teach you some words.</i></p><p class="verse"><span class="ar" lang="ar">احْفَظِ اللَّهَ يَحْفَظْكَ</span><span class="mean">Be mindful of Allah, and He will protect you.</span><span>Know that if all the people gathered to harm you, they could only harm you with what Allah has already written for you.</span><span class="cite">Jami at-Tirmidhi 2516, sahih. This is the meaning of part of it.</span></p></div>
+    <div class="result"><p class="kick">${src('hadith')}<span>And the birds again</span></p><p class="verse"><span class="mean">If you trusted Allah the way He deserves, He would provide for you as He provides for the birds. They fly out hungry in the morning and come back full.</span><span class="cite">Jami at-Tirmidhi 2344, sahih</span></p><p>Notice that the birds still fly out. Trusting Allah is doing your part, then leaving the rest to Him.</p></div>`
+    :`<div class="act"><button class="btn alt" data-act="show">Show the answer</button></div>`}`},
+  act(a,el){if(a==='show')S.show=1;else S.rows[el.dataset.v]=1;SFX.tick();if(S.show||Object.keys(S.rows).length>=ROWS.length)SFX.swish(.1);renderPanel()}
+},
+{ label:'A huge elephant shadow facing one small person',
+  draw:()=>sky('#22306B','#7A6DB0','#F2B98A')+stars(24)+hills(410,'#3B3478')+ground()+person({x:660,y:444,h:74})+bird(640,170,2)+
+    `<g transform="translate(300 442)"><g id="fear" style="transform:scale(${[1.55,1.2,.85,.5][S.says]})">${elephant({kneel:S.says>=3,cloth:CLAY})}</g></g>`,
+  html:()=>`${head('Your turn','My elephant','quran','hadith')}
+    <div class="narr"><p>Everybody has an elephant. It is the thing that feels too big for you.</p></div>
+    ${ask('What is your elephant right now?')}
+    <div class="act">${Object.entries(FEARS).map(([k,v])=>`<button class="btn alt" data-act="fear" data-v="${k}" aria-pressed="${S.fear===k}">${v[0]}</button>`).join('')}</div>
+    ${S.fear?`<div class="verse"><p class="ar" lang="ar">حَسْبُنَا ٱللَّهُ وَنِعْمَ ٱلْوَكِيلُ</p><p class="tr" style="font-style:italic">Hasbunallahu wa ni'mal wakil</p><p class="mean">Allah is enough for us, and He is the best one to trust.</p><p class="cite">Surah Ali 'Imran 3:173. Ibrahim عليه السلام said it when he was thrown into the fire, and Muhammad ﷺ said it when he was told an army had gathered against him. Sahih al-Bukhari 4563</p></div>
+    <div class="act"><button class="btn" data-act="say" ${S.says>=3?'disabled':''}>${['Say it together, then tap','Say it again','One more time','Said three times'][S.says]}</button></div>
+    ${S.says>=3?`<div class="result pop"><p>Your elephant may still be there tomorrow. But now you know Who is bigger than it.</p><p><b>Your part:</b> ${FEARS[S.fear][1]}</p><p><b>Allah's part:</b> everything else.</p></div>`:`<p class="note">The Prophet ﷺ used to repeat important words three times so people would remember them. Sahih al-Bukhari 95</p>`}`:''}`,
+  act(a,el){if(a==='fear'){S.fear=el.dataset.v;S.says=0;SFX.rumble(0,1,.3);SFX.trumpet(.15,.16)}else if(S.says<3){S.says++;SFX.sink();if(S.says>=3){SFX.step(.5,.6);SFX.rumble(.5,.7,.22)}}
+    const f=$('#fear',stage);f.style.transform=`scale(${[1.55,1.2,.85,.5][S.says]})`;$('.el',f).classList.toggle('kneel',S.says>=3);renderPanel()}
+}];
+const NAMES=['Cover','The tallest church','The march','The camels','The dua','Mahmud','The birds','The way home','The surah','The lesson','My elephant'];
+
+function hover(n){let h='';for(let i=0;i<n*5;i++)h+=bird(60+(i*149)%700,50+(i*67)%150,.8+(i%3)*.2);return h}
+function sendFlock(){const g=$('#flock',stage);if(!g)return;let h='';
+  for(let i=0;i<14;i++){const y=40+Math.random()*190|0,d=i*.11,t=3.2+Math.random()*1.3,x=120+Math.random()*580|0;
+    h+=`<g class="fly" style="--y:${y}px;--d:${d.toFixed(2)}s;--t:${t.toFixed(2)}s;--x0:${x}px"><path d="${WING}" fill="${INK}"/></g><circle class="stone" r="5" fill="${CLAY}" style="--x:${x}px;--y:${y}px;--d:${(d+t*(x+60)/940).toFixed(2)}s"/>`;SFX.stone(calm?i*.08:d+t*(x+60)/940+.7)}
+  g.insertAdjacentHTML('beforeend',h)}
+
+/* ---------- rendering ---------- */
+function renderStage(){const sc=scenes[cur];stage.innerHTML=sc.draw();stage.setAttribute('aria-label',sc.label)}
+function renderPanel(){
+  const f=document.activeElement,key=f&&panel.contains(f)?[f.dataset.act,f.dataset.v]:null;
+  panel.innerHTML=scenes[cur].html()+`<div class="nav"><button class="btn alt" data-nav="-1" ${cur?'':'disabled'}>Back</button><button class="btn" data-nav="1">${cur===0?'Begin the story':cur===scenes.length-1?'Notes for parents':'Next: '+NAMES[cur+1]}</button></div>`;
+  if(key){const b=[...panel.querySelectorAll('[data-act]')].find(b=>b.dataset.act===key[0]&&b.dataset.v===key[1]&&!b.disabled);if(b)b.focus({preventScroll:true})}
+}
+function renderDots(){dots.innerHTML=NAMES.map((n,i)=>`<button type="button" class="${i===cur?'on':i<cur?'done':''}" data-go="${i}" aria-label="${i?'Chapter '+i+': ':''}${n}" ${i===cur?'aria-current="step"':''}><i></i></button>`).join('')}
+function go(i){i=Math.max(0,Math.min(scenes.length-1,i));scenes[cur].leave?.();cur=i;renderStage();scenes[cur].enter?.();renderPanel();renderDots();try{localStorage.setItem('fil-scene',cur)}catch(e){}}
+function view(guide){$('#guide').hidden=!guide;$('#book').hidden=guide;$('#toggle').textContent=guide?'Back to the story':'Notes for parents';if(guide)scrollTo(0,0)}
+
+panel.addEventListener('click',e=>{
+  const n=e.target.closest('[data-nav]');
+  if(n){if(+n.dataset.nav>0&&cur===scenes.length-1)return view(true);go(cur+ +n.dataset.nav);turnPage();$('.stagebox').scrollIntoView({block:'nearest',behavior:calm?'auto':'smooth'});return}
+  const b=e.target.closest('[data-act]');if(b&&!b.disabled)scenes[cur].act(b.dataset.act,b)});
+dots.addEventListener('click',e=>{const b=e.target.closest('[data-go]');if(b){go(+b.dataset.go);turnPage()}});
+$('#toggle').addEventListener('click',()=>view(!$('#book').hidden));
+document.addEventListener('keydown',e=>{if($('#book').hidden||/INPUT|TEXTAREA/.test(e.target.tagName))return;if(e.key==='ArrowRight'){go(cur+1);turnPage()}if(e.key==='ArrowLeft'){go(cur-1);turnPage()}});
+const snd=$('#snd');function paintSnd(){snd.textContent='Sound: '+(soundOn?'on':'off');snd.setAttribute('aria-pressed',soundOn)}
+snd.addEventListener('click',()=>{soundOn=!soundOn;try{localStorage.setItem('fil-sound',soundOn?'on':'off')}catch(e){}paintSnd();if(soundOn){SFX.knock();SFX.chirps(2,.4,.1)}else if(AC)AC.suspend()});paintSnd();
+
+function start(d){
+  if(d&&d.S)Object.assign(S,d.S);
+  let i=d&&d.cur!=null?d.cur:0;
+  if(!d||d.cur==null){try{i=+localStorage.getItem('fil-scene')||0}catch(e){}}
+  go(i);if(location.hash==='#guide')view(true)}
+window.go=go;window.S=S;
+window.claude?.hot?.snapshot?.(()=>({cur,S}));
+window.claude?.hot?.ready?window.claude.hot.ready(start):start(window.claude?.hot?.data??{});
+</script>
+
+</body></html>
