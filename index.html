@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html lang="ms">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Shakina K. | Perancangan Pusaka Islam · Nota Ilmu</title>
-<meta name="description" content="Perancangan pusaka Islam bersama Shakina K. (Kausar Wealth · WSB Advisor), dan nota peribadi daripada kelas ilmu.">
-<meta property="og:title" content="Shakina K. · Perancangan Pusaka Islam & Nota Ilmu">
-<meta property="og:description" content="Pilih: perancangan pusaka Islam, atau nota kelas ilmu. Dalam BM dan English.">
+<title>Shakina K. | Islamic Estate Planning · Ilm Notes</title>
+<meta name="description" content="Islamic estate planning with Shakina K. (Kausar Wealth · WSB Advisor), and personal notes from 'ilm classes. In English and BM.">
+<meta property="og:title" content="Shakina K. · Islamic Estate Planning & Ilm Notes">
+<meta property="og:description" content="Choose: Islamic estate planning, or class notes from 'ilm classes. In English and BM.">
 <meta property="og:type" content="website">
 <script>
   // Old shared links to sections of the estate page (e.g. …github.io/#semak) now open that page.
@@ -105,8 +105,8 @@
   <div class="top">
     <span class="name">Shakina K.</span>
     <div class="lang" role="group" aria-label="Bahasa / Language">
-      <button type="button" data-l="ms" aria-pressed="true">BM</button>
-      <button type="button" data-l="en" aria-pressed="false">EN</button>
+      <button type="button" data-l="ms" aria-pressed="false">BM</button>
+      <button type="button" data-l="en" aria-pressed="true">EN</button>
     </div>
   </div>
 
@@ -155,20 +155,24 @@
 
 <script>
   // Same BM / EN switch and saved choice ('wsb-lang') as the rest of the site.
+  // This page opens in English unless the visitor has already picked a language; the default
+  // isn't saved, so the estate pages keep their own BM default until the visitor presses BM or EN.
   (function () {
     var KEY = 'wsb-lang';
-    function setLang(l) {
-      l = l === 'en' ? 'en' : 'ms';
+    function show(l) {
       document.documentElement.lang = l;
-      try { localStorage.setItem(KEY, l); } catch (e) {}
       var bs = document.querySelectorAll('.lang button');
       for (var i = 0; i < bs.length; i++) bs[i].setAttribute('aria-pressed', String(bs[i].getAttribute('data-l') === l));
     }
-    var saved = 'ms';
-    try { if (localStorage.getItem(KEY) === 'en') saved = 'en'; } catch (e) {}
-    setLang(saved);
+    var saved = null;
+    try { saved = localStorage.getItem(KEY); } catch (e) {}
+    show(saved === 'ms' ? 'ms' : 'en');
     var bs = document.querySelectorAll('.lang button');
-    for (var i = 0; i < bs.length; i++) bs[i].addEventListener('click', function () { setLang(this.getAttribute('data-l')); });
+    for (var i = 0; i < bs.length; i++) bs[i].addEventListener('click', function () {
+      var l = this.getAttribute('data-l') === 'ms' ? 'ms' : 'en';
+      try { localStorage.setItem(KEY, l); } catch (e) {}
+      show(l);
+    });
   })();
 </script>
 </body>
