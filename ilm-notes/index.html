@@ -15,6 +15,7 @@
  --c-tad:#A4572F;--c-sir:#3E6B4B;--c-asm:#9A7A2E;--night:#1B1F4A;--night2:#2B2F6B;--sun:#F2B544}
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
 body{background:var(--paper);color:var(--ink);font:400 16px/1.6 Mulish,sans-serif}
 .wrap{max-width:1000px;margin:0 auto;padding:0 16px}
 header.hero{padding:56px 0 34px;border-bottom:2px solid var(--gold)}
@@ -22,6 +23,7 @@ header.hero{padding:56px 0 34px;border-bottom:2px solid var(--gold)}
 h1{font:600 clamp(40px,8vw,64px)/1.02 Fraunces,serif;letter-spacing:-.02em;margin:10px 0 16px}
 h1 em{font-style:italic;font-weight:400;color:var(--accent)}
 .lead{font:400 18px/1.6 Fraunces,serif;max-width:640px}
+.vf{font:600 12.5px Mulish;color:var(--muted);margin-top:10px}
 .bism{font:400 30px Amiri,serif;color:var(--gold);margin-bottom:18px}
 .cats{position:sticky;top:0;z-index:5;background:rgba(246,241,231,.93);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
 .cats .wrap{display:flex;gap:8px;overflow-x:auto;padding-top:12px;padding-bottom:12px;scrollbar-width:none}
@@ -77,6 +79,33 @@ footer .ar{font:400 22px/1.9 Amiri,serif;color:var(--ink);direction:rtl;margin-b
  .grid>*{scroll-snap-align:start}
  .swipe{display:block}
  .kids .moon{top:16px;width:40px;height:40px;box-shadow:-9px 4px 0 0 var(--sun)}
+ header.hero{padding:26px 0 18px}
+ .bism{font-size:21px;margin-bottom:8px}
+ .kicker{font-size:10.5px}
+ h1{font-size:32px;margin:6px 0 8px}
+ .lead{font-size:15px;line-height:1.5}
+ .vf{font-size:11.5px;margin-top:6px}
+ section{padding:26px 0 2px}
+ section h2{font-size:21px;border-left-width:4px;padding-left:10px}
+ .count{font-size:10.5px}
+ .sub{font-size:13px;margin:4px 0 10px 14px}
+ .group{font-size:10.5px;margin:16px 0 8px}
+ .card{padding:13px 14px;gap:4px;border-top-width:3px}
+ .tag{font-size:9.5px}
+ .card h3{font-size:16.5px}
+ .card p{font-size:13px;line-height:1.45}
+ .date{font-size:11.5px}
+ .actions{padding-top:6px;gap:8px}
+ .btn{font-size:12px;padding:6px 12px}
+ .soon{min-height:0;padding:12px;font-size:13px}
+ .kids{margin-top:32px;padding:32px 0 36px}
+ .kids h2{font-size:25px}
+ .kids .sub2{font-size:13.5px;margin-bottom:16px}
+ .kbody{padding:14px 15px 16px;gap:6px}
+ .kbody h3{font-size:19px}
+ .kbody p{font-size:13px}
+ footer{font-size:12.5px;padding:22px 0 34px}
+ footer .ar{font-size:18px}
  .cats a{padding:5px 9px;font-size:12px;gap:6px}
  .cats .wrap{gap:6px}
  .cats .lg{display:none}
@@ -90,7 +119,8 @@ footer .ar{font:400 22px/1.9 Amiri,serif;color:var(--ink);direction:rtl;margin-b
     <div class="bism">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</div>
     <div class="kicker">Nota Kelas Ilmu</div>
     <h1>Ilm Class <em>Notes</em></h1>
-    <p class="lead">My personal notes from the 'ilm classes I attend — compiled for my own revision, and shared in case they benefit you too. Semua ayat dan hadith disemak dengan quran.com, sunnah.com dan dorar.net.</p>
+    <p class="lead">My personal notes from the 'ilm classes I attend — shared in case they benefit you too.</p>
+    <p class="vf">Ayat &amp; hadith disemak: quran.com · sunnah.com · dorar.net</p>
   </header>
 </div>
 
