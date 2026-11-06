@@ -129,6 +129,19 @@ th{font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:var(--mu
   .stone{opacity:1;transform:translate(var(--x),438px)}
   .fly{transform:translate(var(--x0),var(--y))}
 }
+
+/* right / wrong marks, so feedback is clear with the sound off */
+.ayah,.card{position:relative}
+.ayah.hit,.card.hit{background:color-mix(in srgb,var(--ok) 13%,var(--soft))}
+.ayah.miss,.card.miss{background:color-mix(in srgb,var(--s) 11%,var(--soft))}
+.ayah.hit::after,.ayah.miss::after,.card.hit:not(.row)::after,.card.miss:not(.row)::after{position:absolute;top:8px;right:8px;width:26px;height:26px;border-radius:50%;color:#fff;font:800 15px/26px var(--body);text-align:center;content:"✓";background:var(--ok)}
+.ayah.miss::after,.card.miss:not(.row)::after{content:"✗";background:var(--s)}
+.card:not(.row).hit,.card:not(.row).miss{padding-right:40px}
+.mk{width:26px;height:26px;border-radius:50%;border:2px dashed var(--line);display:inline-grid;place-items:center;font:800 15px var(--body);color:#fff;flex:none}
+.mk.ok{background:var(--ok);border:0}.mk.no{background:var(--s);border:0}
+.fb{display:flex;align-items:center;gap:8px;font-weight:800}
+.fb.ok{color:var(--ok)}.fb.no{color:var(--s)}
+.fb .mk{width:30px;height:30px;font-size:17px}
 </style>
 
 <div class="wrap">
@@ -448,7 +461,7 @@ const scenes=[
   draw:()=>sky('#7DB7C9','#F6D6A8','#FCEFCB')+`<circle cx="400" cy="420" r="140" fill="#FFF3CF" opacity=".8"/>`+hills(412,'#9B8DAE')+ground()+kaabah({x:400,y:446,s:1.3})+[[130,110,1],[190,80,.8],[640,100,.9],[700,140,.7]].map(b=>bird(...b)).join(''),
   html:()=>{const q=QUIZ[S.quiz];return `${head('Surah 105','Now read the story the way Allah tells it','quran')}
     <div class="narr"><p>Five ayat. Everything you just watched is inside them. Recite it together once, slowly.</p></div>
-    <div class="result"><p><b>${q?q[0]:'You matched them all. Now try reciting it with the screen turned over.'}</b></p>${q?`<p class="note">${S.miss?'Not that one. Look again and tap another.':'Tap the ayah.'}</p>`:''}</div>
+    <div class="result">${S.miss?`<p class="fb no"><span class="mk no">✗</span>Not that one. Look again and tap another.</p>`:S.hit?`<p class="fb ok"><span class="mk ok">✓</span>Correct!${q?' Next one:':''}</p>`:''}<p><b>${q?q[0]:'You matched them all. Now try reciting it with the screen turned over.'}</b></p>${q&&!S.miss&&!S.hit?`<p class="note">Tap the ayah.</p>`:''}</div>
     <div class="ayat">${AYAT.map(([ar,tr,en],i)=>`<button class="ayah${q&&S.miss===i+1?' miss':''}${S.hit===i+1?' hit':''}" data-act="ayah" data-v="${i+1}"><span class="num">AYAH ${i+1}</span><span class="ar" lang="ar">${ar}</span><span class="tr">${tr}</span><span>${en}</span></button>`).join('')}</div>`},
   act(a,el){const q=QUIZ[S.quiz];if(!q)return;const v=+el.dataset.v;
     if(v===q[1]){S.hit=v;S.miss=0;S.quiz++;SFX.knock(0);SFX.knock(.12)}else{S.miss=v;S.hit=0;SFX.dull()}renderPanel()}

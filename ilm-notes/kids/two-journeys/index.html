@@ -124,7 +124,7 @@ const SCENES=[
   draw:()=>sky('#E58B5A','#F4C08B','#FBE7C6')+sun(400,330,70)+hills(412,'#9A5A3A')+ground()+kaabah({x:400,y:446,s:1.2})+camel({x:150,y:446,s:.5,load:GOLD})+camel({x:650,y:446,s:.5,flip:1,load:CLAY}),
   html:()=>{const q=QUIZ[S.quiz];return `${head('Surah 106','Now read it the way Allah tells it','quran')}
     <div class="narr"><p>Four ayat. Everything you just saw is inside them. Recite it together once, slowly.</p></div>
-    <div class="result"><p><b>${q?q[0]:'All matched. Now try reciting it without looking.'}</b></p>${q?`<p class="note">${S.miss?'Not that one. Look again.':'Tap the ayah.'}</p>`:''}</div>
+    <div class="result">${S.miss?`<p class="fb no"><span class="mk no">✗</span>Not that one. Look again and tap another.</p>`:S.hit?`<p class="fb ok"><span class="mk ok">✓</span>Correct!${q?' Next one:':''}</p>`:''}<p><b>${q?q[0]:'All matched. Now try reciting it without looking.'}</b></p>${q&&!S.miss&&!S.hit?`<p class="note">Tap the ayah.</p>`:''}</div>
     <div class="ayat">${AYAT.map(([ar,tr,en],i)=>`<button class="ayah${q&&S.miss===i+1?' miss':''}${S.hit===i+1?' hit':''}" data-act="ayah" data-v="${i+1}"><span class="num">AYAH ${i+1}</span><span class="ar" lang="ar">${ar}</span><span class="tr">${tr}</span><span>${en}</span></button>`).join('')}</div>`},
   act(a,el){const q=QUIZ[S.quiz];if(!q)return;const v=+el.dataset.v;if(v===q[1]){S.hit=v;S.miss=0;S.quiz++;SFX.ding()}else{S.miss=v;S.hit=0;SFX.dull()}repanel()}
 },

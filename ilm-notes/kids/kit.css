@@ -112,3 +112,16 @@ th{font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:var(--mu
 .check label:has(input:checked){border-color:var(--ok)}
 .meter{height:10px;border-radius:99px;background:var(--line);overflow:hidden}.meter i{display:block;height:100%;background:var(--ok);transition:width .4s}
 @media (prefers-reduced-motion: reduce){.pop{animation:none}}
+
+/* right / wrong marks, so feedback is clear with the sound off */
+.ayah,.card{position:relative}
+.ayah.hit,.card.hit{background:color-mix(in srgb,var(--ok) 13%,var(--soft))}
+.ayah.miss,.card.miss{background:color-mix(in srgb,var(--s) 11%,var(--soft))}
+.ayah.hit::after,.ayah.miss::after,.card.hit:not(.row)::after,.card.miss:not(.row)::after{position:absolute;top:8px;right:8px;width:26px;height:26px;border-radius:50%;color:#fff;font:800 15px/26px var(--body);text-align:center;content:"✓";background:var(--ok)}
+.ayah.miss::after,.card.miss:not(.row)::after{content:"✗";background:var(--s)}
+.card:not(.row).hit,.card:not(.row).miss{padding-right:40px}
+.mk{width:26px;height:26px;border-radius:50%;border:2px dashed var(--line);display:inline-grid;place-items:center;font:800 15px var(--body);color:#fff;flex:none}
+.mk.ok{background:var(--ok);border:0}.mk.no{background:var(--s);border:0}
+.fb{display:flex;align-items:center;gap:8px;font-weight:800}
+.fb.ok{color:var(--ok)}.fb.no{color:var(--s)}
+.fb .mk{width:30px;height:30px;font-size:17px}
